@@ -30,13 +30,6 @@
 
         <!-- content for inside of card  -->
         <div class="card-info" >
-            <!-- header for inside info  -->
-            <div class="mdl-shadow--2dp info-header"
-            ng-show="card.showCardInfo">
-                <div class="content-container">
-                    <h3>Current Stream</h3>
-                </div>
-            </div>
             <!-- main content for inside info  -->
             <div class="info-stream"
             ng-show="card.showCardInfo">
@@ -52,6 +45,13 @@
                     </svg>
                     <span>watch now</span>
                 </button>
+            </div>
+            <!-- footer for inside info  -->
+            <div class="mdl-shadow--2dp info-footer"
+            ng-show="card.showCardInfo">
+                <div class="content-container">
+                    <h3>Current Stream</h3>
+                </div>
             </div>
         </div>
         <!-- close button on inside of card -->

@@ -40,28 +40,13 @@
     height: 100%;
     width: 100%;
     background-color: transparent;
-
-    .info-header{
+    .info-footer{
         position: absolute;
-        height: 30%;
+        height: 5%;
         width: 100%;
+        bottom: 0px;
         background-color: $dark-grey;
         z-index: 5;
-        .content-container {
-            @include center-me();
-            position: absolute;
-            width: 100%;
-            height: 80%;
-            text-align: center;
-            h3 {
-                margin-top: 6%;
-                font-family: "Roboto",sans-serif;
-                font-size: 30px;
-                font-weight: 300;
-                letter-spacing: 1px;
-                color: white;
-            }
-        }
     }
     .info-stream {
         position: absolute;

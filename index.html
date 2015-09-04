@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Twitch</title>
+    <link rel="stylesheet" href="/styles/main.css" charset="utf-8">
+    <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.deep_purple-blue.min.css" charset="utf-8">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700" charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+
+
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <!-- load up svg because unable to reference fill pattern in external file -->
+
+    <div id="card" class="mdl-shadow--8dp" ng-controller="cardsCtrl as card">
+        <!-- front head  -->
+        <div id="head">
+        </div>
+
+        <!-- content for inside of card  -->
+        <div class="card-info" >
+            <!-- header for inside info  -->
+            <div class="mdl-shadow--2dp info-header"
+            ng-show="card.showCardInfo">
+                <div class="content-container">
+                    <h3>Current Stream</h3>
+                </div>
+            </div>
+            <!-- main content for inside info  -->
+            <div class="info-stream"
+            ng-show="card.showCardInfo">
+                <div class="live-label">
+                    <svg class="live-icon">
+                        <use xlink:href="Images/sprites.svg#red-light"></use>
+                    </svg>
+                    <span>live</span>
+                </div>
+                <button type="button" class="stream-btn">
+                    <svg class="play-icon">
+                        <use xlink:href="Images/sprites.svg#play-icon"></use>
+                    </svg>
+                    <span>watch now</span>
+                </button>
+            </div>
+        </div>
+        <!-- close button on inside of card -->
+        <button type="button" id="card-info-close-btn" class="close-btn" ng-show="card.showCardInfo" ng-click="card.animateButtonBack()">
+            <i class="material-icons">close</i>
+        </button>
+
+        <button id="btn" ng-click="card.animateButton()" class="mdl-shadow--16dp">
+            <i id="icon" class="material-icons">person</i>
+        </button>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
+    </script>
+    <script src="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.min.js">
+    </script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-animate.js"></script>
+    <script src="/scripts/app.js"></script>
+</body>
+
+</html>

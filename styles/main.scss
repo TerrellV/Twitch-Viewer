@@ -1,0 +1,83 @@
+$blue: #408EFF; // rgb R: 64 G: 142 B: 255
+$purple: #6441a5;
+$dark-grey: #333333;
+@keyframes blueGreen {
+    from{background-color: $blue}
+    to{background-color: #34A853}
+}
+@keyframes go{
+  0%{
+    position: absolute;
+    right: 10%;
+    top: 70%;
+  }
+  60%{
+    top: 50%;
+    right: 50%;
+    transform: translate(50%,-50%);
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+  }
+  100% {
+    top: 50%;
+    right: 50%;
+    transform: translate(50%,-50%);
+    width: 160%;
+    height: 160%;
+  }
+}
+@keyframes goBack{
+  0%{
+    top: 50%;
+    right: 50%;
+    transform: translate(50%,-50%);
+    width: 160%;
+    height: 160%;
+  }
+  60%{
+    top: 50%;
+    right: 50%;
+    transform: translate(50%,-50%);
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+  }
+  100% {
+    right: 10%;
+    top: 70%;
+  }
+}
+@keyframes hide {
+  from{opacity: 1}
+  to{opacity: 0}
+}
+@keyframes show {
+  from{opacity: 0}
+  to{opacity: 1}
+}
+
+// mixins
+
+@mixin center-me{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+@mixin center-me-vert{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+@mixin center-me-horiz{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+body {
+  background-color: whitesmoke;
+}
+
+@import 'cards';

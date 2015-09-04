@@ -1,0 +1,198 @@
+@keyframes blueGreen {
+  from {
+    background-color: #408EFF; }
+  to {
+    background-color: #34A853; } }
+@keyframes go {
+  0% {
+    position: absolute;
+    right: 10%;
+    top: 70%; }
+  60% {
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    height: 80px;
+    width: 80px;
+    border-radius: 50%; }
+  100% {
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    width: 160%;
+    height: 160%; } }
+@keyframes goBack {
+  0% {
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    width: 160%;
+    height: 160%; }
+  60% {
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    height: 80px;
+    width: 80px;
+    border-radius: 50%; }
+  100% {
+    right: 10%;
+    top: 70%; } }
+@keyframes hide {
+  from {
+    opacity: 1; }
+  to {
+    opacity: 0; } }
+@keyframes show {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+body {
+  background-color: whitesmoke; }
+
+#card {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  background-color: white;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  overflow: hidden; }
+
+#head {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  height: 80%;
+  background: linear-gradient(rgba(100, 65, 165, 0.85), rgba(50, 65, 165, 0.85)), url(https://s3.amazonaws.com/freecodecamp/wide-social-banner.png) center no-repeat;
+  z-index: 2; }
+
+#btn {
+  outline: none;
+  position: absolute;
+  background-color: #408EFF;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  height: 80px;
+  width: 80px;
+  right: 10%;
+  top: 70%;
+  z-index: 3; }
+  #btn i {
+    font-size: 30px; }
+
+.card-info {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background-color: transparent; }
+  .card-info .info-header {
+    position: absolute;
+    height: 30%;
+    width: 100%;
+    background-color: #333333;
+    z-index: 5; }
+    .card-info .info-header .content-container {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      position: absolute;
+      width: 100%;
+      height: 80%;
+      text-align: center; }
+      .card-info .info-header .content-container h3 {
+        margin-top: 6%;
+        font-family: "Roboto",sans-serif;
+        font-size: 30px;
+        font-weight: 300;
+        letter-spacing: 1px;
+        color: white; }
+  .card-info .info-stream {
+    position: absolute;
+    width: 100%;
+    z-index: 4;
+    height: 70%;
+    top: 30%;
+    background: linear-gradient(rgba(64, 142, 255, 0.9), rgba(64, 142, 255, 0.9)), url(/Images/urban-people.jpg) center; }
+    .card-info .info-stream .live-label {
+      text-align: center;
+      position: relative;
+      width: 30%;
+      top: 20%;
+      left: 50%;
+      transform: translateX(-50%); }
+      .card-info .info-stream .live-label .live-icon {
+        position: relative;
+        bottom: 2px;
+        height: 16px;
+        width: 16px;
+        left: 0px; }
+      .card-info .info-stream .live-label span {
+        color: white;
+        font-family: "Roboto",sans-serif;
+        font-size: 18px;
+        letter-spacing: 1px;
+        text-transform: uppercase; }
+    .card-info .info-stream .stream-btn {
+      background-color: transparent;
+      border: 4px solid white;
+      border-radius: 40px;
+      padding: 10px 30px;
+      position: absolute;
+      bottom: 22%;
+      transition: border-color 100ms linear;
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%); }
+      .card-info .info-stream .stream-btn .play-icon {
+        margin-top: -5px;
+        margin-left: -10px;
+        height: 17px;
+        width: 17px;
+        fill: white; }
+      .card-info .info-stream .stream-btn span {
+        color: white;
+        margin-left: 10px;
+        font-size: 20px;
+        font-family: "Roboto",sans-serif;
+        font-weight: 400; }
+
+#card-info-close-btn {
+  border-radius: 50%;
+  background-color: transparent;
+  border: 0px;
+  height: 30px;
+  width: 30px;
+  outline: none;
+  position: absolute;
+  right: 1%;
+  top: 1%;
+  color: white;
+  z-index: 5; }
+  #card-info-close-btn i {
+    font-size: 14px; }
+
+.animate-fill {
+  animation: go 800ms ease-in-out  both; }
+
+.animate-fill-backwards {
+  animation: goBack 800ms ease-in-out both; }
+
+.animate-hide {
+  animation: hide 500ms linear both; }
+
+.animate-show {
+  animation: show 500ms linear both; }
+
+.ng-hide-remove {
+  animation: show 300ms linear; }
+
+.ng-hide-add {
+  animation: hide 300ms linear; }
+
+/*# sourceMappingURL=main.css.map */

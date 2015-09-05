@@ -6,6 +6,7 @@
     position: relative;
     overflow:hidden;
     margin: 20px;
+
 }
 #head{
     position: absolute;
@@ -82,14 +83,14 @@
         background:
             linear-gradient(
             // color to be used for background
-                // $blue: 46 126 253
-                // $dark-blue: 29 83 161
-                // $orange: 231 111 89
-                // $purple: 69 56 174
-                // $dark-grey: 35 44 56
+                // $blue: 46, 126, 253,
+                // $dark-blue: 29, 83, 161,
+                // $orange: 231, 111, 89,
+                // $purple: 69, 56, 174,
+                // $dark-grey: 35, 44, 56,
                 to bottom,
-                rgba(69, 56, 174, .95),
-                rgba(69, 56, 174, .95)
+                rgba(46, 126, 253, .95),
+                rgba(46, 126, 253, .95)
         // use this chunk for orange to black gradient
                 // rgba(222, 108, 87, .95)15%,
                 // rgba(200, 100, 80, .95)30%,

@@ -50,6 +50,24 @@
 body {
   background-color: whitesmoke; }
 
+@keyframes rotate {
+  from {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(-180deg); } }
+@keyframes slide {
+  from {
+    left: 0; }
+  to {
+    transform: translateX(-400px); } }
+@keyframes slideBtn {
+  to {
+    transform: translateX(-440px); } }
+@keyframes slideIn {
+  from {
+    transform: translateX(400px); }
+  to {
+    transform: translateX(0px); } }
 #card {
   display: inline-block;
   width: 400px;
@@ -115,81 +133,127 @@ body {
 .card-info {
   position: relative;
   height: 100%;
-  width: 100%;
+  width: 400px;
   background-color: transparent; }
-  .card-info .info-stream {
+  .card-info .info-screens {
     position: absolute;
     width: 100%;
-    z-index: 4;
-    height: 85%;
-    background: linear-gradient(to bottom, rgba(46, 126, 253, 0.95), rgba(46, 126, 253, 0.95)), url(/Images/stream-bg.jpg) center; }
-    .card-info .info-stream .stream-text-header {
-      position: relative;
-      top: 15%;
-      margin: 0;
-      text-align: center;
-      font-weight: 600;
-      font-size: 28px;
-      font-family: "Open Sans",sans-serif;
-      color: white; }
-    .card-info .info-stream .live-label {
-      text-align: center;
-      position: relative;
-      width: 30%;
-      top: 30%;
-      left: 50%;
-      transform: translateX(-50%); }
-      .card-info .info-stream .live-label .live-icon {
+    height: 100%;
+    left: 0px; }
+    .card-info .info-screens .info-stream {
+      position: absolute;
+      width: 100%;
+      z-index: 4;
+      height: 85%;
+      background: linear-gradient(to bottom, rgba(46, 126, 253, 0.95), rgba(46, 126, 253, 0.95)), url(/Images/stream-bg.jpg) center; }
+      .card-info .info-screens .info-stream .stream-text-header {
         position: relative;
-        bottom: 0px;
-        height: 14px;
-        width: 14px;
-        left: 0px;
-        margin-right: 3px; }
-      .card-info .info-stream .live-label span {
-        color: white;
+        top: 15%;
+        margin: 0;
+        text-align: center;
+        font-weight: 600;
+        font-size: 28px;
         font-family: "Open Sans",sans-serif;
-        font-size: 14px;
-        font-weight: light;
-        letter-spacing: 1px;
-        text-transform: uppercase; }
-    .card-info .info-stream .stream-text {
-      position: relative;
-      top: 35%;
-      transform: translateY(-50%);
-      color: white;
-      font-family: "Open Sans",sans-serif;
-      font-size: 18px;
-      text-align: center;
-      letter-spacing: 1px; }
-    .card-info .info-stream .stream-btn {
-      position: absolute;
-      bottom: 12%;
-      height: 40px;
-      width: 150px;
-      background-color: transparent;
-      border: 2px solid white;
-      border-radius: 40px;
-      outline: none;
-      transition: border-color 100ms linear;
-      position: absolute;
-      left: 50%;
-      transform: translate(-50%); }
-      .card-info .info-stream .stream-btn .play-icon {
-        position: absolute;
-        top: 50%;
+        color: white; }
+      .card-info .info-screens .info-stream .live-label {
+        text-align: center;
+        position: relative;
+        width: 30%;
+        top: 30%;
+        left: 50%;
+        transform: translateX(-50%); }
+        .card-info .info-screens .info-stream .live-label .live-icon {
+          position: relative;
+          bottom: 0px;
+          height: 14px;
+          width: 14px;
+          left: 0px;
+          margin-right: 3px; }
+        .card-info .info-screens .info-stream .live-label span {
+          color: white;
+          font-family: "Open Sans",sans-serif;
+          font-size: 14px;
+          font-weight: light;
+          letter-spacing: 1px;
+          text-transform: uppercase; }
+      .card-info .info-screens .info-stream .stream-text {
+        position: relative;
+        top: 35%;
         transform: translateY(-50%);
-        height: 14px;
-        width: 14px;
-        fill: white;
-        margin-left: -10px; }
-      .card-info .info-stream .stream-btn .stream-btn-text {
         color: white;
         font-family: "Open Sans",sans-serif;
-        font-weight: 400;
-        font-size: 14px;
-        margin-left: 10px;
-        margin-right: -5px; }
+        font-size: 18px;
+        text-align: center;
+        letter-spacing: 1px; }
+      .card-info .info-screens .info-stream .stream-btn {
+        position: absolute;
+        bottom: 12%;
+        height: 40px;
+        width: 150px;
+        background-color: transparent;
+        border: 2px solid white;
+        border-radius: 40px;
+        outline: none;
+        transition: border-color 100ms linear;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%); }
+        .card-info .info-screens .info-stream .stream-btn .play-icon {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          height: 14px;
+          width: 14px;
+          fill: white;
+          margin-left: -10px; }
+        .card-info .info-screens .info-stream .stream-btn .stream-btn-text {
+          color: white;
+          font-family: "Open Sans",sans-serif;
+          font-weight: 400;
+          font-size: 14px;
+          margin-left: 10px;
+          margin-right: -5px; }
+    .card-info .info-screens .info-followers {
+      position: absolute;
+      left: 400px;
+      background: linear-gradient(to bottom, rgba(46, 126, 253, 0.9), rgba(46, 126, 253, 0.9)), url(/Images/urban-people-bg.jpg) center;
+      width: 100%;
+      height: 85%;
+      z-index: 5; }
+      .card-info .info-screens .info-followers .followers-text-header {
+        position: relative;
+        top: 15%;
+        margin: 0;
+        text-align: center;
+        font-weight: 600;
+        font-size: 28px;
+        font-family: "Open Sans",sans-serif;
+        color: white; }
+      .card-info .info-screens .info-followers .follower-number {
+        font-family: "Open Sans",sans-serif;
+        color: white;
+        font-size: 70px;
+        font-weight: 700;
+        position: relative;
+        text-align: center;
+        top: 28%; }
+      .card-info .info-screens .info-followers .follower-btn {
+        position: absolute;
+        bottom: 12%;
+        padding: 10px 20px;
+        background-color: transparent;
+        border: 2px solid white;
+        border-radius: 40px;
+        outline: none;
+        transition: border-color 100ms linear;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%); }
+        .card-info .info-screens .info-followers .follower-btn .stream-btn-text {
+          color: white;
+          font-family: "Open Sans",sans-serif;
+          font-weight: 400;
+          font-size: 14px; }
   .card-info .btn-next {
     position: absolute;
     right: 10%;
@@ -201,7 +265,7 @@ body {
     border-radius: 50%;
     z-index: 5;
     outline: none; }
-    .card-info .btn-next .arrow-forward-icon {
+    .card-info .btn-next #arrow-forward-icon {
       height: 25px;
       width: 25px;
       fill: white; }
@@ -236,8 +300,14 @@ body {
   #info-close-btn i {
     font-size: 14px; }
 
-.changeColor {
-  animation: blueGreen 2s 1s linear both; }
+.animate-rotate {
+  animation: rotate 200ms cubic-bezier(0.47, 0.14, 0.22, 0.93) both; }
+
+.animate-slide {
+  animation: slide 600ms cubic-bezier(0.47, 0.14, 0.22, 0.93) both; }
+
+.animate-slide-button {
+  animation: slideBtn 600ms cubic-bezier(0.47, 0.14, 0.22, 0.93) both; }
 
 .animate-fill {
   animation: go 800ms ease-in-out  both; }
@@ -246,16 +316,16 @@ body {
   animation: goBack 800ms ease-in-out both; }
 
 .animate-hide {
-  animation: hide 500ms linear both; }
+  animation: hide 500ms ease-in-out both; }
 
 .animate-show {
-  animation: show 500ms linear both; }
+  animation: show 500ms ease-in-out both; }
 
 .ng-hide-remove {
-  animation: show 200ms linear; }
+  animation: show 200ms ease-in-out; }
 
 .ng-hide-add {
-  animation: hide 300ms linear; }
+  animation: hide 300ms ease-in-out; }
 
 .grid {
   position: relative;

@@ -21,34 +21,51 @@
 
 <!-- content for inside of card  -->
 <div class="card-info" >
-    <!-- main content for inside info  -->
-    <div class="info-stream"
-    ng-show="appear">
-        <h4 class="stream-text-header" >
-            Current Stream
-        </h4>
-        <div class="live-label">
-            <svg class="live-icon">
-                <use xlink:href="Images/sprites.svg#red-light"></use>
-            </svg>
-            <span>live</span>
+    <div class="info-screens">
+        <!-- main stream content for inside info  -->
+        <div class="info-stream"
+        ng-show="appear">
+            <h4 class="stream-text-header" >
+                Current Stream
+            </h4>
+            <div class="live-label">
+                <svg class="live-icon">
+                    <use xlink:href="Images/sprites.svg#red-light"></use>
+                </svg>
+                <span>live</span>
+            </div>
+            <h4 class="stream-text">
+                Dancing With Hedge Manglers
+            </h4>
+            <button type="button" class="stream-btn">
+                <svg class="play-icon">
+                    <use xlink:href="Images/sprites.svg#play-icon"></use>
+                </svg>
+                <span class="stream-btn-text">watch now</span>
+            </button>
         </div>
-        <h4 class="stream-text">
-            Dancing With Hedge Manglers
-        </h4>
-        <button type="button" class="stream-btn">
-            <svg class="play-icon">
-                <use xlink:href="Images/sprites.svg#play-icon"></use>
-            </svg>
-            <span class="stream-btn-text">watch now</span>
-        </button>
+
+        <div class="info-followers" ng-show="appear">
+            <h4 class="followers-text-header" >
+                Followers
+            </h4>
+            <h4 class="follower-number">
+                100k
+            </h4>
+            <button type="button" class="follower-btn">
+                <span class="stream-btn-text">view channel</span>
+            </button>
+        </div>
     </div>
+
     <!-- button sits on top of info footer -->
     <button type="button" class="btn-next mdl-shadow--8dp"
     ng-show="appear">
-        <svg class="arrow-forward-icon">
-            <use xlink:href="Images/sprites.svg#arrow-forward"></use>
-        </svg>
+        <div class="next-arrow-container">
+            <svg id="arrow-forward-icon">
+                <use xlink:href="Images/sprites.svg#arrow-forward"></use>
+            </svg>
+        </div>
     </button>
     <!-- footer for inside info  -->
     <div class="info-footer"

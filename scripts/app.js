@@ -21,11 +21,18 @@
                     appear: '='
                 },
                 link: function(scope, element, attributes){
-
-                    var streamContent = element.find('.info-stream'),
+                    // grab all necesssary variables for elemnts in card
+                    var infoScreens = element.find('.info-screens'),
+                        streamContent = element.find('.info-stream'),
                         frontButton = element.find('#btn'),
                         personIcon = frontButton.children(),
-                        exitButton = element.find('#info-close-btn');
+                        exitButton = element.find('#info-close-btn'),
+                        nextButton = element.find('.btn-next'),
+                        nextButtonIcon = element.find('.next-arrow-container');
+
+                /*
+                  * opening and closing more info slides
+                */
 
                     // animate front button to fill and then fade out
                     frontButton.bind("click", function(){
@@ -44,7 +51,7 @@
                     // animate closing of info pannel
                     exitButton.bind('click', function(){
                         scope.appear = false;
-
+                        scope.showFollowers = false;
                         frontButton.addClass('animate-fill-backwards');
                         personIcon.addClass('animate-show');
 
@@ -55,6 +62,20 @@
 
                         scope.$apply();
                     });
+
+                    /*
+                      * sliding and between stream/followers slides
+                    */
+                    nextButton.bind('click', function(){
+                        nextButtonIcon.addClass('animate-rotate');
+                        $timeout(function(){
+                            infoScreens.addClass('animate-slide');
+                            nextButton.addClass('animate-slide-button');
+                            scope.showFollowers = true;
+                        }, 400)
+                        scope.$apply();
+                    })
+
                 }
             }
         }

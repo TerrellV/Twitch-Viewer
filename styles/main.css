@@ -53,15 +53,13 @@ body {
   background-color: whitesmoke; }
 
 #card {
-  position: relative;
+  display: inline-block;
   width: 400px;
   height: 400px;
   background-color: white;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  overflow: hidden; }
+  position: relative;
+  overflow: hidden;
+  margin: 20px; }
 
 #head {
   position: absolute;
@@ -225,7 +223,7 @@ body {
       margin: 0;
       left: 20px; }
 
-#card-info-close-btn {
+#info-close-btn {
   border-radius: 50%;
   background-color: transparent;
   border: 0px;
@@ -237,8 +235,11 @@ body {
   top: 1%;
   color: white;
   z-index: 5; }
-  #card-info-close-btn i {
+  #info-close-btn i {
     font-size: 14px; }
+
+.changeColor {
+  animation: blueGreen 2s 1s linear both; }
 
 .animate-fill {
   animation: go 800ms ease-in-out  both; }
@@ -257,5 +258,10 @@ body {
 
 .ng-hide-add {
   animation: hide 300ms linear; }
+
+.grid {
+  position: relative;
+  left: 50px;
+  top: 50px; }
 
 /*# sourceMappingURL=main.css.map */

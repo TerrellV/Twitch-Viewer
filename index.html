@@ -10,8 +10,9 @@
     <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.deep_purple-blue.min.css" charset="utf-8">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700" charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
+    </script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
-
 
 
     <!--[if lt IE 9]>
@@ -21,74 +22,18 @@
 </head>
 
 <body>
-    <!-- load up svg because unable to reference fill pattern in external file -->
 
-    <div id="card" class="mdl-shadow--8dp" ng-controller="cardsCtrl as card">
-        <!-- front head  -->
-        <div id="head">
-            <h3 class="front-header-text">
-                FreeCodeCamp
-            </h3>
+    <div class="grid"  ng-controller="cardsCtrl as card">
+        <div id="card" class="mdl-shadow--8dp"
+        ng-repeat="channel in card.channels"
+        my-dir appear="false"
+        channel="channel">
         </div>
-
-        <!-- front card header text  -->
-        <div class="front-subheader">
-            <svg  id="front-redLight" class="live-icon">
-                <use xlink:href="Images/sprites.svg#red-light"></use>
-            </svg>
-            <h4>Watch Live</h4>
-        </div>
-
-        <!-- content for inside of card  -->
-        <div class="card-info" >
-            <!-- main content for inside info  -->
-            <div class="info-stream"
-            ng-show="card.showCardInfo">
-                <h4 class="stream-text-header">
-                    Current Stream
-                </h4>
-                <div class="live-label">
-                    <svg class="live-icon">
-                        <use xlink:href="Images/sprites.svg#red-light"></use>
-                    </svg>
-                    <span>live</span>
-                </div>
-                <h4 class="stream-text">
-                    Dancing With Hedge Manglers
-                </h4>
-                <button type="button" class="stream-btn">
-                    <svg class="play-icon">
-                        <use xlink:href="Images/sprites.svg#play-icon"></use>
-                    </svg>
-                    <span class="stream-btn-text">watch now</span>
-                </button>
-            </div>
-            <!-- button sits on top of info footer -->
-            <button type="button" class="btn-next mdl-shadow--8dp"
-            ng-show="card.showCardInfo">
-                <svg class="arrow-forward-icon">
-                    <use xlink:href="Images/sprites.svg#arrow-forward"></use>
-                </svg>
-            </button>
-            <!-- footer for inside info  -->
-            <div class="info-footer"
-            ng-show="card.showCardInfo">
-                <h3>FreeCodeCamp's Channel</h3>
-            </div>
-        </div>
-        <!-- close button on inside of card MOVE THIS INSIDE CARD INFO-->
-        <button type="button" id="card-info-close-btn" class="close-btn" ng-show="card.showCardInfo" ng-click="card.animateButtonBack()">
-            <i class="material-icons">close</i>
-        </button>
-
-
-        <button id="btn" ng-click="card.animateButton()" class="mdl-shadow--8dp">
-            <i id="icon" class="material-icons">person</i>
-        </button>
     </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
-    </script>
+
+
+
     <script src="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.min.js">
     </script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-animate.js"></script>

@@ -1,10 +1,11 @@
 #card {
-    position: relative;
+    display: inline-block;
     width: 400px;
     height: 400px;
     background-color: white;
-    @include center-me();
+    position: relative;
     overflow:hidden;
+    margin: 20px;
 }
 #head{
     position: absolute;
@@ -208,7 +209,7 @@
     }
 }
 
-#card-info-close-btn {
+#info-close-btn {
     border-radius: 50%;
     background-color: transparent;
     border: 0px;
@@ -224,6 +225,11 @@
         font-size: 14px;
     }
 }
+
+.changeColor {
+    animation: blueGreen 2s 1s linear both;
+}
+
 .animate-fill {
     animation: go 800ms ease-in-out  both;
 }

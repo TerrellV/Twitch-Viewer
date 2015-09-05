@@ -1,0 +1,63 @@
+<!-- front card header  -->
+<div id="head" ng-hide="appear">
+    <h3 class="front-header-text">
+        {{channel.name}}
+    </h3>
+</div>
+
+<!-- front card header text  -->
+<div class="front-subheader">
+    <svg  id="front-redLight" class="live-icon">
+        <use xlink:href="Images/sprites.svg#red-light"></use>
+    </svg>
+    <h4>Watch Live</h4>
+</div>
+
+<!-- front button  -->
+<button id="btn" class="mdl-shadow--8dp">
+    <i id="icon" class="material-icons">person</i>
+</button>
+
+
+<!-- content for inside of card  -->
+<div class="card-info" >
+    <!-- main content for inside info  -->
+    <div class="info-stream"
+    ng-show="appear">
+        <h4 class="stream-text-header" >
+            Current Stream
+        </h4>
+        <div class="live-label">
+            <svg class="live-icon">
+                <use xlink:href="Images/sprites.svg#red-light"></use>
+            </svg>
+            <span>live</span>
+        </div>
+        <h4 class="stream-text">
+            Dancing With Hedge Manglers
+        </h4>
+        <button type="button" class="stream-btn">
+            <svg class="play-icon">
+                <use xlink:href="Images/sprites.svg#play-icon"></use>
+            </svg>
+            <span class="stream-btn-text">watch now</span>
+        </button>
+    </div>
+    <!-- button sits on top of info footer -->
+    <button type="button" class="btn-next mdl-shadow--8dp"
+    ng-show="appear">
+        <svg class="arrow-forward-icon">
+            <use xlink:href="Images/sprites.svg#arrow-forward"></use>
+        </svg>
+    </button>
+    <!-- footer for inside info  -->
+    <div class="info-footer"
+    ng-show="appear">
+        <h3>{{channel.name}}'s Channel</h3>
+    </div>
+</div>
+
+<!-- close button on inside of card MOVE THIS INSIDE CARD INFO-->
+<button type="button" id="info-close-btn" class="close-btn" ng-show="appear">
+    <i class="material-icons">close</i>
+</button>

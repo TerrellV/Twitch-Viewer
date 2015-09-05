@@ -29,4 +29,8 @@
 		<path d="M5.994,1.083v45.834L42.006,24L5.994,1.083z"/>
 		<path fill="none" d="M0,0h48v48H0V0z"/>
 	</symbol>
+	<symbol id="arrow-forward" fill="" viewBox="0 0 24 24">
+	    <path d="M0 0h24v24H0z" fill="none"/>
+	    <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+	</symbol>
 </svg>

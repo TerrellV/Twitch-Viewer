@@ -1,6 +1,13 @@
-$blue: #408EFF; // rgb R: 64 G: 142 B: 255
-$purple: #6441a5;
-$dark-grey: #333333;
+$blue: #2E7EFD; // rgb R: 46 G: 126 B: 253
+$dark-blue: #1D53A1; // 29 83 161
+$orange: #E76F59; // 231 111 89
+$purple: #4538AE; // 69 56 174
+$dark-grey: #232C38; // 35 44 56
+
+// imports
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800);
+
 @keyframes blueGreen {
     from{background-color: $blue}
     to{background-color: #34A853}

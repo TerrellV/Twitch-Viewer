@@ -47,20 +47,38 @@
                     appear: '='
                 },
                 link: function(scope, element, attributes){
-                    var streamContent = element.find('#info-stream'),
+
+                    var streamContent = element.find('.info-stream'),
                         frontButton = element.find('#btn'),
                         personIcon = frontButton.children(),
                         exitButton = element.find('#info-close-btn');
+
                     // animate front button to fill and then fade out
                     frontButton.bind("click", function(){
                         $(this).addClass("animate-fill");
-                        personIcon.fadeOut(800);
-                        $timeout(showInfo,800);
+                        personIcon.addClass('animate-hide');
+
+                        $timeout(showInfo,801);
                         function showInfo(){
-                            console.log('viola');
-                            console.log( scope.appear = true);
-                            frontButton.fadeOut(200);
+                            scope.appear = true;
+                            $timeout(function () {
+                                frontButton.removeClass("animate-fill");
+                            }, 200);
                         }
+                    });
+                    // animate closing of info pannel
+                    exitButton.bind('click', function(){
+                        // streamContent.hide(800);
+                        scope.appear = false;
+
+                        frontButton.addClass('animate-fill-backwards');
+                        personIcon.addClass('animate-show');
+
+                        $timeout(function () {
+                            frontButton.removeClass('animate-fill-backwards');
+                        }, 800);
+
+                        scope.$apply();
                     });
                 }
             }

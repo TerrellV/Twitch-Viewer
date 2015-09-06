@@ -284,6 +284,15 @@
             fill: white;
         }
     }
+    .inBox{
+        height:50px;
+        width:50px;
+        left:0px;
+        bottom:0px;
+        .next-arrow-container {
+            transform: rotate(180deg);
+        }
+    }
     .info-footer{
         position: absolute;
         height: 15%;
@@ -318,7 +327,7 @@
     }
 }
 .animate-return {
-    animation: return 300ms ease both;
+    animation: return 305ms ease both;
 }
 .animate-rotate {
     animation: rotate 200ms cubic-bezier(.47,.14,.22,.93) both;
@@ -330,7 +339,7 @@
     animation: slideBtn 600ms cubic-bezier(.47,.14,.22,.93) both;
 }
 .animate-fill {
-    animation: go 800ms ease-in-out  both;
+    animation: go 800ms 30ms ease-in-out  both;
 }
 .animate-fill-backwards {
     animation: goBack 800ms ease-in-out both;
@@ -341,12 +350,12 @@
 .animate-show {
     animation: show 500ms ease-in-out both;
 }
-.ng-hide-remove {
-    animation: show 200ms ease-in-out;
-}
-.ng-hide-add {
-    animation: hide 300ms ease-in-out;
-}
+// .ng-hide-remove {
+//     animation: show 200ms ease-in-out;
+// }
+// .ng-hide-add {
+//     animation: hide 300ms ease-in-out;
+// }
 // .info-followers.ng-hide-remove {
 //     animation: slideIn 600ms cubic-bezier(.47,.14,.22,.93) both;
 // }

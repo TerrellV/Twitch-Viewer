@@ -14,7 +14,6 @@
             console.log('just set default channels');
         });
 
-
         vm.channels = [
             {"name": "ChinaDino"}
         ];
@@ -36,7 +35,9 @@
                         exitButton = element.find('#info-close-btn'),
                         nextButton = element.find('.btn-next'),
                         nextButtonIcon = element.find('.next-arrow-container'),
-                        smallBox = element.find('#little-box');
+                        smallBox = element.find('#little-box'),
+                        clone = nextButton.clone().addClass('inBox').appendTo(smallBox);
+
 
                 /*
                   * opening and closing more info slides
@@ -47,10 +48,11 @@
                         frontButton.addClass("animate-fill");
                         personIcon.addClass('animate-hide');
 
-                        $timeout(showInfo,801);
+                        var id = window.setTimeout(showInfo,800);
                         function showInfo(){
                             scope.appear = true;
-                            $timeout(function () {
+                            scope.$apply();
+                            var id = window.setTimeout(function () {
                                 frontButton.removeClass("animate-fill");
                                 personIcon.removeClass('animate-hide');
                             }, 200);
@@ -59,11 +61,12 @@
                     // animate closing of info pannel
                     exitButton.bind('click', function(){
                         scope.appear = false;
-                        scope.showFollowers = false;
                         frontButton.addClass('animate-fill-backwards');
                         personIcon.addClass('animate-show');
+                        // call function that removes all classes / resets
+                        reset();
 
-                        $timeout(function () {
+                        var id = window.setTimeout(function () {
                             frontButton.removeClass('animate-fill-backwards');
                             personIcon.removeClass('animate-show');
                         }, 800);
@@ -89,23 +92,37 @@
                     function checkPosition(){
                         var promise = window.setInterval(function(){
                             if ( nextButton.position().left < 0 ) {
-                                console.log('crossed line');
-                                window.clearInterval(promise);
-                                var clone = nextButton.clone().css({
-                                    "height":"50px",
-                                    "width":"50px",
-                                    "left":"0px",
-                                    "bottom":"0px",
-                                });
+
                                 clone.removeClass('animate-slide-button');
                                 var cloneIcon = clone.find('.next-arrow-container');
+                                window.clearInterval(promise);
                                 cloneIcon.removeClass('animate-rotate');
-                                clone.appendTo(smallBox);
                                 clone.addClass('animate-return');
                             } else {
                                 console.log('checking');
                             }
                         },10);
+                    }
+
+                    function reset(){
+                        // remove cloned animate class
+
+                        removeAnimations( clone );
+                        removeAnimations( infoScreens );
+                        removeAnimations( nextButton );
+                        removeAnimations( nextButtonIcon );
+
+                        function removeAnimations ( element ) {
+                            var reg = /\s+/;
+                            var arr = element.attr('class').split(reg);
+                            var removeUs = arr.filter(function(a){
+                                var removeMe = a.indexOf('animate')>-1? a : '';
+                                element.removeClass(removeMe);
+                            });
+
+                            // console.log(element.attr('class').split(reg));
+                        }
+
                     }
 
 

@@ -281,6 +281,13 @@ body {
       height: 25px;
       width: 25px;
       fill: white; }
+  .card-info .inBox {
+    height: 50px;
+    width: 50px;
+    left: 0px;
+    bottom: 0px; }
+    .card-info .inBox .next-arrow-container {
+      transform: rotate(180deg); }
   .card-info .info-footer {
     position: absolute;
     height: 15%;
@@ -313,7 +320,7 @@ body {
     font-size: 14px; }
 
 .animate-return {
-  animation: return 300ms ease both; }
+  animation: return 305ms ease both; }
 
 .animate-rotate {
   animation: rotate 200ms cubic-bezier(0.47, 0.14, 0.22, 0.93) both; }
@@ -325,7 +332,7 @@ body {
   animation: slideBtn 600ms cubic-bezier(0.47, 0.14, 0.22, 0.93) both; }
 
 .animate-fill {
-  animation: go 800ms ease-in-out  both; }
+  animation: go 800ms 30ms ease-in-out  both; }
 
 .animate-fill-backwards {
   animation: goBack 800ms ease-in-out both; }
@@ -335,12 +342,6 @@ body {
 
 .animate-show {
   animation: show 500ms ease-in-out both; }
-
-.ng-hide-remove {
-  animation: show 200ms ease-in-out; }
-
-.ng-hide-add {
-  animation: hide 300ms ease-in-out; }
 
 .grid {
   position: relative;

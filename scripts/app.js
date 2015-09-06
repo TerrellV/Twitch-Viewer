@@ -1,7 +1,7 @@
 (function() {
     angular.module('myApp', ["ngAnimate"])
         .controller('cardsCtrl', cardsCtrl)
-        .directive('myDir', ['$timeout',dirSample]);
+        .directive('myDir', ['$timeout','$interval',dirSample]);
 
     function cardsCtrl($scope) {
 
@@ -13,7 +13,7 @@
         ];
     }
     // custom directie to keep track of dom elements of individual cards...
-        function dirSample($timeout) {
+        function dirSample($interval,$timeout) {
             return {
                 templateUrl: '/partials/cardContent.html',
                 scope: {
@@ -28,7 +28,8 @@
                         personIcon = frontButton.children(),
                         exitButton = element.find('#info-close-btn'),
                         nextButton = element.find('.btn-next'),
-                        nextButtonIcon = element.find('.next-arrow-container');
+                        nextButtonIcon = element.find('.next-arrow-container'),
+                        smallBox = element.find('#little-box');
 
                 /*
                   * opening and closing more info slides
@@ -64,17 +65,42 @@
                     });
 
                     /*
-                      * sliding and between stream/followers slides
+                      * sliding between stream/followers slides
                     */
                     nextButton.bind('click', function(){
                         nextButtonIcon.addClass('animate-rotate');
-                        $timeout(function(){
+                        var delay = window.setTimeout(function(){
                             infoScreens.addClass('animate-slide');
                             nextButton.addClass('animate-slide-button');
                             scope.showFollowers = true;
-                        }, 400)
+                            // start the checker that runs to check position
+                            checkPosition();
+                        },400);
                         scope.$apply();
-                    })
+                    });
+
+                    function checkPosition(){
+                        var promise = window.setInterval(function(){
+                            if ( nextButton.position().left < 0 ) {
+                                console.log('crossed line');
+                                window.clearInterval(promise);
+                                var clone = nextButton.clone().css({
+                                    "height":"50px",
+                                    "width":"50px",
+                                    "left":"0px",
+                                    "bottom":"0px",
+                                });
+                                clone.removeClass('animate-slide-button');
+                                var cloneIcon = clone.find('.next-arrow-container');
+                                cloneIcon.removeClass('animate-rotate');
+                                clone.appendTo(smallBox);
+                                clone.addClass('animate-return');
+                            } else {
+                                console.log('checking');
+                            }
+                        },10);
+                    }
+
 
                 }
             }

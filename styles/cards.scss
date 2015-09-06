@@ -15,6 +15,10 @@
     from{transform: translateX(400px)}
     to{transform: translateX(0px)}
 }
+@keyframes return {
+    from{}
+    to{transform: translateX(-90px)}
+}
 
 
 #card {
@@ -94,11 +98,21 @@
     height: 100%;
     width: 400px; // COME BACK AND REMOVE
     background-color: transparent;
+    #little-box {
+        background-color: yellow;
+        height: 50px;
+        width: 50px;
+        position: absolute;
+        z-index: 5;
+        bottom: 35px;
+        right: -50px;
+    }
     .info-screens{
         position: absolute;
         width: 100%;
         height: 100%;
         left: 0px;
+        z-index: 4;
         .info-stream {
             position: absolute;
             width: 100%;
@@ -303,7 +317,9 @@
         font-size: 14px;
     }
 }
-
+.animate-return {
+    animation: return 300ms ease both;
+}
 .animate-rotate {
     animation: rotate 200ms cubic-bezier(.47,.14,.22,.93) both;
 }

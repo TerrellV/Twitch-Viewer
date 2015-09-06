@@ -1,15 +1,22 @@
 (function() {
-    angular.module('myApp', ["ngAnimate"])
+    angular.module('myApp', ["ngAnimate","factories"])
         .controller('cardsCtrl', cardsCtrl)
         .directive('myDir', ['$timeout','$interval',dirSample]);
 
-    function cardsCtrl($scope) {
+    function cardsCtrl($scope, getTwitchData) {
 
         var vm = this;
+
+        getTwitchData.async().then(function(stuff){
+            var obj = stuff.data;
+            vm.channels.push({"name": obj.display_name});
+            // console.log(obj.profile_banner)
+            console.log('just set default channels');
+        });
+
+
         vm.channels = [
-            {"name": "ChinaDino"},
-            {"name": "Bollina"},
-            {"name": "Targareous"},
+            {"name": "ChinaDino"}
         ];
     }
     // custom directie to keep track of dom elements of individual cards...

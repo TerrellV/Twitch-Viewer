@@ -3,21 +3,9 @@
     from{transform: rotate(0deg)}
     to{transform: rotate(-180deg)}
 }
-@keyframes slide {
-    from{left: 0;}
-    to{transform: translateX(-400px)}
-}
-@keyframes slideBtn {
-    from{}
-    to{transform: translateX(-440px)}
-}
-@keyframes slideIn {
-    from{transform: translateX(400px)}
-    to{transform: translateX(0px)}
-}
-@keyframes return {
-    from{}
-    to{transform: translateX(-90px)}
+@keyframes rotateBack {
+    from{transform:  rotate(-180deg)}
+    to{transform:  rotate(0deg)}
 }
 
 
@@ -113,6 +101,7 @@
         height: 100%;
         left: 0px;
         z-index: 4;
+        transition: transform 800ms cubic-bezier(.47,.14,.22,.93) 200ms;
         .info-stream {
             position: absolute;
             width: 100%;
@@ -279,6 +268,10 @@
         border-radius: 50%;
         z-index: 5;
         outline: none;
+        .next-arrow-container{
+            transform: rotate(0deg);
+            transition: all 200ms cubic-bezier(.47,.14,.22,.93);
+        }
         #arrow-forward-icon {
             height: 25px;
             width: 25px;
@@ -327,17 +320,6 @@
         font-size: 14px;
     }
 }
-
-// .card-offline {
-
-
-//
-//
-//     #front-redLight {
-//         fill: $dark-grey;
-//     }
-
-// }
 
 .card-offline {
     #head{
@@ -424,18 +406,6 @@
     }
 }
 
-.animate-return {
-    animation: return 305ms ease both;
-}
-.animate-rotate {
-    animation: rotate 200ms cubic-bezier(.47,.14,.22,.93) both;
-}
-.animate-slide {
-    animation: slide 600ms cubic-bezier(.47,.14,.22,.93) both;
-}
-.animate-slide-button {
-    animation: slideBtn 600ms cubic-bezier(.47,.14,.22,.93) both;
-}
 .animate-fill {
     animation: go 800ms 30ms ease-in-out  both;
 }

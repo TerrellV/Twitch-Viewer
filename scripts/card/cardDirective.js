@@ -8,7 +8,8 @@
             templateUrl: '/partials/cardContent.html',
             scope: {
                 channel: '=',
-                appear: '='
+                appear: '=',
+                toggle: '='
             },
             link: function(scope, element, attributes){
                 // grab all necesssary variables for elemnts in card
@@ -61,37 +62,37 @@
                 /*
                   * sliding between stream/followers slides
                 */
+
                 nextButton.bind('click', function(){
-                    nextButtonIcon.addClass('animate-rotate');
-                    var delay = window.setTimeout(function(){
-                        infoScreens.addClass('animate-slide');
-                        nextButton.addClass('animate-slide-button');
-                        scope.showFollowers = true;
-                        // start the checker that runs to check position
-                        checkPosition();
-                    },400);
+                    if (scope.toggle === true ){
+                        scope.toggle = false;
+                        infoScreens.css('transform',"translateX(-400px)");
+                        nextButtonIcon.css("transform","rotate(-180deg)");
+                    } else {
+                        scope.toggle = true;
+                        infoScreens.css('transform',"translateX(0px)");
+                        nextButtonIcon.css("transform","rotate(0deg)");
+                    }
+
+
                     scope.$apply();
                 });
 
-                function checkPosition(){
-                    var promise = window.setInterval(function(){
-                        if ( nextButton.position().left < 0 ) {
-
-                            clone.removeClass('animate-slide-button');
-                            var cloneIcon = clone.find('.next-arrow-container');
-                            window.clearInterval(promise);
-                            cloneIcon.removeClass('animate-rotate');
-                            clone.addClass('animate-return');
-                        } else {
-                            console.log('checking');
-                        }
-                    },10);
-                }
+                // sliding back to stream screen
+                clone.bind('click', function() {
+                    var cloneIcon = clone.find('.next-arrow-container');
+                    infoScreens.css('transform',"translateX(0px)");
+                    cloneIcon.addClass('animate-rotateBack');
+                    clone.addClass('animate-returnToBox');
+                    scope.$apply();
+                })
 
                 function reset(){
-                    // remove cloned animate class
+                    var cloneIcon = clone.find('.next-arrow-container');
 
+                    // remove cloned animate class
                     removeAnimations( clone );
+                    removeAnimations( cloneIcon );
                     removeAnimations( infoScreens );
                     removeAnimations( nextButton );
                     removeAnimations( nextButtonIcon );

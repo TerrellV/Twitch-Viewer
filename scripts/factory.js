@@ -1,28 +1,43 @@
-(function(){
-    angular.module('factories',[])
-        .factory('getTwitchData', ['$http','$q',getTwitchData]);
+(function() {
+    angular.module('factories', [])
+        .factory('getTwitchData', ['$http', '$q', getTwitchData]);
 
-        function getTwitchData($http) {
+    function getTwitchData($http) {
 
-            var baseUrl = 'https://api/twitch.tv/kraken';
-            // this url does not work
-            var url = 'https://api.twitch.tv/kraken/channels/luxxbunny?callback=JSON_CALLBACK'
-            var urlTwo = 'https://api.twitch.tv/kraken/channels/kittyplaysgames?callback=JSON_CALLBACK'
+        var baseUrl = 'https://api/twitch.tv/kraken';
+        var defChannels = ['freecodecamp','kittyplaysgames','twosync', 'krzjn', 'kaypealol','comster404','mrgoldensports','vgbootcamp','sodapoppin', 'streamerhouse'];
 
+        var url = 'https://api.twitch.tv/kraken/streams/';
+        var channelUrl = 'https://api.twitch.tv/kraken/channels/';
+        var callBack = '?callback=JSON_CALLBACK';
 
-            var obj = {
-                async: function(){
-                    var promise = $http.jsonp(urlTwo)
-                        .then(function(data){
-                            // console.log('success',data);
-                            return data;
-                        });
-                    return promise;
-                }
-            };
+        var obj = {
+            async: function() {
+                var promises = [];
+                setPromises();
 
+                // make a request for each channel with a promise
+                function setPromises() {
+                    defChannels.map(function(channel){
+                        var promise = $http.jsonp(url+channel+callBack)
+                            .then(function(data){
+                                return data;
+                            });
+                        promises.push([channel,promise]);
+                    })
+                };
 
-            return obj;
-        }
+                return promises;
+            },
+            getChannel : function(userName) {
+                return $http.jsonp(channelUrl + userName + callBack)
+                    .then(function(data){
+                        return data;
+                    });
+            }
+        };
+
+        return obj;
+    }
 
 })()

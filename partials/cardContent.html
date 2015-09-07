@@ -1,7 +1,7 @@
 <!-- front card header  -->
 <div id="head" ng-hide="appear">
     <h3 class="front-header-text">
-        {{channel.name}}
+        {{channel.profileName}}
     </h3>
 </div>
 
@@ -10,14 +10,13 @@
     <svg  id="front-redLight" class="live-icon">
         <use xlink:href="Images/sprites.svg#red-light"></use>
     </svg>
-    <h4>Watch Live</h4>
+    <a ng-href="{{channel.url}}" target="_blank"><h4>{{channel.frontSubtitel}}</h4></a>
 </div>
 
 <!-- front button  -->
 <button id="btn" class="mdl-shadow--8dp">
     <i id="icon" class="material-icons">person</i>
 </button>
-
 
 <!-- content for inside of card  -->
 <div class="card-info" >
@@ -31,11 +30,11 @@
             <h4 class="stream-text-header" >
                 Current Stream
             </h4>
-            <div class="live-label">
-                <svg class="live-icon">
+            <div class="live-label" >
+                <svg class="live-icon" >
                     <use xlink:href="Images/sprites.svg#red-light"></use>
                 </svg>
-                <span>live</span>
+                <span>{{channel.streamLabel}}</span>
             </div>
             <h4 class="stream-text">
                 Dancing With Hedge Manglers
@@ -53,7 +52,7 @@
                 Followers
             </h4>
             <h4 class="follower-number">
-                100k
+                {{channel.followers}}
             </h4>
             <button type="button" class="follower-btn">
                 <span class="stream-btn-text">view channel</span>
@@ -73,7 +72,7 @@
     <!-- footer for inside info  -->
     <div class="info-footer"
     ng-show="appear">
-        <h3>{{channel.name}}'s Channel</h3>
+        <h3>{{channel.profileName}}'s Channel</h3>
     </div>
 </div>
 

@@ -22,14 +22,13 @@
 
 
 #card {
+    position: relative;
     display: inline-block;
     width: 400px;
     height: 400px;
     background-color: white;
-    position: relative;
     overflow:hidden;
     margin: 20px;
-
 }
 #head{
     position: absolute;
@@ -38,10 +37,10 @@
     height: 80%;
     background:
         linear-gradient(
-            rgba(69, 56, 174, .9), // purple rgb 69 56 174
+            rgba(69, 56, 174, .9), // purple rgb 69, 56, 174,
             rgba(69, 56, 174, .9)
         ),
-        url(https://s3.amazonaws.com/freecodecamp/wide-social-banner.png) center no-repeat;
+        url(/Images/urban-people-bg.jpg) center no-repeat;
         z-index: 2;
         .front-header-text {
             position: relative;
@@ -68,19 +67,20 @@
         height: 16px;
         width: 16px;
         margin: 0 5%;
+        fill: #EF6060;
     }
     h4 {
         margin: none;
         font-family: "Open Sans", sans-serif;
         font-size: 20px;
-        text-decoration: underline;
         display: inline-block;
+        color: black;
     }
 }
 #btn {
     outline: none;
     position: absolute;
-    background-color: $orange;
+    background-color: $blue;
     color: white;
     border: none;
     border-radius: 50%;
@@ -163,6 +163,7 @@
                     width: 14px;
                     left: 0px;
                     margin-right: 3px;
+                    fill: #EF6060;
                 }
                 span {
                     color: white;
@@ -326,6 +327,103 @@
         font-size: 14px;
     }
 }
+
+// .card-offline {
+
+
+//
+//
+//     #front-redLight {
+//         fill: $dark-grey;
+//     }
+
+// }
+
+.card-offline {
+    #head{
+        background: linear-gradient(
+            rgba(35, 44, 56, .95), // // $dark-grey: 35, 44, 56,
+            rgba(35, 44, 56, .95)
+        ),
+        url(/Images/urban-people-bg.jpg) center no-repeat ;
+        .front-header-text {
+            opacity: .3;
+        }
+    }
+    .front-subheader {
+
+        #front-redLight {
+            fill: $dark-grey;
+        }
+        h4 {
+
+        }
+    }
+    .info-screens{
+        .info-stream {
+            background:
+                linear-gradient(
+                // color to be used for background
+                    // $blue: 46, 126, 253,
+                    // $dark-blue: 29, 83, 161,
+                    // $orange: 231, 111, 89,
+                    // $purple: 69, 56, 174,
+                    // $dark-grey: 35, 44, 56,
+                    to bottom,
+                    rgba(35, 44, 56, .95),
+                    rgba(35, 44, 56, .95)
+            // use this chunk for orange to black gradient
+                    // rgba(222, 108, 87, .95)15%,
+                    // rgba(200, 100, 80, .95)30%,
+                    // rgba(190, 95, 75, .95)35%,
+                    // rgba(180, 90, 72, .95)40%,
+                    // rgba(175, 85, 70, .95)45%,
+                    // rgba(117, 71, 70, .95),
+                    // rgba(40, 40, 50, .98)
+                ),
+                url(/Images/stream-bg.jpg) center;
+            .stream-text-header {
+
+            }
+            .live-label {
+                .live-icon {
+                    fill: whitesmoke;
+                }
+                span {
+                }
+            }
+            .stream-text {
+            }
+            .stream-btn {
+                .play-icon {
+                }
+                .stream-btn-text {
+                }
+                &:hover {
+                }
+            }
+        }
+        .info-followers {
+
+            .followers-text-header{
+
+            }
+            .follower-number{
+
+            }
+            .follower-btn {
+
+                .stream-btn-text {
+
+                }
+                &:hover {
+                    // insert some sort of animation here
+                }
+            }
+        }
+    }
+}
+
 .animate-return {
     animation: return 305ms ease both;
 }

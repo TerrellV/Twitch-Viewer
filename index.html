@@ -23,13 +23,20 @@
 
 <body>
 
-    <div class="grid"  ng-controller="cardsCtrl as card">
-        <div id="card" class="mdl-shadow--8dp"
+    <div class="nav" nav-dir>
+
+    </div>
+
+<div class="grid-mask">
+    <div class="card-grid"  ng-controller="cardsCtrl as card">
+        <div id="card"
         ng-repeat="channel in card.channels"
+        ng-class="{'card-live':channel.live===true,'card-offline':channel.live===false}"class="mdl-shadow--8dp"
         my-dir appear="false"
         channel="channel">
         </div>
     </div>
+</div>
 
 
 
@@ -37,7 +44,11 @@
     <script src="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.min.js">
     </script>
     <script src="/scripts/app.js"></script>
+    <script src="/scripts/card/cardController.js"></script>
     <script src="/scripts/factory.js"></script>
+    <script src="/scripts/card/cardDirective.js"></script>
+    <script src="/scripts/navDirective.js"></script>
+
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-animate.js"></script>
 </body>
 

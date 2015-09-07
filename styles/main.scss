@@ -61,7 +61,14 @@ $dark-grey: #232C38; // 35 44 56
   from{opacity: 0}
   to{opacity: 1}
 }
-
+@keyframes slideView {
+    from{
+        transform: translateX(0px) rotateX(0deg)
+    }
+    to{
+        transform: translateX(-2080px);
+    }
+}
 // mixins
 
 @mixin center-me{
@@ -81,14 +88,26 @@ $dark-grey: #232C38; // 35 44 56
     transform: translate(-50%);
 }
 
+
+@import 'cards';
+@import 'nav-bar';
+
+
 body {
   background-color: whitesmoke;
 }
-
-@import 'cards';
-
-.grid {
+.card-grid{
     position: relative;
-    left: 50px;
-    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-left: 30px;
+    padding-top: 20px;
+    // background-color: $dark-grey;
+    // animation: slideView 10s ease-in-out 2s 2 alternate both;
+}
+.grid-mask{
+    position: relative;
+    height: 450px;
+    width: 100%;
+    // overflow: hidden;
 }

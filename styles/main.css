@@ -47,9 +47,11 @@
     opacity: 0; }
   to {
     opacity: 1; } }
-body {
-  background-color: whitesmoke; }
-
+@keyframes slideView {
+  from {
+    transform: translateX(0px) rotateX(0deg); }
+  to {
+    transform: translateX(-2080px); } }
 @keyframes rotate {
   from {
     transform: rotate(0deg); }
@@ -72,11 +74,11 @@ body {
   to {
     transform: translateX(-90px); } }
 #card {
+  position: relative;
   display: inline-block;
   width: 400px;
   height: 400px;
   background-color: white;
-  position: relative;
   overflow: hidden;
   margin: 20px; }
 
@@ -85,7 +87,7 @@ body {
   top: 0px;
   width: 100%;
   height: 80%;
-  background: linear-gradient(rgba(69, 56, 174, 0.9), rgba(69, 56, 174, 0.9)), url(https://s3.amazonaws.com/freecodecamp/wide-social-banner.png) center no-repeat;
+  background: linear-gradient(rgba(69, 56, 174, 0.9), rgba(69, 56, 174, 0.9)), url(/Images/urban-people-bg.jpg) center no-repeat;
   z-index: 2; }
   #head .front-header-text {
     position: relative;
@@ -110,18 +112,19 @@ body {
     display: inline-block;
     height: 16px;
     width: 16px;
-    margin: 0 5%; }
+    margin: 0 5%;
+    fill: #EF6060; }
   .front-subheader h4 {
     margin: none;
     font-family: "Open Sans", sans-serif;
     font-size: 20px;
-    text-decoration: underline;
-    display: inline-block; }
+    display: inline-block;
+    color: black; }
 
 #btn {
   outline: none;
   position: absolute;
-  background-color: #E76F59;
+  background-color: #2E7EFD;
   color: white;
   border: none;
   border-radius: 50%;
@@ -180,7 +183,8 @@ body {
           height: 14px;
           width: 14px;
           left: 0px;
-          margin-right: 3px; }
+          margin-right: 3px;
+          fill: #EF6060; }
         .card-info .info-screens .info-stream .live-label span {
           color: white;
           font-family: "Open Sans",sans-serif;
@@ -319,6 +323,17 @@ body {
   #info-close-btn i {
     font-size: 14px; }
 
+.card-offline #head {
+  background: linear-gradient(rgba(35, 44, 56, 0.95), rgba(35, 44, 56, 0.95)), url(/Images/urban-people-bg.jpg) center no-repeat; }
+  .card-offline #head .front-header-text {
+    opacity: .3; }
+.card-offline .front-subheader #front-redLight {
+  fill: #232C38; }
+.card-offline .info-screens .info-stream {
+  background: linear-gradient(to bottom, rgba(35, 44, 56, 0.95), rgba(35, 44, 56, 0.95)), url(/Images/stream-bg.jpg) center; }
+  .card-offline .info-screens .info-stream .live-label .live-icon {
+    fill: whitesmoke; }
+
 .animate-return {
   animation: return 305ms ease both; }
 
@@ -343,9 +358,46 @@ body {
 .animate-show {
   animation: show 500ms ease-in-out both; }
 
-.grid {
+nav {
+  height: 100px;
+  background-color: #4538AE;
+  position: relative; }
+  nav ul {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding-left: 0px;
+    white-space: nowrap;
+    margin: 0 auto;
+    text-align: center;
+    list-style: none;
+    width: 60%;
+    height: 70%; }
+  nav li {
+    position: relative;
+    transform: translateY(-50%);
+    display: inline-block;
+    top: 50%;
+    color: white;
+    width: 33%;
+    font-family: 'Open Sans',sans-serif;
+    font-size: 20px;
+    letter-spacing: 1px; }
+
+body {
+  background-color: whitesmoke; }
+
+.card-grid {
   position: relative;
-  left: 50px;
-  top: 50px; }
+  left: 50%;
+  transform: translateX(-50%);
+  padding-left: 30px;
+  padding-top: 20px; }
+
+.grid-mask {
+  position: relative;
+  height: 450px;
+  width: 100%; }
 
 /*# sourceMappingURL=main.css.map */

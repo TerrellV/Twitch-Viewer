@@ -13,16 +13,31 @@
             },
             link: function(scope, element, attributes){
                 // grab all necesssary variables for elemnts in card
-                var infoScreens = element.find('.info-screens'),
+                var header = element.find('#head'),
+                    infoScreens = element.find('.info-screens'),
+                    streamScreen = element.find('.info-stream'),
                     streamContent = element.find('.info-stream'),
                     frontButton = element.find('#btn'),
                     personIcon = frontButton.children(),
                     exitButton = element.find('#info-close-btn'),
                     nextButton = element.find('.btn-next'),
-                    nextButtonIcon = element.find('.next-arrow-container'),
-                    smallBox = element.find('#little-box'),
-                    clone = nextButton.clone().addClass('inBox').appendTo(smallBox);
+                    nextButtonIcon = element.find('.next-arrow-container');
 
+                    setView(scope.channel);
+
+                    function setView (data){
+                        if ( data.live === true ) {
+                            var imgUrl = data.previewImg;
+                            streamScreen.css({
+                                "background": "linear-gradient(to bottom,"+
+                                    "rgba(29, 83, 161, .9),"+
+                                    "rgba(29, 83, 161, .9)),"+
+                                    "url("+ imgUrl +") center"
+                            })
+                        } else {
+
+                        }
+                    }
 
             /*
               * opening and closing more info slides
@@ -48,8 +63,6 @@
                     scope.appear = false;
                     frontButton.addClass('animate-fill-backwards');
                     personIcon.addClass('animate-show');
-                    // call function that removes all classes / resets
-                    reset();
 
                     var id = window.setTimeout(function () {
                         frontButton.removeClass('animate-fill-backwards');
@@ -74,40 +87,9 @@
                         nextButtonIcon.css("transform","rotate(0deg)");
                     }
 
-
                     scope.$apply();
                 });
 
-                // sliding back to stream screen
-                clone.bind('click', function() {
-                    var cloneIcon = clone.find('.next-arrow-container');
-                    infoScreens.css('transform',"translateX(0px)");
-                    cloneIcon.addClass('animate-rotateBack');
-                    clone.addClass('animate-returnToBox');
-                    scope.$apply();
-                })
-
-                function reset(){
-                    var cloneIcon = clone.find('.next-arrow-container');
-
-                    // remove cloned animate class
-                    removeAnimations( clone );
-                    removeAnimations( cloneIcon );
-                    removeAnimations( infoScreens );
-                    removeAnimations( nextButton );
-                    removeAnimations( nextButtonIcon );
-
-                    function removeAnimations ( element ) {
-                        var reg = /\s+/;
-                        var arr = element.attr('class').split(reg);
-                        var removeUs = arr.filter(function(a){
-                            var removeMe = a.indexOf('animate')>-1? a : '';
-                            element.removeClass(removeMe);
-                        });
-
-                        // console.log(element.attr('class').split(reg));
-                    }
-                }
             }
         }
     }

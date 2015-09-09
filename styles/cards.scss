@@ -1,14 +1,6 @@
-// slide animations
-@keyframes rotate {
-    from{transform: rotate(0deg)}
-    to{transform: rotate(-180deg)}
+button{
+    cursor: pointer
 }
-@keyframes rotateBack {
-    from{transform:  rotate(-180deg)}
-    to{transform:  rotate(0deg)}
-}
-
-
 #card {
     position: relative;
     display: inline-block;
@@ -25,10 +17,10 @@
     height: 80%;
     background:
         linear-gradient(
-            rgba(69, 56, 174, .9), // purple rgb 69, 56, 174,
-            rgba(69, 56, 174, .9)
+            rgba(29, 83, 161, 1), // purple rgb 69, 56, 174,
+            rgba(29, 83, 161, 1)
         ),
-        url(/Images/urban-people-bg.jpg) center no-repeat;
+        url(http://superdevresources.com/wp-content/uploads/sites/7/2014/03/geometric-background-photoshop.jpg) center no-repeat;
         z-index: 2;
         .front-header-text {
             position: relative;
@@ -54,7 +46,7 @@
         display: inline-block;
         height: 16px;
         width: 16px;
-        margin: 0 5%;
+        margin: 0 10%;
         fill: #EF6060;
     }
     h4 {
@@ -86,15 +78,6 @@
     height: 100%;
     width: 400px; // COME BACK AND REMOVE
     background-color: transparent;
-    #little-box {
-        background-color: yellow;
-        height: 50px;
-        width: 50px;
-        position: absolute;
-        z-index: 5;
-        bottom: 35px;
-        right: -50px;
-    }
     .info-screens{
         position: absolute;
         width: 100%;
@@ -323,14 +306,15 @@
 
 .card-offline {
     #head{
-        background: linear-gradient(
-            rgba(35, 44, 56, .95), // // $dark-grey: 35, 44, 56,
-            rgba(35, 44, 56, .95)
-        ),
-        url(/Images/urban-people-bg.jpg) center no-repeat ;
+        background: $dark-grey;
         .front-header-text {
-            opacity: .3;
+            opacity: .2;
         }
+        // background: linear-gradient(
+        //     rgba(35, 44, 56, .95), // // $dark-grey: 35, 44, 56,
+        //     rgba(35, 44, 56, .95)
+        // ),
+        // url(/Images/urban-people-bg.jpg) center no-repeat ;
     }
     .front-subheader {
 

@@ -52,16 +52,9 @@
     transform: translateX(0px) rotateX(0deg); }
   to {
     transform: translateX(-2080px); } }
-@keyframes rotate {
-  from {
-    transform: rotate(0deg); }
-  to {
-    transform: rotate(-180deg); } }
-@keyframes rotateBack {
-  from {
-    transform: rotate(-180deg); }
-  to {
-    transform: rotate(0deg); } }
+button {
+  cursor: pointer; }
+
 #card {
   position: relative;
   display: inline-block;
@@ -76,7 +69,7 @@
   top: 0px;
   width: 100%;
   height: 80%;
-  background: linear-gradient(rgba(69, 56, 174, 0.9), rgba(69, 56, 174, 0.9)), url(/Images/urban-people-bg.jpg) center no-repeat;
+  background: linear-gradient(#1d53a1, #1d53a1), url(http://superdevresources.com/wp-content/uploads/sites/7/2014/03/geometric-background-photoshop.jpg) center no-repeat;
   z-index: 2; }
   #head .front-header-text {
     position: relative;
@@ -101,7 +94,7 @@
     display: inline-block;
     height: 16px;
     width: 16px;
-    margin: 0 5%;
+    margin: 0 10%;
     fill: #EF6060; }
   .front-subheader h4 {
     margin: none;
@@ -130,14 +123,6 @@
   height: 100%;
   width: 400px;
   background-color: transparent; }
-  .card-info #little-box {
-    background-color: yellow;
-    height: 50px;
-    width: 50px;
-    position: absolute;
-    z-index: 5;
-    bottom: 35px;
-    right: -50px; }
   .card-info .info-screens {
     position: absolute;
     width: 100%;
@@ -317,9 +302,9 @@
     font-size: 14px; }
 
 .card-offline #head {
-  background: linear-gradient(rgba(35, 44, 56, 0.95), rgba(35, 44, 56, 0.95)), url(/Images/urban-people-bg.jpg) center no-repeat; }
+  background: #232C38; }
   .card-offline #head .front-header-text {
-    opacity: .3; }
+    opacity: .2; }
 .card-offline .front-subheader #front-redLight {
   fill: #232C38; }
 .card-offline .info-screens .info-stream {
@@ -340,45 +325,44 @@
   animation: show 500ms ease-in-out both; }
 
 nav {
-  height: 100px;
-  background-color: #4538AE;
-  position: relative; }
+  height: 100%;
+  width: 200px;
+  background-color: #232C38;
+  position: fixed; }
   nav ul {
     position: absolute;
     left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%);
+    top: 50px;
     padding-left: 0px;
     white-space: nowrap;
-    margin: 0 auto;
     text-align: center;
     list-style: none;
-    width: 60%;
-    height: 70%; }
+    width: 60%; }
   nav li {
+    margin: 0 0 90px 0;
     position: relative;
-    transform: translateY(-50%);
-    display: inline-block;
-    top: 50%;
     color: white;
-    width: 33%;
-    font-family: 'Open Sans',sans-serif;
-    font-size: 20px;
+    width: 100%;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
     letter-spacing: 1px; }
 
 body {
   background-color: whitesmoke; }
 
-.card-grid {
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-  padding-left: 30px;
-  padding-top: 20px; }
-
 .grid-mask {
   position: relative;
   height: 450px;
-  width: 100%; }
+  left: 300px;
+  width: 1320px;
+  overflow: hidden; }
+
+.live-card-grid {
+  position: relative;
+  transform: translate(0, 0);
+  padding-top: 20px;
+  width: 4000px;
+  transition: transform 800ms ease-in-out; }
 
 /*# sourceMappingURL=main.css.map */

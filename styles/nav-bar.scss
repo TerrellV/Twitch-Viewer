@@ -1,26 +1,26 @@
 nav {
-    height: 100px;
-    background-color: $purple;
-    position: relative;
+    height: 100%;
+    width: 200px;
+    background-color: $dark-grey;
+    position: fixed;
     ul{
-        @include center-me();
+        @include center-me-horiz();
+        top: 50px;
+
         padding-left: 0px;
         white-space: nowrap;
-        margin: 0 auto;
         text-align: center;
         list-style: none;
         width: 60%;
-        height: 70%;
+        // border: 1px solid white;
     }
     li {
+        margin: 0 0 90px 0;
         position: relative;
-        transform:translateY(-50%);
-        display: inline-block;
-        top: 50%;
         color: white;
-        width: 33%;
-        font-family: 'Open Sans',sans-serif;
-        font-size: 20px;
+        width: 100%;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 18px;
         letter-spacing: 1px;
     }
 }

@@ -28,7 +28,6 @@
                     if (data.data.stream === null) {
                         return [true];
                     } else {
-                        console.log(arr[0]);
                         setViewOnline();
                         return [setDataOnline(data.data),false];
                     };
@@ -42,14 +41,14 @@
                 }
                 // if chanel exists and ONLINE push channel
                 else if  ( cardArr[1] === false ){
-                    vm.channels.push(cardArr[0]);
+                    // vm.channels.push(cardArr[0]);
                     return cardArr;
                 } else if(cardArr[0] === true){
                     // chanel is offline make request
                     getTwitchData.getChannel(arr[0])
                         .then(function(data){
                             var channelInfo = setDataOffline(data.data);
-                            vm.channels.push(channelInfo);
+                            // vm.channels.push(channelInfo);
                             setViewOffline();
                         });
                     return cardArr;
@@ -76,7 +75,7 @@
             ci.game = sO.game;
             ci.viewers = abbreviateNumber(sO.viewers);
             ci.previewImg = sO.preview.large;
-            ci.strmDscr = sO.channel.status;
+            ci.strmDscr = concatDscr(sO.channel.status);
             ci.frontSubtitel = 'Watch Now';
             ci.streamLabel = 'Live';
             return ci;
@@ -90,12 +89,9 @@
             ci.frontSubtitel = 'Offline';
             ci.streamLabel = 'Offline';
 
-
             return ci;
         }
         function setViewOnline(){
-            // update controller and update view
-            // NOTE: view not updating on either of these
         }
         function setViewOffline(){
             // update controller and update view
@@ -124,6 +120,10 @@
                 }
             }
             return newValue;
+        }
+
+        function concatDscr(str) {
+            return str.slice(0,30) + ' ...';
         }
 
     }

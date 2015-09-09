@@ -96,18 +96,19 @@ $dark-grey: #232C38; // 35 44 56
 body {
   background-color: whitesmoke;
 }
-.card-grid{
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    padding-left: 30px;
-    padding-top: 20px;
-    // background-color: $dark-grey;
-    // animation: slideView 10s ease-in-out 2s 2 alternate both;
-}
+
 .grid-mask{
     position: relative;
     height: 450px;
-    width: 100%;
-    // overflow: hidden;
+    left: 300px;
+    width: 1320px;
+    overflow: hidden;
+}
+.live-card-grid{
+    position: relative;
+    transform: translate(0,0);
+    padding-top: 20px;
+    width: 4000px;
+    // background-color: $dark-grey;
+    transition: transform 800ms ease-in-out;
 }

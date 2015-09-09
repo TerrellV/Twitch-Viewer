@@ -8,6 +8,30 @@ $dark-grey: #232C38; // 35 44 56
 
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800);
 
+// vendor prefixes
+@mixin animation( $str ) {
+  -webkit-animation: #{$str};
+  -moz-animation: #{$str};
+  -ms-animation: #{$str};
+  -o-animation: #{$str};
+  animation: #{$str};
+}
+@mixin transition( $str ) {
+  -webkit-transition: #{$str};
+  -moz-transition: #{$str};
+  -ms-transition: #{$str};
+  -o-transition: #{$str};
+  transition: #{$str};
+}
+@mixin transform( $str ) {
+  -webkit-transform: #{$str};
+  -moz-transform: #{$str};
+  -ms-transform: #{$str};
+  -o-transform: #{$str};
+  transform: #{$str};
+}
+
+
 @keyframes blueGreen {
     from{background-color: $blue}
     to{background-color: #34A853}

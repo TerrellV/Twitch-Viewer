@@ -1,7 +1,16 @@
 <nav class="mdl-shadow--4dp">
     <ul>
-        <li>All</li>
-        <li>Online</li>
-        <li>Offline</li>
+        <li
+        id="tab-all"
+        class="tab"
+        ng-class="{'tab-active': activeTab === 'all'}">All</li>
+        <li
+        id="tab-online"
+        class="tab"
+        ng-class="{'tab-active': activeTab === 'online'}">Online</li>
+        <li
+        id="tab-offline"
+        class="tab"
+        ng-class="{'tab-active': activeTab === 'offline'}">Offline</li>
     </ul>
 </nav>

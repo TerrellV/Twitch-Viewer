@@ -338,15 +338,35 @@ nav {
     white-space: nowrap;
     text-align: center;
     list-style: none;
-    width: 60%; }
-  nav li {
-    margin: 0 0 90px 0;
+    width: 100%; }
+  nav .tab {
+    margin: 0;
+    padding: 30px 0;
     position: relative;
     color: white;
     width: 100%;
     font-family: 'Open Sans', sans-serif;
     font-size: 18px;
     letter-spacing: 1px; }
+    nav .tab:hover {
+      background-color: #475467; }
+    nav .tab:after {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: #2E7EFD;
+      width: 3px;
+      height: 0%;
+      left: 197px;
+      -webkit-transition: height 500ms ease;
+      -moz-transition: height 500ms ease;
+      -ms-transition: height 500ms ease;
+      -o-transition: height 500ms ease;
+      transition: height 500ms ease; }
+  nav .tab-active:after {
+    height: 100%; }
 
 body {
   background-color: whitesmoke; }

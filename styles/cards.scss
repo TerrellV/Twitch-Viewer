@@ -417,10 +417,10 @@ button{
 }
 
 .animate-fill {
-    animation: go 800ms 30ms ease-in-out  both;
+    animation: buttonFill 800ms ease-in-out  both;
 }
 .animate-fill-backwards {
-    animation: goBack 800ms ease-in-out both;
+    animation: buttonReturn 800ms ease-in-out both;
 }
 .animate-hide {
     animation: hide 500ms ease-in-out both;

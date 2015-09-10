@@ -18,7 +18,7 @@
                     infoScreens = element.find('.info-screens'),
                     streamScreen = element.find('.info-stream'),
                     streamContent = element.find('.info-stream'),
-                    frontButton = element.find('#btn'),
+                    frontButton = element.find('.subhead-btn'),
                     personIcon = frontButton.children(),
                     exitButton = element.find('#info-close-btn'),
                     nextButton = element.find('.btn-next'),
@@ -36,7 +36,7 @@
                 }
 
                 /*
-                  * opening and closing more info slides
+                  * opening and closing more info
                 */
 
                 // animate front button to fill and then fade out

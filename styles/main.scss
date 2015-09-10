@@ -52,49 +52,44 @@ $red: #EF6060;
 }
 
 
-@keyframes blueGreen {
-    from{background-color: $blue}
-    to{background-color: #34A853}
-}
-@keyframes go{
-  0%{
-    position: absolute;
-    right: 10%;
-    top: 70%;
-  }
+@keyframes buttonFill{
+  0%{}
   60%{
     top: 50%;
     right: 50%;
-    transform: translate(50%,-50%);
-    height: 80px;
-    width: 80px;
+    @include transform('translate(50%,-50%)');
+    height: 60px;
+    width: 60px;
     border-radius: 50%;
   }
   100% {
     top: 50%;
     right: 50%;
-    transform: translate(50%,-50%);
-    width: 160%;
-    height: 160%;
+    @include transform('translate(50%,-50%)');
+    width: 150%;
+    height: 170%;
   }
 }
-@keyframes goBack{
+@keyframes buttonReturn{
   0%{
     top: 50%;
     right: 50%;
-    transform: translate(50%,-50%) scale(7);
+    @include transform('translate(50%,-50%)');
+    width: 150%;
+    height: 170%;
   }
   60%{
     top: 50%;
     right: 50%;
     transform: translate(50%,-50%);
-    height: 80px;
-    width: 80px;
+    height: 60px;
+    width: 60px;
     border-radius: 50%;
   }
   100% {
-    right: 10%;
-    top: 70%;
+    right: 8%;
+    top: 85%;
+    @include transform(translateY(-50%));
   }
 }
 @keyframes hide {
@@ -127,14 +122,12 @@ body {
     position: relative;
     height: 450px;
     left: 300px;
-    width: 1320px;
-    overflow: hidden;
+    width: 80%;
 }
 .live-card-grid{
     position: relative;
-    transform: translate(0,0);
     padding-top: 20px;
-    width: 4000px;
+    width: 100%;
     // background-color: $dark-grey;
     transition: transform 800ms ease-in-out;
 }

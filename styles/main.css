@@ -221,12 +221,12 @@ nav {
     width: 100%; }
   nav .tab {
     margin: 0;
-    padding: 30px 0;
+    padding: 20px 0;
     position: relative;
     color: white;
     width: 100%;
     font-family: 'Open Sans', sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     letter-spacing: 1px; }
     nav .tab:hover {
       background-color: #475467; }
@@ -237,9 +237,9 @@ nav {
       top: 50%;
       transform: translateY(-50%);
       background-color: #2E7EFD;
-      width: 3px;
+      width: 5px;
       height: 0%;
-      left: 197px;
+      left: 195px;
       -webkit-transition: height 500ms ease;
       -moz-transition: height 500ms ease;
       -ms-transition: height 500ms ease;
@@ -253,14 +253,18 @@ body {
 
 .grid-mask {
   position: relative;
-  height: 450px;
-  left: 300px;
-  width: 80%; }
+  left: 200px;
+  width: 1700px;
+  height: 1000px; }
 
 .live-card-grid {
-  position: relative;
-  padding-top: 20px;
-  width: 100%;
+  position: absolute;
+  height: 100%;
+  width: 69%;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  top: 15%;
   transition: transform 800ms ease-in-out; }
 
 /*# sourceMappingURL=main.css.map */

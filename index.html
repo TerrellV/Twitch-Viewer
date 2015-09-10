@@ -29,10 +29,9 @@
     <div class="header"  ng-controller="cardsCtrl as card">
         <div class="grid-mask">
             <div class="live-card-grid" >
-                <div class="card"
+                <div class=" mdl-shadow--4dp card"
                 ng-repeat="channel in card.channels"
                 ng-class="{'card-offline':channel.live===false}"
-                class="mdl-shadow--4dp"
                 my-dir appear="false"
                 channel="channel"
                 toggle="true">

@@ -112,14 +112,16 @@ body {
 
 .grid-mask{
     position: relative;
-    height: 450px;
-    left: 300px;
-    width: 80%;
+    left: 200px;
+    width: 1700px;
+    height: 1000px;
 }
 .live-card-grid{
-    position: relative;
-    padding-top: 20px;
-    width: 100%;
+    position: absolute;
+    height: 100%;
+    width: 69%;
+    @include center-me-horiz();
+    top: 15%;
     // background-color: $dark-grey;
     transition: transform 800ms ease-in-out;
 }

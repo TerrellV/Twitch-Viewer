@@ -1,9 +1,10 @@
 'use strict';
 
 (function () {
+
     angular.module('myApp').controller('cardsCtrl', cardsCtrl);
 
-    function cardsCtrl($scope, getTwitchData) {
+    function cardsCtrl($scope, getTwitchData, $http, $q) {
 
         // setting stuff
         var vm = this;
@@ -15,11 +16,47 @@
             //empty until request finish;
         ];
 
+        var strictPromiseArr = promiseArr.map(function (a) {
+            return a.pop();
+        });
+
+        var promiseArr = getTwitchData.async();
+
+        var P = $q.all(strictPromiseArr).then(function (response) {
+            // got all requests from first request
+            response.map(function (obj) {
+                if (obj.data.error) {
+                    return obj.data.message;
+                }
+                var data = obj.data;
+                var stream = obj.data.stream;
+
+                if (stream) {
+                    var channel = stream.channel;
+                    var _name = channel.display_name;
+                    var game = channel.game;
+                    var _status = channel.status;
+
+                    // do stuff for online
+                } else {
+                        // make request for new data
+                        var channel = data._links.channel;
+
+                        console.log(url);
+                    }
+
+                // if online
+            });
+            console.log('finished wating');
+        });
+
         /*
          * Make channel request for each channel
          */
+
         promiseArr.map(function (arr) {
 
+            // arr 0 === name of channel arr 1 is promise
             return arr[1].then(function (data) {
                 // check if chanel exists
                 if (data.data.error !== undefined) {

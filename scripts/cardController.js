@@ -1,8 +1,9 @@
 (function() {
+
     angular.module('myApp')
         .controller('cardsCtrl', cardsCtrl);
 
-    function cardsCtrl($scope, getTwitchData) {
+    function cardsCtrl($scope, getTwitchData, $http, $q) {
 
         // setting stuff
         var vm = this;
@@ -14,13 +15,45 @@
             //empty until request finish;
         ];
 
+        let strictPromiseArr = promiseArr.map( a => {
+          return a.pop();
+        })
+
+        var promiseArr = getTwitchData.async();
+
+
+        let P = $q.all(strictPromiseArr).then( response => {
+          // got all requests from first request
+          response.map( obj => {
+            if (obj.data.error) {return obj.data.message}
+            let { data, data: {stream} } = obj;
+
+            if (stream) {
+            const { channel } = stream,
+                  { display_name:name, game , status } = channel;
+            // do stuff for online
+          } else {
+            // make request for new data
+            const { _links:{channel} } = data;
+            console.log(url);
+
+          }
+
+            // if online
+
+          })
+          console.log('finished wating');
+        });
+
 
 
         /*
          * Make channel request for each channel
          */
+
         promiseArr.map(function(arr) {
 
+            // arr 0 === name of channel arr 1 is promise
             return arr[1].then(function(data) {
                 // check if chanel exists
                 if (data.data.error !== undefined) {

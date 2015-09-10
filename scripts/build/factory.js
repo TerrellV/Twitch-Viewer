@@ -29,8 +29,8 @@
 
                 return promises;
             },
-            getChannel: function getChannel(userName) {
-                return $http.jsonp(channelUrl + userName + callBack).then(function (data) {
+            getChannel: function getChannel(str) {
+                return $http.jsonp(str + callBack).then(function (data) {
                     return data;
                 });
             }

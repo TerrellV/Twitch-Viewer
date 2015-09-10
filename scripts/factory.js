@@ -7,20 +7,20 @@
         var baseUrl = 'https://api/twitch.tv/kraken';
         var defChannels = ['comster404','freecodecamp','kittyplaysgames','twosync', 'krzjn', 'kaypealol','mrgoldensports','vgbootcamp','sodapoppin','femsteph', 'streamerhouse','joshog'];
 
-        var url = 'https://api.twitch.tv/kraken/streams/';
-        var channelUrl = 'https://api.twitch.tv/kraken/channels/';
-        var callBack = '?callback=JSON_CALLBACK';
+        const url = 'https://api.twitch.tv/kraken/streams/';
+        const channelUrl = 'https://api.twitch.tv/kraken/channels/';
+        const callBack = '?callback=JSON_CALLBACK';
 
-        var obj = {
+        const obj = {
             async: function() {
-                var promises = [];
+                let promises = [];
                 setPromises();
 
                 // make a request for each channel with a promise
                 function setPromises() {
-                    defChannels.map(function(channel){
+                    defChannels.map(channel => {
                         var promise = $http.jsonp(url+channel+callBack)
-                            .then(function(data){
+                            .then(data => {
                                 return data;
                             });
                         promises.push([channel,promise]);
@@ -29,9 +29,9 @@
 
                 return promises;
             },
-            getChannel : function(userName) {
-                return $http.jsonp(channelUrl + userName + callBack)
-                    .then(function(data){
+            getChannel : function(str) {
+                return $http.jsonp(str + callBack)
+                    .then( data => {
                         return data;
                     });
             }

@@ -23,73 +23,76 @@
 
 
         let P = $q.all(strictPromiseArr).then( response => {
-          // got all requests from first request
-          response.map( obj => {
+            const channelPromises = [];
+            response.map( obj => {
+            // if error
             if (obj.data.error) {return obj.data.message}
-            let { data, data: {stream} } = obj;
-
-            if (stream) {
-            const { channel } = stream,
-                  { display_name:name, game , status } = channel;
-            // do stuff for online
-          } else {
-            // make request for new data
-            const { _links:{channel} } = data;
-            console.log(url);
-
-          }
-
+            // destructure object
+            const { data, data: {stream} } = obj;
             // if online
+            if (stream) {
+                const { channel } = stream,
+                { display_name:name, game , status } = channel,
+                 parsedInfo = setDataOnline(stream);
+                 vm.channels.push(parsedInfo);
+              } else {
+                // if offline
+                const {_links:{channel:url}} = data;
+                getTwitchData.getChannel(url)
+                    .then( data => {
+                        // send data into function to be parsed and set to card
+                        const parsedInfo = setDataOffline(data.data);
+                        vm.channels.push(parsedInfo);
+                    });
 
-          })
-          console.log('finished wating');
+                }
+            });
+            console.log('finished waiting');
         });
-
-
 
         /*
          * Make channel request for each channel
          */
 
-        promiseArr.map(function(arr) {
-
-            // arr 0 === name of channel arr 1 is promise
-            return arr[1].then(function(data) {
-                // check if chanel exists
-                if (data.data.error !== undefined) {
-                    return 'error';
-                } else {
-                    // check if channel is offline/online
-                    if (data.data.stream === null) {
-                        return [true];
-                    } else {
-                        setViewOnline();
-                        return [setDataOnline(data.data),false];
-                    };
-                }
-
-            }).then(function( cardArr ) {
-                if (cardArr === 'error' ){
-                    console.log(arr[0],'channel doesnt exist');
-                    // push a special object to array for ^
-                    return 'error';
-                }
-                // if chanel exists and ONLINE push channel
-                else if  ( cardArr[1] === false ){
-                    vm.channels.push(cardArr[0]);
-                    return cardArr;
-                } else if(cardArr[0] === true){
-                    // chanel is offline make request
-                    getTwitchData.getChannel(arr[0])
-                        .then( data => {
-                            const channelInfo = setDataOffline(data.data);
-                            vm.channels.push(channelInfo);
-                            setViewOffline();
-                        });
-                    return cardArr;
-                }
-            })
-        });
+        // promiseArr.map(function(arr) {
+        //
+        //     // arr 0 === name of channel arr 1 is promise
+        //     return arr[1].then(function(data) {
+        //         // check if chanel exists
+        //         if (data.data.error !== undefined) {
+        //             return 'error';
+        //         } else {
+        //             // check if channel is offline/online
+        //             if (data.data.stream === null) {
+        //                 return [true];
+        //             } else {
+        //                 setViewOnline();
+        //                 // return [setDataOnline(data.data),false];
+        //             };
+        //         }
+        //
+        //     }).then(function( cardArr ) {
+        //         if (cardArr === 'error' ){
+        //             console.log(arr[0],'channel doesnt exist');
+        //             // push a special object to array for ^
+        //             return 'error';
+        //         }
+        //         // if chanel exists and ONLINE push channel
+        //         else if  ( cardArr[1] === false ){
+        //             vm.channels.push(cardArr[0]);
+        //             return cardArr;
+        //         } else if(cardArr[0] === true){
+        //             // chanel is offline make request
+        //             // getTwitchData.getChannel(arr[0])
+        //             //     .then( data => {
+        //             //         const channelInfo = setDataOffline(data.data);
+        //             //         vm.channels.push(channelInfo);
+        //             //         setViewOffline();
+        //             //     });
+        //             // return cardArr;
+        //         }
+        //     })
+        // });
 
         /*
          * data manipulation to get info I want
@@ -98,44 +101,38 @@
             // channel object later used for ng repeat
             let ci = SetDataBoth(data);
             ci.live = false;
-            ci.game = 'offline';
+            ci.game = 'Offline';
+            ci.frontAction = 'Go to channel';
             return ci;
         }
         $scope.live = true;
-        function setDataOnline(data) {
+        function setDataOnline(stream) {
             // channel object later used for ng repeat
+            const { channel, live, game, viewers, preview:{large:large} } = stream;
 
-            let stream = data.stream;
-            var { live, game, viewers } = stream;
+            let ci = SetDataBoth(channel);
 
-            let ci = SetDataBoth(data.stream.channel);
-            let sO = data.stream;
             ci.live = true;
             ci.game = game;
             ci.viewers = abbreviateNumber(viewers);
-            ci.previewImg = sO.preview.large;
-            ci.strmDscr = concatDscr(sO.channel.status);
-            ci.frontSubtitel = 'Watch Now';
-            ci.streamLabel = 'Live';
+            ci.previewImg = large;
+            ci.strmDscr = concatDscr(status);
+            ci.frontAction = 'Watch Now';
             return ci;
         }
-        function SetDataBoth(data){
+        function SetDataBoth(channel){
             // channel object later used for ng repeat
-            var ci = {}
-            ci.profileName = data.display_name;
-            ci.followers = abbreviateNumber(data.followers);
-            ci.url = data.url;
-            ci.frontSubtitel = 'View Channel';
-            ci.streamLabel = 'Offline';
+            const { display_name:name, followers, url, status } = channel;
 
-            return ci;
+            return {
+                name,
+                followers: abbreviateNumber(followers),
+                url,
+                status: concatDscr(status)
+            };
         }
-        function setViewOnline(){
-        }
-        function setViewOffline(){
-            // update controller and update view
-        }
-
+        function setViewOnline(){}
+        function setViewOffline(){}
 
         /*
          * further manipulate certain data...

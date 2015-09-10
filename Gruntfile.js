@@ -12,7 +12,7 @@ module.exports = function(grunt) {
                 },
                 options: {
                     watchTask: true,
-                    reloadDelay: 3500,
+                    reloadDelay: 2000,
                     server: {
                         baseDir:"./"
                     }

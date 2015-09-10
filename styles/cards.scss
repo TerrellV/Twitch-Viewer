@@ -4,73 +4,99 @@ button{
 #card {
     position: relative;
     display: inline-block;
-    width: 400px;
-    height: 400px;
+    width: 350px;
+    height: 310px;
     background-color: white;
     overflow:hidden;
     margin: 20px;
 }
 #head{
-    position: absolute;
+    position: relative;
     top: 0px;
     width: 100%;
-    height: 80%;
+    height: 65%;
+    z-index: 2;
     background:
         linear-gradient(
-            rgba(29, 83, 161, 1), // purple rgb 69, 56, 174,
-            rgba(29, 83, 161, 1)
+            rgba(47, 95, 146, .9), // new blue rgb 57, 101, 166,
+            rgba(57, 101, 166, .9)
         ),
-        url(http://superdevresources.com/wp-content/uploads/sites/7/2014/03/geometric-background-photoshop.jpg) center no-repeat;
-        z-index: 2;
-        .front-header-text {
-            position: relative;
-            text-align: center;
-            margin: 0;
-            font-family: "Open Sans", sans-serif;
-            font-weight: 600;
-            color: white;
-            top: 50%;
-            transform: translateY(-50%);
-        }
+        url(https://i.imgur.com/C72lXxM.jpg) no-repeat;
+        background-size: cover;
+    .front-header-text {
+        position: relative;
+        text-align: center;
+        margin: 0;
+        font-size: 25px;
+        font-family: "Open Sans", sans-serif;
+        font-weight: 600;
+        color: white;
+        top: 50%;
+        transform: translateY(-50%);
+    }
 }
-.front-subheader {
-    position: absolute;
+.subhead-game{
+    background-color: $blue;
+    height: 20%;
+    width: 100%;
+    position: relative;
+    background-color: $dark-blue;
+    .subhead-game-text {
+        width: 80%;
+        position: relative;
+        @include center-me();
+        color: white;
+        margin: 0px;
+        text-align: center;
+        font-family: 'Open Sanse', sans-serif;
+        font-size: 18px;
+        font-weight: 500;
+        letter-spacing: 1px;
+        white-space: nowrap;
+    }
+}
+.subhead-action {
+    position: relative;
     bottom: 0px;
-    width: 280px;
+    width: 100%;
     color: $dark-grey;
     z-index: 3;
-    height: 80px;
-    #front-redLight {
-        position: relative;
-        top: -4px;
-        display: inline-block;
-        height: 16px;
-        width: 16px;
-        margin: 0 10%;
-        fill: #EF6060;
-    }
-    h4 {
-        margin: none;
-        font-family: "Open Sans", sans-serif;
-        font-size: 20px;
-        display: inline-block;
-        color: black;
+    height: 15%;
+    text-align: center;
+    .subhead-action-container{
+        @include center-me();
+        width: 40%;
+        #front-redLight {
+            height: 12px;
+            width: 12px;
+            fill: $red ;
+            padding-right: .5em;
+        }
+        h4 {
+            display: inline-block;
+            margin: 0;
+            font-family: "Open Sans", sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            color: $blue;
+        }
     }
 }
-#btn {
+.subhead-btn {
     outline: none;
     position: absolute;
     background-color: $blue;
     color: white;
     border: none;
     border-radius: 50%;
-    height: 80px;
-    width: 80px;
-    right: 10%;
-    top: 70%;
+    height: 50px;
+    width: 50px;
+    right: 8%;
+    top: 85%;
+    @include transform(translateY(-50%));
     z-index: 3;
     i {
-        font-size: 30px;
+        font-size: 20px;
     }
 }
 .card-info {

@@ -36,12 +36,12 @@
             }).then(function (cardArr) {
                 if (cardArr === 'error') {
                     console.log(arr[0], 'channel doesnt exist');
-                    // push a special object to array
+                    // push a special object to array for ^
                     return 'error';
                 }
                 // if chanel exists and ONLINE push channel
                 else if (cardArr[1] === false) {
-                        // vm.channels.push(cardArr[0]);
+                        vm.channels.push(cardArr[0]);
                         return cardArr;
                     } else if (cardArr[0] === true) {
                         // chanel is offline make request
@@ -72,8 +72,6 @@
             var live = stream.live;
             var game = stream.game;
             var viewers = stream.viewers;
-
-            console.log(live, game, viewers, '**');
 
             var ci = SetDataBoth(data.stream.channel);
             var sO = data.stream;

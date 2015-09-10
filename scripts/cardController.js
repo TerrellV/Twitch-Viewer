@@ -38,12 +38,12 @@
             }).then(function( cardArr ) {
                 if (cardArr === 'error' ){
                     console.log(arr[0],'channel doesnt exist');
-                    // push a special object to array
+                    // push a special object to array for ^
                     return 'error';
                 }
                 // if chanel exists and ONLINE push channel
                 else if  ( cardArr[1] === false ){
-                    // vm.channels.push(cardArr[0]);
+                    vm.channels.push(cardArr[0]);
                     return cardArr;
                 } else if(cardArr[0] === true){
                     // chanel is offline make request
@@ -57,7 +57,6 @@
                 }
             })
         });
-
 
         /*
          * data manipulation to get info I want
@@ -74,8 +73,6 @@
 
             let stream = data.stream;
             var { live, game, viewers } = stream;
-
-            console.log(live,game,viewers, '**');
 
             let ci = SetDataBoth(data.stream.channel);
             let sO = data.stream;

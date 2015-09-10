@@ -25,12 +25,12 @@
                     nextButtonIcon = element.find('.next-arrow-container');
 
                 setView(scope.channel);
-                // testing babel comment
+
                 function setView(data) {
                     if (data.live === true) {
                         var imgUrl = data.previewImg;
-                        streamScreen.css({
-                            "background": "linear-gradient(to bottom," + "rgba(29, 83, 161, .9)," + "rgba(29, 83, 161, .9))," + "url(" + imgUrl + ") center"
+                        var bgString = streamScreen.css({
+                            "background": 'linear-gradient(\n                                        to bottom,\n                                        rgba(29, 83, 161, .9),\n                                        rgba(29, 83, 161, .9)\n                                    ),\n                                    url( ' + imgUrl + ' ) center'
                         });
                     } else {}
                 }
@@ -43,7 +43,6 @@
                 frontButton.bind("click", function () {
                     frontButton.addClass("animate-fill");
                     personIcon.addClass('animate-hide');
-
                     var id = window.setTimeout(showInfo, 800);
                     function showInfo() {
                         scope.appear = true;

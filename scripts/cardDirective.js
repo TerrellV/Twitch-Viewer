@@ -25,16 +25,20 @@
 
 
                     setView(scope.channel);
-                    // testing babel comment
+
                     function setView (data){
                         if ( data.live === true ) {
-                            var imgUrl = data.previewImg;
+                            let imgUrl = data.previewImg;
+                            let bgString =
                             streamScreen.css({
-                                "background": "linear-gradient(to bottom,"+
-                                    "rgba(29, 83, 161, .9),"+
-                                    "rgba(29, 83, 161, .9)),"+
-                                    "url("+ imgUrl +") center"
-                            })
+                                "background":
+                                    `linear-gradient(
+                                        to bottom,
+                                        rgba(29, 83, 161, .9),
+                                        rgba(29, 83, 161, .9)
+                                    ),
+                                    url( ${imgUrl} ) center`
+                            });
                         } else {
 
                         }
@@ -45,27 +49,26 @@
             */
 
                 // animate front button to fill and then fade out
-                frontButton.bind("click", function(){
+                frontButton.bind("click", () => {
                     frontButton.addClass("animate-fill");
                     personIcon.addClass('animate-hide');
-
-                    var id = window.setTimeout(showInfo,800);
+                    const id = window.setTimeout(showInfo,800);
                     function showInfo(){
                         scope.appear = true;
                         scope.$apply();
-                        var id = window.setTimeout(function () {
+                        const id = window.setTimeout(function () {
                             frontButton.removeClass("animate-fill");
                             personIcon.removeClass('animate-hide');
                         }, 200);
                     }
                 });
                 // animate closing of info pannel
-                exitButton.bind('click', function(){
+                exitButton.bind('click',() => {
                     scope.appear = false;
                     frontButton.addClass('animate-fill-backwards');
                     personIcon.addClass('animate-show');
 
-                    var id = window.setTimeout(function () {
+                    const id = window.setTimeout(()=> {
                         frontButton.removeClass('animate-fill-backwards');
                         personIcon.removeClass('animate-show');
                     }, 800);
@@ -77,7 +80,7 @@
                   * sliding between stream/followers slides
                 */
 
-                nextButton.bind('click', function(){
+                nextButton.bind('click',() => {
                     if (scope.toggle === true ){
                         scope.toggle = false;
                         infoScreens.css('transform',"translateX(-400px)");

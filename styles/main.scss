@@ -1,8 +1,10 @@
 $blue: #2E7EFD; // rgb R: 46 G: 126 B: 253
 $dark-blue: #1D53A1; // 29 83 161
+$dark-blue-light: #3965a6; //rgb(57, 101, 166);
 $orange: #E76F59; // 231 111 89
 $purple: #4538AE; // 69 56 174
 $dark-grey: #232C38; // 35 44 56
+$red: #EF6060;
 
 // imports
 
@@ -29,6 +31,24 @@ $dark-grey: #232C38; // 35 44 56
   -ms-transform: #{$str};
   -o-transform: #{$str};
   transform: #{$str};
+}
+
+// centering
+@mixin center-me{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    @include transform('translate(-50%,-50%)');
+}
+@mixin center-me-vert{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+@mixin center-me-horiz{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
 }
 
 
@@ -92,24 +112,6 @@ $dark-grey: #232C38; // 35 44 56
     to{
         transform: translateX(-2080px);
     }
-}
-// mixins
-
-@mixin center-me{
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%,-50%);
-}
-@mixin center-me-vert{
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-}
-@mixin center-me-horiz{
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%);
 }
 
 

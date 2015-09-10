@@ -3,7 +3,7 @@ $dark-blue: #1D53A1; // 29 83 161
 $dark-blue-light: #3965a6; //rgb(57, 101, 166);
 $orange: #E76F59; // 231 111 89
 $purple: #4538AE; // 69 56 174
-$dark-grey: #232C38; // 35 44 56
+$dark-grey: #232C38; // 35, 44, 56,
 $red: #EF6060;
 
 // imports
@@ -99,14 +99,6 @@ $red: #EF6060;
 @keyframes show {
   from{opacity: 0}
   to{opacity: 1}
-}
-@keyframes slideView {
-    from{
-        transform: translateX(0px) rotateX(0deg)
-    }
-    to{
-        transform: translateX(-2080px);
-    }
 }
 
 

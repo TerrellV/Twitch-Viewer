@@ -48,9 +48,9 @@
                 } else if(cardArr[0] === true){
                     // chanel is offline make request
                     getTwitchData.getChannel(arr[0])
-                        .then(function(data){
-                            var channelInfo = setDataOffline(data.data);
-                            // vm.channels.push(channelInfo);
+                        .then( data => {
+                            const channelInfo = setDataOffline(data.data);
+                            vm.channels.push(channelInfo);
                             setViewOffline();
                         });
                     return cardArr;
@@ -65,6 +65,7 @@
             // channel object later used for ng repeat
             let ci = SetDataBoth(data);
             ci.live = false;
+            ci.game = 'offline';
             return ci;
         }
         $scope.live = true;
@@ -91,7 +92,7 @@
             ci.profileName = data.display_name;
             ci.followers = abbreviateNumber(data.followers);
             ci.url = data.url;
-            ci.frontSubtitel = 'Offline';
+            ci.frontSubtitel = 'View Channel';
             ci.streamLabel = 'Offline';
 
             return ci;

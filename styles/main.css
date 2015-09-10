@@ -57,15 +57,10 @@
     opacity: 0; }
   to {
     opacity: 1; } }
-@keyframes slideView {
-  from {
-    transform: translateX(0px) rotateX(0deg); }
-  to {
-    transform: translateX(-2080px); } }
 button {
   cursor: pointer; }
 
-#card {
+.card {
   position: relative;
   display: inline-block;
   width: 350px;
@@ -73,270 +68,114 @@ button {
   background-color: white;
   overflow: hidden;
   margin: 20px; }
-
-#head {
-  position: relative;
-  top: 0px;
-  width: 100%;
-  height: 65%;
-  z-index: 2;
-  background: linear-gradient(rgba(47, 95, 146, 0.9), rgba(57, 101, 166, 0.9)), url(https://i.imgur.com/C72lXxM.jpg) no-repeat;
-  background-size: cover; }
-  #head .front-header-text {
+  .card .front-card {
     position: relative;
-    text-align: center;
-    margin: 0;
-    font-size: 25px;
-    font-family: "Open Sans", sans-serif;
-    font-weight: 600;
-    color: white;
-    top: 50%;
-    transform: translateY(-50%); }
-
-.subhead-game {
-  background-color: #2E7EFD;
-  height: 20%;
-  width: 100%;
-  position: relative;
-  background-color: #1D53A1; }
-  .subhead-game .subhead-game-text {
-    width: 80%;
-    position: relative;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    -webkit-transform: translate(-50%,-50%);
-    -moz-transform: translate(-50%,-50%);
-    -ms-transform: translate(-50%,-50%);
-    -o-transform: translate(-50%,-50%);
-    transform: translate(-50%,-50%);
-    color: white;
-    margin: 0px;
-    text-align: center;
-    font-family: 'Open Sanse', sans-serif;
-    font-size: 18px;
-    font-weight: 500;
-    letter-spacing: 1px;
-    white-space: nowrap; }
-
-.subhead-action {
-  position: relative;
-  bottom: 0px;
-  width: 100%;
-  color: #232C38;
-  z-index: 3;
-  height: 15%;
-  text-align: center; }
-  .subhead-action .subhead-action-container {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    -webkit-transform: translate(-50%,-50%);
-    -moz-transform: translate(-50%,-50%);
-    -ms-transform: translate(-50%,-50%);
-    -o-transform: translate(-50%,-50%);
-    transform: translate(-50%,-50%);
-    width: 40%; }
-    .subhead-action .subhead-action-container #front-redLight {
-      height: 12px;
-      width: 12px;
-      fill: #EF6060;
-      padding-right: .5em; }
-    .subhead-action .subhead-action-container h4 {
-      display: inline-block;
-      margin: 0;
-      font-family: "Open Sans", sans-serif;
-      font-size: 16px;
-      font-weight: 500;
-      color: #2E7EFD; }
-
-.subhead-btn {
-  outline: none;
-  position: absolute;
-  background-color: #2E7EFD;
-  color: white;
-  border: none;
-  border-radius: 50%;
-  height: 50px;
-  width: 50px;
-  right: 8%;
-  top: 85%;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  transform: translateY(-50%);
-  z-index: 3; }
-  .subhead-btn i {
-    font-size: 20px; }
-
-.card-info {
-  position: relative;
-  height: 100%;
-  width: 400px;
-  background-color: transparent; }
-  .card-info .info-screens {
-    position: absolute;
     width: 100%;
-    height: 100%;
-    left: 0px;
-    z-index: 4;
-    transition: transform 800ms cubic-bezier(0.47, 0.14, 0.22, 0.93) 200ms; }
-    .card-info .info-screens .info-stream {
-      position: absolute;
+    height: 100%; }
+    .card .front-card .header {
+      position: relative;
+      top: 0px;
       width: 100%;
-      z-index: 4;
-      height: 85%;
-      background: linear-gradient(to bottom, rgba(46, 126, 253, 0.95), rgba(46, 126, 253, 0.95)), url(/Images/stream-bg.jpg) center; }
-      .card-info .info-screens .info-stream .stream-text-header {
+      height: 65%;
+      z-index: 2;
+      background: linear-gradient(rgba(47, 95, 146, 0.9), rgba(57, 101, 166, 0.9)), url(https://i.imgur.com/C72lXxM.jpg) no-repeat;
+      background-size: cover; }
+      .card .front-card .header .front-header-text {
         position: relative;
-        top: 15%;
+        text-align: center;
         margin: 0;
-        text-align: center;
+        font-size: 25px;
+        font-family: "Open Sans", sans-serif;
         font-weight: 600;
-        font-size: 28px;
-        font-family: "Open Sans",sans-serif;
-        color: white; }
-      .card-info .info-screens .info-stream .live-label {
-        text-align: center;
-        position: relative;
-        width: 30%;
-        top: 30%;
-        left: 50%;
-        transform: translateX(-50%); }
-        .card-info .info-screens .info-stream .live-label .live-icon {
-          position: relative;
-          bottom: 0px;
-          height: 14px;
-          width: 14px;
-          left: 0px;
-          margin-right: 3px;
-          fill: #EF6060; }
-        .card-info .info-screens .info-stream .live-label span {
-          color: white;
-          font-family: "Open Sans",sans-serif;
-          font-size: 14px;
-          font-weight: light;
-          letter-spacing: 1px;
-          text-transform: uppercase; }
-      .card-info .info-screens .info-stream .stream-text {
-        position: relative;
-        top: 35%;
-        transform: translateY(-50%);
         color: white;
-        font-family: "Open Sans",sans-serif;
+        top: 50%;
+        transform: translateY(-50%); }
+    .card .front-card .subhead-game {
+      background-color: #2E7EFD;
+      height: 20%;
+      width: 100%;
+      position: relative;
+      background-color: #1D53A1; }
+      .card .front-card .subhead-game .subhead-game-text {
+        width: 80%;
+        position: relative;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translate(-50%,-50%);
+        -moz-transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+        -o-transform: translate(-50%,-50%);
+        transform: translate(-50%,-50%);
+        color: white;
+        margin: 0px;
+        text-align: center;
+        font-family: 'Open Sanse', sans-serif;
         font-size: 18px;
-        text-align: center;
-        letter-spacing: 1px; }
-      .card-info .info-screens .info-stream .stream-btn {
-        position: absolute;
-        bottom: 12%;
-        height: 40px;
-        width: 150px;
-        background-color: transparent;
-        border: 2px solid white;
-        border-radius: 40px;
-        outline: none;
-        transition: border-color 100ms linear;
-        position: absolute;
-        left: 50%;
-        transform: translate(-50%); }
-        .card-info .info-screens .info-stream .stream-btn .play-icon {
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          height: 14px;
-          width: 14px;
-          fill: white;
-          margin-left: -10px; }
-        .card-info .info-screens .info-stream .stream-btn .stream-btn-text {
-          color: white;
-          font-family: "Open Sans",sans-serif;
-          font-weight: 400;
-          font-size: 14px;
-          margin-left: 10px;
-          margin-right: -5px; }
-    .card-info .info-screens .info-followers {
-      position: absolute;
-      left: 400px;
-      background: linear-gradient(to bottom, rgba(46, 126, 253, 0.9), rgba(46, 126, 253, 0.9)), url(/Images/urban-people-bg.jpg) center;
+        font-weight: 500;
+        letter-spacing: 1px;
+        white-space: nowrap; }
+    .card .front-card .subhead-action {
+      position: relative;
+      bottom: 0px;
       width: 100%;
-      height: 85%;
-      z-index: 5; }
-      .card-info .info-screens .info-followers .followers-text-header {
-        position: relative;
-        top: 15%;
-        margin: 0;
-        text-align: center;
-        font-weight: 600;
-        font-size: 28px;
-        font-family: "Open Sans",sans-serif;
-        color: white; }
-      .card-info .info-screens .info-followers .follower-number {
-        font-family: "Open Sans",sans-serif;
-        color: white;
-        font-size: 70px;
-        font-weight: 700;
-        position: relative;
-        text-align: center;
-        top: 28%; }
-      .card-info .info-screens .info-followers .follower-btn {
-        position: absolute;
-        bottom: 12%;
-        padding: 10px 20px;
-        background-color: transparent;
-        border: 2px solid white;
-        border-radius: 40px;
-        outline: none;
-        transition: border-color 100ms linear;
+      color: #232C38;
+      z-index: 3;
+      height: 15%;
+      text-align: center; }
+      .card .front-card .subhead-action .subhead-action-container {
         position: absolute;
         left: 50%;
-        transform: translate(-50%); }
-        .card-info .info-screens .info-followers .follower-btn .stream-btn-text {
-          color: white;
-          font-family: "Open Sans",sans-serif;
-          font-weight: 400;
-          font-size: 14px; }
-  .card-info .btn-next {
-    position: absolute;
-    right: 10%;
-    height: 50px;
-    width: 50px;
-    bottom: 35px;
-    background-color: #E76F59;
-    border: none;
-    border-radius: 50%;
-    z-index: 5;
-    outline: none; }
-    .card-info .btn-next .next-arrow-container {
-      transform: rotate(0deg);
-      transition: all 200ms cubic-bezier(0.47, 0.14, 0.22, 0.93); }
-    .card-info .btn-next #arrow-forward-icon {
-      height: 25px;
-      width: 25px;
-      fill: white; }
-  .card-info .inBox {
-    height: 50px;
-    width: 50px;
-    left: 0px;
-    bottom: 0px; }
-    .card-info .inBox .next-arrow-container {
-      transform: rotate(180deg); }
-  .card-info .info-footer {
-    position: absolute;
-    height: 15%;
-    width: 100%;
-    bottom: 0px;
-    background-color: #232C38;
-    z-index: 4; }
-    .card-info .info-footer h3 {
+        top: 50%;
+        -webkit-transform: translate(-50%,-50%);
+        -moz-transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+        -o-transform: translate(-50%,-50%);
+        transform: translate(-50%,-50%);
+        width: 40%; }
+        .card .front-card .subhead-action .subhead-action-container #front-redLight {
+          height: 12px;
+          width: 12px;
+          fill: #EF6060;
+          padding-right: .5em; }
+        .card .front-card .subhead-action .subhead-action-container h4 {
+          display: inline-block;
+          margin: 0;
+          font-family: "Open Sans", sans-serif;
+          font-size: 16px;
+          font-weight: 500;
+          color: #2E7EFD; }
+    .card .front-card .subhead-btn {
+      outline: none;
       position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
+      background-color: #2E7EFD;
       color: white;
-      font-size: 16px;
-      margin: 0;
-      left: 20px; }
+      border: none;
+      border-radius: 50%;
+      height: 50px;
+      width: 50px;
+      right: 8%;
+      top: 85%;
+      -webkit-transform: translateY(-50%);
+      -moz-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      -o-transform: translateY(-50%);
+      transform: translateY(-50%);
+      z-index: 3; }
+      .card .front-card .subhead-btn i {
+        font-size: 20px; }
+
+.card-offline .front-card .header {
+  background: linear-gradient(rgba(35, 44, 56, 0.9), rgba(35, 44, 56, 0.9)), url(https://i.imgur.com/C72lXxM.jpg) no-repeat;
+  background-size: cover; }
+  .card-offline .front-card .header .front-header-text {
+    opacity: .3; }
+.card-offline .front-card .subhead-game {
+  background-color: #232C38; }
+.card-offline .front-card .subhead-action .subhead-action-container #front-redLight {
+  fill: #232C38; }
+.card-offline .front-card .subhead-action .subhead-action-container h4 {
+  color: #232C38; }
 
 #info-close-btn {
   border-radius: 50%;
@@ -353,19 +192,8 @@ button {
   #info-close-btn i {
     font-size: 14px; }
 
-.card-offline #head {
-  background: #232C38; }
-  .card-offline #head .front-header-text {
-    opacity: .2; }
-.card-offline .front-subheader #front-redLight {
-  fill: #232C38; }
-.card-offline .info-screens .info-stream {
-  background: linear-gradient(to bottom, rgba(35, 44, 56, 0.95), rgba(35, 44, 56, 0.95)), url(/Images/stream-bg.jpg) center; }
-  .card-offline .info-screens .info-stream .live-label .live-icon {
-    fill: whitesmoke; }
-
 .animate-fill {
-  animation: buttonFill 800ms ease-in-out  both; }
+  animation: buttonFill 800ms ease  both; }
 
 .animate-fill-backwards {
   animation: buttonReturn 800ms ease-in-out both; }

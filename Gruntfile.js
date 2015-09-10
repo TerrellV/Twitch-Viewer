@@ -7,12 +7,12 @@ module.exports = function(grunt) {
                     src: [
                         "styles/*.css",
                         "*.html",
+                        "partials/*.html",
                         "scripts/*.js"
                     ]
                 },
                 options: {
                     watchTask: true,
-                    reloadDelay: 2000,
                     server: {
                         baseDir:"./"
                     }

@@ -1,0 +1,1 @@
+{"version":3,"sources":["scripts/app.js"],"names":[],"mappings":";;AAAA,CAAC,YAAW;AACR,WAAO,CAAC,MAAM,CAAC,OAAO,EAAE,CAAC,WAAW,EAAC,WAAW,CAAC,CAAC,CAAC;CAEtD,CAAA,EAAG,CAAA","file":"scripts/app.js","sourcesContent":["(function() {\r\n    angular.module('myApp', [\"ngAnimate\",\"factories\"]);\r\n\r\n})()\r\n"]}

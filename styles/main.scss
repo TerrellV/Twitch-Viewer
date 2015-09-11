@@ -120,6 +120,22 @@ body {
     // background-color: $dark-grey;
 }
 
+.add-card-btn {
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+  height: 8em;
+  width: 8em;
+  border-radius: 50%;
+  background-color: $blue;
+  #add-card-btn-icon {
+    @include center-me();
+    fill: white;
+    height: 3.5em;
+    width: 3.5em;
+  }
+}
+
 
 @import 'cards';
 @import 'nav-bar';

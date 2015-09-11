@@ -5,7 +5,7 @@
 
     function navController($http, $q, menuService) {
         var nav = this;
-
+        nav.test = 'test';
         nav.setView = menuService.setView;
     }
 })();

@@ -16,7 +16,6 @@
         vm.service = menuService;
 
 
-
         const promises = getTwitchData.async();
 
         let P = $q.all(promises).then( response => {

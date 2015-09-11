@@ -4,9 +4,9 @@
 
         function addcardDir() {
             return {
+                require: '^cardsCtrl',
                 templateUrl: 'partials/addCard.html',
-                link: (scope, element, attr ) => {
-                    console.log('connected');
+                link: (scope, element, attr, cardsCtrl ) => {
                 }
             }
         }

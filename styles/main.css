@@ -75,6 +75,27 @@ body {
   transform: translate(-50%);
   top: 15%; }
 
+.add-card-btn {
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+  height: 8em;
+  width: 8em;
+  border-radius: 50%;
+  background-color: #2E7EFD; }
+  .add-card-btn #add-card-btn-icon {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    fill: white;
+    height: 3.5em;
+    width: 3.5em; }
+
 button {
   cursor: pointer; }
 

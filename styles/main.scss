@@ -101,11 +101,6 @@ $red: #EF6060;
   to{opacity: 1}
 }
 
-
-@import 'cards';
-@import 'nav-bar';
-
-
 body {
   background-color: whitesmoke;
 }
@@ -119,9 +114,13 @@ body {
 .live-card-grid{
     position: absolute;
     height: 100%;
-    width: 69%;
+    width: 89%;
     @include center-me-horiz();
     top: 15%;
     // background-color: $dark-grey;
-    transition: transform 800ms ease-in-out;
 }
+
+
+@import 'cards';
+@import 'nav-bar';
+@import 'addCard';

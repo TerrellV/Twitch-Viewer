@@ -2,10 +2,10 @@
     angular.module('factories', [])
         .factory('getTwitchData', ['$http', '$q', getTwitchData]);
 
-    function getTwitchData($http) {
+    function getTwitchData($http,$q) {
 
         var baseUrl = 'https://api/twitch.tv/kraken';
-        var defChannels = ['comster404','freecodecamp','kittyplaysgames','twosync', 'krzjn', 'kaypealol','mrgoldensports','vgbootcamp','sodapoppin','femsteph', 'streamerhouse','joshog'];
+        var defChannels = ['comster404','freecodecamp','kittyplaysgames','twosync', 'krzjn', 'kaypealol','mrgoldensports','vgbootcamp','sodapoppin','femsteph', 'streamerhouse','joshog','pgl'];
 
         const url = 'https://api.twitch.tv/kraken/streams/';
         const channelUrl = 'https://api.twitch.tv/kraken/channels/';
@@ -19,11 +19,11 @@
                 // make a request for each channel with a promise
                 function setPromises() {
                     defChannels.map(channel => {
-                        var promise = $http.jsonp(url+channel+callBack)
+                        const promise = $http.jsonp(url+channel+callBack)
                             .then(data => {
                                 return data;
                             });
-                        promises.push([channel,promise]);
+                        promises.push(promise);
                     })
                 };
 

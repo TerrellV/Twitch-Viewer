@@ -4,26 +4,22 @@
 
     angular.module('myApp').controller('cardsCtrl', cardsCtrl);
 
-    function cardsCtrl($scope, getTwitchData, $http, $q) {
+    function cardsCtrl($scope, getTwitchData, $http, $q, menuService) {
 
-        // setting stuff
+        // seting variable to correct context of this
         var vm = this;
-        // use service to grab http info
-        var promiseArr = getTwitchData.async();
+        // array for each card object to be pushed to
+        vm.channels = {
+            online: [],
+            offline: []
+        };
+        // init values
+        vm.service = menuService;
 
-        // set array for ng repeat;
-        vm.channels = [
-            //empty until request finish;
-        ];
+        var promises = getTwitchData.async();
 
-        var strictPromiseArr = promiseArr.map(function (a) {
-            return a.pop();
-        });
+        var P = $q.all(promises).then(function (response) {
 
-        var promiseArr = getTwitchData.async();
-
-        var P = $q.all(strictPromiseArr).then(function (response) {
-            var channelPromises = [];
             response.map(function (obj) {
                 // if error
                 if (obj.data.error) {
@@ -40,7 +36,7 @@
                     var game = channel.game;
                     var _status = channel.status;
                     var parsedInfo = setDataOnline(stream);
-                    vm.channels.push(parsedInfo);
+                    vm.channels.online.push(parsedInfo);
                 } else {
                     // if offline
                     var url = data._links.channel;
@@ -48,59 +44,15 @@
                     getTwitchData.getChannel(url).then(function (data) {
                         // send data into function to be parsed and set to card
                         var parsedInfo = setDataOffline(data.data);
-                        vm.channels.push(parsedInfo);
+                        vm.channels.offline.push(parsedInfo);
+                        console.log('loading finished');
                     });
                 }
             });
-            console.log('finished waiting');
         });
 
         /*
-         * Make channel request for each channel
-         */
-
-        // promiseArr.map(function(arr) {
-        //
-        //     // arr 0 === name of channel arr 1 is promise
-        //     return arr[1].then(function(data) {
-        //         // check if chanel exists
-        //         if (data.data.error !== undefined) {
-        //             return 'error';
-        //         } else {
-        //             // check if channel is offline/online
-        //             if (data.data.stream === null) {
-        //                 return [true];
-        //             } else {
-        //                 setViewOnline();
-        //                 // return [setDataOnline(data.data),false];
-        //             };
-        //         }
-        //
-        //     }).then(function( cardArr ) {
-        //         if (cardArr === 'error' ){
-        //             console.log(arr[0],'channel doesnt exist');
-        //             // push a special object to array for ^
-        //             return 'error';
-        //         }
-        //         // if chanel exists and ONLINE push channel
-        //         else if  ( cardArr[1] === false ){
-        //             vm.channels.push(cardArr[0]);
-        //             return cardArr;
-        //         } else if(cardArr[0] === true){
-        //             // chanel is offline make request
-        //             // getTwitchData.getChannel(arr[0])
-        //             //     .then( data => {
-        //             //         const channelInfo = setDataOffline(data.data);
-        //             //         vm.channels.push(channelInfo);
-        //             //         setViewOffline();
-        //             //     });
-        //             // return cardArr;
-        //         }
-        //     })
-        // });
-
-        /*
-         * data manipulation to get info I want
+         * data manipulation parese response json object
          */
         function setDataOffline(data) {
             // channel object later used for ng repeat
@@ -136,6 +88,7 @@
             var url = channel.url;
             var status = channel.status;
 
+            // construct object using const variables above
             return {
                 name: name,
                 followers: abbreviateNumber(followers),
@@ -143,8 +96,11 @@
                 status: concatDscr(status)
             };
         }
-        function setViewOnline() {}
-        function setViewOffline() {}
+        function setCardView(onlineBool, offlineBool) {
+            // ng show true or false for both
+            vm.showOnline = onlineBool;
+            vm.showOffline = offlineBool;
+        }
 
         /*
          * further manipulate certain data...
@@ -154,9 +110,9 @@
             var newValue = value.toString();
 
             if (value >= 1000) {
-                var suffixes = ['k', 'm'];
+
                 if (value < 1000000) {
-                    return Math.floor(newValue / 1000) + 'k';
+                    return Math.floor(newValue / 1000) + ' k';
                 } else {
                     var n = newValue / 1000000;
                     var s = n.toString();

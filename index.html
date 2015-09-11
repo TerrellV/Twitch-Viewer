@@ -23,14 +23,25 @@
 
 <body>
 
-    <div class="nav" nav-dir >
+    <div
+    class="nav"
+    ng-controller="navController as nav"
+    nav-dir>
     </div>
 
     <div class="header"  ng-controller="cardsCtrl as card">
         <div class="grid-mask">
             <div class="live-card-grid" >
                 <div class=" mdl-shadow--4dp card"
-                ng-repeat="channel in card.channels"
+                ng-show="card.service.online"
+                ng-repeat="channel in card.channels.online"
+                my-dir appear="false"
+                channel="channel"
+                toggle="true">
+                </div>
+                <div class=" mdl-shadow--4dp card"
+                ng-show="card.service.offline"
+                ng-repeat="channel in card.channels.offline"
                 ng-class="{'card-offline':channel.live===false}"
                 my-dir appear="false"
                 channel="channel"
@@ -40,15 +51,25 @@
         </div>
     </div>
 
+    <div
+    class="add-card-container"
+    addcard-dir>
+    </div>
+
+
 
     <script src="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.min.js">
     </script>
 
     <script src="/node_modules/babel-es6-polyfill/browser-polyfill.min.js"></script>
+    <script src="/node_modules/angular-route/angular-route.min.js"></script>
     <script src="/scripts/build/app.js"></script>
     <script src="/scripts/build/cardController.js"></script>
+    <script src="/scripts/build/navController.js"></script>
     <script src="/scripts/build/factory.js"></script>
+    <script src="/scripts/build/menuService.js"></script>
     <script src="/scripts/build/cardDirective.js"></script>
+    <script src="/scripts/build/addCardDirective.js"></script>
     <script src="/scripts/build/navDirective.js"></script>
 
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-animate.js"></script>

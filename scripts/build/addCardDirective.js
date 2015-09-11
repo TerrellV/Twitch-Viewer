@@ -5,7 +5,7 @@
 
     function addcardDir() {
         return {
-            templateUrl: '/partials/addCard.html',
+            templateUrl: 'partials/addCard.html',
             link: function link(scope, element, attr) {
                 console.log('connected');
             }

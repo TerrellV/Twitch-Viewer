@@ -1,11 +1,15 @@
 #Twitch Viewer 
 
-View and add twitch channels to quickly see info.
+This project was designed to allow users to quickly see if certain twitch channels were online. Some additional information is display ie) followers, status, viewers etc.
 
-## **Warning!!** This is still 100% in developmnet. Activevly updating. 
+User may filter/search through channels being tracked and add their own channels to track. User may also delete channels.
+
+This project was inspired by freeCodeCamp.com's twitch project / challenge. It was suggested that this be built in codepen but I felt github pages would be much better suited for a project of this size. 
+
+#### This is still 100% in developmnet. Activevly updating. 
 * View annyways. Here is the most recent [version](http://mirpresT.github.io/Twitch-Viewer);
 
-###Newly Learned Concepts Implimented in this project
+### Newly learned concepts used in this project
 ##### In relation to Angular / Javascript
 * Seperation of angular modules, controllers, custom directives, services/factories
 * isolate scope amongst custom directives

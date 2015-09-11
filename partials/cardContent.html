@@ -1,0 +1,67 @@
+<div class="front-card">
+    <!-- front card header  -->
+    <div class="mdl-shadow--2dp header" ng-hide="appear">
+        <h3 class="front-header-text">
+            {{channel.name}}
+        </h3>
+    </div>
+
+    <!-- front card sub headers  -->
+    <div class="mdl-shadow--2dp subhead-game" ng-hide="appear">
+        <h4 class="subhead-game-text">{{channel.game}}</h4>
+    </div>
+    <!-- -->
+    <div class="subhead-action" ng-hide="appear">
+        <div class="subhead-action-container">
+            <svg  id="front-redLight" class="live-icon">
+                <use xlink:href="Images/sprites.svg#red-light"></use>
+            </svg>
+            <a ng-href="{{channel.url}}" target="_blank">
+                <h4>{{channel.frontAction}}</h4>
+            </a>
+        </div>
+    </div>
+
+    <!-- front Profile button  -->
+    <button class="mdl-shadow--8dp subhead-btn">
+        <i id="icon" class="material-icons">person</i>
+    </button>
+</div>
+
+<!-- content for inside of card  -->
+<div class="card-back" >
+
+    <div class="box info-followers">
+        <div class="f-container">
+            <h5></h5>
+            <p></p>
+            <svg class="people-icon">
+                <use xlink:href="Images/sprites.svg#people"><use/>
+            </svg>
+        </div>
+    </div>
+    <div class="box info-viewers">
+        <div class="v-container">
+            <h5></h5>
+            <p></p>
+            <svg class="people-icon">
+                <use xlink:href="Images/sprites.svg#people"><use/>
+            </svg>
+        </div>
+    </div>
+    <div class="box info-status">
+        <div class="s-container">
+            <h5></h5>
+            <p></p>
+            <svg class="people-icon">
+                <use xlink:href="Images/sprites.svg#people"><use/>
+            </svg>
+        </div>
+    </div>
+
+</div>
+
+<!-- close button on inside of card MOVE THIS INSIDE CARD INFO-->
+<button type="button" id="info-close-btn" class="close-btn" ng-show="appear">
+    <i class="material-icons">close</i>
+</button>

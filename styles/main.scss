@@ -1,0 +1,126 @@
+$blue: #2E7EFD; // rgb R: 46 G: 126 B: 253
+$dark-blue: #1D53A1; // 29 83 161
+$dark-blue-light: #3965a6; //rgb(57, 101, 166);
+$orange: #E76F59; // 231 111 89
+$purple: #4538AE; // 69 56 174
+$dark-grey: #232C38; // 35, 44, 56,
+$red: #EF6060;
+
+// imports
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800);
+
+// vendor prefixes
+@mixin animation( $str ) {
+  -webkit-animation: #{$str};
+  -moz-animation: #{$str};
+  -ms-animation: #{$str};
+  -o-animation: #{$str};
+  animation: #{$str};
+}
+@mixin transition( $str ) {
+  -webkit-transition: #{$str};
+  -moz-transition: #{$str};
+  -ms-transition: #{$str};
+  -o-transition: #{$str};
+  transition: #{$str};
+}
+@mixin transform( $str ) {
+  -webkit-transform: #{$str};
+  -moz-transform: #{$str};
+  -ms-transform: #{$str};
+  -o-transform: #{$str};
+  transform: #{$str};
+}
+
+// centering
+@mixin center-me{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    @include transform('translate(-50%,-50%)');
+}
+@mixin center-me-vert{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+@mixin center-me-horiz{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+
+@keyframes buttonFill{
+  0%{}
+  60%{
+    top: 50%;
+    right: 50%;
+    @include transform('translate(50%,-50%)');
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+  }
+  100% {
+    top: 50%;
+    right: 50%;
+    @include transform('translate(50%,-50%)');
+    width: 150%;
+    height: 170%;
+  }
+}
+@keyframes buttonReturn{
+  0%{
+    top: 50%;
+    right: 50%;
+    @include transform('translate(50%,-50%)');
+    width: 150%;
+    height: 170%;
+  }
+  60%{
+    top: 50%;
+    right: 50%;
+    transform: translate(50%,-50%);
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+  }
+  100% {
+    right: 8%;
+    top: 85%;
+    @include transform(translateY(-50%));
+  }
+}
+@keyframes hide {
+  from{opacity: 1}
+  to{opacity: 0}
+}
+@keyframes show {
+  from{opacity: 0}
+  to{opacity: 1}
+}
+
+body {
+  background-color: whitesmoke;
+}
+
+.grid-mask{
+    position: relative;
+    left: 200px;
+    width: 1700px;
+    height: 1000px;
+}
+.live-card-grid{
+    position: absolute;
+    height: 100%;
+    width: 89%;
+    @include center-me-horiz();
+    top: 15%;
+    // background-color: $dark-grey;
+}
+
+
+@import 'cards';
+@import 'nav-bar';
+@import 'addCard';

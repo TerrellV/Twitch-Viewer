@@ -1,0 +1,19 @@
+<nav class="mdl-shadow--4dp">
+    <ul>
+        <li
+        id="tab-all"
+        class="tab"
+        ng-click="nav.setView(true, true)"
+        ng-class="{'tab-active': activeTab === 'all'}">All</li>
+        <li
+        id="tab-online"
+        class="tab"
+        ng-click="nav.setView(true, false)"
+        ng-class="{'tab-active': activeTab === 'online'}">Online</li>
+        <li
+        id="tab-offline"
+        class="tab"
+        ng-click="nav.setView(false, true)"
+        ng-class="{'tab-active': activeTab === 'offline'}">Offline</li>
+    </ul>
+</nav>

@@ -1,0 +1,49 @@
+nav {
+    height: 100%;
+    width: 200px;
+    background-color: $dark-grey;
+    position: fixed;
+    ul{
+        @include center-me-horiz();
+        top: 50px;
+
+        padding-left: 0px;
+        white-space: nowrap;
+        text-align: center;
+        list-style: none;
+        width: 100%;
+        // border: 1px solid white;
+    }
+    $menu-width: 200px;
+    $highlight-width: 5px;
+
+    .tab {
+      margin: 0;
+      padding: 20px 0;
+      position: relative;
+      color: white;
+      width: 100%;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 16px;
+      letter-spacing: 1px;
+      &:hover {
+        background-color: #475467;
+      }
+      &:after {
+        content: '';
+        display: inline-block;
+        @include center-me-vert();
+        background-color: $blue;
+        width: 5px;
+        height: 0%;
+        left: $menu-width - $highlight-width;
+        @include transition("height 500ms ease");
+      }
+    }
+    .tab-active {
+      // background-color: #475467;
+      &:after {
+        height: 100%;
+      }
+    }
+}

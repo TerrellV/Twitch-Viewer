@@ -5,7 +5,7 @@
 
   function navDir() {
     return {
-      templateUrl: '/partials/nav.html',
+      templateUrl: 'partials/nav.html',
 
       link: function link(scope, element, attr) {
 

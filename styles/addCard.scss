@@ -22,6 +22,7 @@
         fill: white;
         height: 2em;
         width: 2em;
+        cursor: pointer;
     }
     #person-svg-icon {
         @include center-me-horiz();
@@ -31,7 +32,8 @@
     }
     #form-action-text {
         @include center-me();
-        width: 100%;
+        width: 70%;
+        line-height: 1.2em;
         font-family: "Open Sans", sans-serif;
         font-size: 1.5em;
         color: white;

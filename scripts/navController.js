@@ -1,11 +1,14 @@
 (()=>{
     angular.module('myApp')
-        .controller('navController',navController);
+        .controller('navController',navController)
+        .controller('addbtnController',addbtnController);
 
         function navController($http,$q,menuService) {
             const nav = this;
-            nav.test = 'test';
             nav.setView = menuService.setView;
-
+        }
+        function addbtnController(popupService){
+            const vm = this;
+            vm.showPopup = popupService.showPopup;
         }
 })()

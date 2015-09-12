@@ -6,7 +6,7 @@
   function navDir() {
     return {
       templateUrl: 'partials/nav.html',
-
+      controller: 'navController',
       link: function link(scope, element, attr) {
 
         var tabAll = element.find('#tab-all'),

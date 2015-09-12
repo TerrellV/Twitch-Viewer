@@ -6,7 +6,8 @@
     function getTwitchData($http, $q) {
 
         var baseUrl = 'https://api/twitch.tv/kraken';
-        var defChannels = ['comster404', 'freecodecamp', 'kittyplaysgames', 'twosync', 'krzjn', 'kaypealol', 'mrgoldensports', 'vgbootcamp', 'sodapoppin', 'femsteph', 'streamerhouse', 'joshog', 'pgl'];
+        var defChannels = ['comster404', 'freecodecamp', 'kittyplaysgames', 'twosync'];
+        var otherChannels = ['krzjn', 'kaypealol', 'mrgoldensports', 'vgbootcamp', 'sodapoppin', 'femsteph', 'streamerhouse', 'joshog', 'pgl'];
 
         var url = 'https://api.twitch.tv/kraken/streams/';
         var channelUrl = 'https://api.twitch.tv/kraken/channels/';
@@ -30,7 +31,14 @@
                 return promises;
             },
             getChannel: function getChannel(str) {
+                // passing in entire link
                 return $http.jsonp(str + callBack).then(function (data) {
+                    return data;
+                });
+            },
+            getStream: function getStream(profName) {
+                // passing in entire link
+                return $http.jsonp(url + profName + callBack).then(function (data) {
                     return data;
                 });
             }

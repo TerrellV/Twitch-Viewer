@@ -51,7 +51,9 @@
         </div>
     </div>
 
-    <div class="add-card-btn mdl-shadow--8dp" ng-controller="navController as nav">
+    <div class="add-card-btn mdl-shadow--8dp"
+    ng-controller="addbtnController as pop"
+    ng-click="pop.showPopup(true)">
       <svg id="add-card-btn-icon">
         <use xlink:href="Images/sprites.svg#add"></use>
       </svg>
@@ -59,6 +61,7 @@
 
     <div
     class="add-card-container"
+    ng-show="card.service.showMe"
     addcard-dir>
     </div>
 
@@ -72,7 +75,7 @@
     <script src="scripts/build/cardController.js"></script>
     <script src="scripts/build/navController.js"></script>
     <script src="scripts/build/factory.js"></script>
-    <script src="scripts/build/menuService.js"></script>
+    <script src="scripts/build/services.js"></script>
     <script src="scripts/build/cardDirective.js"></script>
     <script src="scripts/build/addCardDirective.js"></script>
     <script src="scripts/build/navDirective.js"></script>

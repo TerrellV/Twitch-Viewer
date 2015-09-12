@@ -82,7 +82,11 @@ body {
   height: 8em;
   width: 8em;
   border-radius: 50%;
-  background-color: #2E7EFD; }
+  background-color: #2E7EFD;
+  cursor: pointer; }
+  .add-card-btn:active {
+    /* offset-x | offset-y | blur-radius | spread-radius | color*/
+    box-shadow: 0px 16px 24px 1px rgba(0, 0, 0, 0.14), 0px 6px 30px 5px rgba(0, 0, 0, 0.098), 0px 8px 10px -5px rgba(0, 0, 0, 0.084); }
   .add-card-btn #add-card-btn-icon {
     position: absolute;
     left: 50%;
@@ -312,7 +316,8 @@ nav {
     left: 3%;
     fill: white;
     height: 2em;
-    width: 2em; }
+    width: 2em;
+    cursor: pointer; }
   .add-card-container #person-svg-icon {
     position: absolute;
     left: 50%;
@@ -329,7 +334,8 @@ nav {
     -ms-transform: translate(-50%,-50%);
     -o-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
-    width: 100%;
+    width: 70%;
+    line-height: 1.2em;
     font-family: "Open Sans", sans-serif;
     font-size: 1.5em;
     color: white;

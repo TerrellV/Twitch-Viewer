@@ -1,17 +1,18 @@
-<div
-class="card-form mdl-shadow--16dp">
-    <svg id="close-icon">
+<div class="card-form mdl-shadow--16dp">
+    <svg id="close-icon" ng-click="card.showPopup(false)">
         <use xlink:href="Images/sprites.svg#close"></use>
     </svg>
     <svg id="person-svg-icon">
         <use xlink:href="Images/sprites.svg#person"></use>
     </svg>
-    <h5 id="form-action-text">Enter Channel Name</h5>
+    <h5 id="form-action-text">{{card.userText}}</h5>
+    <!-- Enter Channel Name -->
     <form class="" action="" method="post">
         <div id="form-input-container">
             <input id="form-input" type="text" value=""
-            placeholder="add text here...">
-                <svg id="add-svg-icon">
+            placeholder="add text here..."
+            ng-model="card.userText">
+                <svg id="add-svg-icon" ng-click="card.makeRequest(card.userText)">
                     <use xlink:href="Images/sprites.svg#add"></use>
                 </svg>
             </input>

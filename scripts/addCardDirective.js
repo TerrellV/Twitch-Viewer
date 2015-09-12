@@ -13,11 +13,18 @@
                 if (stream.length > 1 ) {
                     getTwitchData.getStream( stream )
                         .then(response => {
-                            parseDataService.checkOnline( response )
-                            console.log(stream);
+                            let ret = parseDataService.checkOnline( response );
                             vm.userText="";
+                            if( ret !== null && typeof ret !== 'string' ) {
+                                animateCheckIcon();
+                            }
                         })
                 }
+            }
+            function animateCheckIcon() {
+                $('#poly, #xOne, #xTwo').css({
+                    "stroke-dashoffset":"0"
+                });
             }
         }
 

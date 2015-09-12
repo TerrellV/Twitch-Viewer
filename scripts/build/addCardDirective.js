@@ -12,12 +12,19 @@
         vm.makeRequest = function (stream) {
             if (stream.length > 1) {
                 getTwitchData.getStream(stream).then(function (response) {
-                    parseDataService.checkOnline(response);
-                    console.log(stream);
+                    var ret = parseDataService.checkOnline(response);
                     vm.userText = "";
+                    if (ret !== null && typeof ret !== 'string') {
+                        animateCheckIcon();
+                    }
                 });
             }
         };
+        function animateCheckIcon() {
+            $('#poly, #xOne, #xTwo').css({
+                "stroke-dashoffset": "0"
+            });
+        }
     }
 
     function addcardDir() {

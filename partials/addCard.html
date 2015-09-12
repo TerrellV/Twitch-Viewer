@@ -2,19 +2,29 @@
     <svg id="close-icon" ng-click="card.showPopup(false)">
         <use xlink:href="Images/sprites.svg#close"></use>
     </svg>
-    <svg id="checkmark" viewBox="0 0 48 48">
-		<polyline id="poly" fill="none"  stroke-width="5.7241" stroke-miterlimit="10" points="3,27.254 15.164,39.419 44.5,10.082"/>
-	</svg>
-    <svg id="closeX" viewBox="0 0 48 48" >
-    	<g >
-    		<line id="xOne" fill="none"  stroke-width="5" x1="4" y1="4.5" x2="43.938" y2="44.438"/>
-    		<line id="xTwo" fill="none"  stroke-width="5" x1="43.938" y1="4.5" x2="4" y2="44.438"/>
-    	</g>
-    </svg>
-    <svg id="person-svg-icon">
-        <use xlink:href="Images/sprites.svg#person"></use>
-    </svg>
-    <h5 id="form-action-text">Enter Username</h5>
+
+    <div class="form-header">
+        <svg id="person-svg-icon">
+            <use xlink:href="Images/sprites.svg#person"></use>
+        </svg>
+        <h5 id="form-action-text">Enter Username</h5>
+    </div>
+
+    <div class="response-container">
+        <svg id="checkmark" class="response-icon" viewBox="0 0 48 48">
+            <polyline id="poly-check" class="check-inactive" fill="none"  stroke-width="5.7241" stroke-miterlimit="10" points="3,27.254 15.164,39.419 44.5,10.082"/>
+        </svg>
+        <svg id="errorX" class="response-icon" viewBox="0 0 48 48" >
+            <g id="x-group">
+                <line id="xOne" fill="none" class="xOne-inactive"  stroke-width="5" x1="4" y1="4.5" x2="43.938" y2="44.438"/>
+                <line id="xTwo" fill="none" class="xTwo-inactive"  stroke-width="5" x1="43.938" y1="4.5" x2="4" y2="44.438"/>
+            </g>
+        </svg>
+        <p class="response-text">
+            {{card.resultText}}
+        </p>
+    </div>
+
     <!-- Enter Channel Name -->
     <form class="" action="" method="post">
         <div id="form-input-container">

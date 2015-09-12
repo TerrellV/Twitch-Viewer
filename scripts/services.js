@@ -46,6 +46,8 @@
         */
             let P = $q.all(promises).then( response => {
                 response.map( vm.checkOnline );
+            }, reason => {
+                console.log( 'default request failed', reason);
             });
 
             vm.checkOnline = obj => {
@@ -56,22 +58,23 @@
                 const { data, data: {stream} } = obj;
                 // if online
                 if (stream) {
-                    console.log(stream);
                     const { channel } = stream,
                     { display_name:name, game , status } = channel,
                      parsedInfo = vm.setDataOnline(stream);
                      vm.channels.online.push(parsedInfo);
-                  } else {
+                     return true ;
+                  }
+                else {
                     // if offline
                     const {_links:{channel:url}} = data;
                     getTwitchData.getChannel(url)
                         .then( data => {
-                        console.log(data);
                             // send data into function to be parsed and set to card
                             const parsedInfo = vm.setDataOffline(data.data);
                             vm.channels.offline.push(parsedInfo);
                         });
-                    }
+                    return true;
+                }
             }
 
         /*
@@ -103,7 +106,6 @@
                 // channel object later used for ng repeat
                 const { display_name:name, followers, url, status } = channel;
                 // construct object using const variables above
-                console.log(status);
                 return {
                     name,
                     followers: abbreviateNumber(followers),

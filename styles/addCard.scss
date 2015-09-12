@@ -9,92 +9,117 @@
         rgba(35, 44, 56, .7)
     );
     .card-form {
-        position: absolute;
         @include center-me();
+        position: relative;
         width: 55vh;
         height: 50vh;
         background-color: $dark-grey;
-    }
-    #close-icon {
-        position: absolute;
-        top: 3%;
-        left: 3%;
-        fill: white;
-        height: 2em;
-        width: 2em;
-        cursor: pointer;
-    }
-    #checkmark {
-        position: absolute;
-        right: 3%;
-        bottom: 15%;
-        height: 4em;
-        width: 4em;
-        stroke: white;
-        polyline {
-            stroke-dasharray: 60;
-            stroke-dashoffset: 60;
-            transition: all 400ms ease-out;
-        }
-    }
-    #closeX{
-        height: 4em;
-        stroke: white;
-        #xOne {
-            stroke-dasharray: 80;
-            stroke-dashoffset: 80;
-            transition: all 400ms ease;
-        }
-        #xTwo {
-            stroke-dasharray: 80;
-            stroke-dashoffset: 80;
-            transition: all 400ms 400ms ease;
-        }
-    }
-    #person-svg-icon {
-        @include center-me-horiz();
-        fill: white;
-        top: 20%;
-        height: 9em;
-    }
-    #form-action-text {
-        @include center-me();
-        width: 70%;
-        line-height: 1.2em;
-        font-family: "Open Sans", sans-serif;
-        font-size: 1.5em;
-        color: white;
-        text-align: center;
-    }
-    #form-input-container {
-        @include center-me-horiz();
-        height: 4em;
-        width:65%;
-        background-color: $blue;
-        bottom: 15%;
-        #form-input {
-            @include center-me();
-            text-align: center;
-            border: 0px;
-            font-family: "Open Sans", sans-serif;
-            font-size: 18px;
-            padding: -10px 0;
-            color: white;
-            margin: 0;
-            height: 3em;
-            width: 75%;
-            background-color: transparent;
-            outline: none;
-        }
-        #add-svg-icon {
-            @include center-me-vert();
-            right: 5%;
+        #close-icon {
+            position: absolute;
+            top: 3%;
+            left: 3%;
             fill: white;
-            height: 1.8em;
-            width: 1.8em;
+            height: 2em;
+            width: 2em;
             cursor: pointer;
-            &:active {
-                fill: $dark-blue;
+        }
+        .form-header{
+            position: absolute;
+            width: 100%;
+            top: 10%;
+            #person-svg-icon {
+                @include center-me-horiz();
+                position: relative;
+                fill: white;
+                height: 9em;
+                margin-bottom: .5em;
+            }
+            #form-action-text {
+                @include center-me-horiz();
+                position: relative;
+                width: 70%;
+                line-height: 1.2em;
+                font-family: "Open Sans", sans-serif;
+                font-size: 1.5em;
+                color: white;
+                text-align: center;
+                margin: 0;
+            }
+        }
+        .response-container {
+            height: 80px;
+            width: 55%;
+            @include center-me-horiz();
+            bottom: 30%;
+            .response-icon{
+                @include center-me-vert();
+                left: 13%;
+                height: 4em;
+                width: 4em;
+                stroke: white;
+            }
+            #checkmark {
+                .check-inactive {
+                    stroke-dasharray: 60;
+                    stroke-dashoffset: 60;
+                    transition: all 400ms ease-in-out;
+                }
+                .check-active {
+                    stroke-dashoffset: 0;
+                }
+            }
+            #errorX{
+                stroke-dasharray: 80;
+                stroke-dashoffset: 80;
+                .xOne-inactive {
+                    transition: all 250ms ease-in;
+                }
+                .xTwo-inactive {
+                    transition: all 250ms 250ms ease-out;
+                }
+                .x-active {
+                    stroke-dashoffset:0;
+                }
+            }
+            .response-text {
+                @include center-me-vert();
+                left: 38%;
+                font-family: "Open Sans",sans-serif;
+                font-size: 20px;
+                color: white;
+                margin: 0;
+            }
+        }
+        #form-input-container {
+            @include center-me-horiz();
+            height: 4em;
+            width:65%;
+            background-color: $blue;
+            bottom: 10%;
+            #form-input {
+                @include center-me();
+                text-align: center;
+                border: 0px;
+                font-family: "Open Sans", sans-serif;
+                font-size: 18px;
+                padding: -10px 0;
+                color: white;
+                margin: 0;
+                height: 3em;
+                width: 75%;
+                background-color: transparent;
+                outline: none;
+            }
+            #add-svg-icon {
+                @include center-me-vert();
+                right: 5%;
+                fill: white;
+                height: 1.8em;
+                width: 1.8em;
+                cursor: pointer;
+                &:active {
+                    fill: $dark-blue;
+                }
             }
         }
     }

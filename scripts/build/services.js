@@ -45,6 +45,8 @@
         */
         var P = $q.all(promises).then(function (response) {
             response.map(vm.checkOnline);
+        }, function (reason) {
+            console.log('default request failed', reason);
         });
 
         vm.checkOnline = function (obj) {
@@ -59,23 +61,23 @@
 
             // if online
             if (stream) {
-                console.log(stream);
                 var channel = stream.channel;
                 var _name = channel.display_name;
                 var game = channel.game;
                 var _status = channel.status;
                 var parsedInfo = vm.setDataOnline(stream);
                 vm.channels.online.push(parsedInfo);
+                return true;
             } else {
                 // if offline
                 var url = data._links.channel;
 
                 getTwitchData.getChannel(url).then(function (data) {
-                    console.log(data);
                     // send data into function to be parsed and set to card
                     var parsedInfo = vm.setDataOffline(data.data);
                     vm.channels.offline.push(parsedInfo);
                 });
+                return true;
             }
         };
 
@@ -116,7 +118,6 @@
             var status = channel.status;
 
             // construct object using const variables above
-            console.log(status);
             return {
                 name: name,
                 followers: abbreviateNumber(followers),

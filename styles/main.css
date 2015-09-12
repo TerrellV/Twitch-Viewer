@@ -299,7 +299,6 @@ nav {
   background: linear-gradient(to top, rgba(35, 44, 56, 0.7), rgba(35, 44, 56, 0.7)); }
   .add-card-container .card-form {
     position: absolute;
-    position: absolute;
     left: 50%;
     top: 50%;
     -webkit-transform: translate(-50%,-50%);
@@ -307,99 +306,119 @@ nav {
     -ms-transform: translate(-50%,-50%);
     -o-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
+    position: relative;
     width: 55vh;
     height: 50vh;
     background-color: #232C38; }
-  .add-card-container #close-icon {
-    position: absolute;
-    top: 3%;
-    left: 3%;
-    fill: white;
-    height: 2em;
-    width: 2em;
-    cursor: pointer; }
-  .add-card-container #checkmark {
-    position: absolute;
-    right: 3%;
-    bottom: 15%;
-    height: 4em;
-    width: 4em;
-    stroke: white; }
-    .add-card-container #checkmark polyline {
-      stroke-dasharray: 60;
-      stroke-dashoffset: 60;
-      transition: all 400ms ease-out; }
-  .add-card-container #closeX {
-    height: 4em;
-    stroke: white; }
-    .add-card-container #closeX #xOne {
-      stroke-dasharray: 80;
-      stroke-dashoffset: 80;
-      transition: all 400ms ease; }
-    .add-card-container #closeX #xTwo {
-      stroke-dasharray: 80;
-      stroke-dashoffset: 80;
-      transition: all 400ms 400ms ease; }
-  .add-card-container #person-svg-icon {
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%);
-    fill: white;
-    top: 20%;
-    height: 9em; }
-  .add-card-container #form-action-text {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    -webkit-transform: translate(-50%,-50%);
-    -moz-transform: translate(-50%,-50%);
-    -ms-transform: translate(-50%,-50%);
-    -o-transform: translate(-50%,-50%);
-    transform: translate(-50%,-50%);
-    width: 70%;
-    line-height: 1.2em;
-    font-family: "Open Sans", sans-serif;
-    font-size: 1.5em;
-    color: white;
-    text-align: center; }
-  .add-card-container #form-input-container {
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%);
-    height: 4em;
-    width: 65%;
-    background-color: #2E7EFD;
-    bottom: 15%; }
-    .add-card-container #form-input-container #form-input {
+    .add-card-container .card-form #close-icon {
+      position: absolute;
+      top: 3%;
+      left: 3%;
+      fill: white;
+      height: 2em;
+      width: 2em;
+      cursor: pointer; }
+    .add-card-container .card-form .form-header {
+      position: absolute;
+      width: 100%;
+      top: 10%; }
+      .add-card-container .card-form .form-header #person-svg-icon {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%);
+        position: relative;
+        fill: white;
+        height: 9em;
+        margin-bottom: .5em; }
+      .add-card-container .card-form .form-header #form-action-text {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%);
+        position: relative;
+        width: 70%;
+        line-height: 1.2em;
+        font-family: "Open Sans", sans-serif;
+        font-size: 1.5em;
+        color: white;
+        text-align: center;
+        margin: 0; }
+    .add-card-container .card-form .response-container {
+      height: 80px;
+      width: 55%;
       position: absolute;
       left: 50%;
-      top: 50%;
-      -webkit-transform: translate(-50%,-50%);
-      -moz-transform: translate(-50%,-50%);
-      -ms-transform: translate(-50%,-50%);
-      -o-transform: translate(-50%,-50%);
-      transform: translate(-50%,-50%);
-      text-align: center;
-      border: 0px;
-      font-family: "Open Sans", sans-serif;
-      font-size: 18px;
-      padding: -10px 0;
-      color: white;
-      margin: 0;
-      height: 3em;
-      width: 75%;
-      background-color: transparent;
-      outline: none; }
-    .add-card-container #form-input-container #add-svg-icon {
+      transform: translate(-50%);
+      bottom: 30%; }
+      .add-card-container .card-form .response-container .response-icon {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 13%;
+        height: 4em;
+        width: 4em;
+        stroke: white; }
+      .add-card-container .card-form .response-container #checkmark .check-inactive {
+        stroke-dasharray: 60;
+        stroke-dashoffset: 60;
+        transition: all 400ms ease-in-out; }
+      .add-card-container .card-form .response-container #checkmark .check-active {
+        stroke-dashoffset: 0; }
+      .add-card-container .card-form .response-container #errorX {
+        stroke-dasharray: 80;
+        stroke-dashoffset: 80; }
+        .add-card-container .card-form .response-container #errorX .xOne-inactive {
+          transition: all 250ms ease-in; }
+        .add-card-container .card-form .response-container #errorX .xTwo-inactive {
+          transition: all 250ms 250ms ease-out; }
+        .add-card-container .card-form .response-container #errorX .x-active {
+          stroke-dashoffset: 0; }
+      .add-card-container .card-form .response-container .response-text {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 38%;
+        font-family: "Open Sans",sans-serif;
+        font-size: 20px;
+        color: white;
+        margin: 0; }
+    .add-card-container .card-form #form-input-container {
       position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      right: 5%;
-      fill: white;
-      height: 1.8em;
-      width: 1.8em;
-      cursor: pointer; }
-      .add-card-container #form-input-container #add-svg-icon:active {
-        fill: #1D53A1; }
+      left: 50%;
+      transform: translate(-50%);
+      height: 4em;
+      width: 65%;
+      background-color: #2E7EFD;
+      bottom: 10%; }
+      .add-card-container .card-form #form-input-container #form-input {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translate(-50%,-50%);
+        -moz-transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+        -o-transform: translate(-50%,-50%);
+        transform: translate(-50%,-50%);
+        text-align: center;
+        border: 0px;
+        font-family: "Open Sans", sans-serif;
+        font-size: 18px;
+        padding: -10px 0;
+        color: white;
+        margin: 0;
+        height: 3em;
+        width: 75%;
+        background-color: transparent;
+        outline: none; }
+      .add-card-container .card-form #form-input-container #add-svg-icon {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 5%;
+        fill: white;
+        height: 1.8em;
+        width: 1.8em;
+        cursor: pointer; }
+        .add-card-container .card-form #form-input-container #add-svg-icon:active {
+          fill: #1D53A1; }
 
 /*# sourceMappingURL=main.css.map */

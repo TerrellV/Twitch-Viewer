@@ -26,15 +26,16 @@
     </div>
 
     <!-- Enter Channel Name -->
-    <form class="" action="" method="post">
-        <div id="form-input-container">
-            <input id="form-input" type="text" value=""
-            placeholder="add text here..."
-            ng-model="card.userText">
-                <svg id="add-svg-icon" ng-click="card.makeRequest(card.userText)">
-                    <use xlink:href="Images/sprites.svg#add"></use>
-                </svg>
-            </input>
-        </div>
-    </form>
+
+    <div id="form-input-container">
+        <input id="form-input" type="text" value=""
+        placeholder="add text here..."
+        ng-keypress="card.checkEnter($event, card.userText)"
+        ng-model="card.userText">
+            <svg id="add-svg-icon" ng-click="card.makeRequest(card.userText)">
+                <use xlink:href="Images/sprites.svg#add"></use>
+            </svg>
+        </input>
+    </div>
+
 </div>

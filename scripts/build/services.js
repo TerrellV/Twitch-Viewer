@@ -50,10 +50,11 @@
         });
 
         vm.checkOnline = function (obj) {
+            var msg = obj.data.message;
 
             // if error
-            if (obj.data.error) {
-                return obj.data.message;
+            if (msg) {
+                return { valid: false, msg: msg };
             }
             // destructure object
             var data = obj.data;
@@ -67,17 +68,21 @@
                 var _status = channel.status;
                 var parsedInfo = vm.setDataOnline(stream);
                 vm.channels.online.push(parsedInfo);
-                return true;
+                return { valid: true };
             } else {
                 // if offline
                 var url = data._links.channel;
 
-                getTwitchData.getChannel(url).then(function (data) {
-                    // send data into function to be parsed and set to card
+                return getTwitchData.getChannel(url).then(function (data) {
+                    // Parese Data for cards
                     var parsedInfo = vm.setDataOffline(data.data);
-                    vm.channels.offline.push(parsedInfo);
+                    if (!checkDuplicates(parsedInfo)) {
+                        vm.channels.offline.push(parsedInfo);
+                        return { valid: true };
+                    } else {
+                        return { duplicate: true };
+                    }
                 });
-                return true;
             }
         };
 
@@ -124,6 +129,30 @@
                 url: url,
                 status: concatDscr(status)
             };
+        }
+
+        /*
+         * Check for Duplicates
+        */
+        function checkDuplicates(parsedData) {
+            var match = false;
+
+            var name = parsedData.name;
+            var _vm$channels = vm.channels;
+            var online = _vm$channels.online;
+            var offline = _vm$channels.offline;
+
+            var allChannels = online.concat(offline);
+
+            allChannels.map(function compare(newChannelObj) {
+                var existingName = newChannelObj.name;
+
+                if (name.toLowerCase() === existingName.toLowerCase()) {
+                    match = true;
+                }
+            });
+
+            return match;
         }
 
         /*

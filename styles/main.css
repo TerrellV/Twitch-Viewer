@@ -344,7 +344,7 @@ nav {
         margin: 0; }
     .add-card-container .card-form .response-container {
       height: 80px;
-      width: 55%;
+      width: 65%;
       position: absolute;
       left: 50%;
       transform: translate(-50%);

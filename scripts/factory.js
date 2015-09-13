@@ -5,7 +5,7 @@
     function getTwitchData($http,$q) {
 
         var baseUrl = 'https://api/twitch.tv/kraken';
-        var defChannels = ['comster404','freecodecamp','kittyplaysgames','twosync'];
+        var defChannels = ['comster404','freecodecamp','kittyplaysgames','twosync','freecodecamp'];
         var otherChannels = ['krzjn', 'kaypealol','mrgoldensports','vgbootcamp','sodapoppin','femsteph', 'streamerhouse','joshog','pgl']
 
         const url = 'https://api.twitch.tv/kraken/streams/';
@@ -15,16 +15,22 @@
         const obj = {
             async: function() {
                 let promises = [];
+                const completed = [];
                 setPromises();
 
                 // make a request for each channel with a promise
                 function setPromises() {
                     defChannels.map(channel => {
-                        const promise = $http.jsonp(url+channel+callBack)
-                            .then(data => {
-                                return data;
-                            });
-                        promises.push(promise);
+                        if (completed.indexOf(channel) === -1) {
+                            const promise = $http.jsonp(url+channel+callBack)
+                                .then(data => {
+                                    return data;
+                                });
+                            promises.push(promise);
+                            completed.push(channel);
+                        } else {
+                            console.log(`repeat channel found in default list \n--- ${channel} ---`);
+                        };
                     })
                 };
 

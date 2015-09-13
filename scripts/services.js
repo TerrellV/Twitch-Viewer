@@ -51,9 +51,9 @@
             });
 
             vm.checkOnline = obj => {
-
+                const {data:{message:msg}} = obj;
                 // if error
-                if (obj.data.error) {return obj.data.message}
+                if (msg) { return { valid:false, msg } }
                 // destructure object
                 const { data, data: {stream} } = obj;
                 // if online
@@ -62,24 +62,28 @@
                     { display_name:name, game , status } = channel,
                      parsedInfo = vm.setDataOnline(stream);
                      vm.channels.online.push(parsedInfo);
-                     return true ;
+                     return {valid:true} ;
                   }
                 else {
                     // if offline
                     const {_links:{channel:url}} = data;
-                    getTwitchData.getChannel(url)
+                    return getTwitchData.getChannel(url)
                         .then( data => {
-                            // send data into function to be parsed and set to card
+                            // Parese Data for cards
                             const parsedInfo = vm.setDataOffline(data.data);
-                            vm.channels.offline.push(parsedInfo);
+                            if ( !checkDuplicates(parsedInfo) ){
+                                vm.channels.offline.push(parsedInfo);
+                                return { valid:true };
+                            } else {
+                                return { duplicate:true };
+                            }
                         });
-                    return true;
                 }
             }
 
-        /*
-         * Parse Data and Set To Cards Variable
-        */
+            /*
+             * Parse Data and Set To Cards Variable
+            */
             vm.setDataOffline = data => {
                 // channel object later used for ng repeat
                 let ci = SetDataBoth(data);
@@ -90,7 +94,7 @@
             }
             vm.setDataOnline = stream => {
                 // channel object later used for ng repeat
-                const { channel, live, game, viewers, preview:{large:large} } = stream;
+                const { channel, live, game, viewers, preview:{large} } = stream;
 
                 let ci = SetDataBoth(channel);
 
@@ -114,9 +118,31 @@
                 };
             }
 
-        /*
-         * further manipulate certain data...
-         */
+            /*
+             * Check for Duplicates
+            */
+            function checkDuplicates( parsedData ) {
+                let match = false;
+
+                const {name} = parsedData;
+                const {online, offline} = vm.channels;
+                const allChannels = online.concat(offline);
+
+                allChannels.map(function compare( newChannelObj ) {
+                    const {name:existingName} = newChannelObj;
+                    if(name.toLowerCase() === existingName.toLowerCase()) {
+                        match = true;
+                    }
+                });
+
+
+                return match;
+            }
+
+
+            /*
+             * further manipulate certain data...
+             */
             // abbreviate number
             function abbreviateNumber(value) {
                 var newValue = value.toString();

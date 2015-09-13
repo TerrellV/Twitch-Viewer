@@ -3,28 +3,41 @@
         .controller('popupController', popupController)
         .directive('addcardDir', addcardDir );
 
-        function popupController($scope, popupService, getTwitchData, parseDataService) {
+        function popupController($scope, popupService, getTwitchData, parseDataService, $q) {
             const vm = this;
             vm.service = popupService;
             vm.showPopup = popupService.showPopup;
+
+            vm.checkEnter = (event, input) => {
+                if (event.charCode === 13 ) {
+                    vm.makeRequest(input);
+                }
+            }
+
 
             // passing input value to service to make httpRequest
             vm.makeRequest = stream => {
                 if (stream.length > 1 ) {
                     getTwitchData.getStream( stream )
                         .then(response => {
-                            let ret = parseDataService.checkOnline( response );
                             vm.userText="";
-                            if( ret === true ) {
-                                animateSuccessResponse();
-                            } else {
-                                console.log(ret);
-                                animateErrorResponse(stream);
-                            }
+                            const res = parseDataService.checkOnline(response);
+                            // this response needs to be a promise even if...
+                            // the response is not; i.e if stream is online;
+                            $q.when(res).then(function(data){
+                                if (data.duplicate) {
+                                    animateErrorResponse(stream, data);
+                                }
+                                if (data.valid){
+                                    animateSuccessResponse();
+                                } else {
+                                    animateErrorResponse(stream, data);
+                                }
+                            })
                         }, reason => {
                             console.log(`${stream} not a valid channel`);
                             vm.userText="";
-                            animateErrorResponse(stream);
+                            animateErrorResponse(stream, returnedObj);
                         });
                 }
             }
@@ -44,8 +57,13 @@
 
             }
             // animate x icon but allow it to be called multiple timesx
-            function animateErrorResponse ( enteredString ){
-                vm.resultText = `'${enteredString}' not valid.`
+            function animateErrorResponse ( enteredString, reason ){
+                if(reason.duplicate) {
+                    vm.resultText = `"${enteredString}" Already Added.`;
+                } else if (!reason.valid) {
+                    vm.resultText = `"${enteredString}" not valid.`;
+                }
+
                 const xPaths = document.querySelectorAll('#xOne, #xTwo');
                 const group = document.getElementById('x-group');
                 const newGroup = group.cloneNode(true);

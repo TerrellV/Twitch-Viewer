@@ -363,14 +363,27 @@ nav {
         transition: all 400ms ease-in-out; }
       .add-card-container .card-form .response-container #checkmark .check-active {
         stroke-dashoffset: 0; }
-      .add-card-container .card-form .response-container #errorX {
-        stroke-dasharray: 80;
-        stroke-dashoffset: 80; }
-        .add-card-container .card-form .response-container #errorX .xOne-inactive {
-          transition: all 250ms ease-in; }
-        .add-card-container .card-form .response-container #errorX .xTwo-inactive {
-          transition: all 250ms 250ms ease-out; }
-        .add-card-container .card-form .response-container #errorX .x-active {
+      .add-card-container .card-form .response-container #error-icon {
+        stroke: white; }
+        .add-card-container .card-form .response-container #error-icon .circle-inactive {
+          stroke-dasharray: 0;
+          stroke-dashoffset: 20;
+          transition: all 250ms ease; }
+        .add-card-container .card-form .response-container #error-icon .topLine-inactive {
+          stroke-dasharray: 20;
+          stroke-dashoffset: 20;
+          -webkit-transition: all 250ms 250ms ease;
+          -moz-transition: all 250ms 250ms ease;
+          -ms-transition: all 250ms 250ms ease;
+          -o-transition: all 250ms 250ms ease;
+          transition: all 250ms 250ms ease; }
+        .add-card-container .card-form .response-container #error-icon .bottomLine-inactive {
+          -webkit-transition: all 250ms 250ms ease;
+          -moz-transition: all 250ms 250ms ease;
+          -ms-transition: all 250ms 250ms ease;
+          -o-transition: all 250ms 250ms ease;
+          transition: all 250ms 250ms ease; }
+        .add-card-container .card-form .response-container #error-icon .x-active {
           stroke-dashoffset: 0; }
       .add-card-container .card-form .response-container .response-text {
         position: absolute;

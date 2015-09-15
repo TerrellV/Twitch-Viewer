@@ -68,14 +68,20 @@
                     stroke-dashoffset: 0;
                 }
             }
-            #errorX{
-                stroke-dasharray: 80;
-                stroke-dashoffset: 80;
-                .xOne-inactive {
-                    transition: all 250ms ease-in;
+            #error-icon{
+                stroke: white;
+                .circle-inactive {
+                    stroke-dasharray: 0;
+                    stroke-dashoffset: 20;
+                    transition: all 250ms ease;
                 }
-                .xTwo-inactive {
-                    transition: all 250ms 250ms ease-out;
+                .topLine-inactive {
+                    stroke-dasharray: 20;
+                    stroke-dashoffset:20;
+                    @include transition("all 250ms 250ms ease");
+                }
+                .bottomLine-inactive {
+                    @include transition("all 250ms 250ms ease");
                 }
                 .x-active {
                     stroke-dashoffset:0;

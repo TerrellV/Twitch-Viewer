@@ -2,7 +2,8 @@
     angular.module('myApp')
         .service('menuService',menuService)
         .service('popupService',popupService)
-        .service('parseDataService',parseDataService);
+        .service('parseDataService',parseDataService)
+        .service('setCSS',setCSS);
 
         function menuService($http,$q) {
 
@@ -167,5 +168,23 @@
                 if (str === null) {return ''}
                 return  `${str.slice(0,30)} ...`;
             }
+        }
+        function setCSS() {
+            const vm = this;
+
+            const page = $(".pageContent");
+
+            vm.bind = function() {
+                $( window ).resize( vm.setPageWidth );
+            }
+
+            vm.setPageWidth = function() {
+                const pWidth = window.innerWidth;
+                page.css({
+                    width:`${pWidth - 200}px`
+                });
+            }
+
+
         }
 })()

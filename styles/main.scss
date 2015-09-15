@@ -6,6 +6,8 @@ $purple: #4538AE; // 69 56 174
 $dark-grey: #232C38; // 35, 44, 56,
 $red: #EF6060;
 
+$navWidth: 200px;
+
 // imports
 
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800);
@@ -102,19 +104,20 @@ $red: #EF6060;
 }
 
 body {
-  background-color: whitesmoke;
+  // background-color: whitesmoke;
 }
 
-.grid-mask{
-    position: relative;
-    left: 200px;
-    width: 1700px;
-    height: 1000px;
-}
-.live-card-grid{
+.pageContent {
     position: absolute;
     height: 100%;
-    width: 89%;
+    left: 200px;
+    background: #F1F1F1;
+    overflow-y:scroll;
+
+}
+
+.live-card-grid{
+    width: 92%;
     @include center-me-horiz();
     top: 15%;
     // background-color: $dark-grey;

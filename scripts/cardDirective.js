@@ -9,7 +9,8 @@
             scope: {
                 channel: '=',
                 appear: '=',
-                toggle: '='
+                toggle: '=',
+                showBack: '='
             },
             link: function(scope, element, attributes){
                 // grab all necesssary variables for elemnts in card
@@ -19,15 +20,6 @@
                     personIcon = frontButton.children(),
                     exitButton = element.find('#info-close-btn');
 
-                    setView(scope.channel);
-
-                    function setView (data){
-                        if ( data.live === true ) {
-
-                        } else {
-
-                        }
-                    }
 
             /*
               * opening and closing more info
@@ -35,6 +27,7 @@
 
                 // animate front button to fill and then fade out
                 frontButton.bind("click", () => {
+                    scope.showBack = true;
                     frontButton.addClass("animate-fill");
                     personIcon.addClass('animate-hide');
                     const id = window.setTimeout(showInfo,800);
@@ -49,6 +42,7 @@
                 });
                 // animate closing of info pannel
                 exitButton.bind('click',() => {
+                    scope.showBack = false;
                     scope.appear = false;
                     frontButton.addClass('animate-fill-backwards');
                     personIcon.addClass('animate-show');

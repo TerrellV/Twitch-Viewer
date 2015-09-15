@@ -29,24 +29,21 @@
     nav-dir>
     </div>
 
-    <div class="header"  ng-controller="cardsCtrl as card">
-        <div class="grid-mask">
-            <div class="live-card-grid" >
-                <div class=" mdl-shadow--4dp card"
-                ng-show="card.service.online"
-                ng-repeat="channel in card.channels.online"
-                my-dir appear="false"
-                channel="channel"
-                toggle="true">
-                </div>
-                <div class=" mdl-shadow--4dp card"
-                ng-show="card.service.offline"
-                ng-repeat="channel in card.channels.offline"
-                ng-class="{'card-offline':channel.live===false}"
-                my-dir appear="false"
-                channel="channel"
-                toggle="true">
-                </div>
+    <div class="pageContent"  ng-controller="cardsCtrl as card">
+        <div class="live-card-grid" >
+            <div class=" mdl-shadow--4dp card"
+            ng-show="card.service.online"
+            ng-repeat="channel in card.channels.online"
+            my-dir appear="false" channel="channel" toggle="true" back="true">
+            </div>
+            <div class=" mdl-shadow--4dp card"
+            ng-show="card.service.offline"
+            ng-repeat="channel in card.channels.offline"
+            ng-class="{'card-offline':channel.live===false}"
+            my-dir appear="false"
+            channel="channel"
+            toggle="true"
+            show-back="false">
             </div>
         </div>
     </div>

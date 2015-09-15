@@ -1,7 +1,7 @@
 'use strict';
 
 (function () {
-    angular.module('myApp').service('menuService', menuService).service('popupService', popupService).service('parseDataService', parseDataService);
+    angular.module('myApp').service('menuService', menuService).service('popupService', popupService).service('parseDataService', parseDataService).service('setCSS', setCSS);
 
     function menuService($http, $q) {
 
@@ -183,6 +183,22 @@
             }
             return str.slice(0, 30) + ' ...';
         }
+    }
+    function setCSS() {
+        var vm = this;
+
+        var page = $(".pageContent");
+
+        vm.bind = function () {
+            $(window).resize(vm.setPageWidth);
+        };
+
+        vm.setPageWidth = function () {
+            var pWidth = window.innerWidth;
+            page.css({
+                width: pWidth - 200 + 'px'
+            });
+        };
     }
 })();
 //# sourceMappingURL=services.js.map

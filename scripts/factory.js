@@ -20,7 +20,7 @@
 
                 // make a request for each channel with a promise
                 function setPromises() {
-                    defChannels.map(channel => {
+                    otherChannels.map(channel => {
                         if (completed.indexOf(channel) === -1) {
                             const promise = $http.jsonp(url+channel+callBack)
                                 .then(data => {

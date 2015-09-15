@@ -4,7 +4,7 @@
 
     angular.module('myApp').controller('cardsCtrl', cardsCtrl);
 
-    function cardsCtrl($scope, $http, $q, getTwitchData, menuService, parseDataService) {
+    function cardsCtrl($scope, $http, $q, getTwitchData, menuService, parseDataService, setCSS) {
 
         // seting variable to correct context of this
         var vm = this;
@@ -12,6 +12,10 @@
         vm.channels = parseDataService.channels;
         // init values
         vm.service = menuService;
+
+        var css = setCSS;
+        css.setPageWidth();
+        css.bind();
     }
 })();
 //# sourceMappingURL=cardController.js.map

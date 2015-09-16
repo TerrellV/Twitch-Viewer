@@ -5,10 +5,10 @@ module.exports = function(grunt) {
             default_options: {
                 files: {
                     src: [
+                        "app/**/*.html",
                         "styles/*.css",
                         "*.html",
-                        "partials/*.html",
-                        "scripts/*.js"
+                        "app/**/*.js"
                     ]
                 },
                 options: {
@@ -20,6 +20,21 @@ module.exports = function(grunt) {
                 }
             }
         },
+        jade: {
+            options: {
+                pretty: true
+            },
+            distrib: {
+                src: ['index.jade'],
+                dest: 'index.html'
+            }
+        },
+        concat: {
+            distrib: {
+                src: ['app/dev/app.js','app/dev/**/*.js'],
+                dest: 'app/build/concat.js'
+            }
+        },
         babel:{
             options: {
                 sourceMap: true
@@ -28,9 +43,9 @@ module.exports = function(grunt) {
                 files: [
                     {
                         expand: true,
-                        cwd: 'scripts/',
-                        src: ['*.js'],
-                        dest: 'scripts/build/',
+                        cwd: 'app/build/',
+                        src: ['concat.js'],
+                        dest: 'app/build/es6',
                         ext: '.js',
                     }
                 ]
@@ -44,6 +59,10 @@ module.exports = function(grunt) {
             }
         },
         watch: {
+            jade: {
+                files: ['*.jade'],
+                tasks: ['jade']
+            },
             css: {
                 files: ['styles/*.scss'],
                 tasks: ['sass'],
@@ -51,18 +70,25 @@ module.exports = function(grunt) {
                     livereload: true
                 },
             },
-            js: {
-                files: ['scripts/*.js'],
-                tasks: ['babel']
+            concatjs: {
+                files: ['app/dev/**/*.js'],
+                tasks: ['concat']
                 // option: {
                 //     livereload: true
                 // }
+            },
+            babeljs: {
+                files: ['app/build/concat.js'],
+                tasks: ['babel']
             }
         }
     });
-    grunt.loadNpmTasks('grunt-babel');
+    grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-browser-sync');
+    grunt.loadNpmTasks('grunt-babel');
+    grunt.loadNpmTasks('grunt-contrib-jade');
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.registerTask('default',['babel','sass','browserSync','watch']);
+    grunt.registerTask('default',['jade','concat','babel','sass','browserSync','watch']);
 };

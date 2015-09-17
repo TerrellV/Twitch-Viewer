@@ -5,7 +5,7 @@ nav {
     position: fixed;
     ul{
         @include center-me-horiz();
-        top: 50px;
+        bottom: 90vh;
 
         padding-left: 0px;
         white-space: nowrap;

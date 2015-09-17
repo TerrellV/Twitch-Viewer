@@ -6,12 +6,13 @@ $nav-height: 14vh;
   .nav {
     position: fixed;
     top: 0px;
-    height: 100px;
+    height: 14vh;
     width: 100%;
     ul {
       height: 50px;
-      bottom: 0px;
       margin: 0px;
+      bottom: 0px;
+      left: 50%;
       .tab{
         position: relative;
         padding: 0px;
@@ -48,9 +49,16 @@ $nav-height: 14vh;
     height: 100-$nav-height;
   }
 
+  .card {
+    width: 90vw;
+    height: 80vw;
+    font-size: 18px;
+  }
+
   .add-card-btn {
     height: 5em;
     width: 5em;
+    background-color: $orange;
     #add-card-btn-icon {
       height: 2em;
       width: 2em;

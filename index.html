@@ -13,14 +13,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
   </head>
   <body>
-    <div ng-controller="cardsCtrl as card" nav-dir class="nav"></div>
+    <div ng-controller="cardsCtrl as card" nav-dir class="nav-container"></div>
     <div ng-controller="cardsCtrl as card" class="pageContent">
       <div class="live-card-grid">
         <div ng-show="card.service.online" ng-repeat="channel in card.channels.online" my-dir appear="false" channel="channel" toggle="true" class="card mdl-shadow--4dp"></div>
         <div ng-show="card.service.offline" ng-repeat="channel in card.channels.offline" ng-class="{'card-offline':channel.live===false}" my-dir appear="false" channel="channel" toggle="true" show-back="false" class="card mdl-shadow--4dp"></div>
       </div>
     </div>
-    <div ng-controller="addbtnController as pop" ng-click="pop.showPopup(true)" class="add-card-btn mdl-shadow--8dp">
+    <div ng-controller="popupController as pop" ng-click="pop.showPopup(true)" class="add-card-btn mdl-shadow--8dp">
       <svg id="add-card-btn-icon">
         <use xlink:href="Images/sprites.svg#add"></use>
       </svg>

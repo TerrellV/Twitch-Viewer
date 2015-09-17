@@ -327,7 +327,12 @@ nav {
       content: '';
       display: inline-block;
       position: absolute;
-      top: 50%;
+      bottom: 50%;
+      left: 50%;
+      -webkit-transform: translateY(-50%);
+      -moz-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      -o-transform: translateY(-50%);
       transform: translateY(-50%);
       background-color: #2E7EFD;
       width: 5px;
@@ -483,5 +488,53 @@ nav {
         cursor: pointer; }
         .add-card-container .card-form #form-input-container #add-svg-icon:active {
           fill: #1D53A1; }
+
+@media screen and (max-width: 414px) {
+  .nav {
+    position: fixed;
+    top: 0px;
+    height: 100px;
+    width: 100%; }
+    .nav ul {
+      height: 50px;
+      bottom: 0px;
+      margin: 0px; }
+      .nav ul .tab {
+        position: relative;
+        padding: 0px;
+        display: inline-block;
+        width: 33.3%;
+        height: 50px;
+        line-height: 50px; }
+        .nav ul .tab:after {
+          display: block;
+          left: 0px;
+          height: 3px;
+          width: 0%;
+          bottom: -1px;
+          -webkit-transition: width 500ms ease;
+          -moz-transition: width 500ms ease;
+          -ms-transition: width 500ms ease;
+          -o-transition: width 500ms ease;
+          transition: width 500ms ease; }
+      .nav ul .tab-active:after {
+        width: 100%; }
+
+  .live-card-grid {
+    top: 1em;
+    width: 100%; }
+
+  .pageContent {
+    top: 14vh;
+    left: 0px;
+    width: 100%;
+    height: 86vh; }
+
+  .add-card-btn {
+    height: 5em;
+    width: 5em; }
+    .add-card-btn #add-card-btn-icon {
+      height: 2em;
+      width: 2em; } }
 
 /*# sourceMappingURL=main.css.map */

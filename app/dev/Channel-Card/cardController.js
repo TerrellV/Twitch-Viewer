@@ -13,8 +13,9 @@
         vm.service = menuService;
         // working working working... testing watch and grunt on save
         const css = setCSS;
-        console.log(css);
-        css.setPageWidth();
-        css.bind();
+        css.checkPageWidth();
+        css.bind()
+
+
     }
 })();

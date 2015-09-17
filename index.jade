@@ -13,7 +13,7 @@ html(lang="en" ng-app="myApp")
     script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js")
   body
   
-    .nav(ng-controller="cardsCtrl as card" nav-dir)
+    .nav-container(ng-controller="cardsCtrl as card" nav-dir)
       
     .pageContent(ng-controller="cardsCtrl as card")
       .live-card-grid
@@ -29,7 +29,7 @@ html(lang="en" ng-app="myApp")
         my-dir appear="false" channel="channel" toggle="true" show-back="false"
         )
       
-    .add-card-btn.mdl-shadow--8dp(ng-controller="addbtnController as pop"
+    .add-card-btn.mdl-shadow--8dp(ng-controller="popupController as pop"
     ng-click="pop.showPopup(true)")
       svg(id="add-card-btn-icon")
         use(xlink:href="Images/sprites.svg#add")

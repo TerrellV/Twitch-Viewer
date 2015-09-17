@@ -109,8 +109,7 @@
         vm.service = menuService;
         // working working working... testing watch and grunt on save
         var css = setCSS;
-        console.log(css);
-        css.setPageWidth();
+        css.checkPageWidth();
         css.bind();
     }
 })();
@@ -466,18 +465,25 @@
     }
     function setCSS() {
         var vm = this;
-
         var page = $(".pageContent");
 
         vm.bind = function () {
-            $(window).resize(vm.setPageWidth);
+            $(window).resize(vm.checkPageWidth);
         };
 
-        vm.setPageWidth = function () {
+        vm.checkPageWidth = function () {
             var pWidth = window.innerWidth;
-            page.css({
-                width: pWidth - 200 + "px"
-            });
+
+            if (pWidth > 414) {
+                console.log('not mobile ');
+                page.css({
+                    width: pWidth - 200 + "px"
+                });
+            } else {
+                page.css({
+                    "width": "100%"
+                });
+            }
         };
     }
 })();

@@ -4,7 +4,7 @@
 
         function navDir() {
             return {
-                templateUrl: 'app/build/script/Navigation/nav.html',
+                templateUrl: 'app/build/partials/nav.html',
                 controller: 'navController',
                 link: function(scope,element,attr) {
 

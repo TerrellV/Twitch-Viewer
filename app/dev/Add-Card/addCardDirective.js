@@ -98,7 +98,7 @@
             return {
                 controller: 'popupController',
                 controllerAs: "card",
-                templateUrl: 'app/build/script/Add-Card/addCard.html',
+                templateUrl: 'app/build/partials/addCard.html',
                 link: (scope, element, attr, ctrl) => {
 
                 }

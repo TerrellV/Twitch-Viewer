@@ -54,7 +54,7 @@ $nav-height: 14vh;
   }
 
   .card {
-    width: 90vw;
+    width: 85vw;
     height: 80vw;
     font-size: 18px;
   }
@@ -70,21 +70,27 @@ $nav-height: 14vh;
   }
 }
 
-@media screen and (max-width: 19px) {
+@media screen and (max-width: 1919px) {
 
   .live-card-grid {
     top: 1em;
     width: 67vw;
-    border: 2px solid white;
   }
 
   .pageContent {
-    background-color: yellow;
   }
 
   .card {
-    width: 20vw;
-    height: 20vw;
+    width: 25%;
+    height: 250px;
+    margin: 0 0 4% 6%;
+  }
+
+  .add-card-container {
+    .card-form {
+      width: 500px;
+      height: 380px;
+    }
   }
 
   .add-card-btn {
@@ -95,5 +101,38 @@ $nav-height: 14vh;
       height: 4em;
       width: 4em;
     }
+  }
+}
+
+@media screen and (max-width: 1676px) {
+  .pageContent {
+  }
+  .card {
+    width: 30%;
+    height: 250px;
+    margin: 0 0 4% 2.5%;
+    margin-left: 2.5%;
+  }
+}
+
+@media screen and (max-width: 1363px) {
+  .pageContent {
+  }
+  .card {
+    width: 40%;
+    height: 290px;
+    margin: 0 0 4% 2.5%;
+    margin-left: 6.9%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .pageContent {
+  }
+  .card {
+    width: 80%;
+    height: 290px;
+    margin: 0 0 4% 2.5%;
+    margin-left: 6.9%;
   }
 }

@@ -28,11 +28,6 @@
         <div ng-show="card.service.offline" ng-repeat="channel in card.channels.offline | filter:{name:searchText}" ng-class="{'card-offline':channel.live===false}" my-dir appear="false" channel="channel" toggle="true" show-back="false" class="card mdl-shadow--4dp"></div>
       </div>
     </div>
-    <div ng-controller="popupController as pop" ng-click="pop.showPopup(true)" class="add-card-btn mdl-shadow--8dp">
-      <svg id="add-card-btn-icon">
-        <use xlink:href="Images/sprites.svg#add"></use>
-      </svg>
-    </div>
     <div ng-show="card.service.showMe" addcard-dir class="add-card-container"></div>
     <script src="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.min.js"></script>
     <script src="node_modules/babel-es6-polyfill/browser-polyfill.min.js"></script>

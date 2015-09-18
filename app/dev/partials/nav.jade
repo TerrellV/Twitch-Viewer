@@ -1,0 +1,24 @@
+nav(class="nav mdl-shadow--16dp")
+  ul
+    li(
+    id="tab-all"
+    class="tab"
+    ng-click="nav.setView(true, true)"
+    ng-class="{'tab-active': activeTab === 'all'}") All
+    li(
+    id="tab-online"
+    class="tab"
+    ng-click="nav.setView(true, false)"
+    ng-class="{'tab-active': activeTab === 'online'}") Online
+    li(
+    id="tab-offline"
+    class="tab"
+    ng-click="nav.setView(false, true)"
+    ng-class="{'tab-active': activeTab === 'offline'}") Offline
+    
+  .add-card-btn(
+  ng-controller="popupController as pop"
+  ng-click="pop.showPopup(true)")
+    svg(id="add-card-btn-icon")
+      use(xlink:href="Images/sprites.svg#add")
+    h5(id="add-card-btn-text") Add Channel

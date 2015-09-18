@@ -102,7 +102,7 @@
             return {
                 controller: 'popupController',
                 controllerAs: "card",
-                templateUrl: 'app/build/script/Add-Card/addCard.html',
+                templateUrl: 'app/build/partials/addCard.html',
                 link: (scope, element, attr, ctrl) => {
 
                 }
@@ -148,7 +148,7 @@
     // custom directie to keep track of dom elements of individual cards...
     function dirSample($interval,$timeout) {
         return {
-            templateUrl: 'app/build/script/Channel-Card/cardContent.html',
+            templateUrl: 'app/build/partials/cardContent.html',
             scope: {
                 channel: '=',
                 appear: '=',
@@ -230,7 +230,7 @@
 
         function navDir() {
             return {
-                templateUrl: 'app/build/script/Navigation/nav.html',
+                templateUrl: 'app/build/partials/nav.html',
                 controller: 'navController',
                 link: function(scope,element,attr) {
 

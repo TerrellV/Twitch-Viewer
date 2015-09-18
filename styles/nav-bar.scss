@@ -1,51 +1,87 @@
 nav {
-    height: 100%;
-    width: $navWidth;
-    background: darken($dark-grey, 5%);
-    position: fixed;
-    ul{
-        @include center-me-horiz();
-        bottom: 70vh;
+  height: 100%;
+  width: $navWidth;
+  background: darken($dark-grey, 5%);
+  position: fixed;
+  ul {
+    @include center-me-horiz();
+    bottom: 70vh;
+    padding-left: 0;
+    white-space: nowrap;
+    text-align: center;
+    list-style: none;
+    width: 100%;
 
-        padding-left: 0px;
-        white-space: nowrap;
-        text-align: center;
-        list-style: none;
-        width: 100%;
-        // border: 1px solid white;
+    // border: 1px solid white;
+  }
+  $menu-width: 200px;
+  $highlight-width: 5px;
+
+  .tab {
+    margin: 0;
+    padding: 20px 0;
+    position: relative;
+    color: white;
+    width: 100%;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    letter-spacing: 1px;
+
+    &:hover {
+      background-color: #475467;
     }
-    $menu-width: 200px;
-    $highlight-width: 5px;
 
-    .tab {
-      margin: 0;
-      padding: 20px 0;
-      position: relative;
+    &:after {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      background-color: $blue;
+      width: 5px;
+      height: 0;
+      left: $menu-width - $highlight-width;
+      @include transition("height 500ms ease");
+    }
+  }
+
+  .tab-active {
+    // background-color: #475467;
+    &:after {
+      height: 100%;
+    }
+  }
+
+  .add-card-btn {
+    position: absolute;
+    height: 7em;
+    width: 100%;
+    bottom: 5%;
+    cursor: pointer;
+
+    &:active {
+      /* offset-x | offset-y | blur-radius | spread-radius | color*/
+      box-shadow:      0px 16px 24px 1px rgba(0, 0, 0, .14),
+      0px 6px 30px 5px rgba(0, 0, 0, .098),
+      0px 8px 10px -5px rgba(0, 0, 0, .084)
+    }
+
+    #add-card-btn-icon {
+      @include center-me-horiz();
+      top: 1em;
+      fill: white;
+      height: 3.1em;
+      width: 3.1em;
+    }
+    #add-card-btn-text {
+      @include center-me-horiz();
+      bottom: 1em;
       color: white;
-      width: 100%;
-      font-family: 'Open Sans', sans-serif;
+      font-family: "Open Sans", sans-serif;
+      font-weight: 300;
       font-size: 16px;
-      letter-spacing: 1px;
-      &:hover {
-        background-color: #475467;
-      }
-      &:after {
-        content: '';
-        display: inline-block;
-        position: absolute;
-        bottom: 0px;
-        left: 50%;
-        background-color: $blue;
-        width: 5px;
-        height: 0%;
-        left: $menu-width - $highlight-width;
-        @include transition("height 500ms ease");
-      }
+      margin: 0;
+
     }
-    .tab-active {
-      // background-color: #475467;
-      &:after {
-        height: 100%;
-      }
-    }
+  }
 }

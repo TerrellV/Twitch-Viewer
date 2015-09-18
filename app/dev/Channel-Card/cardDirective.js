@@ -5,7 +5,7 @@
     // custom directie to keep track of dom elements of individual cards...
     function dirSample($interval,$timeout) {
         return {
-            templateUrl: 'app/build/script/Channel-Card/cardContent.html',
+            templateUrl: 'app/build/partials/cardContent.html',
             scope: {
                 channel: '=',
                 appear: '=',

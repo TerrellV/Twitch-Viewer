@@ -56,31 +56,6 @@
   position: relative;
   top: 5%; }
 
-.add-card-btn {
-  position: fixed;
-  bottom: 5%;
-  right: 5%;
-  height: 8em;
-  width: 8em;
-  border-radius: 50%;
-  background-color: #4538AE;
-  cursor: pointer; }
-  .add-card-btn:active {
-    /* offset-x | offset-y | blur-radius | spread-radius | color*/
-    box-shadow: 0px 16px 24px 1px rgba(0, 0, 0, 0.14), 0px 6px 30px 5px rgba(0, 0, 0, 0.098), 0px 8px 10px -5px rgba(0, 0, 0, 0.084); }
-  .add-card-btn #add-card-btn-icon {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    -webkit-transform: translate(-50%,-50%);
-    -moz-transform: translate(-50%,-50%);
-    -ms-transform: translate(-50%,-50%);
-    -o-transform: translate(-50%,-50%);
-    transform: translate(-50%,-50%);
-    fill: white;
-    height: 3.5em;
-    width: 3.5em; }
-
 button {
   cursor: pointer; }
 
@@ -306,7 +281,7 @@ nav {
     left: 50%;
     transform: translate(-50%);
     bottom: 70vh;
-    padding-left: 0px;
+    padding-left: 0;
     white-space: nowrap;
     text-align: center;
     list-style: none;
@@ -326,11 +301,11 @@ nav {
       content: '';
       display: inline-block;
       position: absolute;
-      bottom: 0px;
+      bottom: 0;
       left: 50%;
       background-color: #2E7EFD;
       width: 5px;
-      height: 0%;
+      height: 0;
       left: 195px;
       -webkit-transition: height 500ms ease;
       -moz-transition: height 500ms ease;
@@ -339,6 +314,33 @@ nav {
       transition: height 500ms ease; }
   nav .tab-active:after {
     height: 100%; }
+  nav .add-card-btn {
+    position: absolute;
+    height: 7em;
+    width: 100%;
+    bottom: 5%;
+    cursor: pointer; }
+    nav .add-card-btn:active {
+      /* offset-x | offset-y | blur-radius | spread-radius | color*/
+      box-shadow: 0px 16px 24px 1px rgba(0, 0, 0, 0.14), 0px 6px 30px 5px rgba(0, 0, 0, 0.098), 0px 8px 10px -5px rgba(0, 0, 0, 0.084); }
+    nav .add-card-btn #add-card-btn-icon {
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%);
+      top: 1em;
+      fill: white;
+      height: 3.1em;
+      width: 3.1em; }
+    nav .add-card-btn #add-card-btn-text {
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%);
+      bottom: 1em;
+      color: white;
+      font-family: "Open Sans", sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+      margin: 0; }
 
 .add-card-container {
   position: fixed;
@@ -580,7 +582,7 @@ nav {
     height: 86vh; }
 
   .card {
-    width: 90vw;
+    width: 85vw;
     height: 80vw;
     font-size: 18px; }
 
@@ -591,18 +593,19 @@ nav {
     .add-card-btn #add-card-btn-icon {
       height: 2em;
       width: 2em; } }
-@media screen and (max-width: 19px) {
+@media screen and (max-width: 1919px) {
   .live-card-grid {
     top: 1em;
-    width: 67vw;
-    border: 2px solid white; }
-
-  .pageContent {
-    background-color: yellow; }
+    width: 67vw; }
 
   .card {
-    width: 20vw;
-    height: 20vw; }
+    width: 25%;
+    height: 250px;
+    margin: 0 0 4% 6%; }
+
+  .add-card-container .card-form {
+    width: 500px;
+    height: 380px; }
 
   .add-card-btn {
     height: 7em;
@@ -611,5 +614,23 @@ nav {
     .add-card-btn #add-card-btn-icon {
       height: 4em;
       width: 4em; } }
+@media screen and (max-width: 1676px) {
+  .card {
+    width: 30%;
+    height: 250px;
+    margin: 0 0 4% 2.5%;
+    margin-left: 2.5%; } }
+@media screen and (max-width: 1363px) {
+  .card {
+    width: 40%;
+    height: 290px;
+    margin: 0 0 4% 2.5%;
+    margin-left: 6.9%; } }
+@media screen and (max-width: 900px) {
+  .card {
+    width: 80%;
+    height: 290px;
+    margin: 0 0 4% 2.5%;
+    margin-left: 6.9%; } }
 
 /*# sourceMappingURL=main.css.map */

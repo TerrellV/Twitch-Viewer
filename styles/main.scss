@@ -104,28 +104,6 @@ body {
     // background-color: $dark-grey;
 }
 
-.add-card-btn {
-    position: fixed;
-    bottom: 5%;
-    right: 5%;
-    height: 8em;
-    width: 8em;
-    border-radius: 50%;
-    background-color: $purple;
-    cursor: pointer;
-    &:active {
-        /* offset-x | offset-y | blur-radius | spread-radius | color*/
-        box-shadow: 0px 16px 24px 1px rgba(0, 0, 0, .14),  // color .14 opacity
-                    0px 6px 30px 5px rgba(0,0,0, .098),  // color .14 opacity
-                    0px 8px 10px -5px rgba(0,0,0, .084)  // color .14 opacity
-  }
-  #add-card-btn-icon {
-    @include center-me();
-    fill: white;
-    height: 3.5em;
-    width: 3.5em;
-  }
-}
 
 
 @import 'cards';

@@ -39,11 +39,7 @@ html(lang="en" ng-app="myApp")
         ng-class="{'card-offline':channel.live===false}"
         my-dir appear="false" channel="channel" toggle="true" show-back="false"
         )
-      
-    .add-card-btn.mdl-shadow--8dp(ng-controller="popupController as pop"
-    ng-click="pop.showPopup(true)")
-      svg(id="add-card-btn-icon")
-        use(xlink:href="Images/sprites.svg#add")
+    
     
     .add-card-container(ng-show="card.service.showMe" addcard-dir)
     

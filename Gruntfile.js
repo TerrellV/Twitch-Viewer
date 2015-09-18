@@ -24,9 +24,20 @@ module.exports = function(grunt) {
             options: {
                 pretty: true
             },
-            distrib: {
+            index: {
                 src: ['index.jade'],
                 dest: 'index.html'
+            },
+            partials: {
+              files: [
+                  {
+                      expand: true,
+                      cwd: 'app/dev/partials/',
+                      src: ['*.jade'],
+                      dest: 'app/build/partials',
+                      ext: '.html',
+                  }
+              ]
             }
         },
         concat: {
@@ -59,9 +70,13 @@ module.exports = function(grunt) {
             }
         },
         watch: {
-            jade: {
+            indexJade: {
                 files: ['*.jade'],
-                tasks: ['jade']
+                tasks: ['jade:index']
+            },
+            partialsJade: {
+                files: ['app/dev/partials/*.jade'],
+                tasks: ['jade:partials']
             },
             css: {
                 files: ['styles/*.scss'],

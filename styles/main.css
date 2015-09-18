@@ -1,52 +1,36 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800);
 @keyframes buttonFill {
   60% {
-    top: 50%;
-    right: 50%;
-    -webkit-transform: translate(50%,-50%);
-    -moz-transform: translate(50%,-50%);
-    -ms-transform: translate(50%,-50%);
-    -o-transform: translate(50%,-50%);
-    transform: translate(50%,-50%);
-    height: 60px;
-    width: 60px;
-    border-radius: 50%; }
+    -webkit-transform: translate(150px,-180px);
+    -moz-transform: translate(150px,-180px);
+    -ms-transform: translate(150px,-180px);
+    -o-transform: translate(150px,-180px);
+    transform: translate(150px,-180px); }
   100% {
-    top: 50%;
-    right: 50%;
-    -webkit-transform: translate(50%,-50%);
-    -moz-transform: translate(50%,-50%);
-    -ms-transform: translate(50%,-50%);
-    -o-transform: translate(50%,-50%);
-    transform: translate(50%,-50%);
-    width: 150%;
-    height: 170%; } }
+    -webkit-transform: translate(150px,-180px) scale(12);
+    -moz-transform: translate(150px,-180px) scale(12);
+    -ms-transform: translate(150px,-180px) scale(12);
+    -o-transform: translate(150px,-180px) scale(12);
+    transform: translate(150px,-180px) scale(12); } }
 @keyframes buttonReturn {
   0% {
-    top: 50%;
-    right: 50%;
-    -webkit-transform: translate(50%,-50%);
-    -moz-transform: translate(50%,-50%);
-    -ms-transform: translate(50%,-50%);
-    -o-transform: translate(50%,-50%);
-    transform: translate(50%,-50%);
-    width: 150%;
-    height: 170%; }
+    -webkit-transform: translate(150px,-180px) scale(12);
+    -moz-transform: translate(150px,-180px) scale(12);
+    -ms-transform: translate(150px,-180px) scale(12);
+    -o-transform: translate(150px,-180px) scale(12);
+    transform: translate(150px,-180px) scale(12); }
   60% {
-    top: 50%;
-    right: 50%;
-    transform: translate(50%, -50%);
-    height: 60px;
-    width: 60px;
-    border-radius: 50%; }
+    -webkit-transform: translate(150px,-180px);
+    -moz-transform: translate(150px,-180px);
+    -ms-transform: translate(150px,-180px);
+    -o-transform: translate(150px,-180px);
+    transform: translate(150px,-180px); }
   100% {
-    right: 8%;
-    top: 85%;
-    -webkit-transform: translateY(-50%);
-    -moz-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    -o-transform: translateY(-50%);
-    transform: translateY(-50%); } }
+    -webkit-transform: translate(270px,-75px);
+    -moz-transform: translate(270px,-75px);
+    -ms-transform: translate(270px,-75px);
+    -o-transform: translate(270px,-75px);
+    transform: translate(270px,-75px); } }
 @keyframes hide {
   from {
     opacity: 1; }
@@ -194,13 +178,11 @@ button {
       border-radius: 50%;
       height: 50px;
       width: 50px;
-      right: 8%;
-      top: 85%;
-      -webkit-transform: translateY(-50%);
-      -moz-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-      -o-transform: translateY(-50%);
-      transform: translateY(-50%);
+      -webkit-transform: translate(270px,-75px);
+      -moz-transform: translate(270px,-75px);
+      -ms-transform: translate(270px,-75px);
+      -o-transform: translate(270px,-75px);
+      transform: translate(270px,-75px);
       z-index: 3; }
       .card .front-card .subhead-btn i {
         font-size: 20px; }

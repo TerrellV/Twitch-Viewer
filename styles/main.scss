@@ -57,41 +57,21 @@ $navWidth: 200px;
 @keyframes buttonFill{
   0%{}
   60%{
-    top: 50%;
-    right: 50%;
-    @include transform('translate(50%,-50%)');
-    height: 60px;
-    width: 60px;
-    border-radius: 50%;
+    @include transform('translate(150px,-180px)');
   }
   100% {
-    top: 50%;
-    right: 50%;
-    @include transform('translate(50%,-50%)');
-    width: 150%;
-    height: 170%;
+    @include transform('translate(150px,-180px) scale(12)');
   }
 }
 @keyframes buttonReturn{
   0%{
-    top: 50%;
-    right: 50%;
-    @include transform('translate(50%,-50%)');
-    width: 150%;
-    height: 170%;
+    @include transform('translate(150px,-180px) scale(12)');
   }
   60%{
-    top: 50%;
-    right: 50%;
-    transform: translate(50%,-50%);
-    height: 60px;
-    width: 60px;
-    border-radius: 50%;
+    @include transform('translate(150px,-180px)');
   }
   100% {
-    right: 8%;
-    top: 85%;
-    @include transform(translateY(-50%));
+    @include transform("translate(270px,-75px)");
   }
 }
 @keyframes hide {

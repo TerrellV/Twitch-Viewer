@@ -94,9 +94,7 @@ button{
             border-radius: 50%;
             height: 50px;
             width: 50px;
-            right: 8%;
-            top: 85%;
-            @include transform(translateY(-50%));
+            @include transform("translate(270px,-75px)");
             z-index: 3;
             i {
                 font-size: 20px;

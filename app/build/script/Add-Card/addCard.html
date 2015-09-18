@@ -1,40 +1,31 @@
 <div class="card-form mdl-shadow--16dp">
-    <svg id="close-icon" ng-click="card.showPopup(false)">
-        <use xlink:href="Images/sprites.svg#close"></use>
+  <svg id="close-icon" ng-click="card.showPopup(false)">
+    <use xlink:href="Images/sprites.svg#close"></use>
+  </svg>
+
+  <div class="form-header">
+    <svg id="person-svg-icon">
+      <use xlink:href="Images/sprites.svg#person"></use>
     </svg>
+    <h5 id="form-action-text">Enter Username</h5>
+  </div>
 
-    <div class="form-header">
-        <svg id="person-svg-icon">
-            <use xlink:href="Images/sprites.svg#person"></use>
-        </svg>
-        <h5 id="form-action-text">Enter Username</h5>
-    </div>
+  <!-- Enter Channel Name -->
 
-    <div class="response-container">
-        <svg id="checkmark" class="response-icon" viewBox="0 0 48 48">
-            <polyline id="poly-check" class="check-inactive" fill="none"  stroke-width="5.7241" stroke-miterlimit="10" points="3,27.254 15.164,39.419 44.5,10.082"/>
-        </svg>
-        <svg id="error-icon" class="response-icon" viewBox="0 0 48 48" >
-        	<circle class="circle-inactive" fill="none"  stroke-width="4" stroke-miterlimit="10" cx="23.313" cy="24.563" r="17.438"/>
-        	<line class="topLine-inactive" fill="none" stroke-width="4" x1="23.375" y1="15.125" x2="23.375" y2="26.625"/>
-        	<line class="bottomLine-inactive" fill="none" stroke-width="4" x1="23.5" y1="30.625" x2="23.5" y2="34.25"/>
-        </svg>
-        <p class="response-text">
-            {{card.resultText}}
-        </p>
-    </div>
-
-    <!-- Enter Channel Name -->
-
-    <div id="form-input-container">
-        <input id="form-input" type="text" value=""
-        placeholder="add text here..."
-        ng-keypress="card.checkEnter($event, card.userText)"
-        ng-model="card.userText">
-            <svg id="add-svg-icon" ng-click="card.makeRequest(card.userText)">
-                <use xlink:href="Images/sprites.svg#add"></use>
-            </svg>
-        </input>
-    </div>
+  <div id="form-input-container">
+    <input id="form-input" type="text" value="" placeholder="{{card.instructionText}}" ng-keypress="card.checkEnter($event, card.userText)" ng-model="card.userText">
+    <svg id="add-svg-icon" ng-click="card.makeRequest(card.userText)">
+      <use xlink:href="Images/sprites.svg#add"></use>
+    </svg>
+    <svg id="checkmark" class="response-icon" viewBox="0 0 48 48">
+      <polyline id="poly-check" class="check-inactive" fill="none" stroke-width="5.7241" stroke-miterlimit="10" points="3,27.254 15.164,39.419 44.5,10.082" />
+    </svg>
+    <svg id="error-icon" class="response-icon" viewBox="0 0 48 48">
+      <circle class="circle-inactive" fill="none" stroke-width="4" stroke-miterlimit="10" cx="23.313" cy="24.563" r="17.438" />
+      <line class="topLine-inactive" fill="none" stroke-width="4" x1="23.375" y1="15.125" x2="23.375" y2="26.625" />
+      <line class="bottomLine-inactive" fill="none" stroke-width="4" x1="23.5" y1="30.625" x2="23.5" y2="34.25" />
+    </svg>
+    </input>
+  </div>
 
 </div>

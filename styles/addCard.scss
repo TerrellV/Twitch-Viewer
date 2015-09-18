@@ -11,8 +11,8 @@
     .card-form {
         @include center-me();
         position: relative;
-        width: 55vh;
-        height: 50vh;
+        width: 45vh;
+        height: 38vh;
         background-color: $dark-grey;
         #close-icon {
             position: absolute;
@@ -32,7 +32,7 @@
                 position: relative;
                 fill: white;
                 height: 9em;
-                margin-bottom: .5em;
+                margin-bottom: 2em;
             }
             #form-action-text {
                 @include center-me-horiz();
@@ -48,51 +48,19 @@
         }
         .response-container {
             height: 80px;
-            width: 65%;
+            width: 85%;
             @include center-me-horiz();
             bottom: 30%;
-            .response-icon{
-                @include center-me-vert();
-                left: 13%;
-                height: 4em;
-                width: 4em;
-                stroke: white;
-            }
-            #checkmark {
-                .check-inactive {
-                    stroke-dasharray: 60;
-                    stroke-dashoffset: 60;
-                    transition: all 400ms ease-in-out;
-                }
-                .check-active {
-                    stroke-dashoffset: 0;
-                }
-            }
-            #error-icon{
-                stroke: white;
-                .circle-inactive {
-                    stroke-dasharray: 0;
-                    stroke-dashoffset: 20;
-                    transition: all 250ms ease;
-                }
-                .topLine-inactive {
-                    stroke-dasharray: 20;
-                    stroke-dashoffset:20;
-                    @include transition("all 250ms 250ms ease");
-                }
-                .bottomLine-inactive {
-                    @include transition("all 250ms 250ms ease");
-                }
-                .x-active {
-                    stroke-dashoffset:0;
-                }
-            }
+            text-align: center;
+            white-space: nowrap;
+
             .response-text {
-                @include center-me-vert();
-                left: 38%;
+              text-align: center;
+                @include center-me();
                 font-family: "Open Sans",sans-serif;
                 font-size: 20px;
                 color: white;
+                opacity: .5;
                 margin: 0;
             }
         }
@@ -123,8 +91,51 @@
                 height: 1.8em;
                 width: 1.8em;
                 cursor: pointer;
+                z-index: 4;
+                @include transition("opacity 100ms ease-in");
                 &:active {
                     fill: $dark-blue;
+                }
+            }
+            .response-icon{
+                @include center-me-vert();
+                right: 5%;
+                height: 1.8em;
+                width: 1.8em;
+                stroke: white;
+            }
+            #checkmark {
+                .check-inactive {
+                    stroke-dasharray: 60;
+                    stroke-dashoffset: 60;
+                    transition: all 400ms ease-in-out;
+                }
+                .check-active {
+                    stroke-dashoffset: 0;
+                }
+            }
+            #error-icon{
+                stroke: white;
+                // animate circle first
+                .circle-inactive {
+                  stroke-dasharray: 110;
+                  stroke-dashoffset: 110;
+                  @include transition("all 500ms ease-in-out");
+                }
+                // then animate the top line
+                .topLine-inactive {
+                  stroke-dasharray: 20;
+                  stroke-dashoffset:-20;
+                  @include transition("all 500ms 500ms ease");
+                }
+                // finally animate bottom line
+                .bottomLine-inactive {
+                  stroke-dasharray: 15;
+                  stroke-dashoffset:15;
+                  @include transition("all 400ms 800ms ease-in");
+                }
+                .error-active {
+                    stroke-dashoffset:0;
                 }
             }
         }

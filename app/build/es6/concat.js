@@ -11,7 +11,7 @@
         var vm = this;
         vm.service = popupService;
         vm.showPopup = popupService.showPopup;
-
+        vm.instructionText = "start typing...";
         vm.checkEnter = function (event, input) {
             if (event.charCode === 13) {
                 vm.makeRequest(input);
@@ -39,48 +39,57 @@
                 }, function (reason) {
                     console.log(stream + " not a valid channel");
                     vm.userText = "";
-                    animateErrorResponse(stream, returnedObj);
+                    animateErrorResponse(stream, reason);
                 });
             }
         };
         // animate check icon but allow it to be called multiple times
         function animateSuccessResponse() {
-            vm.resultText = 'Channel Added';
+            vm.instructionText = 'Channel Added';
             var check = document.getElementById('poly-check');
             var newCheck = check.cloneNode(true);
+            var addIcon = document.getElementById('add-svg-icon');
+
+            addIcon.style.opacity = "0";
 
             check.classList.add('check-active');
             // 400 ms after animation finishes replace it with the original
             var timeout = window.setTimeout(function () {
                 check.parentNode.replaceChild(newCheck, check);
                 vm.resultText = "";
+                vm.instructionText = "start typing...";
+                addIcon.style.opacity = "1";
                 $scope.$apply();
-            }, 1500);
+            }, 2500);
         }
         // animate x icon but allow it to be called multiple timesx
         function animateErrorResponse(enteredString, reason) {
             if (reason.duplicate) {
-                vm.resultText = "\"" + enteredString + "\" Already Added.";
+                vm.instructionText = "already added.";
             } else if (!reason.valid) {
-                vm.resultText = "\"" + enteredString + "\" not valid.";
+                vm.instructionText = "not a channel";
             }
 
-            var xPaths = document.querySelectorAll('#xOne, #xTwo');
-            var group = document.getElementById('x-group');
-            var newGroup = group.cloneNode(true);
+            // add the class to all of them and set a delay for each...
 
-            var array = [xPaths[0], xPaths[1]];
+            var errorIcon = document.getElementById('error-icon');
+            var children = errorIcon.children;
+            var newGroup = errorIcon.cloneNode(true);
+            var addIcon = document.getElementById('add-svg-icon');
 
-            // give each path an active class;
-            array.map(function (elem) {
-                elem.classList.add('x-active');
-            });
+            addIcon.style.opacity = "0";
+
+            for (var i = 0; i < children.length; i++) {
+                children[i].classList.add('error-active');
+            }
 
             var timeout = window.setTimeout(function () {
-                group.parentNode.replaceChild(newGroup, group);
+                addIcon.style.opacity = "1";
+                errorIcon.parentNode.replaceChild(newGroup, errorIcon);
                 vm.resultText = "";
+                vm.instructionText = "start typing...";
                 $scope.$apply();
-            }, 1500);
+            }, 2500);
         }
     }
 

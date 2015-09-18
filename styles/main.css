@@ -356,8 +356,8 @@ nav {
     -o-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
     position: relative;
-    width: 55vh;
-    height: 50vh;
+    width: 45vh;
+    height: 38vh;
     background-color: #232C38; }
     .add-card-container .card-form #close-icon {
       position: absolute;
@@ -378,7 +378,7 @@ nav {
         position: relative;
         fill: white;
         height: 9em;
-        margin-bottom: .5em; }
+        margin-bottom: 2em; }
       .add-card-container .card-form .form-header #form-action-text {
         position: absolute;
         left: 50%;
@@ -393,55 +393,27 @@ nav {
         margin: 0; }
     .add-card-container .card-form .response-container {
       height: 80px;
-      width: 65%;
+      width: 85%;
       position: absolute;
       left: 50%;
       transform: translate(-50%);
-      bottom: 30%; }
-      .add-card-container .card-form .response-container .response-icon {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        left: 13%;
-        height: 4em;
-        width: 4em;
-        stroke: white; }
-      .add-card-container .card-form .response-container #checkmark .check-inactive {
-        stroke-dasharray: 60;
-        stroke-dashoffset: 60;
-        transition: all 400ms ease-in-out; }
-      .add-card-container .card-form .response-container #checkmark .check-active {
-        stroke-dashoffset: 0; }
-      .add-card-container .card-form .response-container #error-icon {
-        stroke: white; }
-        .add-card-container .card-form .response-container #error-icon .circle-inactive {
-          stroke-dasharray: 0;
-          stroke-dashoffset: 20;
-          transition: all 250ms ease; }
-        .add-card-container .card-form .response-container #error-icon .topLine-inactive {
-          stroke-dasharray: 20;
-          stroke-dashoffset: 20;
-          -webkit-transition: all 250ms 250ms ease;
-          -moz-transition: all 250ms 250ms ease;
-          -ms-transition: all 250ms 250ms ease;
-          -o-transition: all 250ms 250ms ease;
-          transition: all 250ms 250ms ease; }
-        .add-card-container .card-form .response-container #error-icon .bottomLine-inactive {
-          -webkit-transition: all 250ms 250ms ease;
-          -moz-transition: all 250ms 250ms ease;
-          -ms-transition: all 250ms 250ms ease;
-          -o-transition: all 250ms 250ms ease;
-          transition: all 250ms 250ms ease; }
-        .add-card-container .card-form .response-container #error-icon .x-active {
-          stroke-dashoffset: 0; }
+      bottom: 30%;
+      text-align: center;
+      white-space: nowrap; }
       .add-card-container .card-form .response-container .response-text {
+        text-align: center;
         position: absolute;
+        left: 50%;
         top: 50%;
-        transform: translateY(-50%);
-        left: 38%;
+        -webkit-transform: translate(-50%,-50%);
+        -moz-transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+        -o-transform: translate(-50%,-50%);
+        transform: translate(-50%,-50%);
         font-family: "Open Sans",sans-serif;
         font-size: 20px;
         color: white;
+        opacity: .5;
         margin: 0; }
     .add-card-container .card-form #form-input-container {
       position: absolute;
@@ -479,9 +451,57 @@ nav {
         fill: white;
         height: 1.8em;
         width: 1.8em;
-        cursor: pointer; }
+        cursor: pointer;
+        z-index: 4;
+        -webkit-transition: opacity 100ms ease-in;
+        -moz-transition: opacity 100ms ease-in;
+        -ms-transition: opacity 100ms ease-in;
+        -o-transition: opacity 100ms ease-in;
+        transition: opacity 100ms ease-in; }
         .add-card-container .card-form #form-input-container #add-svg-icon:active {
           fill: #1D53A1; }
+      .add-card-container .card-form #form-input-container .response-icon {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 5%;
+        height: 1.8em;
+        width: 1.8em;
+        stroke: white; }
+      .add-card-container .card-form #form-input-container #checkmark .check-inactive {
+        stroke-dasharray: 60;
+        stroke-dashoffset: 60;
+        transition: all 400ms ease-in-out; }
+      .add-card-container .card-form #form-input-container #checkmark .check-active {
+        stroke-dashoffset: 0; }
+      .add-card-container .card-form #form-input-container #error-icon {
+        stroke: white; }
+        .add-card-container .card-form #form-input-container #error-icon .circle-inactive {
+          stroke-dasharray: 110;
+          stroke-dashoffset: 110;
+          -webkit-transition: all 500ms ease-in-out;
+          -moz-transition: all 500ms ease-in-out;
+          -ms-transition: all 500ms ease-in-out;
+          -o-transition: all 500ms ease-in-out;
+          transition: all 500ms ease-in-out; }
+        .add-card-container .card-form #form-input-container #error-icon .topLine-inactive {
+          stroke-dasharray: 20;
+          stroke-dashoffset: -20;
+          -webkit-transition: all 500ms 500ms ease;
+          -moz-transition: all 500ms 500ms ease;
+          -ms-transition: all 500ms 500ms ease;
+          -o-transition: all 500ms 500ms ease;
+          transition: all 500ms 500ms ease; }
+        .add-card-container .card-form #form-input-container #error-icon .bottomLine-inactive {
+          stroke-dasharray: 15;
+          stroke-dashoffset: 15;
+          -webkit-transition: all 400ms 800ms ease-in;
+          -moz-transition: all 400ms 800ms ease-in;
+          -ms-transition: all 400ms 800ms ease-in;
+          -o-transition: all 400ms 800ms ease-in;
+          transition: all 400ms 800ms ease-in; }
+        .add-card-container .card-form #form-input-container #error-icon .error-active {
+          stroke-dashoffset: 0; }
 
 .search-container {
   position: absolute;

@@ -12,6 +12,7 @@
         vm.service = popupService;
         vm.showPopup = popupService.showPopup;
         vm.instructionText = "start typing...";
+
         vm.checkEnter = function (event, input) {
             if (event.charCode === 13) {
                 vm.makeRequest(input);
@@ -406,7 +407,6 @@
             ci.live = true;
             ci.game = game;
             ci.viewers = abbreviateNumber(viewers);
-            console.log('live viewers', ci.viewers);
             ci.previewImg = large;
             ci.strmDscr = concatDscr(status);
             ci.frontAction = 'Watch Now';
@@ -491,7 +491,7 @@
 
         vm.checkPageWidth = function () {
             var pWidth = window.innerWidth;
-            console.log(pWidth);
+            var pHeight = window.innerHeight;
 
             if (pWidth > 414) {
                 console.log('not mobile ');

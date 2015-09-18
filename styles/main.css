@@ -285,7 +285,12 @@ nav {
     white-space: nowrap;
     text-align: center;
     list-style: none;
-    width: 100%; }
+    width: 100%;
+    -webkit-transition: bottom 500ms ease;
+    -moz-transition: bottom 500ms ease;
+    -ms-transition: bottom 500ms ease;
+    -o-transition: bottom 500ms ease;
+    transition: bottom 500ms ease; }
   nav .tab {
     margin: 0;
     padding: 20px 0;
@@ -545,8 +550,7 @@ nav {
     .nav ul {
       height: 50px;
       margin: 0px;
-      bottom: 0px;
-      left: 50%; }
+      top: 0px; }
       .nav ul .tab {
         position: relative;
         padding: 0px;
@@ -567,6 +571,19 @@ nav {
           transition: width 500ms ease; }
       .nav ul .tab-active:after {
         width: 100%; }
+    .nav .add-card-btn {
+      background-color: #0f1319;
+      height: 49%;
+      width: 100%;
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%);
+      bottom: 0px; }
+      .nav .add-card-btn #add-card-btn-icon {
+        height: 25px;
+        width: 25px; }
+      .nav .add-card-btn #add-card-btn-text {
+        display: none; }
 
   .search-container {
     top: 2em; }
@@ -584,16 +601,8 @@ nav {
   .card {
     width: 85vw;
     height: 80vw;
-    font-size: 18px; }
-
-  .add-card-btn {
-    height: 5em;
-    width: 5em;
-    background-color: #4538AE; }
-    .add-card-btn #add-card-btn-icon {
-      height: 2em;
-      width: 2em; } }
-@media screen and (max-width: 1919px) {
+    font-size: 18px; } }
+@media screen and (max-width: 1919px) and (min-width: 1676px) {
   .live-card-grid {
     top: 1em;
     width: 67vw; }
@@ -614,23 +623,44 @@ nav {
     .add-card-btn #add-card-btn-icon {
       height: 4em;
       width: 4em; } }
-@media screen and (max-width: 1676px) {
+@media screen and (max-width: 1676px) and (min-width: 1363px) {
   .card {
     width: 30%;
     height: 250px;
     margin: 0 0 4% 2.5%;
     margin-left: 2.5%; } }
-@media screen and (max-width: 1363px) {
+@media screen and (max-width: 1363px) and (min-width: 901px) {
   .card {
     width: 40%;
     height: 290px;
     margin: 0 0 4% 2.5%;
     margin-left: 6.9%; } }
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 900px) and (min-width: 415px) {
   .card {
     width: 80%;
-    height: 290px;
+    height: 390px;
     margin: 0 0 4% 2.5%;
     margin-left: 6.9%; } }
+@media screen and (max-height: 820px) and (min-height: 737) {
+  .nav ul {
+    bottom: 65vh; } }
+@media screen and (max-height: 700px) {
+  .nav ul {
+    bottom: 60vh; } }
+@media screen and (max-height: 736px) and (max-width: 414px) {
+  .add-card-container .card-form {
+    height: 100%;
+    width: 100%; }
+    .add-card-container .card-form .form-header {
+      top: 5%; }
+      .add-card-container .card-form .form-header #person-svg-icon {
+        height: 40%;
+        width: 40%; }
+      .add-card-container .card-form .form-header #form-action-text {
+        font-size: 20px; }
+    .add-card-container .card-form #form-input-container {
+      width: 85%;
+      height: 60px;
+      bottom: 50%; } }
 
 /*# sourceMappingURL=main.css.map */

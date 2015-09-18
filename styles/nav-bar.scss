@@ -11,7 +11,7 @@ nav {
     text-align: center;
     list-style: none;
     width: 100%;
-
+    @include transition("bottom 500ms ease");
     // border: 1px solid white;
   }
   $menu-width: 200px;

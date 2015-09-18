@@ -27,6 +27,7 @@
             vm.showPopup = (bool) => {
                 vm.showMe = bool;
             }
+
         }
 
         function parseDataService(getTwitchData, $q) {
@@ -102,7 +103,6 @@
                 ci.live = true;
                 ci.game = game;
                 ci.viewers = abbreviateNumber(viewers);
-                console.log('live viewers',ci.viewers);
                 ci.previewImg = large;
                 ci.strmDscr = concatDscr(status);
                 ci.frontAction = 'Watch Now';
@@ -180,7 +180,8 @@
 
             vm.checkPageWidth = function() {
                 const pWidth = window.innerWidth;
-                console.log(pWidth);
+                const pHeight = window.innerHeight;
+
 
                 if (pWidth > 414) {
                   console.log('not mobile ');

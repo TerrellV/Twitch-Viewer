@@ -2,6 +2,7 @@
 $phablet: 414px;
 $nav-height: 14vh;
 
+// mobile view
 @media screen and (max-width: $phablet) {
   .nav {
     position: fixed;
@@ -11,8 +12,7 @@ $nav-height: 14vh;
     ul {
       height: 50px;
       margin: 0px;
-      bottom: 0px;
-      left: 50%;
+      top: 0px;
       .tab{
         position: relative;
         padding: 0px;
@@ -33,6 +33,20 @@ $nav-height: 14vh;
         &:after {
           width: 100%;
         }
+      }
+    }
+    .add-card-btn {
+      background-color: darken($dark-grey, 10%);
+      height: 49%;
+      width: 100%;
+      @include center-me-horiz();
+      bottom: 0px;
+      #add-card-btn-icon {
+        height: 25px;
+        width: 25px;
+      }
+      #add-card-btn-text {
+        display: none;
       }
     }
   }
@@ -59,18 +73,9 @@ $nav-height: 14vh;
     font-size: 18px;
   }
 
-  .add-card-btn {
-    height: 5em;
-    width: 5em;
-    background-color: $purple;
-    #add-card-btn-icon {
-      height: 2em;
-      width: 2em;
-    }
-  }
 }
 
-@media screen and (max-width: 1919px) {
+@media screen and (max-width: 1919px) and (min-width: 1676px) {
 
   .live-card-grid {
     top: 1em;
@@ -104,7 +109,7 @@ $nav-height: 14vh;
   }
 }
 
-@media screen and (max-width: 1676px) {
+@media screen and (max-width: 1676px) and (min-width: 1363px) {
   .pageContent {
   }
   .card {
@@ -115,7 +120,7 @@ $nav-height: 14vh;
   }
 }
 
-@media screen and (max-width: 1363px) {
+@media screen and (max-width: 1363px) and (min-width: 901px) {
   .pageContent {
   }
   .card {
@@ -126,13 +131,53 @@ $nav-height: 14vh;
   }
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 900px) and (min-width: 415px) {
   .pageContent {
   }
   .card {
     width: 80%;
-    height: 290px;
+    height: 390px;
     margin: 0 0 4% 2.5%;
     margin-left: 6.9%;
+  }
+}
+
+@media screen and (max-height: 820px) and (min-height: 737) {
+  .nav {
+    ul {
+      bottom: 65vh;
+    }
+  }
+}
+
+@media screen and (max-height: 700px) {
+  .nav {
+    ul {
+      bottom: 60vh;
+    }
+  }
+}
+
+@media screen and (max-height: 736px) and (max-width: 414px){
+  .add-card-container {
+    .card-form {
+      height: 100%;
+      width: 100%;
+      .form-header {
+        top: 5%;
+        #person-svg-icon {
+          height: 40%;
+          width: 40%;
+        }
+        #form-action-text {
+          font-size: 20px;
+        }
+      }
+      #form-input-container {
+        width: 85%;
+        height: 60px;
+        bottom: 50%;
+      }
+    }
   }
 }

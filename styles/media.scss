@@ -37,8 +37,12 @@ $nav-height: 14vh;
     }
   }
 
+  .search-container {
+    top: 2em;
+  }
+
   .live-card-grid {
-    top: 1em;
+    top: 2.75em;
     width: 100%;
   }
 
@@ -58,7 +62,7 @@ $nav-height: 14vh;
   .add-card-btn {
     height: 5em;
     width: 5em;
-    background-color: $orange;
+    background-color: $purple;
     #add-card-btn-icon {
       height: 2em;
       width: 2em;

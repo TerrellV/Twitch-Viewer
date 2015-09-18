@@ -240,8 +240,7 @@
     function getTwitchData($http, $q) {
 
         var baseUrl = 'https://api/twitch.tv/kraken';
-        var defChannels = ['comster404', 'freecodecamp', 'kittyplaysgames', 'twosync', 'freecodecamp'];
-        var otherChannels = ['krzjn', 'kaypealol', 'mrgoldensports', 'vgbootcamp', 'sodapoppin', 'femsteph', 'streamerhouse', 'joshog', 'pgl'];
+        var defChannels = ['comster404', 'freecodecamp', 'kittyplaysgames', 'twosync', 'freecodecamp', 'krzjn', 'kaypealol', 'mrgoldensports', 'vgbootcamp', 'sodapoppin', 'femsteph', 'streamerhouse', 'joshog', 'pgl'];
 
         var url = 'https://api.twitch.tv/kraken/streams/';
         var channelUrl = 'https://api.twitch.tv/kraken/channels/';
@@ -255,7 +254,7 @@
 
                 // make a request for each channel with a promise
                 function setPromises() {
-                    otherChannels.map(function (channel) {
+                    defChannels.map(function (channel) {
                         if (completed.indexOf(channel) === -1) {
                             var promise = $http.jsonp(url + channel + callBack).then(function (data) {
                                 return data;
@@ -398,6 +397,7 @@
             ci.live = true;
             ci.game = game;
             ci.viewers = abbreviateNumber(viewers);
+            console.log('live viewers', ci.viewers);
             ci.previewImg = large;
             ci.strmDscr = concatDscr(status);
             ci.frontAction = 'Watch Now';
@@ -452,7 +452,7 @@
 
             if (value >= 1000) {
                 if (value < 1000000) {
-                    return Math.floor(newValue / 1000) + " k";
+                    return Math.floor(newValue / 1000) + "k";
                 } else {
                     var n = newValue / 1000000;
                     var s = n.toString();

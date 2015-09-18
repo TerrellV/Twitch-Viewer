@@ -102,6 +102,7 @@
                 ci.live = true;
                 ci.game = game;
                 ci.viewers = abbreviateNumber(viewers);
+                console.log('live viewers',ci.viewers);
                 ci.previewImg = large;
                 ci.strmDscr = concatDscr(status);
                 ci.frontAction = 'Watch Now';
@@ -150,7 +151,7 @@
 
                 if (value >= 1000){
                     if ( value < 1000000 ){
-                        return `${Math.floor(newValue / 1000)} k`;
+                        return `${Math.floor(newValue / 1000)}k`;
                     }
                     else {
                         let n = newValue / 1000000;

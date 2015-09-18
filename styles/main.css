@@ -546,8 +546,11 @@ nav {
       .nav ul .tab-active:after {
         width: 100%; }
 
+  .search-container {
+    top: 2em; }
+
   .live-card-grid {
-    top: 1em;
+    top: 2.75em;
     width: 100%; }
 
   .pageContent {
@@ -564,7 +567,7 @@ nav {
   .add-card-btn {
     height: 5em;
     width: 5em;
-    background-color: #E76F59; }
+    background-color: #4538AE; }
     .add-card-btn #add-card-btn-icon {
       height: 2em;
       width: 2em; } }

@@ -33,7 +33,7 @@
 
     <div id="followers"class="box info-followers">
         <div class="sec-cont">
-            <h5>100K</h5>
+            <h5>{{channel.followers}}</h5>
             <p>followers</p>
             <svg class="sec-icon">
                 <use xlink:href="Images/sprites.svg#people-icon"><use/>
@@ -42,8 +42,8 @@
     </div>
     <div id="viewers"class="box info-viewers">
         <div class="sec-cont">
-            <h5>2k</h5>
-            <p>Viewers</p>
+            <h5>{{channel.viewers || "..."}}</h5>
+            <p>viewers</p>
             <svg class="sec-icon">
                 <use xlink:href="Images/sprites.svg#views-icon"><use/>
             </svg>
@@ -51,7 +51,7 @@
     </div>
     <div id="status"class="box info-status">
         <div class="sec-cont">
-            <p>Killing Golgi Bodis with Lisosomes</p>
+            <p>{{channel.status}}</p>
         </div>
     </div>
 

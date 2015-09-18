@@ -287,15 +287,31 @@ button {
     font-size: 14px; }
 
 .animate-fill {
-  animation: buttonFill 800ms ease  both; }
+  -webkit-animation: buttonFill 800ms ease-in-out  both;
+  -moz-animation: buttonFill 800ms ease-in-out  both;
+  -ms-animation: buttonFill 800ms ease-in-out  both;
+  -o-animation: buttonFill 800ms ease-in-out  both;
+  animation: buttonFill 800ms ease-in-out  both; }
 
 .animate-fill-backwards {
+  -webkit-animation: buttonReturn 800ms ease-in-out both;
+  -moz-animation: buttonReturn 800ms ease-in-out both;
+  -ms-animation: buttonReturn 800ms ease-in-out both;
+  -o-animation: buttonReturn 800ms ease-in-out both;
   animation: buttonReturn 800ms ease-in-out both; }
 
 .animate-hide {
+  -webkit-animation: hide 500ms ease-in-out both;
+  -moz-animation: hide 500ms ease-in-out both;
+  -ms-animation: hide 500ms ease-in-out both;
+  -o-animation: hide 500ms ease-in-out both;
   animation: hide 500ms ease-in-out both; }
 
 .animate-show {
+  -webkit-animation: show 500ms ease-in-out both;
+  -moz-animation: show 500ms ease-in-out both;
+  -ms-animation: show 500ms ease-in-out both;
+  -o-animation: show 500ms ease-in-out both;
   animation: show 500ms ease-in-out both; }
 
 nav {

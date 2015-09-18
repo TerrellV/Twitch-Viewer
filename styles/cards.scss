@@ -211,14 +211,14 @@ button{
 }
 
 .animate-fill {
-    animation: buttonFill 800ms ease  both;
+  @include animation("buttonFill 800ms ease-in-out  both");
 }
 .animate-fill-backwards {
-    animation: buttonReturn 800ms ease-in-out both;
+  @include animation("buttonReturn 800ms ease-in-out both");
 }
 .animate-hide {
-    animation: hide 500ms ease-in-out both;
+  @include animation("hide 500ms ease-in-out both");
 }
 .animate-show {
-    animation: show 500ms ease-in-out both;
+  @include animation("show 500ms ease-in-out both");
 }

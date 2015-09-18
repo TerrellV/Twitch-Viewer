@@ -119,7 +119,7 @@ body {
 .live-card-grid{
     width: 92%;
     @include center-me-horiz();
-    top: 15%;
+    top: 10%;
     // background-color: $dark-grey;
 }
 
@@ -130,7 +130,7 @@ body {
     height: 8em;
     width: 8em;
     border-radius: 50%;
-    background-color: $blue;
+    background-color: $purple;
     cursor: pointer;
     &:active {
         /* offset-x | offset-y | blur-radius | spread-radius | color*/
@@ -150,4 +150,5 @@ body {
 @import 'cards';
 @import 'nav-bar';
 @import 'addCard';
+@import 'search';
 @import 'media';

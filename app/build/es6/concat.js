@@ -111,6 +111,15 @@
         var css = setCSS;
         css.checkPageWidth();
         css.bind();
+
+        // set position of search
+        var $p = $('.pageContent');
+        var search = $p.find('.search-container');
+        var grid = $p.find('.live-card-grid');
+        var width = $('.live-card-grid').width();
+        search.css({
+            "width": "" + (width - 40) // 40 equates for the padding of the cards
+        });
     }
 })();
 
@@ -473,6 +482,7 @@
 
         vm.checkPageWidth = function () {
             var pWidth = window.innerWidth;
+            console.log(pWidth);
 
             if (pWidth > 414) {
                 console.log('not mobile ');

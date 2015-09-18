@@ -8,7 +8,7 @@ module.exports = function(grunt) {
                         "app/**/*.html",
                         "styles/*.css",
                         "*.html",
-                        "app/**/*.js"
+                        "app/build/es6/concat.js"
                     ]
                 },
                 options: {
@@ -72,14 +72,7 @@ module.exports = function(grunt) {
             },
             concatjs: {
                 files: ['app/dev/**/*.js'],
-                tasks: ['concat']
-                // option: {
-                //     livereload: true
-                // }
-            },
-            babeljs: {
-                files: ['app/build/concat.js'],
-                tasks: ['babel']
+                tasks: ['concat','babel']
             }
         }
     });

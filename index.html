@@ -15,9 +15,17 @@
   <body>
     <div ng-controller="cardsCtrl as card" nav-dir class="nav-container"></div>
     <div ng-controller="cardsCtrl as card" class="pageContent">
+      <div class="search-container">
+        <div class="search-box mdl-shadow--2dp">
+          <svg id="search-icon">
+            <use xlink:href="Images/sprites.svg#search"></use>
+          </svg>
+          <input ng-model="searchText" placeholder="Search..." class="search-input">
+        </div>
+      </div>
       <div class="live-card-grid">
-        <div ng-show="card.service.online" ng-repeat="channel in card.channels.online" my-dir appear="false" channel="channel" toggle="true" class="card mdl-shadow--4dp"></div>
-        <div ng-show="card.service.offline" ng-repeat="channel in card.channels.offline" ng-class="{'card-offline':channel.live===false}" my-dir appear="false" channel="channel" toggle="true" show-back="false" class="card mdl-shadow--4dp"></div>
+        <div ng-show="card.service.online" ng-repeat="channel in card.channels.online | filter:{name:searchText}" my-dir appear="false" channel="channel" toggle="true" class="card mdl-shadow--4dp"></div>
+        <div ng-show="card.service.offline" ng-repeat="channel in card.channels.offline | filter:{name:searchText}" ng-class="{'card-offline':channel.live===false}" my-dir appear="false" channel="channel" toggle="true" show-back="false" class="card mdl-shadow--4dp"></div>
       </div>
     </div>
     <div ng-controller="popupController as pop" ng-click="pop.showPopup(true)" class="add-card-btn mdl-shadow--8dp">

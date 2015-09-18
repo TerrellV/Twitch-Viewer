@@ -65,3 +65,31 @@ $nav-height: 14vh;
     }
   }
 }
+
+@media screen and (max-width: 19px) {
+
+  .live-card-grid {
+    top: 1em;
+    width: 67vw;
+    border: 2px solid white;
+  }
+
+  .pageContent {
+    background-color: yellow;
+  }
+
+  .card {
+    width: 20vw;
+    height: 20vw;
+  }
+
+  .add-card-btn {
+    height: 7em;
+    width: 7em;
+    background-color: $purple;
+    #add-card-btn-icon {
+      height: 4em;
+      width: 4em;
+    }
+  }
+}

@@ -16,15 +16,26 @@ html(lang="en" ng-app="myApp")
     .nav-container(ng-controller="cardsCtrl as card" nav-dir)
       
     .pageContent(ng-controller="cardsCtrl as card")
+    
+      .search-container
+        .search-box.mdl-shadow--2dp
+          svg(id="search-icon")
+            use(xlink:href="Images/sprites.svg#search")
+          input(
+          class="search-input"
+          ng-model="searchText"
+          placeholder="Search...")
+            
+      
       .live-card-grid
         .card.mdl-shadow--4dp(
         ng-show="card.service.online"
-        ng-repeat="channel in card.channels.online"
+        ng-repeat="channel in card.channels.online | filter:{name:searchText}"
         my-dir appear="false" channel="channel" toggle="true"
         )
         .card.mdl-shadow--4dp(
         ng-show="card.service.offline"
-        ng-repeat="channel in card.channels.offline"
+        ng-repeat="channel in card.channels.offline | filter:{name:searchText}"
         ng-class="{'card-offline':channel.live===false}"
         my-dir appear="false" channel="channel" toggle="true" show-back="false"
         )

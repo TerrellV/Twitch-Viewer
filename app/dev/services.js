@@ -179,6 +179,7 @@
 
             vm.checkPageWidth = function() {
                 const pWidth = window.innerWidth;
+                console.log(pWidth);
 
                 if (pWidth > 414) {
                   console.log('not mobile ');

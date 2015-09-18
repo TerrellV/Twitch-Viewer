@@ -1,11 +1,11 @@
 nav {
     height: 100%;
     width: $navWidth;
-    background-color: $dark-grey;
+    background: darken($dark-grey, 5%);
     position: fixed;
     ul{
         @include center-me-horiz();
-        bottom: 90vh;
+        bottom: 70vh;
 
         padding-left: 0px;
         white-space: nowrap;
@@ -33,9 +33,8 @@ nav {
         content: '';
         display: inline-block;
         position: absolute;
-        bottom: 50%;
+        bottom: 0px;
         left: 50%;
-        @include transform("translateY(-50%)");
         background-color: $blue;
         width: 5px;
         height: 0%;

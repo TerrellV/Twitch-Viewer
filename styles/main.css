@@ -69,7 +69,7 @@
   position: absolute;
   left: 50%;
   transform: translate(-50%);
-  top: 15%; }
+  top: 10%; }
 
 .add-card-btn {
   position: fixed;
@@ -78,7 +78,7 @@
   height: 8em;
   width: 8em;
   border-radius: 50%;
-  background-color: #2E7EFD;
+  background-color: #4538AE;
   cursor: pointer; }
   .add-card-btn:active {
     /* offset-x | offset-y | blur-radius | spread-radius | color*/
@@ -300,13 +300,13 @@ button {
 nav {
   height: 100%;
   width: 200px;
-  background-color: #232C38;
+  background: #192028;
   position: fixed; }
   nav ul {
     position: absolute;
     left: 50%;
     transform: translate(-50%);
-    bottom: 90vh;
+    bottom: 70vh;
     padding-left: 0px;
     white-space: nowrap;
     text-align: center;
@@ -327,13 +327,8 @@ nav {
       content: '';
       display: inline-block;
       position: absolute;
-      bottom: 50%;
+      bottom: 0px;
       left: 50%;
-      -webkit-transform: translateY(-50%);
-      -moz-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-      -o-transform: translateY(-50%);
-      transform: translateY(-50%);
       background-color: #2E7EFD;
       width: 5px;
       height: 0%;
@@ -489,6 +484,35 @@ nav {
         .add-card-container .card-form #form-input-container #add-svg-icon:active {
           fill: #1D53A1; }
 
+.search-container {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  top: 3em; }
+  .search-container .search-box {
+    position: relative;
+    width: 350px;
+    height: 50px; }
+    .search-container .search-box #search-icon {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      position: relative;
+      margin: 0 10px;
+      height: 20px;
+      width: 20px;
+      fill: #4538AE; }
+    .search-container .search-box .search-input {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 100%;
+      border: none;
+      background-color: transparent;
+      outline: none;
+      font-size: 18px;
+      color: #232C38; }
+
 @media screen and (max-width: 414px) {
   .nav {
     position: fixed;
@@ -543,5 +567,25 @@ nav {
     .add-card-btn #add-card-btn-icon {
       height: 2em;
       width: 2em; } }
+@media screen and (max-width: 19px) {
+  .live-card-grid {
+    top: 1em;
+    width: 67vw;
+    border: 2px solid white; }
+
+  .pageContent {
+    background-color: yellow; }
+
+  .card {
+    width: 20vw;
+    height: 20vw; }
+
+  .add-card-btn {
+    height: 7em;
+    width: 7em;
+    background-color: #4538AE; }
+    .add-card-btn #add-card-btn-icon {
+      height: 4em;
+      width: 4em; } }
 
 /*# sourceMappingURL=main.css.map */

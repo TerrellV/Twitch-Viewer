@@ -46,7 +46,7 @@ nav {
   }
 
   .tab-active {
-    // background-color: #475467;
+    background-color: lighten($dark-grey, 2%);
     &:after {
       height: 100%;
     }

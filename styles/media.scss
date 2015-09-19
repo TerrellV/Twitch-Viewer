@@ -7,8 +7,9 @@ $nav-height: 14vh;
   .nav {
     position: fixed;
     top: 0px;
-    height: 14vh;
+    height: 80px;
     width: 100%;
+    background-color: $dark-grey;
     ul {
       height: 50px;
       margin: 0px;
@@ -18,8 +19,11 @@ $nav-height: 14vh;
         padding: 0px;
         display: inline-block;
         width: 33.3%;
-        height: 50px;
-        line-height: 50px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 14px;
+        font-family: "Open Sans",sans-serif;
+        font-weight: 300;
         &:after {
           display: block;
           left: 0px;
@@ -30,23 +34,30 @@ $nav-height: 14vh;
         }
       }
       .tab-active{
+        background-color: lighten($dark-grey, 8%);
         &:after {
-          width: 100%;
+          // width: 100%;
         }
       }
     }
     .add-card-btn {
-      background-color: darken($dark-grey, 10%);
-      height: 49%;
+      background-color: lighten($dark-grey, 8%);
+      height: 50%;
       width: 100%;
       @include center-me-horiz();
       bottom: 0px;
       #add-card-btn-icon {
-        height: 25px;
-        width: 25px;
+        @include center-me-vert();
+        left: 25%;
+        height: 20px;
+        width: 20px;
+        display: inline-block;
       }
       #add-card-btn-text {
-        display: none;
+        @include center-me();
+        height: 14px;
+        font-size: 14px;
+        display: inline-block;
       }
     }
   }
@@ -61,7 +72,7 @@ $nav-height: 14vh;
   }
 
   .pageContent {
-    top: 14vh;
+    top: 80px;
     left: 0px;
     width: 100%;
     height: 100-$nav-height;
@@ -164,19 +175,25 @@ $nav-height: 14vh;
       height: 100%;
       width: 100%;
       .form-header {
-        top: 5%;
+        top: 9%;
         #person-svg-icon {
-          height: 40%;
-          width: 40%;
+          height: 20%;
+          width: 20%;
         }
         #form-action-text {
-          font-size: 20px;
+          top: -50px;
+          font-size: 18px;
         }
       }
       #form-input-container {
-        width: 85%;
-        height: 60px;
-        bottom: 50%;
+        width: 90%;
+        height: 50px;
+        top: 5%;
+        font-size: 12px;
+      }
+      #close-icon {
+        @include center-me();
+        @include transform("scale(5)");
       }
     }
   }

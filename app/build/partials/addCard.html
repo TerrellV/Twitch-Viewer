@@ -9,7 +9,7 @@
     </svg>
     <h5 id="form-action-text">Enter Username</h5>
   </div>
-  <div id="form-input-container">
+  <div class="mdl-shadow--4dp"id="form-input-container">
     <input id="form-input" type="text" value="" placeholder="{{card.instructionText}}" ng-keypress="card.checkEnter($event,card.userText)" ng-model="card.userText"/>
     <svg id="add-svg-icon" ng-click="card.makeRequest(card.userText)">
       <use xlink:href="Images/sprites.svg#add"></use>

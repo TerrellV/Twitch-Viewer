@@ -1,9 +1,9 @@
 
 <nav class="nav mdl-shadow--16dp">
   <ul>
-    <li id="tab-all" ng-click="nav.setView(true, true)" ng-class="{'tab-active': activeTab === 'all'}" class="tab">All</li>
-    <li id="tab-online" ng-click="nav.setView(true, false)" ng-class="{'tab-active': activeTab === 'online'}" class="tab">Online</li>
-    <li id="tab-offline" ng-click="nav.setView(false, true)" ng-class="{'tab-active': activeTab === 'offline'}" class="tab">Offline</li>
+    <li id="tab-all" ng-click="nav.service.setView(true, true)" ng-class="{'tab-active': activeTab === 'all'}" class="tab">All</li>
+    <li id="tab-online" ng-click="nav.service.setView(true, false)" ng-class="{'tab-active': activeTab === 'online'}" class="tab">Online</li>
+    <li id="tab-offline" ng-click="nav.service.setView(false, true)" ng-class="{'tab-active': activeTab === 'offline'}" class="tab">Offline</li>
   </ul>
   <div ng-controller="popupController as pop" ng-click="pop.showPopup(true)" class="add-card-btn">
     <svg id="add-card-btn-icon">

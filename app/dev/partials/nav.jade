@@ -3,17 +3,17 @@ nav(class="nav mdl-shadow--16dp")
     li(
     id="tab-all"
     class="tab"
-    ng-click="nav.setView(true, true)"
+    ng-click="nav.service.setView(true, true)"
     ng-class="{'tab-active': activeTab === 'all'}") All
     li(
     id="tab-online"
     class="tab"
-    ng-click="nav.setView(true, false)"
+    ng-click="nav.service.setView(true, false)"
     ng-class="{'tab-active': activeTab === 'online'}") Online
     li(
     id="tab-offline"
     class="tab"
-    ng-click="nav.setView(false, true)"
+    ng-click="nav.service.setView(false, true)"
     ng-class="{'tab-active': activeTab === 'offline'}") Offline
     
   .add-card-btn(

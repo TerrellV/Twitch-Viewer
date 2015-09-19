@@ -7,15 +7,14 @@
         .service('setRandomCover',setRandomCover);
 
         function menuService($http,$q) {
-
             const vm = this;
-
             vm.online = true;
             vm.offline = true;
 
             vm.setView = (boolOne,boolTwo) => {
-                vm.online = boolOne;
-                vm.offline = boolTwo;
+              console.log('menu clicked');
+              vm.online = boolOne;
+              vm.offline = boolTwo;
             }
         }
 
@@ -189,7 +188,6 @@
 
 
                 if (pWidth > 414) {
-                  console.log('not mobile ');
                   page.css({
                       width:`${pWidth - 200}px`
                   });

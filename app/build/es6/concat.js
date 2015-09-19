@@ -116,8 +116,9 @@
         // array for each card object to be pushed to
         vm.channels = parseDataService.channels;
         // init values
+
         vm.service = menuService;
-        // working working working... testing watch and grunt on save
+
         var css = setCSS;
         css.checkPageWidth();
         css.bind();
@@ -197,7 +198,6 @@
                         "background-size": "cover"
                     });
                 } else {
-                    console.log(scope.channel.previewImg);
                     var previewImg = scope.channel.previewImg;
                     var imagePath = setRandomCover.get();
                     header.css({
@@ -316,13 +316,12 @@
     angular.module('myApp').service('menuService', menuService).service('popupService', popupService).service('parseDataService', parseDataService).service('setCSS', setCSS).service('setRandomCover', setRandomCover);
 
     function menuService($http, $q) {
-
         var vm = this;
-
         vm.online = true;
         vm.offline = true;
 
         vm.setView = function (boolOne, boolTwo) {
+            console.log('menu clicked');
             vm.online = boolOne;
             vm.offline = boolTwo;
         };
@@ -514,7 +513,6 @@
             var pHeight = window.innerHeight;
 
             if (pWidth > 414) {
-                console.log('not mobile ');
                 page.css({
                     width: pWidth - 200 + "px"
                 });

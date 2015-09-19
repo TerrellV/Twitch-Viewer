@@ -122,8 +122,9 @@
         // array for each card object to be pushed to
         vm.channels = parseDataService.channels;
         // init values
+
         vm.service = menuService;
-        // working working working... testing watch and grunt on save
+
         const css = setCSS;
         css.checkPageWidth();
         css.bind();
@@ -209,7 +210,6 @@
                     "background-size":"cover"
                   });
                 } else {
-                  console.log(scope.channel.previewImg);
                   const previewImg = scope.channel.previewImg;
                   const imagePath = setRandomCover.get();
                   header.css({
@@ -346,15 +346,14 @@
         .service('setRandomCover',setRandomCover);
 
         function menuService($http,$q) {
-
             const vm = this;
-
             vm.online = true;
             vm.offline = true;
 
             vm.setView = (boolOne,boolTwo) => {
-                vm.online = boolOne;
-                vm.offline = boolTwo;
+              console.log('menu clicked');
+              vm.online = boolOne;
+              vm.offline = boolTwo;
             }
         }
 
@@ -528,7 +527,6 @@
 
 
                 if (pWidth > 414) {
-                  console.log('not mobile ');
                   page.css({
                       width:`${pWidth - 200}px`
                   });

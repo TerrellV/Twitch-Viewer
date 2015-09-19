@@ -66,7 +66,6 @@
                     "background-size":"cover"
                   });
                 } else {
-                  console.log(scope.channel.previewImg);
                   const previewImg = scope.channel.previewImg;
                   const imagePath = setRandomCover.get();
                   header.css({

@@ -10,8 +10,9 @@
         // array for each card object to be pushed to
         vm.channels = parseDataService.channels;
         // init values
+
         vm.service = menuService;
-        // working working working... testing watch and grunt on save
+
         const css = setCSS;
         css.checkPageWidth();
         css.bind();

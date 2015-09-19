@@ -206,7 +206,7 @@
                     "background":`linear-gradient(
                         rgba(35, 44, 56, .95),
                         rgba(35, 44, 56, .95)
-                        ), url("/${imagePath}")`,
+                        ), url("${imagePath}")`,
                     "background-size":"cover"
                   });
                 } else {

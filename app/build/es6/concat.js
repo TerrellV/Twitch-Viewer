@@ -194,7 +194,7 @@
                 if (scope.channel.live === false) {
                     var imagePath = setRandomCover.get();
                     header.css({
-                        "background": "linear-gradient(\n                        rgba(35, 44, 56, .95),\n                        rgba(35, 44, 56, .95)\n                        ), url(\"/" + imagePath + "\")",
+                        "background": "linear-gradient(\n                        rgba(35, 44, 56, .95),\n                        rgba(35, 44, 56, .95)\n                        ), url(\"" + imagePath + "\")",
                         "background-size": "cover"
                     });
                 } else {

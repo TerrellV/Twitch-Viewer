@@ -1,9 +1,9 @@
 (function(){
     angular.module('myApp')
-        .directive('myDir', ['$timeout','$interval',dirSample]);
+        .directive('myDir', ['$timeout','$interval','setRandomCover','parseDataService',dirSample]);
 
     // custom directie to keep track of dom elements of individual cards...
-    function dirSample($interval,$timeout) {
+    function dirSample($interval,$timeout,setRandomCover,parseDataService) {
         return {
             templateUrl: 'app/build/partials/cardContent.html',
             scope: {
@@ -14,12 +14,10 @@
             },
             link: function(scope, element, attributes){
                 // grab all necesssary variables for elemnts in card
-                var header = element.find('#head'),
-
+                var header = element.find('.header'),
                     frontButton = element.find('.subhead-btn'),
                     personIcon = frontButton.children(),
                     exitButton = element.find('#info-close-btn');
-
 
             /*
               * opening and closing more info
@@ -56,9 +54,29 @@
                 });
 
                 /*
-                  * sliding between stream/followers slides
+                  * Setting Random CoverPhoto
                 */
-
+                if( scope.channel.live === false ) {
+                  const imagePath = setRandomCover.get();
+                  header.css({
+                    "background":`linear-gradient(
+                        rgba(35, 44, 56, .95),
+                        rgba(35, 44, 56, .95)
+                        ), url("/${imagePath}")`,
+                    "background-size":"cover"
+                  });
+                } else {
+                  console.log(scope.channel.previewImg);
+                  const previewImg = scope.channel.previewImg;
+                  const imagePath = setRandomCover.get();
+                  header.css({
+                    "background":`linear-gradient(
+                      rgba(57, 101, 166, .9),
+                      rgba(57, 101, 166, .9)
+                    ), url("${previewImg}")`,
+                    "background-size":"cover"
+                  });
+                }
 
 
             }

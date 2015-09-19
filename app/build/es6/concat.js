@@ -134,10 +134,10 @@
 })();
 
 (function () {
-    angular.module('myApp').directive('myDir', ['$timeout', '$interval', dirSample]);
+    angular.module('myApp').directive('myDir', ['$timeout', '$interval', 'setRandomCover', 'parseDataService', dirSample]);
 
     // custom directie to keep track of dom elements of individual cards...
-    function dirSample($interval, $timeout) {
+    function dirSample($interval, $timeout, setRandomCover, parseDataService) {
         return {
             templateUrl: 'app/build/partials/cardContent.html',
             scope: {
@@ -148,7 +148,7 @@
             },
             link: function link(scope, element, attributes) {
                 // grab all necesssary variables for elemnts in card
-                var header = element.find('#head'),
+                var header = element.find('.header'),
                     frontButton = element.find('.subhead-btn'),
                     personIcon = frontButton.children(),
                     exitButton = element.find('#info-close-btn');
@@ -188,8 +188,23 @@
                 });
 
                 /*
-                  * sliding between stream/followers slides
+                  * Setting Random CoverPhoto
                 */
+                if (scope.channel.live === false) {
+                    var imagePath = setRandomCover.get();
+                    header.css({
+                        "background": "linear-gradient(\n                        rgba(35, 44, 56, .95),\n                        rgba(35, 44, 56, .95)\n                        ), url(\"/" + imagePath + "\")",
+                        "background-size": "cover"
+                    });
+                } else {
+                    console.log(scope.channel.previewImg);
+                    var previewImg = scope.channel.previewImg;
+                    var imagePath = setRandomCover.get();
+                    header.css({
+                        "background": "linear-gradient(\n                      rgba(57, 101, 166, .9),\n                      rgba(57, 101, 166, .9)\n                    ), url(\"" + previewImg + "\")",
+                        "background-size": "cover"
+                    });
+                }
             }
         };
     }
@@ -298,7 +313,7 @@
 })();
 
 (function () {
-    angular.module('myApp').service('menuService', menuService).service('popupService', popupService).service('parseDataService', parseDataService).service('setCSS', setCSS);
+    angular.module('myApp').service('menuService', menuService).service('popupService', popupService).service('parseDataService', parseDataService).service('setCSS', setCSS).service('setRandomCover', setRandomCover);
 
     function menuService($http, $q) {
 
@@ -358,12 +373,19 @@
             var stream = obj.data.stream;
 
             // if online
+
             if (stream) {
                 var channel = stream.channel;
                 var _name = channel.display_name;
                 var game = channel.game;
                 var _status = channel.status;
                 var parsedInfo = vm.setDataOnline(stream);
+
+                var isDuplicate = checkDuplicates(parsedInfo);
+                if (isDuplicate) {
+                    return { duplicate: true };
+                }
+
                 vm.channels.online.push(parsedInfo);
                 return { valid: true };
             } else {
@@ -373,7 +395,7 @@
                 return getTwitchData.getChannel(url).then(function (data) {
                     // Parese Data for cards
                     var parsedInfo = vm.setDataOffline(data.data);
-                    if (!checkDuplicates(parsedInfo)) {
+                    if (checkDuplicates(parsedInfo) === false) {
                         vm.channels.offline.push(parsedInfo);
                         return { valid: true };
                     } else {
@@ -427,13 +449,11 @@
                 status: concatDscr(status)
             };
         }
-
         /*
          * Check for Duplicates
         */
         function checkDuplicates(parsedData) {
             var match = false;
-
             var name = parsedData.name;
             var _vm$channels = vm.channels;
             var online = _vm$channels.online;
@@ -503,6 +523,15 @@
                     "width": "100%"
                 });
             }
+        };
+    }
+
+    function setRandomCover() {
+        var vm = this;
+        vm.get = function () {
+            var options = ["Images/astroSpace.jpg", "Images/csGO.jpg", "Images/marioIsland.jpg", "Images/LoL.jpg"];
+            var n = Math.floor(Math.random() * options.length);
+            return options[n];
         };
     }
 })();

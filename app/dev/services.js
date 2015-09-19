@@ -3,7 +3,8 @@
         .service('menuService',menuService)
         .service('popupService',popupService)
         .service('parseDataService',parseDataService)
-        .service('setCSS',setCSS);
+        .service('setCSS',setCSS)
+        .service('setRandomCover',setRandomCover);
 
         function menuService($http,$q) {
 
@@ -59,12 +60,19 @@
                 // destructure object
                 const { data, data: {stream} } = obj;
                 // if online
+
                 if (stream) {
                     const { channel } = stream,
                     { display_name:name, game , status } = channel,
-                     parsedInfo = vm.setDataOnline(stream);
+                    parsedInfo = vm.setDataOnline(stream);
+
+                     const isDuplicate = checkDuplicates(parsedInfo);
+                     if( isDuplicate ) {
+                       return { duplicate:true };
+                     }
+
                      vm.channels.online.push(parsedInfo);
-                     return {valid:true} ;
+                     return { valid:true };
                   }
                 else {
                     // if offline
@@ -73,11 +81,11 @@
                         .then( data => {
                             // Parese Data for cards
                             const parsedInfo = vm.setDataOffline(data.data);
-                            if ( !checkDuplicates(parsedInfo) ){
-                                vm.channels.offline.push(parsedInfo);
-                                return { valid:true };
+                            if ( checkDuplicates(parsedInfo) === false ){
+                              vm.channels.offline.push(parsedInfo);
+                              return { valid:true };
                             } else {
-                                return { duplicate:true };
+                              return { duplicate:true };
                             }
                         });
                 }
@@ -119,14 +127,13 @@
                     status: concatDscr(status)
                 };
             }
-
             /*
              * Check for Duplicates
             */
             function checkDuplicates( parsedData ) {
                 let match = false;
-
                 const {name} = parsedData;
+
                 const {online, offline} = vm.channels;
                 const allChannels = online.concat(offline);
 
@@ -137,10 +144,8 @@
                     }
                 });
 
-
                 return match;
             }
-
 
             /*
              * further manipulate certain data...
@@ -194,5 +199,14 @@
                   });
                 }
             }
+        }
+
+        function setRandomCover() {
+          const vm = this;
+          vm.get = () => {
+            const options = ["Images/astroSpace.jpg","Images/csGO.jpg", "Images/marioIsland.jpg", "Images/LoL.jpg"];
+            const n = Math.floor(Math.random() * options.length);
+            return options[n];
+          }
         }
 })();

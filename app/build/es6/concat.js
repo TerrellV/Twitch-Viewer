@@ -321,7 +321,6 @@
         vm.offline = true;
 
         vm.setView = function (boolOne, boolTwo) {
-            console.log('menu clicked');
             vm.online = boolOne;
             vm.offline = boolTwo;
         };
@@ -372,7 +371,6 @@
             var stream = obj.data.stream;
 
             // if online
-
             if (stream) {
                 var channel = stream.channel;
                 var _name = channel.display_name;
@@ -440,7 +438,6 @@
             var url = channel.url;
             var status = channel.status;
 
-            // construct object using const variables above
             return {
                 name: name,
                 followers: abbreviateNumber(followers),
@@ -460,13 +457,15 @@
 
             var allChannels = online.concat(offline);
 
-            allChannels.map(function compare(newChannelObj) {
+            allChannels.map(compare);
+
+            function compare(newChannelObj) {
                 var existingName = newChannelObj.name;
 
                 if (name.toLowerCase() === existingName.toLowerCase()) {
                     match = true;
                 }
-            });
+            }
 
             return match;
         }

@@ -351,7 +351,6 @@
             vm.offline = true;
 
             vm.setView = (boolOne,boolTwo) => {
-              console.log('menu clicked');
               vm.online = boolOne;
               vm.offline = boolTwo;
             }
@@ -366,7 +365,6 @@
             vm.showPopup = (bool) => {
                 vm.showMe = bool;
             }
-
         }
 
         function parseDataService(getTwitchData, $q) {
@@ -398,7 +396,6 @@
                 // destructure object
                 const { data, data: {stream} } = obj;
                 // if online
-
                 if (stream) {
                     const { channel } = stream,
                     { display_name:name, game , status } = channel,
@@ -457,7 +454,6 @@
             function SetDataBoth(channel){
                 // channel object later used for ng repeat
                 const { display_name:name, followers, url, status } = channel;
-                // construct object using const variables above
                 return {
                     name,
                     followers: abbreviateNumber(followers),
@@ -471,16 +467,17 @@
             function checkDuplicates( parsedData ) {
                 let match = false;
                 const {name} = parsedData;
-
                 const {online, offline} = vm.channels;
                 const allChannels = online.concat(offline);
 
-                allChannels.map(function compare( newChannelObj ) {
+                allChannels.map(compare);
+
+                function compare( newChannelObj ) {
                     const {name:existingName} = newChannelObj;
                     if(name.toLowerCase() === existingName.toLowerCase()) {
                         match = true;
                     }
-                });
+                }
 
                 return match;
             }

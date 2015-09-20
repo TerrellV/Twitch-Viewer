@@ -88,14 +88,12 @@ button {
         top: 50%;
         transform: translateY(-50%); }
     .card .front-card .subhead-game {
-      background-color: #2E7EFD;
       height: 20%;
       width: 100%;
       position: relative;
       background-color: #1D53A1; }
       .card .front-card .subhead-game .subhead-game-text {
         width: 80%;
-        position: relative;
         position: absolute;
         left: 50%;
         top: 50%;
@@ -204,15 +202,6 @@ button {
         position: absolute;
         top: 50%;
         transform: translateY(-50%); }
-    .card .card-back #followers {
-      background-color: #4538AE;
-      background-color: #232C38; }
-    .card .card-back #viewers {
-      background-color: #544FBF;
-      background-color: #2C3944; }
-    .card .card-back #status {
-      background-color: #5656CC;
-      background-color: #354651; }
 
 .card-offline .front-card .header {
   background-size: cover; }

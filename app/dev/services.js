@@ -174,15 +174,16 @@
         function setCSS() {
             const vm = this;
             const page = $(".pageContent");
+            const search = $(".search-container");
 
             vm.bind = function() {
                 $( window ).resize( vm.checkPageWidth );
             }
 
             vm.checkPageWidth = function() {
+
                 const pWidth = window.innerWidth;
                 const pHeight = window.innerHeight;
-
 
                 if (pWidth > 414) {
                   page.css({

@@ -93,15 +93,13 @@ body {
     left: 200px;
     background: #F1F1F1;
     overflow-y:scroll;
-
 }
 
 .live-card-grid{
-    width: 92%;
-    @include center-me-horiz();
-    position: relative;
-    top: 5%;
-    // background-color: $dark-grey;
+  width: 90%;
+  @include center-me-horiz();
+  position: relative;
+  top: 8%;
 }
 
 

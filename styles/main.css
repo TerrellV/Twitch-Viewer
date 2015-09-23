@@ -49,12 +49,12 @@
   overflow-y: scroll; }
 
 .live-card-grid {
-  width: 92%;
+  width: 90%;
   position: absolute;
   left: 50%;
   transform: translate(-50%);
   position: relative;
-  top: 5%; }
+  top: 8%; }
 
 button {
   cursor: pointer; }
@@ -62,11 +62,15 @@ button {
 .card {
   position: relative;
   display: inline-block;
-  width: 350px;
+  width: 21.08%;
   height: 310px;
   background-color: white;
-  overflow: hidden;
-  margin: 20px; }
+  float: left;
+  margin-right: 5.219%;
+  margin-bottom: 3%;
+  overflow: hidden; }
+  .card:nth-child(4n+4) {
+    margin-right: 0px; }
   .card .front-card {
     position: relative;
     width: 100%;
@@ -127,7 +131,8 @@ button {
         -ms-transform: translate(-50%,-50%);
         -o-transform: translate(-50%,-50%);
         transform: translate(-50%,-50%);
-        width: 40%; }
+        width: 40%;
+        border: 1px solid red; }
         .card .front-card .subhead-action .subhead-action-container #front-redLight {
           height: 12px;
           width: 12px;
@@ -207,7 +212,7 @@ button {
     .card .card-back #viewers {
       background-color: #4d3ec1; }
     .card .card-back #status {
-      background-color: #5f52c7; }
+      background-color: #5446c4; }
 
 .card-offline .front-card .header {
   background-size: cover; }
@@ -510,7 +515,8 @@ nav {
   transform: translate(-50%);
   top: 3em;
   margin-bottom: 10px;
-  position: relative; }
+  position: relative;
+  width: 90%; }
   .search-container .search-box {
     position: relative;
     width: 100%;
@@ -598,98 +604,25 @@ nav {
         font-size: 14px;
         display: inline-block; }
 
-  .search-container {
-    top: 2em; }
-
-  .live-card-grid {
-    top: 2.75em;
-    width: 100%; }
-
   .pageContent {
     top: 80px;
     left: 0px;
     width: 100%;
     height: 86vh; }
 
+  .search-container {
+    top: 2em;
+    width: 85vw; }
+
+  .live-card-grid {
+    top: 2.75em;
+    width: 85vw; }
+
   .card {
     width: 85vw;
     height: 80vw;
-    font-size: 18px; } }
-@media screen and (max-width: 1919px) and (min-width: 1676px) {
-  .live-card-grid {
-    top: 1em;
-    width: 67vw; }
-
-  .card {
-    width: 25%;
-    height: 250px;
-    margin: 0 0 4% 6%; }
-
-  .add-card-container .card-form {
-    width: 500px;
-    height: 380px; }
-
-  .add-card-btn {
-    height: 7em;
-    width: 7em;
-    background-color: #4538AE; }
-    .add-card-btn #add-card-btn-icon {
-      height: 4em;
-      width: 4em; } }
-@media screen and (max-width: 1676px) and (min-width: 1363px) {
-  .card {
-    width: 30%;
-    height: 250px;
-    margin: 0 0 4% 2.5%;
-    margin-left: 2.5%; } }
-@media screen and (max-width: 1363px) and (min-width: 901px) {
-  .card {
-    width: 40%;
-    height: 290px;
-    margin: 0 0 4% 2.5%;
-    margin-left: 6.9%; } }
-@media screen and (max-width: 900px) and (min-width: 415px) {
-  .card {
-    width: 80%;
-    height: 390px;
-    margin: 0 0 4% 2.5%;
-    margin-left: 6.9%; } }
-@media screen and (max-height: 820px) and (min-height: 737) {
-  .nav ul {
-    bottom: 65vh; } }
-@media screen and (max-height: 700px) {
-  .nav ul {
-    bottom: 60vh; } }
-@media screen and (max-height: 736px) and (max-width: 414px) {
-  .add-card-container .card-form {
-    height: 100%;
-    width: 100%; }
-    .add-card-container .card-form .form-header {
-      top: 9%; }
-      .add-card-container .card-form .form-header #person-svg-icon {
-        height: 20%;
-        width: 20%; }
-      .add-card-container .card-form .form-header #form-action-text {
-        top: -50px;
-        font-size: 18px; }
-    .add-card-container .card-form #form-input-container {
-      width: 90%;
-      height: 50px;
-      top: 5%;
-      font-size: 12px; }
-    .add-card-container .card-form #close-icon {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      -webkit-transform: translate(-50%,-50%);
-      -moz-transform: translate(-50%,-50%);
-      -ms-transform: translate(-50%,-50%);
-      -o-transform: translate(-50%,-50%);
-      transform: translate(-50%,-50%);
-      -webkit-transform: scale(5);
-      -moz-transform: scale(5);
-      -ms-transform: scale(5);
-      -o-transform: scale(5);
-      transform: scale(5); } }
+    font-size: 18px; }
+    .card .front-card .subhead-action .subhead-action-container {
+      width: 70%; } }
 
 /*# sourceMappingURL=main.css.map */

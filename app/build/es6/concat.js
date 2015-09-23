@@ -128,9 +128,9 @@
         var search = $p.find('.search-container');
         var grid = $p.find('.live-card-grid');
         var width = $('.live-card-grid').width();
-        search.css({
-            "width": "" + (width - 40) // 40 equates for the padding of the cards
-        });
+        // search.css({
+        //   "width": `90%`
+        // });
     }
 })();
 
@@ -502,12 +502,14 @@
     function setCSS() {
         var vm = this;
         var page = $(".pageContent");
+        var search = $(".search-container");
 
         vm.bind = function () {
             $(window).resize(vm.checkPageWidth);
         };
 
         vm.checkPageWidth = function () {
+
             var pWidth = window.innerWidth;
             var pHeight = window.innerHeight;
 

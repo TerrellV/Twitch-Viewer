@@ -4,11 +4,16 @@ button{
 .card {
     position: relative;
     display: inline-block;
-    width: 350px;
+    width: 21.08%;
     height: 310px;
     background-color: white;
+    float: left;
+    margin-right: 5.219%;
+    margin-bottom: 3%;
     overflow:hidden;
-    margin: 20px;
+    &:nth-child(4n+4) {
+      margin-right: 0px;
+    }
     .front-card {
         position: relative;
         width: 100%;
@@ -61,6 +66,8 @@ button{
             .subhead-action-container{
                 @include center-me();
                 width: 40%;
+                border: 1px solid red;
+                // white-space: nowrap;
                 #front-redLight {
                     height: 12px;
                     width: 12px;
@@ -135,16 +142,16 @@ button{
             }
         }
         $purp2: lighten($purple, 5%);
-        $purp3: lighten($purp2, 5%);
+        $purp3: lighten($purp2, 2%);
 
         #followers {
             background-color: $purple;
         }
         #viewers {
-            background-color: $purp2
+            background-color: $purp2;
         }
         #status {
-            background-color: $purp3; 
+            background-color: $purp3;
         }
     }
 }

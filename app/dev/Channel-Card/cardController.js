@@ -22,9 +22,9 @@
         const search = $p.find('.search-container');
         const grid = $p.find('.live-card-grid');
         const width = $('.live-card-grid').width();
-        search.css({
-          "width": `${width - 40}` // 40 equates for the padding of the cards
-        });
+        // search.css({
+        //   "width": `90%`
+        // });
 
 
     }

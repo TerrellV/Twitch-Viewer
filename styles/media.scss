@@ -62,139 +62,147 @@ $nav-height: 14vh;
     }
   }
 
-  .search-container {
-    top: 2em;
-  }
-
-  .live-card-grid {
-    top: 2.75em;
-    width: 100%;
-  }
-
   .pageContent {
     top: 80px;
     left: 0px;
     width: 100%;
     height: 100-$nav-height;
   }
+  .search-container {
+    top: 2em;
+    width: 85vw;
+  }
+
+  .live-card-grid {
+    top: 2.75em;
+    width:85vw;
+  }
 
   .card {
     width: 85vw;
     height: 80vw;
     font-size: 18px;
-  }
-
-}
-
-@media screen and (max-width: 1919px) and (min-width: 1676px) {
-
-  .live-card-grid {
-    top: 1em;
-    width: 67vw;
-  }
-
-  .pageContent {
-  }
-
-  .card {
-    width: 25%;
-    height: 250px;
-    margin: 0 0 4% 6%;
-  }
-
-  .add-card-container {
-    .card-form {
-      width: 500px;
-      height: 380px;
-    }
-  }
-
-  .add-card-btn {
-    height: 7em;
-    width: 7em;
-    background-color: $purple;
-    #add-card-btn-icon {
-      height: 4em;
-      width: 4em;
-    }
-  }
-}
-
-@media screen and (max-width: 1676px) and (min-width: 1363px) {
-  .pageContent {
-  }
-  .card {
-    width: 30%;
-    height: 250px;
-    margin: 0 0 4% 2.5%;
-    margin-left: 2.5%;
-  }
-}
-
-@media screen and (max-width: 1363px) and (min-width: 901px) {
-  .pageContent {
-  }
-  .card {
-    width: 40%;
-    height: 290px;
-    margin: 0 0 4% 2.5%;
-    margin-left: 6.9%;
-  }
-}
-
-@media screen and (max-width: 900px) and (min-width: 415px) {
-  .pageContent {
-  }
-  .card {
-    width: 80%;
-    height: 390px;
-    margin: 0 0 4% 2.5%;
-    margin-left: 6.9%;
-  }
-}
-
-@media screen and (max-height: 820px) and (min-height: 737) {
-  .nav {
-    ul {
-      bottom: 65vh;
-    }
-  }
-}
-
-@media screen and (max-height: 700px) {
-  .nav {
-    ul {
-      bottom: 60vh;
-    }
-  }
-}
-
-@media screen and (max-height: 736px) and (max-width: 414px){
-  .add-card-container {
-    .card-form {
-      height: 100%;
-      width: 100%;
-      .form-header {
-        top: 9%;
-        #person-svg-icon {
-          height: 20%;
-          width: 20%;
-        }
-        #form-action-text {
-          top: -50px;
-          font-size: 18px;
+    .front-card{
+      .subhead-action{
+        .subhead-action-container {
+          width: 70%;
         }
       }
-      #form-input-container {
-        width: 90%;
-        height: 50px;
-        top: 5%;
-        font-size: 12px;
-      }
-      #close-icon {
-        @include center-me();
-        @include transform("scale(5)");
-      }
     }
   }
+
 }
+
+// @media screen and (max-width: 1919px) and (min-width: 1676px) {
+//
+//   $full-minusScroll: 1919-217;
+//
+//   .live-card-grid {
+//     top: 8%;
+//   }
+//
+//   .card {
+//     width: 25%;
+//     height: 250px;
+//     margin: 0 0 4% 6%;
+//   }
+//
+//   .add-card-container {
+//     .card-form {
+//       width: 500px;
+//       height: 380px;
+//     }
+//   }
+//
+//   .add-card-btn {
+//     height: 7em;
+//     width: 7em;
+//     background-color: $purple;
+//     #add-card-btn-icon {
+//       height: 4em;
+//       width: 4em;
+//     }
+//   }
+// }
+//
+// @media screen and (max-width: 1676px) and (min-width: 1363px) {
+//   .live-card-grid {
+//     top: 8%;
+//   }
+//   .card {
+//     width: 30%;
+//     height: 250px;
+//     margin: 0 0 4% 2.5%;
+//     margin-left: 2.5%;
+//   }
+// }
+//
+// @media screen and (max-width: 1363px) and (min-width: 901px) {
+//   .live-card-grid {
+//     top: 8%;
+//   }
+//   .card {
+//     width: 40%;
+//     height: 290px;
+//     margin: 0 0 4% 2.5%;
+//     margin-left: 6.9%;
+//   }
+// }
+
+// @media screen and (max-width: 900px) and (min-width: 415px) {
+//   .live-card-grid {
+//     top: 8%;
+//   }
+//   .card {
+//     width: 80%;
+//     height: 390px;
+//     margin: 0 0 4% 2.5%;
+//     margin-left: 6.9%;
+//   }
+// }
+//
+// @media screen and (max-height: 820px) and (min-height: 737) {
+//   .nav {
+//     ul {
+//       bottom: 65vh;
+//     }
+//   }
+// }
+//
+// @media screen and (max-height: 700px) {
+//   .nav {
+//     ul {
+//       bottom: 60vh;
+//     }
+//   }
+// }
+//
+// @media screen and (max-height: 736px) and (max-width: 414px){
+//   .add-card-container {
+//     .card-form {
+//       height: 100%;
+//       width: 100%;
+//       .form-header {
+//         top: 9%;
+//         #person-svg-icon {
+//           height: 20%;
+//           width: 20%;
+//         }
+//         #form-action-text {
+//           top: -50px;
+//           font-size: 18px;
+//         }
+//       }
+//       #form-input-container {
+//         width: 90%;
+//         height: 50px;
+//         top: 5%;
+//         font-size: 12px;
+//       }
+//       #close-icon {
+//         @include center-me();
+//         @include transform("scale(5)");
+//       }
+//     }
+//   }
+// }

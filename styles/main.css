@@ -202,6 +202,12 @@ button {
         position: absolute;
         top: 50%;
         transform: translateY(-50%); }
+    .card .card-back #followers {
+      background-color: #4538AE; }
+    .card .card-back #viewers {
+      background-color: #4d3ec1; }
+    .card .card-back #status {
+      background-color: #5f52c7; }
 
 .card-offline .front-card .header {
   background-size: cover; }

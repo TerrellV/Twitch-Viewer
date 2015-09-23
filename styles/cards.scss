@@ -134,14 +134,17 @@ button{
                 }
             }
         }
+        $purp2: lighten($purple, 5%);
+        $purp3: lighten($purp2, 5%);
+
         #followers {
-            // background-color: $purple; purple background
+            background-color: $purple;
         }
         #viewers {
-            // background-color: #544FBF; purple background
+            background-color: $purp2
         }
         #status {
-            // background-color: #5656CC; purple background
+            background-color: $purp3; 
         }
     }
 }

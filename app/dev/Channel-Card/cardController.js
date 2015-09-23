@@ -1,9 +1,9 @@
 (function() {
 
     angular.module('myApp')
-        .controller('cardsCtrl', ['$scope','$http','$q','getTwitchData','menuService','setCSS','parseDataService', cardsCtrl]);
+        .controller('cardsCtrl', ['$scope','$http','$q','getTwitchData','menuService','setCSS','parseDataService','setGridSystem', cardsCtrl]);
 
-    function cardsCtrl($scope, $http, $q, getTwitchData, menuService, setCSS, parseDataService) {
+    function cardsCtrl($scope, $http, $q, getTwitchData, menuService, setCSS, parseDataService, setGridSystem) {
 
         // seting variable to correct context of this
         const vm = this;
@@ -22,10 +22,7 @@
         const search = $p.find('.search-container');
         const grid = $p.find('.live-card-grid');
         const width = $('.live-card-grid').width();
-        // search.css({
-        //   "width": `90%`
-        // });
 
-
+        var delay = window.setTimeout(setGridSystem.setMargins(),2000);
     }
 })();

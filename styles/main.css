@@ -1,11 +1,11 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800);
 @keyframes buttonFill {
   60% {
-    -webkit-transform: translate(150px,-180px);
-    -moz-transform: translate(150px,-180px);
-    -ms-transform: translate(150px,-180px);
-    -o-transform: translate(150px,-180px);
-    transform: translate(150px,-180px); }
+    -webkit-transform: translate(150px,-180px) scale(1);
+    -moz-transform: translate(150px,-180px) scale(1);
+    -ms-transform: translate(150px,-180px) scale(1);
+    -o-transform: translate(150px,-180px) scale(1);
+    transform: translate(150px,-180px) scale(1); }
   100% {
     -webkit-transform: translate(150px,-180px) scale(12);
     -moz-transform: translate(150px,-180px) scale(12);
@@ -20,17 +20,17 @@
     -o-transform: translate(150px,-180px) scale(12);
     transform: translate(150px,-180px) scale(12); }
   60% {
-    -webkit-transform: translate(150px,-180px);
-    -moz-transform: translate(150px,-180px);
-    -ms-transform: translate(150px,-180px);
-    -o-transform: translate(150px,-180px);
-    transform: translate(150px,-180px); }
+    -webkit-transform: translate(150px,-180px) scale(1);
+    -moz-transform: translate(150px,-180px) scale(1);
+    -ms-transform: translate(150px,-180px) scale(1);
+    -o-transform: translate(150px,-180px) scale(1);
+    transform: translate(150px,-180px) scale(1); }
   100% {
-    -webkit-transform: translate(270px,-75px);
-    -moz-transform: translate(270px,-75px);
-    -ms-transform: translate(270px,-75px);
-    -o-transform: translate(270px,-75px);
-    transform: translate(270px,-75px); } }
+    -webkit-transform: translate(270px,-75px) scale(1);
+    -moz-transform: translate(270px,-75px) scale(1);
+    -ms-transform: translate(270px,-75px) scale(1);
+    -o-transform: translate(270px,-75px) scale(1);
+    transform: translate(270px,-75px) scale(1); } }
 @keyframes hide {
   from {
     opacity: 1; }
@@ -69,8 +69,6 @@ button {
   margin-right: 5.219%;
   margin-bottom: 3%;
   overflow: hidden; }
-  .card:nth-child(4n+4) {
-    margin-right: 0px; }
   .card .front-card {
     position: relative;
     width: 100%;
@@ -131,8 +129,7 @@ button {
         -ms-transform: translate(-50%,-50%);
         -o-transform: translate(-50%,-50%);
         transform: translate(-50%,-50%);
-        width: 40%;
-        border: 1px solid red; }
+        width: 40%; }
         .card .front-card .subhead-action .subhead-action-container #front-redLight {
           height: 12px;
           width: 12px;

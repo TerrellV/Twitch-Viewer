@@ -11,9 +11,7 @@ button{
     margin-right: 5.219%;
     margin-bottom: 3%;
     overflow:hidden;
-    &:nth-child(4n+4) {
-      margin-right: 0px;
-    }
+
     .front-card {
         position: relative;
         width: 100%;
@@ -66,7 +64,6 @@ button{
             .subhead-action-container{
                 @include center-me();
                 width: 40%;
-                border: 1px solid red;
                 // white-space: nowrap;
                 #front-redLight {
                     height: 12px;

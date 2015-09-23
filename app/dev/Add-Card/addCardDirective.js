@@ -33,7 +33,7 @@
                 } else {
                   animateErrorResponse(stream, data);
                 }
-              })
+              });
             }, reason => {
               console.log(`${stream} not a valid channel`);
               vm.userText = "";

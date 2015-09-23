@@ -4,6 +4,7 @@
         .service('popupService',popupService)
         .service('parseDataService',parseDataService)
         .service('setCSS',setCSS)
+        .service('setGridSystem',setGridSystem)
         .service('setRandomCover',setRandomCover);
 
         function menuService($http,$q) {
@@ -29,7 +30,6 @@
         }
 
         function parseDataService(getTwitchData, $q) {
-
             const vm = this;
             const promises = getTwitchData.async();
 
@@ -61,7 +61,6 @@
                     const { channel } = stream,
                     { display_name:name, game , status } = channel,
                     parsedInfo = vm.setDataOnline(stream);
-
                      const isDuplicate = checkDuplicates(parsedInfo);
                      if( isDuplicate ) {
                        return { duplicate:true };
@@ -196,6 +195,29 @@
                 }
             }
         }
+
+        function setGridSystem() {
+          const vm = this;
+          var master = $(".live-card-grid");
+          vm.setMargins = () => { master.children().map(setMargin) };
+
+          function setMargin(a,e) {
+            const card = $(e);
+            if ( (a + 1) % 4 === 0 && a !== 0 ) {
+              console.log('margins set');
+              card.css({
+                "margin-right":"0px"
+              });
+            }
+            else {
+              card.css({
+                "margin-right": "5.219%"
+              });
+            }
+          }
+
+        }
+
 
         function setRandomCover() {
           const vm = this;

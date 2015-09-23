@@ -57,7 +57,7 @@ $navWidth: 200px;
 @keyframes buttonFill{
   0%{}
   60%{
-    @include transform('translate(150px,-180px)');
+    @include transform('translate(150px,-180px) scale(1)');
   }
   100% {
     @include transform('translate(150px,-180px) scale(12)');
@@ -68,10 +68,10 @@ $navWidth: 200px;
     @include transform('translate(150px,-180px) scale(12)');
   }
   60%{
-    @include transform('translate(150px,-180px)');
+    @include transform('translate(150px,-180px) scale(1)');
   }
   100% {
-    @include transform("translate(270px,-75px)");
+    @include transform("translate(270px,-75px) scale(1)");
   }
 }
 @keyframes hide {

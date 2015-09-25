@@ -1,8 +1,8 @@
 (function() {
     angular.module('myApp')
-      .directive('navDir', ['$timeout', '$interval', 'setGridSystem', 'parseDataService', navDir]);
+      .directive('navDir', ['$timeout', '$interval', 'setCardButton', 'parseDataService', navDir]);
 
-    function navDir($timeout, $interval, setGridSystem, parseDataService ) {
+    function navDir($timeout, $interval, setCardButton, parseDataService ) {
       return {
         templateUrl: 'app/build/partials/nav.html',
         controller: 'navController',
@@ -20,17 +20,14 @@
           }
 
           tabAll.bind('click', function() {
-            window.setTimeout(setGridSystem.setMargins, 1);
             scope.activeTab = 'all';
             scope.$apply();
           });
         tabOnline.bind('click', function() {
-          window.setTimeout(setGridSystem.setMargins, 1);
           scope.activeTab = 'online';
           scope.$apply();
         });
         tabOffline.bind('click', function() {
-          window.setTimeout(setGridSystem.setMargins, 1);
           scope.activeTab = 'offline';
           scope.$apply();
         });

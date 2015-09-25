@@ -54,7 +54,7 @@
   left: 50%;
   transform: translate(-50%);
   position: relative;
-  top: 15%; }
+  top: 12%; }
 
 button {
   cursor: pointer; }
@@ -63,7 +63,7 @@ button {
   position: relative;
   display: inline-block;
   width: 19.9%;
-  height: 310px;
+  height: 30vh;
   background-color: white;
   margin: 2.47243%;
   overflow: hidden; }
@@ -142,21 +142,30 @@ button {
           color: #2E7EFD; }
     .card .front-card .subhead-btn {
       outline: none;
-      position: absolute;
+      position: relative;
       background-color: #2E7EFD;
       color: white;
       border: none;
-      border-radius: 50%;
-      height: 50px;
-      width: 50px;
-      -webkit-transform: translate(270px,-75px);
-      -moz-transform: translate(270px,-75px);
-      -ms-transform: translate(270px,-75px);
-      -o-transform: translate(270px,-75px);
-      transform: translate(270px,-75px);
-      z-index: 3; }
-      .card .front-card .subhead-btn i {
-        font-size: 20px; }
+      width: 18%;
+      z-index: 3;
+      padding: 0px;
+      border-radius: 50%; }
+      .card .front-card .subhead-btn:before {
+        content: '';
+        display: block;
+        padding-top: 100%;
+        border-radius: 50%; }
+      .card .front-card .subhead-btn .content {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translate(-50%,-50%);
+        -moz-transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+        -o-transform: translate(-50%,-50%);
+        transform: translate(-50%,-50%); }
+        .card .front-card .subhead-btn .content i {
+          font-size: 20px; }
   .card .card-back {
     position: absolute;
     top: 0px;

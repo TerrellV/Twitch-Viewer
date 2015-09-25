@@ -1,9 +1,9 @@
 (function() {
 
     angular.module('myApp')
-        .controller('cardsCtrl', ['$scope','$http','$q','getTwitchData','menuService','setCSS','parseDataService','setGridSystem', cardsCtrl]);
+        .controller('cardsCtrl', ['$scope','$http','$q','getTwitchData','menuService','setCSS','parseDataService','setCardButton', cardsCtrl]);
 
-    function cardsCtrl($scope, $http, $q, getTwitchData, menuService, setCSS, parseDataService, setGridSystem) {
+    function cardsCtrl($scope, $http, $q, getTwitchData, menuService, setCSS, parseDataService, setCardButton) {
 
         // seting variable to correct context of this
         const vm = this;

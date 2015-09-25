@@ -1,7 +1,7 @@
 (function() {
     angular.module('factories', [])
         .factory('getTwitchData', ['$http', '$q', getTwitchData])
-        .factory('setGridSystem', setGridSystem );
+        .factory('setCardButton', setCardButton );
 
     function getTwitchData($http,$q) {
 
@@ -52,11 +52,11 @@
         return obj;
     }
 
-    function setGridSystem() {
+    function setCardButton() {
 
       const obj = {
-        setMargins: function(){
-          console.log('getting ready to map');
+        centerButton: function(){
+
         }
       }
 

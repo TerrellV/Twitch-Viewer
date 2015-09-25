@@ -3,7 +3,7 @@
         .service('menuService',menuService)
         .service('popupService',popupService)
         .service('setCSS',setCSS)
-        .service('parseDataService',['getTwitchData','$q','setGridSystem',parseDataService])
+        .service('parseDataService',['getTwitchData','$q','setCardButton',parseDataService])
         .service('setRandomCover',setRandomCover);
 
         function menuService($http,$q) {
@@ -28,7 +28,7 @@
             }
         }
 
-        function parseDataService(getTwitchData, $q, setGridSystem) {
+        function parseDataService(getTwitchData, $q, setCardButton) {
             const vm = this;
             const promises = getTwitchData.async();
         /*
@@ -46,7 +46,7 @@
               let domSet = new Promise(function(res,rej){
                 res( response.map( vm.checkOnline ) );
               }).then(function(){
-                setGridSystem.setMargins()
+                setCardButton.centerButton()
               })
             }, reason => {
                 console.log( 'default request failed', reason);
@@ -173,29 +173,29 @@
             }
         }
         function setCSS() {
-            const vm = this;
-            const page = $(".pageContent");
-            const search = $(".search-container");
+          const vm = this;
+          const page = $(".pageContent");
+          const search = $(".search-container");
 
-            vm.bind = function() {
-                $( window ).resize( vm.checkPageWidth );
+          vm.bind = function() {
+            $( window ).resize( vm.checkPageWidth );
+          }
+
+          vm.checkPageWidth = function() {
+
+            const pWidth = window.innerWidth;
+            const pHeight = window.innerHeight;
+
+            if (pWidth > 414) {
+              page.css({
+                  width:`${pWidth - 200}px`
+              });
+            } else {
+              page.css({
+                  "width":"100%"
+              });
             }
-
-            vm.checkPageWidth = function() {
-
-                const pWidth = window.innerWidth;
-                const pHeight = window.innerHeight;
-
-                if (pWidth > 414) {
-                  page.css({
-                      width:`${pWidth - 200}px`
-                  });
-                } else {
-                  page.css({
-                      "width":"100%"
-                  });
-                }
-            }
+          }
         }
 
         function setRandomCover() {

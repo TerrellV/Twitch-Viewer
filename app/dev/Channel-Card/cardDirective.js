@@ -1,9 +1,9 @@
 (function() {
   angular.module('myApp')
-    .directive('myDir', ['$timeout', '$interval', 'setRandomCover', 'parseDataService', 'setGridSystem', dirSample]);
+    .directive('myDir', ['$timeout', '$interval', 'setRandomCover', 'parseDataService', 'setCardButton', dirSample]);
 
   // custom directie to keep track of dom elements of individual cards...
-  function dirSample($interval, $timeout, setRandomCover, parseDataService, setGridSystem) {
+  function dirSample($interval, $timeout, setRandomCover, parseDataService, setCardButton) {
     return {
       templateUrl: 'app/build/partials/cardContent.html',
       scope: {
@@ -14,10 +14,43 @@
       },
       link: function(scope, element, attributes) {
         // grab all necesssary variables for elemnts in card
-        var header = element.find('.header'),
+        var card = element.find('.card'),
+          header = element.find('.header'),
           frontButton = element.find('.subhead-btn'),
           personIcon = frontButton.children(),
           exitButton = element.find('#info-close-btn');
+
+          checkHeight();
+          // positioning of button
+          $(window).resize( checkHeight );
+
+          function checkHeight() {
+            // center button dynamically
+            // let h = element.height();
+            // let hB = frontButton.height();
+            // let percent = ( ( (h / 2) / hB) +.5) * 100;
+            //
+            // frontButton.css({
+            //   "-webkit-transform": `translate(200.05%,-${percent}%)`,
+            //   "-moz-transform": `translate(200.05%,-${percent}%)`,
+            //   "-ms-transform": `translate(200.05%,-${percent}%)`,
+            //   "-o-transform": `translate(200.05%,-${percent}%)`,
+            //   "transform": `translate(200.05%,-${percent}%)`
+            // });
+
+            let h = element.height();
+            let hB = frontButton.height();
+            let percent = ( ( (h*.15) / hB) +.5) * 100;
+            frontButton.css({
+              "-webkit-transform": `translate(418%,-${percent}%)`,
+              "-moz-transform": `translate(418%,-${percent}%)`,
+              "-ms-transform": `translate(418%,-${percent}%)`,
+              "-o-transform": `translate(418%,-${percent}%)`,
+              "transform": `translate(418%,-${percent}%)`
+            });
+          }
+
+
 
         /*
          * opening and closing more info

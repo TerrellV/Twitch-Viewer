@@ -107,9 +107,9 @@
 
 (function () {
 
-  angular.module('myApp').controller('cardsCtrl', ['$scope', '$http', '$q', 'getTwitchData', 'menuService', 'setCSS', 'parseDataService', 'setGridSystem', cardsCtrl]);
+  angular.module('myApp').controller('cardsCtrl', ['$scope', '$http', '$q', 'getTwitchData', 'menuService', 'setCSS', 'parseDataService', 'setCardButton', cardsCtrl]);
 
-  function cardsCtrl($scope, $http, $q, getTwitchData, menuService, setCSS, parseDataService, setGridSystem) {
+  function cardsCtrl($scope, $http, $q, getTwitchData, menuService, setCSS, parseDataService, setCardButton) {
 
     // seting variable to correct context of this
     var vm = this;
@@ -132,10 +132,10 @@
 })();
 
 (function () {
-  angular.module('myApp').directive('myDir', ['$timeout', '$interval', 'setRandomCover', 'parseDataService', 'setGridSystem', dirSample]);
+  angular.module('myApp').directive('myDir', ['$timeout', '$interval', 'setRandomCover', 'parseDataService', 'setCardButton', dirSample]);
 
   // custom directie to keep track of dom elements of individual cards...
-  function dirSample($interval, $timeout, setRandomCover, parseDataService, setGridSystem) {
+  function dirSample($interval, $timeout, setRandomCover, parseDataService, setCardButton) {
     return {
       templateUrl: 'app/build/partials/cardContent.html',
       scope: {
@@ -146,10 +146,41 @@
       },
       link: function link(scope, element, attributes) {
         // grab all necesssary variables for elemnts in card
-        var header = element.find('.header'),
+        var card = element.find('.card'),
+            header = element.find('.header'),
             frontButton = element.find('.subhead-btn'),
             personIcon = frontButton.children(),
             exitButton = element.find('#info-close-btn');
+
+        checkHeight();
+        // positioning of button
+        $(window).resize(checkHeight);
+
+        function checkHeight() {
+          // center button dynamically
+          // let h = element.height();
+          // let hB = frontButton.height();
+          // let percent = ( ( (h / 2) / hB) +.5) * 100;
+          //
+          // frontButton.css({
+          //   "-webkit-transform": `translate(200.05%,-${percent}%)`,
+          //   "-moz-transform": `translate(200.05%,-${percent}%)`,
+          //   "-ms-transform": `translate(200.05%,-${percent}%)`,
+          //   "-o-transform": `translate(200.05%,-${percent}%)`,
+          //   "transform": `translate(200.05%,-${percent}%)`
+          // });
+
+          var h = element.height();
+          var hB = frontButton.height();
+          var percent = (h * .15 / hB + .5) * 100;
+          frontButton.css({
+            "-webkit-transform": "translate(418%,-" + percent + "%)",
+            "-moz-transform": "translate(418%,-" + percent + "%)",
+            "-ms-transform": "translate(418%,-" + percent + "%)",
+            "-o-transform": "translate(418%,-" + percent + "%)",
+            "transform": "translate(418%,-" + percent + "%)"
+          });
+        }
 
         /*
          * opening and closing more info
@@ -222,9 +253,9 @@
 })();
 
 (function () {
-  angular.module('myApp').directive('navDir', ['$timeout', '$interval', 'setGridSystem', 'parseDataService', navDir]);
+  angular.module('myApp').directive('navDir', ['$timeout', '$interval', 'setCardButton', 'parseDataService', navDir]);
 
-  function navDir($timeout, $interval, setGridSystem, parseDataService) {
+  function navDir($timeout, $interval, setCardButton, parseDataService) {
     return {
       templateUrl: 'app/build/partials/nav.html',
       controller: 'navController',
@@ -242,17 +273,14 @@
         }
 
         tabAll.bind('click', function () {
-          window.setTimeout(setGridSystem.setMargins, 1);
           scope.activeTab = 'all';
           scope.$apply();
         });
         tabOnline.bind('click', function () {
-          window.setTimeout(setGridSystem.setMargins, 1);
           scope.activeTab = 'online';
           scope.$apply();
         });
         tabOffline.bind('click', function () {
-          window.setTimeout(setGridSystem.setMargins, 1);
           scope.activeTab = 'offline';
           scope.$apply();
         });
@@ -262,7 +290,7 @@
 })();
 
 (function () {
-  angular.module('factories', []).factory('getTwitchData', ['$http', '$q', getTwitchData]).factory('setGridSystem', setGridSystem);
+  angular.module('factories', []).factory('getTwitchData', ['$http', '$q', getTwitchData]).factory('setCardButton', setCardButton);
 
   function getTwitchData($http, $q) {
 
@@ -312,12 +340,10 @@
     return obj;
   }
 
-  function setGridSystem() {
+  function setCardButton() {
 
     var obj = {
-      setMargins: function setMargins() {
-        console.log('getting ready to map');
-      }
+      centerButton: function centerButton() {}
     };
 
     return obj;
@@ -325,7 +351,7 @@
 })();
 
 (function () {
-  angular.module('myApp').service('menuService', menuService).service('popupService', popupService).service('setCSS', setCSS).service('parseDataService', ['getTwitchData', '$q', 'setGridSystem', parseDataService]).service('setRandomCover', setRandomCover);
+  angular.module('myApp').service('menuService', menuService).service('popupService', popupService).service('setCSS', setCSS).service('parseDataService', ['getTwitchData', '$q', 'setCardButton', parseDataService]).service('setRandomCover', setRandomCover);
 
   function menuService($http, $q) {
     var vm = this;
@@ -349,7 +375,7 @@
     };
   }
 
-  function parseDataService(getTwitchData, $q, setGridSystem) {
+  function parseDataService(getTwitchData, $q, setCardButton) {
     var vm = this;
     var promises = getTwitchData.async();
     /*
@@ -367,7 +393,7 @@
       var domSet = new Promise(function (res, rej) {
         res(response.map(vm.checkOnline));
       }).then(function () {
-        setGridSystem.setMargins();
+        setCardButton.centerButton();
       });
     }, function (reason) {
       console.log('default request failed', reason);

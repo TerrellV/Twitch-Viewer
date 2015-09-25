@@ -5,7 +5,7 @@ button{
     position: relative;
     display: inline-block;
     width: 19.9%;
-    height: 310px;
+    height: 30vh;
     background-color: white;
     margin: 2.47243%;
     overflow:hidden;
@@ -81,17 +81,25 @@ button{
         }
         .subhead-btn {
             outline: none;
-            position: absolute;
+            position: relative;
             background-color: $blue;
             color: white;
             border: none;
-            border-radius: 50%;
-            height: 50px;
-            width: 50px;
-            @include transform("translate(270px,-75px)");
+            width: 18%;
             z-index: 3;
-            i {
-                font-size: 20px;
+            padding: 0px;
+            border-radius: 50%;
+            &:before {
+              content:'';
+              display: block;
+              padding-top: 100%;
+              border-radius: 50%;
+            }
+            .content {
+              @include center-me();
+              i {
+                  font-size: 20px;
+              }
             }
         }
     }

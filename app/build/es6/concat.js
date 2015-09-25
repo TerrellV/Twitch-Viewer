@@ -547,10 +547,9 @@ var _slicedToArray = (function () { function sliceIterator(arr, i) { var _arr = 
       var ci = SetDataBoth(channel);
 
       ci.live = true;
-      ci.game = game;
+      ci.game = concatDscr(game, 20);
       ci.viewers = abbreviateNumber(viewers);
       ci.previewImg = large;
-      ci.strmDscr = concatDscr(status);
       ci.frontAction = 'Watch Now';
       return ci;
     };
@@ -565,7 +564,7 @@ var _slicedToArray = (function () { function sliceIterator(arr, i) { var _arr = 
         name: name,
         followers: abbreviateNumber(followers),
         url: url,
-        status: concatDscr(status)
+        status: concatDscr(status, 20)
       };
     }
     /*
@@ -614,14 +613,16 @@ var _slicedToArray = (function () { function sliceIterator(arr, i) { var _arr = 
       }
       return newValue;
     }
+
     // concat the status
-    function concatDscr(str) {
+    function concatDscr(str, cutoff) {
       if (str === null) {
         return '';
-      }
-      return str.slice(0, 30) + " ...";
+      };
+      return str.length > cutoff ? str.slice(0, cutoff) + " ..." : str;
     }
   }
+
   function setCSS() {
     var vm = this;
     var page = $(".pageContent");

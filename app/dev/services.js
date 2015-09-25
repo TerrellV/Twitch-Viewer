@@ -112,10 +112,9 @@
                 let ci = SetDataBoth(channel);
 
                 ci.live = true;
-                ci.game = game;
+                ci.game = concatDscr(game,20);
                 ci.viewers = abbreviateNumber(viewers);
                 ci.previewImg = large;
-                ci.strmDscr = concatDscr(status);
                 ci.frontAction = 'Watch Now';
                 return ci;
             }
@@ -126,7 +125,7 @@
                     name,
                     followers: abbreviateNumber(followers),
                     url,
-                    status: concatDscr(status)
+                    status: concatDscr(status,20)
                 };
             }
             /*
@@ -172,12 +171,17 @@
                 }
                 return newValue;
             }
-            // concat the status
-            function concatDscr(str) {
-                if (str === null) {return ''}
-                return  `${str.slice(0,30)} ...`;
-            }
+
+
+          // concat the status
+          function concatDscr(str,cutoff) {
+              if (str === null) {return ''};
+              return (str.length > cutoff )? `${str.slice(0,cutoff)} ...`: str;
+          }
+
         }
+
+
         function setCSS() {
           const vm = this;
           const page = $(".pageContent");

@@ -152,26 +152,13 @@ var _slicedToArray = (function () { function sliceIterator(arr, i) { var _arr = 
             header = element.find('.header'),
             frontButton = element.find('.subhead-btn'),
             personIcon = frontButton.find('#person-svg-icon'),
-            exitButton = element.find('#info-close-btn');
+            backButton = element.find('#arrow-back-icon'),
+            deleteButton = element.find('#delete-icon');
 
-        // init values on load
+        // position front button on load
         checkHeight();
-        // positioning of button
+        // positioning of button on resize event
         $(window).resize(checkHeight);
-
-        function checkHeight() {
-
-          var h = element.height();
-          var hB = frontButton.height();
-          var percent = (h * .15 / hB + .5) * 100;
-          frontButton.css({
-            "-webkit-transform": "translate(418%,-" + percent + "%)",
-            "-moz-transform": "translate(418%,-" + percent + "%)",
-            "-ms-transform": "translate(418%,-" + percent + "%)",
-            "-o-transform": "translate(418%,-" + percent + "%)",
-            "transform": "translate(418%,-" + percent + "%)"
-          });
-        }
 
         /*
          * opening and closing more info
@@ -179,9 +166,6 @@ var _slicedToArray = (function () { function sliceIterator(arr, i) { var _arr = 
 
         // animate front button to fill and then fade out
         frontButton.bind("click", function () {
-
-          scope.showBack = true;
-
           var _getCurrVals = getCurrVals();
 
           var _getCurrVals2 = _slicedToArray(_getCurrVals, 6);
@@ -193,13 +177,14 @@ var _slicedToArray = (function () { function sliceIterator(arr, i) { var _arr = 
           var xCent = _getCurrVals2[4];
           var yCent = _getCurrVals2[5];
 
+          scope.showBack = true;
           moveButton(xCent, yCent); // move the button to center
           window.setTimeout(scaleButton.bind(null, xCent, yCent, 10, 0), 500);
-          var id = window.setTimeout(showInfo, 800); // show card info element
+          var id = window.setTimeout(showInfo, 1000); // show card info element
         });
 
         // exit button animation
-        exitButton.bind('click', function () {
+        backButton.bind('click', function () {
           var _getCurrVals3 = getCurrVals();
 
           var _getCurrVals32 = _slicedToArray(_getCurrVals3, 6);
@@ -218,6 +203,37 @@ var _slicedToArray = (function () { function sliceIterator(arr, i) { var _arr = 
           window.setTimeout(moveButton.bind(null, xStrt, yStrt), 500);
           scope.$apply();
         });
+
+        // delete button
+        deleteButton.bind('click', function () {
+          var channelArr = scope.channel.live ? "online" : "offline";
+          parseDataService.deleteChannel(channelArr, scope.channel);
+          scope.$apply();
+        });
+
+        /*
+         * on resize set the position of front button
+         */
+        function checkHeight() {
+          var _getCurrVals4 = getCurrVals();
+
+          var _getCurrVals42 = _slicedToArray(_getCurrVals4, 6);
+
+          var h = _getCurrVals42[0];
+          var hB = _getCurrVals42[1];
+          var xStrt = _getCurrVals42[2];
+          var yStrt = _getCurrVals42[3];
+          var xCent = _getCurrVals42[4];
+          var yCent = _getCurrVals42[5];
+
+          frontButton.css({
+            "-webkit-transform": "translate(418%,-" + yStrt + "%)",
+            "-moz-transform": "translate(418%,-" + yStrt + "%)",
+            "-ms-transform": "translate(418%,-" + yStrt + "%)",
+            "-o-transform": "translate(418%,-" + yStrt + "%)",
+            "transform": "translate(418%,-" + yStrt + "%)"
+          });
+        }
 
         /*
          * Get css values for positioning
@@ -258,11 +274,11 @@ var _slicedToArray = (function () { function sliceIterator(arr, i) { var _arr = 
             "opacity": "" + opc
           });
           frontButton.css({
-            "-webkit-transition": "all 300ms ease-in-out",
-            "-moz-transition": "all 300ms ease-in-out",
-            "-ms-transition": "all 300ms ease-in-out",
-            "-o-transition": "all 300ms ease-in-out",
-            "transition": "all 300ms ease-in-out",
+            "-webkit-transition": "all 500ms ease-in-out",
+            "-moz-transition": "all 500ms ease-in-out",
+            "-ms-transition": "all 500ms ease-in-out",
+            "-o-transition": "all 500ms ease-in-out",
+            "transition": "all 500ms ease-in-out",
             "-webkit-transform": "translate(" + xPerc + "%,-" + yPerc + "%) scale(" + scl + ")",
             "-moz-transform": "translate(" + xPerc + "%,-" + yPerc + "%) scale(" + scl + ")",
             "-ms-transform": "translate(" + xPerc + "%,-" + yPerc + "%) scale(" + scl + ")",
@@ -357,7 +373,7 @@ var _slicedToArray = (function () { function sliceIterator(arr, i) { var _arr = 
   function getTwitchData($http, $q) {
 
     var baseUrl = 'https://api/twitch.tv/kraken';
-    var defChannels = ['comster404', 'freecodecamp', 'kittyplaysgames', 'twosync', 'freecodecamp', 'krzjn', 'kaypealol', 'mrgoldensports', 'vgbootcamp', 'sodapoppin', 'femsteph', 'streamerhouse', 'joshog', 'pgl'];
+    var defChannels = ['comster404', 'freecodecamp', 'kittyplaysgames', 'twosync', 'krzjn', 'kaypealol', 'mrgoldensports', 'sodapoppin', 'femsteph'];
 
     var url = 'https://api.twitch.tv/kraken/streams/';
     var channelUrl = 'https://api.twitch.tv/kraken/channels/';
@@ -446,6 +462,12 @@ var _slicedToArray = (function () { function sliceIterator(arr, i) { var _arr = 
     vm.channels = {
       online: [],
       offline: []
+    };
+
+    vm.deleteChannel = function (ch, obj) {
+      var chArr = vm.channels[ch];
+      var chIndex = chArr.indexOf(obj);
+      chArr.splice(chIndex, 1);
     };
 
     /*

@@ -6,7 +6,7 @@
     function getTwitchData($http,$q) {
 
         var baseUrl = 'https://api/twitch.tv/kraken';
-        var defChannels = ['comster404','freecodecamp','kittyplaysgames','twosync','freecodecamp','krzjn', 'kaypealol', 'mrgoldensports', 'vgbootcamp', 'sodapoppin', 'femsteph', 'streamerhouse', 'joshog', 'pgl'];
+        var defChannels = ['comster404','freecodecamp','kittyplaysgames','twosync','krzjn', 'kaypealol', 'mrgoldensports', 'sodapoppin', 'femsteph'];
 
         const url = 'https://api.twitch.tv/kraken/streams/';
         const channelUrl = 'https://api.twitch.tv/kraken/channels/';

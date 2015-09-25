@@ -39,6 +39,12 @@
                 offline: []
             }
 
+            vm.deleteChannel = function(ch,obj) {
+              const chArr = vm.channels[ch];
+              const chIndex = chArr.indexOf(obj);
+              chArr.splice(chIndex,1);
+            }
+
         /*
          * Map and request stream and or channel for each
         */

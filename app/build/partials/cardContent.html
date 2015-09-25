@@ -35,33 +35,38 @@
 <!-- content for inside of card  -->
 <div class="card-back" ng-show="showBack">
 
-    <div id="followers"class="box info-followers">
-        <div class="sec-cont">
-            <h5>{{channel.followers}}</h5>
-            <p>followers</p>
-            <svg class="sec-icon">
-                <use xlink:href="Images/sprites.svg#people-icon"><use/>
-            </svg>
-        </div>
-    </div>
-    <div id="viewers"class="box info-viewers">
-        <div class="sec-cont">
-            <h5>{{channel.viewers || "..."}}</h5>
-            <p>viewers</p>
-            <svg class="sec-icon">
-                <use xlink:href="Images/sprites.svg#views-icon"><use/>
-            </svg>
-        </div>
-    </div>
-    <div id="status"class="box info-status">
-        <div class="sec-cont">
-            <p>{{channel.status}}</p>
-        </div>
-    </div>
+  <!-- close button on inside of card MOVE THIS INSIDE CARD INFO-->
+  <div type="button" id="info-btns" class="close-btn " ng-show="appear">
+    <svg id="arrow-back-icon" >
+      <use xlink:href="Images/sprites.svg#arrow-back"></use>
+    </svg>
+    <svg id="delete-icon" >
+      <use xlink:href="Images/sprites.svg#close"></use>
+    </svg>
+  </div>
+
+  <div id="followers"class="box info-followers">
+      <div class="sec-cont">
+          <h5>{{channel.followers}}</h5>
+          <p>followers</p>
+          <svg class="sec-icon">
+              <use xlink:href="Images/sprites.svg#people-icon"><use/>
+          </svg>
+      </div>
+  </div>
+  <div id="viewers"class="box info-viewers">
+      <div class="sec-cont">
+          <h5>{{channel.viewers || "..."}}</h5>
+          <p>viewers</p>
+          <svg class="sec-icon">
+              <use xlink:href="Images/sprites.svg#views-icon"><use/>
+          </svg>
+      </div>
+  </div>
+  <div id="status"class="box info-status">
+      <div class="sec-cont">
+          <p>{{channel.status}}</p>
+      </div>
+  </div>
 
 </div>
-
-<!-- close button on inside of card MOVE THIS INSIDE CARD INFO-->
-<button type="button" id="info-close-btn" class="close-btn" ng-show="appear">
-    <i class="material-icons">close</i>
-</button>

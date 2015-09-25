@@ -18,27 +18,13 @@
           header = element.find('.header'),
           frontButton = element.find('.subhead-btn'),
           personIcon = frontButton.find('#person-svg-icon'),
-          exitButton = element.find('#info-close-btn');
+          backButton = element.find('#arrow-back-icon'),
+          deleteButton = element.find('#delete-icon');
 
-          // init values on load
+          // position front button on load
           checkHeight();
-          // positioning of button
+          // positioning of button on resize event
           $(window).resize( checkHeight );
-
-          function checkHeight() {
-
-            let h = element.height();
-            let hB = frontButton.height();
-            let percent = ( ( (h*.15) / hB) +.5) * 100;
-            frontButton.css({
-              "-webkit-transform": `translate(418%,-${percent}%)`,
-              "-moz-transform": `translate(418%,-${percent}%)`,
-              "-ms-transform": `translate(418%,-${percent}%)`,
-              "-o-transform": `translate(418%,-${percent}%)`,
-              "transform": `translate(418%,-${percent}%)`
-            });
-          }
-
 
         /*
          * opening and closing more info
@@ -47,16 +33,17 @@
         // animate front button to fill and then fade out
         frontButton.bind("click", () => {
 
-          scope.showBack = true;
           const [h,hB,xStrt,yStrt,xCent,yCent] = getCurrVals();
 
+          scope.showBack = true;
           moveButton(xCent,yCent); // move the button to center
           window.setTimeout(scaleButton.bind(null,xCent,yCent,10,0),500);
-          const id = window.setTimeout(showInfo, 800); // show card info element
+          const id = window.setTimeout(showInfo,1000); // show card info element
         });
 
         // exit button animation
-        exitButton.bind('click', () => {
+        backButton.bind('click', () => {
+
           const [h,hB,xStrt,yStrt,xCent,yCent] = getCurrVals();
 
           scope.showBack = false;
@@ -67,6 +54,27 @@
           scope.$apply();
         });
 
+        // delete button
+        deleteButton.bind('click', () => {
+          let channelArr = (scope.channel.live)? "online": "offline";
+          parseDataService.deleteChannel(channelArr,scope.channel)
+          scope.$apply();
+        });
+
+
+        /*
+         * on resize set the position of front button
+         */
+        function checkHeight() {
+          const [h,hB,xStrt,yStrt,xCent,yCent] = getCurrVals();
+          frontButton.css({
+            "-webkit-transform": `translate(418%,-${yStrt}%)`,
+            "-moz-transform": `translate(418%,-${yStrt}%)`,
+            "-ms-transform": `translate(418%,-${yStrt}%)`,
+            "-o-transform": `translate(418%,-${yStrt}%)`,
+            "transform": `translate(418%,-${yStrt}%)`
+          });
+        }
 
         /*
          * Get css values for positioning
@@ -107,11 +115,11 @@
             "opacity":`${opc}`
           });
           frontButton.css({
-            "-webkit-transition": "all 300ms ease-in-out",
-            "-moz-transition": "all 300ms ease-in-out",
-            "-ms-transition": "all 300ms ease-in-out",
-            "-o-transition": "all 300ms ease-in-out",
-            "transition": "all 300ms ease-in-out",
+            "-webkit-transition": "all 500ms ease-in-out",
+            "-moz-transition": "all 500ms ease-in-out",
+            "-ms-transition": "all 500ms ease-in-out",
+            "-o-transition": "all 500ms ease-in-out",
+            "transition": "all 500ms ease-in-out",
             "-webkit-transform":`translate(${xPerc}%,-${yPerc}%) scale(${scl})`,
             "-moz-transform":`translate(${xPerc}%,-${yPerc}%) scale(${scl})`,
             "-ms-transform":`translate(${xPerc}%,-${yPerc}%) scale(${scl})`,

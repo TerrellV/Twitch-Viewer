@@ -1,5 +1,7 @@
 "use strict";
 
+var _slicedToArray = (function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; })();
+
 (function () {
   angular.module('myApp', ["ngAnimate", "factories", "ngRoute"]);
 })();
@@ -149,26 +151,15 @@
         var card = element.find('.card'),
             header = element.find('.header'),
             frontButton = element.find('.subhead-btn'),
-            personIcon = frontButton.children(),
+            personIcon = frontButton.find('#person-svg-icon'),
             exitButton = element.find('#info-close-btn');
 
+        // init values on load
         checkHeight();
         // positioning of button
         $(window).resize(checkHeight);
 
         function checkHeight() {
-          // center button dynamically
-          // let h = element.height();
-          // let hB = frontButton.height();
-          // let percent = ( ( (h / 2) / hB) +.5) * 100;
-          //
-          // frontButton.css({
-          //   "-webkit-transform": `translate(200.05%,-${percent}%)`,
-          //   "-moz-transform": `translate(200.05%,-${percent}%)`,
-          //   "-ms-transform": `translate(200.05%,-${percent}%)`,
-          //   "-o-transform": `translate(200.05%,-${percent}%)`,
-          //   "transform": `translate(200.05%,-${percent}%)`
-          // });
 
           var h = element.height();
           var hB = frontButton.height();
@@ -188,34 +179,105 @@
 
         // animate front button to fill and then fade out
         frontButton.bind("click", function () {
-          scope.showBack = true;
-          frontButton.addClass("animate-fill");
-          personIcon.addClass('animate-hide');
-          var id = window.setTimeout(showInfo, 800);
 
-          function showInfo() {
-            scope.appear = true;
-            scope.$apply();
-            var id = window.setTimeout(function () {
-              frontButton.removeClass("animate-fill");
-              personIcon.removeClass('animate-hide');
-            }, 200);
-          }
+          scope.showBack = true;
+
+          var _getCurrVals = getCurrVals();
+
+          var _getCurrVals2 = _slicedToArray(_getCurrVals, 6);
+
+          var h = _getCurrVals2[0];
+          var hB = _getCurrVals2[1];
+          var xStrt = _getCurrVals2[2];
+          var yStrt = _getCurrVals2[3];
+          var xCent = _getCurrVals2[4];
+          var yCent = _getCurrVals2[5];
+
+          moveButton(xCent, yCent); // move the button to center
+          window.setTimeout(scaleButton.bind(null, xCent, yCent, 10, 0), 500);
+          var id = window.setTimeout(showInfo, 800); // show card info element
         });
-        // animate closing of info pannel
+
+        // exit button animation
         exitButton.bind('click', function () {
+          var _getCurrVals3 = getCurrVals();
+
+          var _getCurrVals32 = _slicedToArray(_getCurrVals3, 6);
+
+          var h = _getCurrVals32[0];
+          var hB = _getCurrVals32[1];
+          var xStrt = _getCurrVals32[2];
+          var yStrt = _getCurrVals32[3];
+          var xCent = _getCurrVals32[4];
+          var yCent = _getCurrVals32[5];
+
           scope.showBack = false;
           scope.appear = false;
-          frontButton.addClass('animate-fill-backwards');
-          personIcon.addClass('animate-show');
 
-          var id = window.setTimeout(function () {
-            frontButton.removeClass('animate-fill-backwards');
-            personIcon.removeClass('animate-show');
-          }, 800);
-
+          scaleButton(xCent, yCent, 1, 1);
+          window.setTimeout(moveButton.bind(null, xStrt, yStrt), 500);
           scope.$apply();
         });
+
+        /*
+         * Get css values for positioning
+         */
+        function getCurrVals() {
+          var h = element.height();
+          var hB = frontButton.height();
+          var xStrt = 418;
+          var yStrt = (h * .15 / hB + .5) * 100;
+          var xCent = 227.832;
+          var yCent = (h / 2 / hB + .5) * 100;
+          return [h, hB, xStrt, yStrt, xCent, yCent];
+        }
+
+        /*
+         * Move Button Function
+         */
+        function moveButton(xPerc, yPerc) {
+          frontButton.css({
+            "-webkit-transition": "all 500ms ease-in-out",
+            "-moz-transition": "all 500ms ease-in-out",
+            "-ms-transition": "all 500ms ease-in-out",
+            "-o-transition": "all 500ms ease-in-out",
+            "transition": "all 500ms ease-in-out",
+            "-webkit-transform": "translate(" + xPerc + "%,-" + yPerc + "%) ",
+            "-moz-transform": "translate(" + xPerc + "%,-" + yPerc + "%) ",
+            "-ms-transform": "translate(" + xPerc + "%,-" + yPerc + "%) ",
+            "-o-transform": "translate(" + xPerc + "%,-" + yPerc + "%) ",
+            "transform": "translate(" + xPerc + "%,-" + yPerc + "%) "
+          });
+        }
+
+        /*
+         * Scale Button Function
+         */
+        function scaleButton(xPerc, yPerc, scl, opc) {
+          personIcon.css({
+            "opacity": "" + opc
+          });
+          frontButton.css({
+            "-webkit-transition": "all 300ms ease-in-out",
+            "-moz-transition": "all 300ms ease-in-out",
+            "-ms-transition": "all 300ms ease-in-out",
+            "-o-transition": "all 300ms ease-in-out",
+            "transition": "all 300ms ease-in-out",
+            "-webkit-transform": "translate(" + xPerc + "%,-" + yPerc + "%) scale(" + scl + ")",
+            "-moz-transform": "translate(" + xPerc + "%,-" + yPerc + "%) scale(" + scl + ")",
+            "-ms-transform": "translate(" + xPerc + "%,-" + yPerc + "%) scale(" + scl + ")",
+            "-o-transform": "translate(" + xPerc + "%,-" + yPerc + "%) scale(" + scl + ")",
+            "transform": "translate(" + xPerc + "%,-" + yPerc + "%) scale(" + scl + ")"
+          });
+        }
+
+        /*
+         * Show Info element
+         */
+        function showInfo() {
+          scope.appear = true;
+          scope.$apply();
+        }
 
         /*
          * Setting Random CoverPhoto

@@ -52,7 +52,11 @@
   width: 95%;
   position: absolute;
   left: 50%;
-  transform: translate(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
   position: relative;
   top: 12%; }
 
@@ -79,14 +83,19 @@ button {
       z-index: 2; }
       .card .front-card .header .front-header-text {
         position: relative;
-        text-align: center;
         margin: 0;
         font-size: 25px;
         font-family: "Open Sans", sans-serif;
         font-weight: 600;
         color: white;
+        position: absolute;
+        left: 50%;
         top: 50%;
-        transform: translateY(-50%); }
+        -webkit-transform: translate(-50%,-50%);
+        -moz-transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+        -o-transform: translate(-50%,-50%);
+        transform: translate(-50%,-50%); }
     .card .front-card .subhead-game {
       height: 20%;
       width: 100%;
@@ -164,8 +173,22 @@ button {
         -ms-transform: translate(-50%,-50%);
         -o-transform: translate(-50%,-50%);
         transform: translate(-50%,-50%); }
-        .card .front-card .subhead-btn .content i {
-          font-size: 20px; }
+        .card .front-card .subhead-btn .content #person-svg-icon {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          -webkit-transform: translate(-50%,-50%);
+          -moz-transform: translate(-50%,-50%);
+          -ms-transform: translate(-50%,-50%);
+          -o-transform: translate(-50%,-50%);
+          transform: translate(-50%,-50%);
+          fill: white;
+          height: 2em;
+          -webkit-transition: all 300ms ease-in-out;
+          -moz-transition: all 300ms ease-in-out;
+          -ms-transition: all 300ms ease-in-out;
+          -o-transition: all 300ms ease-in-out;
+          transition: all 300ms ease-in-out; }
   .card .card-back {
     position: absolute;
     top: 0px;
@@ -182,6 +205,10 @@ button {
         text-align: center;
         position: absolute;
         top: 50%;
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
         transform: translateY(-50%);
         margin: 0 0 0 12%;
         font-family: "Open Sans",sans-serif;
@@ -210,6 +237,10 @@ button {
         margin-right: 12%;
         position: absolute;
         top: 50%;
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
         transform: translateY(-50%); }
     .card .card-back #followers {
       background-color: #4538AE; }
@@ -280,7 +311,11 @@ nav {
   nav ul {
     position: absolute;
     left: 50%;
-    transform: translate(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
     bottom: 70vh;
     padding-left: 0;
     white-space: nowrap;
@@ -334,7 +369,11 @@ nav {
     nav .add-card-btn #add-card-btn-icon {
       position: absolute;
       left: 50%;
-      transform: translate(-50%);
+      -webkit-transform: translateX(-50%);
+      -moz-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+      -o-transform: translateX(-50%);
+      transform: translateX(-50%);
       top: 1em;
       fill: white;
       height: 3.1em;
@@ -342,7 +381,11 @@ nav {
     nav .add-card-btn #add-card-btn-text {
       position: absolute;
       left: 50%;
-      transform: translate(-50%);
+      -webkit-transform: translateX(-50%);
+      -moz-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+      -o-transform: translateX(-50%);
+      transform: translateX(-50%);
       bottom: 1em;
       color: white;
       font-family: "Open Sans", sans-serif;
@@ -384,7 +427,11 @@ nav {
       .add-card-container .card-form .form-header #person-svg-icon {
         position: absolute;
         left: 50%;
-        transform: translate(-50%);
+        -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        -o-transform: translateX(-50%);
+        transform: translateX(-50%);
         position: relative;
         fill: white;
         height: 9em;
@@ -392,7 +439,11 @@ nav {
       .add-card-container .card-form .form-header #form-action-text {
         position: absolute;
         left: 50%;
-        transform: translate(-50%);
+        -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        -o-transform: translateX(-50%);
+        transform: translateX(-50%);
         position: relative;
         width: 70%;
         line-height: 1.2em;
@@ -406,7 +457,11 @@ nav {
       width: 85%;
       position: absolute;
       left: 50%;
-      transform: translate(-50%);
+      -webkit-transform: translateX(-50%);
+      -moz-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+      -o-transform: translateX(-50%);
+      transform: translateX(-50%);
       bottom: 30%;
       text-align: center;
       white-space: nowrap; }
@@ -428,7 +483,11 @@ nav {
     .add-card-container .card-form #form-input-container {
       position: absolute;
       left: 50%;
-      transform: translate(-50%);
+      -webkit-transform: translateX(-50%);
+      -moz-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+      -o-transform: translateX(-50%);
+      transform: translateX(-50%);
       height: 4em;
       width: 65%;
       background-color: #2E7EFD;
@@ -456,6 +515,10 @@ nav {
       .add-card-container .card-form #form-input-container #add-svg-icon {
         position: absolute;
         top: 50%;
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
         transform: translateY(-50%);
         right: 5%;
         fill: white;
@@ -473,6 +536,10 @@ nav {
       .add-card-container .card-form #form-input-container .response-icon {
         position: absolute;
         top: 50%;
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
         transform: translateY(-50%);
         right: 5%;
         height: 1.8em;
@@ -520,11 +587,19 @@ nav {
   top: 5%;
   position: absolute;
   left: 50%;
-  transform: translate(-50%); }
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%); }
   .search-container .search-box {
     position: absolute;
     left: 50%;
-    transform: translate(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
     margin-bottom: 20px;
     width: 95%;
     height: 100%; }
@@ -535,6 +610,10 @@ nav {
       .search-container .search-box .search-square #search-icon {
         position: absolute;
         top: 50%;
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
         transform: translateY(-50%);
         position: relative;
         margin: 0 10px;
@@ -544,6 +623,10 @@ nav {
       .search-container .search-box .search-square .search-input {
         position: absolute;
         top: 50%;
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
         transform: translateY(-50%);
         height: 100%;
         border: none;
@@ -592,11 +675,19 @@ nav {
       width: 100%;
       position: absolute;
       left: 50%;
-      transform: translate(-50%);
+      -webkit-transform: translateX(-50%);
+      -moz-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+      -o-transform: translateX(-50%);
+      transform: translateX(-50%);
       bottom: 0px; }
       .nav .add-card-btn #add-card-btn-icon {
         position: absolute;
         top: 50%;
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
         transform: translateY(-50%);
         left: 25%;
         height: 20px;
@@ -622,11 +713,21 @@ nav {
     height: 86vh; }
 
   .search-container {
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+    margin-left: 5px;
     top: 2em;
     width: 85vw; }
+    .search-container .search-box {
+      width: 100%; }
 
   .live-card-grid {
-    top: 2.75em;
+    top: 7.75em;
     width: 85vw; }
 
   .card {

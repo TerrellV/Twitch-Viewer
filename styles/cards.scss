@@ -22,15 +22,13 @@ button{
             z-index: 2;
             // insert background through javascript
             .front-header-text {
-                position: relative;
-                text-align: center;
-                margin: 0;
-                font-size: 25px;
-                font-family: "Open Sans", sans-serif;
-                font-weight: 600;
-                color: white;
-                top: 50%;
-                transform: translateY(-50%);
+              position: relative;
+              margin: 0;
+              font-size: 25px;
+              font-family: "Open Sans", sans-serif;
+              font-weight: 600;
+              color: white;
+              @include center-me();
             }
         }
         .subhead-game{
@@ -97,8 +95,11 @@ button{
             }
             .content {
               @include center-me();
-              i {
-                  font-size: 20px;
+              #person-svg-icon {
+                @include center-me();
+                fill: white;
+                height: 2em;
+                @include transition("all 300ms ease-in-out");
               }
             }
         }

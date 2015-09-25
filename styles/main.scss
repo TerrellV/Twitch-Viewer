@@ -43,14 +43,14 @@ $navWidth: 200px;
     @include transform('translate(-50%,-50%)');
 }
 @mixin center-me-vert{
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+  position: absolute;
+  top: 50%;
+  @include transform("translateY(-50%)");
 }
 @mixin center-me-horiz{
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%);
+  position: absolute;
+  left: 50%;
+  @include transform("translateX(-50%)");
 }
 
 

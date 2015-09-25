@@ -17,26 +17,15 @@
         var card = element.find('.card'),
           header = element.find('.header'),
           frontButton = element.find('.subhead-btn'),
-          personIcon = frontButton.children(),
+          personIcon = frontButton.find('#person-svg-icon'),
           exitButton = element.find('#info-close-btn');
 
+          // init values on load
           checkHeight();
           // positioning of button
           $(window).resize( checkHeight );
 
           function checkHeight() {
-            // center button dynamically
-            // let h = element.height();
-            // let hB = frontButton.height();
-            // let percent = ( ( (h / 2) / hB) +.5) * 100;
-            //
-            // frontButton.css({
-            //   "-webkit-transform": `translate(200.05%,-${percent}%)`,
-            //   "-moz-transform": `translate(200.05%,-${percent}%)`,
-            //   "-ms-transform": `translate(200.05%,-${percent}%)`,
-            //   "-o-transform": `translate(200.05%,-${percent}%)`,
-            //   "transform": `translate(200.05%,-${percent}%)`
-            // });
 
             let h = element.height();
             let hB = frontButton.height();
@@ -51,41 +40,93 @@
           }
 
 
-
         /*
          * opening and closing more info
          */
 
         // animate front button to fill and then fade out
         frontButton.bind("click", () => {
-          scope.showBack = true;
-          frontButton.addClass("animate-fill");
-          personIcon.addClass('animate-hide');
-          const id = window.setTimeout(showInfo, 800);
 
-          function showInfo() {
-            scope.appear = true;
-            scope.$apply();
-            const id = window.setTimeout(function() {
-              frontButton.removeClass("animate-fill");
-              personIcon.removeClass('animate-hide');
-            }, 200);
-          }
+          scope.showBack = true;
+          const [h,hB,xStrt,yStrt,xCent,yCent] = getCurrVals();
+
+          moveButton(xCent,yCent); // move the button to center
+          window.setTimeout(scaleButton.bind(null,xCent,yCent,10,0),500);
+          const id = window.setTimeout(showInfo, 800); // show card info element
         });
-        // animate closing of info pannel
+
+        // exit button animation
         exitButton.bind('click', () => {
+          const [h,hB,xStrt,yStrt,xCent,yCent] = getCurrVals();
+
           scope.showBack = false;
           scope.appear = false;
-          frontButton.addClass('animate-fill-backwards');
-          personIcon.addClass('animate-show');
 
-          const id = window.setTimeout(() => {
-            frontButton.removeClass('animate-fill-backwards');
-            personIcon.removeClass('animate-show');
-          }, 800);
-
+          scaleButton(xCent,yCent,1,1);
+          window.setTimeout(moveButton.bind(null,xStrt,yStrt),500);
           scope.$apply();
         });
+
+
+        /*
+         * Get css values for positioning
+         */
+        function getCurrVals() {
+          let h = element.height();
+          let hB = frontButton.height();
+          const xStrt = 418;
+          let yStrt = ( ( (h*.15) / hB) +.5) * 100;
+          const xCent = 227.832;
+          let yCent = ( ( (h / 2) / hB) +.5) * 100;
+          return [h,hB,xStrt,yStrt,xCent,yCent];
+        }
+
+        /*
+         * Move Button Function
+         */
+        function moveButton(xPerc,yPerc) {
+          frontButton.css({
+            "-webkit-transition": "all 500ms ease-in-out",
+            "-moz-transition": "all 500ms ease-in-out",
+            "-ms-transition": "all 500ms ease-in-out",
+            "-o-transition": "all 500ms ease-in-out",
+            "transition": "all 500ms ease-in-out",
+            "-webkit-transform": `translate(${xPerc}%,-${yPerc}%) `,
+            "-moz-transform": `translate(${xPerc}%,-${yPerc}%) `,
+            "-ms-transform": `translate(${xPerc}%,-${yPerc}%) `,
+            "-o-transform": `translate(${xPerc}%,-${yPerc}%) `,
+            "transform": `translate(${xPerc}%,-${yPerc}%) `
+          });
+        }
+
+        /*
+         * Scale Button Function
+         */
+        function scaleButton(xPerc,yPerc,scl,opc) {
+          personIcon.css({
+            "opacity":`${opc}`
+          });
+          frontButton.css({
+            "-webkit-transition": "all 300ms ease-in-out",
+            "-moz-transition": "all 300ms ease-in-out",
+            "-ms-transition": "all 300ms ease-in-out",
+            "-o-transition": "all 300ms ease-in-out",
+            "transition": "all 300ms ease-in-out",
+            "-webkit-transform":`translate(${xPerc}%,-${yPerc}%) scale(${scl})`,
+            "-moz-transform":`translate(${xPerc}%,-${yPerc}%) scale(${scl})`,
+            "-ms-transform":`translate(${xPerc}%,-${yPerc}%) scale(${scl})`,
+            "-o-transform":`translate(${xPerc}%,-${yPerc}%) scale(${scl})`,
+            "transform":`translate(${xPerc}%,-${yPerc}%) scale(${scl})`
+          })
+        }
+
+        /*
+         * Show Info element
+         */
+         function showInfo() {
+           scope.appear = true;
+           scope.$apply();
+         }
 
         /*
          * Setting Random CoverPhoto

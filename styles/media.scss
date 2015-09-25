@@ -69,12 +69,17 @@ $nav-height: 14vh;
     height: 100-$nav-height;
   }
   .search-container {
+    @include center-me-horiz();
+    margin-left: 5px;
     top: 2em;
     width: 85vw;
+    .search-box {
+      width: 100%;
+    }
   }
 
   .live-card-grid {
-    top: 2.75em;
+    top: 7.75em;
     width:85vw;
   }
 

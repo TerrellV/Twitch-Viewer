@@ -1,6 +1,7 @@
 (function() {
     angular.module('factories', [])
-        .factory('getTwitchData', ['$http', '$q', getTwitchData]);
+        .factory('getTwitchData', ['$http', '$q', getTwitchData])
+        .factory('setGridSystem', setGridSystem );
 
     function getTwitchData($http,$q) {
 
@@ -48,8 +49,18 @@
                     });
             }
         };
-
         return obj;
     }
+
+    function setGridSystem() {
+
+      const obj = {
+        setMargins: function(){
+          console.log('getting ready to map');
+        }
+      }
+
+        return obj;
+      }
 
 })();

@@ -22,7 +22,5 @@
         const search = $p.find('.search-container');
         const grid = $p.find('.live-card-grid');
         const width = $('.live-card-grid').width();
-
-        var delay = window.setTimeout(setGridSystem.setMargins(),2000);
     }
 })();

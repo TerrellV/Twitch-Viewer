@@ -2,9 +2,8 @@
     angular.module('myApp')
         .service('menuService',menuService)
         .service('popupService',popupService)
-        .service('parseDataService',parseDataService)
         .service('setCSS',setCSS)
-        .service('setGridSystem',setGridSystem)
+        .service('parseDataService',['getTwitchData','$q','setGridSystem',parseDataService])
         .service('setRandomCover',setRandomCover);
 
         function menuService($http,$q) {
@@ -29,10 +28,9 @@
             }
         }
 
-        function parseDataService(getTwitchData, $q) {
+        function parseDataService(getTwitchData, $q, setGridSystem) {
             const vm = this;
             const promises = getTwitchData.async();
-
         /*
          * Arrays to hows parsed card data used in templates
         */
@@ -44,8 +42,12 @@
         /*
          * Map and request stream and or channel for each
         */
-            let P = $q.all(promises).then( response => {
-                response.map( vm.checkOnline );
+            vm.p = $q.all(promises).then( response => {
+              let domSet = new Promise(function(res,rej){
+                res( response.map( vm.checkOnline ) );
+              }).then(function(){
+                setGridSystem.setMargins()
+              })
             }, reason => {
                 console.log( 'default request failed', reason);
             });
@@ -195,29 +197,6 @@
                 }
             }
         }
-
-        function setGridSystem() {
-          const vm = this;
-          var master = $(".live-card-grid");
-          vm.setMargins = () => { master.children().map(setMargin) };
-
-          function setMargin(a,e) {
-            const card = $(e);
-            if ( (a + 1) % 4 === 0 && a !== 0 ) {
-              console.log('margins set');
-              card.css({
-                "margin-right":"0px"
-              });
-            }
-            else {
-              card.css({
-                "margin-right": "5.219%"
-              });
-            }
-          }
-
-        }
-
 
         function setRandomCover() {
           const vm = this;

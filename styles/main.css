@@ -49,12 +49,12 @@
   overflow-y: scroll; }
 
 .live-card-grid {
-  width: 90%;
+  width: 95%;
   position: absolute;
   left: 50%;
   transform: translate(-50%);
   position: relative;
-  top: 8%; }
+  top: 15%; }
 
 button {
   cursor: pointer; }
@@ -62,12 +62,10 @@ button {
 .card {
   position: relative;
   display: inline-block;
-  width: 21.08%;
+  width: 19.9%;
   height: 310px;
   background-color: white;
-  float: left;
-  margin-right: 5.219%;
-  margin-bottom: 3%;
+  margin: 2.47243%;
   overflow: hidden; }
   .card .front-card {
     position: relative;
@@ -507,36 +505,43 @@ nav {
           stroke-dashoffset: 0; }
 
 .search-container {
+  width: 95%;
+  height: 50px;
+  position: relative;
+  top: 5%;
   position: absolute;
   left: 50%;
-  transform: translate(-50%);
-  top: 3em;
-  margin-bottom: 10px;
-  position: relative;
-  width: 90%; }
+  transform: translate(-50%); }
   .search-container .search-box {
-    position: relative;
-    width: 100%;
-    height: 50px; }
-    .search-container .search-box #search-icon {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    margin-bottom: 20px;
+    width: 95%;
+    height: 100%; }
+    .search-container .search-box .search-square {
       position: relative;
-      margin: 0 10px;
-      height: 20px;
-      width: 20px;
-      fill: #4538AE; }
-    .search-container .search-box .search-input {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      height: 100%;
-      border: none;
-      background-color: transparent;
-      outline: none;
-      font-size: 18px;
-      color: #232C38; }
+      width: 100%;
+      height: 100%; }
+      .search-container .search-box .search-square #search-icon {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        position: relative;
+        margin: 0 10px;
+        height: 20px;
+        width: 20px;
+        fill: #4538AE; }
+      .search-container .search-box .search-square .search-input {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 100%;
+        border: none;
+        background-color: transparent;
+        outline: none;
+        font-size: 18px;
+        color: #232C38; }
 
 @media screen and (max-width: 414px) {
   .nav {

@@ -134,8 +134,6 @@
         const search = $p.find('.search-container');
         const grid = $p.find('.live-card-grid');
         const width = $('.live-card-grid').width();
-
-        var delay = window.setTimeout(setGridSystem.setMargins(),2000);
     }
 })();
 
@@ -163,8 +161,7 @@
         /*
          * opening and closing more info
          */
-         console.log();
-         setGridSystem.setMargins(); // may reduce this to not fire 15 times in future.... need access to index of element in the dom
+
         // animate front button to fill and then fade out
         frontButton.bind("click", () => {
           scope.showBack = true;
@@ -241,51 +238,53 @@
         }
 })();
 
-(function(){
+(function() {
     angular.module('myApp')
-        .directive('navDir', ['$timeout','$interval','setGridSystem',navDir]);
+      .directive('navDir', ['$timeout', '$interval', 'setGridSystem', 'parseDataService', navDir]);
 
-        function navDir($timeout,$interval, setGridSystem) {
-            return {
-                templateUrl: 'app/build/partials/nav.html',
-                controller: 'navController',
-                link: function(scope,element,attr) {
+    function navDir($timeout, $interval, setGridSystem, parseDataService ) {
+      return {
+        templateUrl: 'app/build/partials/nav.html',
+        controller: 'navController',
+        link: function(scope, element, attr) {
 
-                  var tabAll = element.find('#tab-all'),
-                      tabOnline = element.find("#tab-online"),
-                      tabOffline = element.find("#tab-offline");
+          var tabAll = element.find('#tab-all'),
+            tabOnline = element.find("#tab-online"),
+            tabOffline = element.find("#tab-offline");
 
-                  init('all'); //starting tab to show
-                  scope.setGrid = setGridSystem;
-                  function init(str){
-                    scope.activeTab = str;
-                  }
+          init('all'); //starting tab to show
 
-                  tabAll.bind('click', function(){
-                    setGridSystem.setMargins()
-                    scope.activeTab = 'all';
-                    scope.$apply();
-                  });
-                  tabOnline.bind('click', function(){
-                    setGridSystem.setMargins()
-                    scope.activeTab = 'online';
-                    scope.$apply();
-                  });
-                  tabOffline.bind('click', function(){
-                    setGridSystem.setMargins()
-                    scope.activeTab = 'offline';
-                    scope.$apply();
-                  });
+          function init(str) {
+            scope.activeTab = str;
+            const loadCh = parseDataService;
+          }
 
-                }
-            }
-        }
+          tabAll.bind('click', function() {
+            window.setTimeout(setGridSystem.setMargins, 1);
+            scope.activeTab = 'all';
+            scope.$apply();
+          });
+        tabOnline.bind('click', function() {
+          window.setTimeout(setGridSystem.setMargins, 1);
+          scope.activeTab = 'online';
+          scope.$apply();
+        });
+        tabOffline.bind('click', function() {
+          window.setTimeout(setGridSystem.setMargins, 1);
+          scope.activeTab = 'offline';
+          scope.$apply();
+        });
+
+      }
+    }
+  }
 
 })();
 
 (function() {
     angular.module('factories', [])
-        .factory('getTwitchData', ['$http', '$q', getTwitchData]);
+        .factory('getTwitchData', ['$http', '$q', getTwitchData])
+        .factory('setGridSystem', setGridSystem );
 
     function getTwitchData($http,$q) {
 
@@ -333,9 +332,19 @@
                     });
             }
         };
-
         return obj;
     }
+
+    function setGridSystem() {
+
+      const obj = {
+        setMargins: function(){
+          console.log('getting ready to map');
+        }
+      }
+
+        return obj;
+      }
 
 })();
 
@@ -343,9 +352,8 @@
     angular.module('myApp')
         .service('menuService',menuService)
         .service('popupService',popupService)
-        .service('parseDataService',parseDataService)
         .service('setCSS',setCSS)
-        .service('setGridSystem',setGridSystem)
+        .service('parseDataService',['getTwitchData','$q','setGridSystem',parseDataService])
         .service('setRandomCover',setRandomCover);
 
         function menuService($http,$q) {
@@ -370,10 +378,9 @@
             }
         }
 
-        function parseDataService(getTwitchData, $q) {
+        function parseDataService(getTwitchData, $q, setGridSystem) {
             const vm = this;
             const promises = getTwitchData.async();
-
         /*
          * Arrays to hows parsed card data used in templates
         */
@@ -385,8 +392,12 @@
         /*
          * Map and request stream and or channel for each
         */
-            let P = $q.all(promises).then( response => {
-                response.map( vm.checkOnline );
+            vm.p = $q.all(promises).then( response => {
+              let domSet = new Promise(function(res,rej){
+                res( response.map( vm.checkOnline ) );
+              }).then(function(){
+                setGridSystem.setMargins()
+              })
             }, reason => {
                 console.log( 'default request failed', reason);
             });
@@ -536,29 +547,6 @@
                 }
             }
         }
-
-        function setGridSystem() {
-          const vm = this;
-          var master = $(".live-card-grid");
-          vm.setMargins = () => { master.children().map(setMargin) };
-
-          function setMargin(a,e) {
-            const card = $(e);
-            if ( (a + 1) % 4 === 0 && a !== 0 ) {
-              console.log('margins set');
-              card.css({
-                "margin-right":"0px"
-              });
-            }
-            else {
-              card.css({
-                "margin-right": "5.219%"
-              });
-            }
-          }
-
-        }
-
 
         function setRandomCover() {
           const vm = this;

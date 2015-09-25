@@ -22,8 +22,7 @@
         /*
          * opening and closing more info
          */
-         console.log();
-         setGridSystem.setMargins(); // may reduce this to not fire 15 times in future.... need access to index of element in the dom
+
         // animate front button to fill and then fade out
         frontButton.bind("click", () => {
           scope.showBack = true;

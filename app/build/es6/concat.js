@@ -128,8 +128,6 @@
     var search = $p.find('.search-container');
     var grid = $p.find('.live-card-grid');
     var width = $('.live-card-grid').width();
-
-    var delay = window.setTimeout(setGridSystem.setMargins(), 2000);
   }
 })();
 
@@ -156,8 +154,7 @@
         /*
          * opening and closing more info
          */
-        console.log();
-        setGridSystem.setMargins(); // may reduce this to not fire 15 times in future.... need access to index of element in the dom
+
         // animate front button to fill and then fade out
         frontButton.bind("click", function () {
           scope.showBack = true;
@@ -225,9 +222,9 @@
 })();
 
 (function () {
-  angular.module('myApp').directive('navDir', ['$timeout', '$interval', 'setGridSystem', navDir]);
+  angular.module('myApp').directive('navDir', ['$timeout', '$interval', 'setGridSystem', 'parseDataService', navDir]);
 
-  function navDir($timeout, $interval, setGridSystem) {
+  function navDir($timeout, $interval, setGridSystem, parseDataService) {
     return {
       templateUrl: 'app/build/partials/nav.html',
       controller: 'navController',
@@ -238,23 +235,24 @@
             tabOffline = element.find("#tab-offline");
 
         init('all'); //starting tab to show
-        scope.setGrid = setGridSystem;
+
         function init(str) {
           scope.activeTab = str;
+          var loadCh = parseDataService;
         }
 
         tabAll.bind('click', function () {
-          setGridSystem.setMargins();
+          window.setTimeout(setGridSystem.setMargins, 1);
           scope.activeTab = 'all';
           scope.$apply();
         });
         tabOnline.bind('click', function () {
-          setGridSystem.setMargins();
+          window.setTimeout(setGridSystem.setMargins, 1);
           scope.activeTab = 'online';
           scope.$apply();
         });
         tabOffline.bind('click', function () {
-          setGridSystem.setMargins();
+          window.setTimeout(setGridSystem.setMargins, 1);
           scope.activeTab = 'offline';
           scope.$apply();
         });
@@ -264,7 +262,7 @@
 })();
 
 (function () {
-  angular.module('factories', []).factory('getTwitchData', ['$http', '$q', getTwitchData]);
+  angular.module('factories', []).factory('getTwitchData', ['$http', '$q', getTwitchData]).factory('setGridSystem', setGridSystem);
 
   function getTwitchData($http, $q) {
 
@@ -311,13 +309,23 @@
         });
       }
     };
+    return obj;
+  }
+
+  function setGridSystem() {
+
+    var obj = {
+      setMargins: function setMargins() {
+        console.log('getting ready to map');
+      }
+    };
 
     return obj;
   }
 })();
 
 (function () {
-  angular.module('myApp').service('menuService', menuService).service('popupService', popupService).service('parseDataService', parseDataService).service('setCSS', setCSS).service('setGridSystem', setGridSystem).service('setRandomCover', setRandomCover);
+  angular.module('myApp').service('menuService', menuService).service('popupService', popupService).service('setCSS', setCSS).service('parseDataService', ['getTwitchData', '$q', 'setGridSystem', parseDataService]).service('setRandomCover', setRandomCover);
 
   function menuService($http, $q) {
     var vm = this;
@@ -341,10 +349,9 @@
     };
   }
 
-  function parseDataService(getTwitchData, $q) {
+  function parseDataService(getTwitchData, $q, setGridSystem) {
     var vm = this;
     var promises = getTwitchData.async();
-
     /*
      * Arrays to hows parsed card data used in templates
     */
@@ -356,8 +363,12 @@
     /*
      * Map and request stream and or channel for each
     */
-    var P = $q.all(promises).then(function (response) {
-      response.map(vm.checkOnline);
+    vm.p = $q.all(promises).then(function (response) {
+      var domSet = new Promise(function (res, rej) {
+        res(response.map(vm.checkOnline));
+      }).then(function () {
+        setGridSystem.setMargins();
+      });
     }, function (reason) {
       console.log('default request failed', reason);
     });
@@ -525,28 +536,6 @@
         });
       }
     };
-  }
-
-  function setGridSystem() {
-    var vm = this;
-    var master = $(".live-card-grid");
-    vm.setMargins = function () {
-      master.children().map(setMargin);
-    };
-
-    function setMargin(a, e) {
-      var card = $(e);
-      if ((a + 1) % 4 === 0 && a !== 0) {
-        console.log('margins set');
-        card.css({
-          "margin-right": "0px"
-        });
-      } else {
-        card.css({
-          "margin-right": "5.219%"
-        });
-      }
-    }
   }
 
   function setRandomCover() {

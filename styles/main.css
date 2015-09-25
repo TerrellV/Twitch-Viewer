@@ -100,7 +100,7 @@ button {
       height: 20%;
       width: 100%;
       position: relative;
-      background-color: #1D53A1; }
+      background-color: #232C38; }
       .card .front-card .subhead-game .subhead-game-text {
         width: 80%;
         position: absolute;
@@ -414,7 +414,7 @@ nav {
   top: 0px;
   height: 100%;
   width: 100%;
-  background: linear-gradient(to top, rgba(35, 44, 56, 0.7), rgba(35, 44, 56, 0.7)); }
+  background: linear-gradient(to top, rgba(35, 44, 56, 0.65), rgba(35, 44, 56, 0.65)); }
   .add-card-container .card-form {
     position: absolute;
     left: 50%;
@@ -425,9 +425,12 @@ nav {
     -o-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
     position: relative;
-    width: 45vh;
-    height: 38vh;
+    width: 30%;
     background-color: #232C38; }
+    .add-card-container .card-form:before {
+      content: "";
+      display: block;
+      padding-bottom: 85%; }
     .add-card-container .card-form #close-icon {
       position: absolute;
       top: 3%;
@@ -439,7 +442,7 @@ nav {
     .add-card-container .card-form .form-header {
       position: absolute;
       width: 100%;
-      top: 10%; }
+      top: 20%; }
       .add-card-container .card-form .form-header #person-svg-icon {
         position: absolute;
         left: 50%;
@@ -467,34 +470,6 @@ nav {
         font-size: 1.5em;
         color: white;
         text-align: center;
-        margin: 0; }
-    .add-card-container .card-form .response-container {
-      height: 80px;
-      width: 85%;
-      position: absolute;
-      left: 50%;
-      -webkit-transform: translateX(-50%);
-      -moz-transform: translateX(-50%);
-      -ms-transform: translateX(-50%);
-      -o-transform: translateX(-50%);
-      transform: translateX(-50%);
-      bottom: 30%;
-      text-align: center;
-      white-space: nowrap; }
-      .add-card-container .card-form .response-container .response-text {
-        text-align: center;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        -webkit-transform: translate(-50%,-50%);
-        -moz-transform: translate(-50%,-50%);
-        -ms-transform: translate(-50%,-50%);
-        -o-transform: translate(-50%,-50%);
-        transform: translate(-50%,-50%);
-        font-family: "Open Sans",sans-serif;
-        font-size: 20px;
-        color: white;
-        opacity: .5;
         margin: 0; }
     .add-card-container .card-form #form-input-container {
       position: absolute;

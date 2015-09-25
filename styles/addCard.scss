@@ -5,65 +5,69 @@
     width: 100%;
     background: linear-gradient(
         to top,
-        rgba(35, 44, 56, .7),
-        rgba(35, 44, 56, .7)
+        rgba(35, 44, 56, .65),
+        rgba(35, 44, 56, .65)
     );
     .card-form {
         @include center-me();
         position: relative;
-        width: 45vh;
-        height: 38vh;
+        width: 30%;
+        &:before {
+          content: "";
+          display: block;
+          padding-bottom: 85%;
+        }
         background-color: $dark-grey;
         #close-icon {
-            position: absolute;
-            top: 3%;
-            right: 3%;
-            fill: white;
-            height: 2em;
-            width: 2em;
-            cursor: pointer;
+          position: absolute;
+          top: 3%;
+          right: 3%;
+          fill: white;
+          height: 2em;
+          width: 2em;
+          cursor: pointer;
         }
         .form-header{
-            position: absolute;
-            width: 100%;
-            top: 10%;
-            #person-svg-icon {
-                @include center-me-horiz();
-                position: relative;
-                fill: white;
-                height: 9em;
-                margin-bottom: 2em;
-            }
-            #form-action-text {
-                @include center-me-horiz();
-                position: relative;
-                width: 70%;
-                line-height: 1.2em;
-                font-family: "Open Sans", sans-serif;
-                font-size: 1.5em;
-                color: white;
-                text-align: center;
-                margin: 0;
-            }
-        }
-        .response-container {
-            height: 80px;
-            width: 85%;
-            @include center-me-horiz();
-            bottom: 30%;
-            text-align: center;
-            white-space: nowrap;
-
-            .response-text {
+          position: absolute;
+          width: 100%;
+          top: 20%;
+          #person-svg-icon {
+              @include center-me-horiz();
+              position: relative;
+              fill: white;
+              height: 9em;
+              margin-bottom: 2em;
+          }
+          #form-action-text {
+              @include center-me-horiz();
+              position: relative;
+              width: 70%;
+              line-height: 1.2em;
+              font-family: "Open Sans", sans-serif;
+              font-size: 1.5em;
+              color: white;
               text-align: center;
-                @include center-me();
-                font-family: "Open Sans",sans-serif;
-                font-size: 20px;
-                color: white;
-                opacity: .5;
-                margin: 0;
-            }
+              margin: 0;
+          }
         }
+        // .response-container {
+        //     height: 80px;
+        //     width: 85%;
+        //     @include center-me-horiz();
+        //     bottom: 30%;
+        //     text-align: center;
+        //     white-space: nowrap;
+        //
+        //     .response-text {
+        //       text-align: center;
+        //         @include center-me();
+        //         font-family: "Open Sans",sans-serif;
+        //         font-size: 20px;
+        //         color: white;
+        //         opacity: .5;
+        //         margin: 0;
+        //     }
+        // }
         #form-input-container {
             @include center-me-horiz();
             height: 4em;

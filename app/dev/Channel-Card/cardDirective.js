@@ -153,8 +153,8 @@
           const imagePath = setRandomCover.get();
           header.css({
             "background": `linear-gradient(
-                      rgba(57, 101, 166, .9),
-                      rgba(57, 101, 166, .9)
+                      rgba(69, 56, 174, .9), 
+                      rgba(69, 56, 174, .9)
                     ), url("${previewImg}")`,
             "background-size": "cover"
           });

@@ -308,7 +308,7 @@ var _slicedToArray = (function () { function sliceIterator(arr, i) { var _arr = 
           var previewImg = scope.channel.previewImg;
           var imagePath = setRandomCover.get();
           header.css({
-            "background": "linear-gradient(\n                      rgba(57, 101, 166, .9),\n                      rgba(57, 101, 166, .9)\n                    ), url(\"" + previewImg + "\")",
+            "background": "linear-gradient(\n                      rgba(69, 56, 174, .9), \n                      rgba(69, 56, 174, .9)\n                    ), url(\"" + previewImg + "\")",
             "background-size": "cover"
           });
         }
@@ -373,7 +373,7 @@ var _slicedToArray = (function () { function sliceIterator(arr, i) { var _arr = 
   function getTwitchData($http, $q) {
 
     var baseUrl = 'https://api/twitch.tv/kraken';
-    var defChannels = ['comster404', 'freecodecamp', 'kittyplaysgames', 'twosync', 'krzjn', 'kaypealol', 'mrgoldensports', 'sodapoppin', 'femsteph'];
+    var defChannels = ['comster404', 'freecodecamp', 'kittyplaysgames', 'twosync', 'krzjn', 'kaypealol', 'mrgoldensports', 'sodapoppin', 'femsteph', 'justin', 'syndicate', 'riotgames', 'captiansparklez', "LIRIK", "phantomL0rd", 'Nick_28T', 'fifaRalle', 'DBadaev', 'bibaboy', 'aimzAtchu', 'BreaK71'];
 
     var url = 'https://api.twitch.tv/kraken/streams/';
     var channelUrl = 'https://api.twitch.tv/kraken/channels/';

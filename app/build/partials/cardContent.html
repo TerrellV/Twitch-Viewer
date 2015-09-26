@@ -1,72 +1,74 @@
-<div class="front-card">
-    <!-- front card header  -->
-    <div class="mdl-shadow--2dp header" ng-hide="appear">
-        <h3 class="front-header-text">
-            {{channel.name}}
-        </h3>
+<div class="card-wrapper">
+  <div class="front-card">
+      <!-- front card header  -->
+      <div class="mdl-shadow--2dp header" ng-hide="appear">
+          <h3 class="front-header-text">
+              {{channel.name}}
+          </h3>
+      </div>
+
+      <!-- front card sub headers  -->
+      <div class="mdl-shadow--2dp subhead-game" ng-hide="appear">
+          <h4 class="subhead-game-text">{{channel.game}}</h4>
+      </div>
+      <!-- -->
+      <div class="subhead-action" ng-hide="appear">
+          <div class="subhead-action-container">
+              <svg  id="front-redLight" class="live-icon">
+                  <use xlink:href="Images/sprites.svg#red-light"></use>
+              </svg>
+              <a ng-href="{{channel.url}}" target="_blank">
+                  <h4>{{channel.frontAction}}</h4>
+              </a>
+          </div>
+      </div>
+
+      <!-- front Profile button  -->
+      <button class="mdl-shadow--8dp subhead-btn">
+        <div class="content">
+          <svg id="person-svg-icon">
+            <use xlink:href="Images/sprites.svg#person"></use>
+          </svg>
+        </div>
+      </button>
+  </div>
+
+  <!-- content for inside of card  -->
+  <div class="card-back" ng-show="showBack">
+
+    <!-- close button on inside of card MOVE THIS INSIDE CARD INFO-->
+    <div type="button" id="info-btns" class="close-btn " ng-show="appear">
+      <svg id="arrow-back-icon" >
+        <use xlink:href="Images/sprites.svg#arrow-back"></use>
+      </svg>
+      <svg id="delete-icon" >
+        <use xlink:href="Images/sprites.svg#close"></use>
+      </svg>
     </div>
 
-    <!-- front card sub headers  -->
-    <div class="mdl-shadow--2dp subhead-game" ng-hide="appear">
-        <h4 class="subhead-game-text">{{channel.game}}</h4>
-    </div>
-    <!-- -->
-    <div class="subhead-action" ng-hide="appear">
-        <div class="subhead-action-container">
-            <svg  id="front-redLight" class="live-icon">
-                <use xlink:href="Images/sprites.svg#red-light"></use>
+    <div id="followers"class="box info-followers">
+        <div class="sec-cont">
+            <h5>{{channel.followers}}</h5>
+            <p>followers</p>
+            <svg class="sec-icon">
+                <use xlink:href="Images/sprites.svg#people-icon"><use/>
             </svg>
-            <a ng-href="{{channel.url}}" target="_blank">
-                <h4>{{channel.frontAction}}</h4>
-            </a>
+        </div>
+    </div>
+    <div id="viewers"class="box info-viewers">
+        <div class="sec-cont">
+            <h5>{{channel.viewers || "..."}}</h5>
+            <p>viewers</p>
+            <svg class="sec-icon">
+                <use xlink:href="Images/sprites.svg#views-icon"><use/>
+            </svg>
+        </div>
+    </div>
+    <div id="status"class="box info-status">
+        <div class="sec-cont">
+            <p>{{channel.status}}</p>
         </div>
     </div>
 
-    <!-- front Profile button  -->
-    <button class="mdl-shadow--8dp subhead-btn">
-      <div class="content">
-        <svg id="person-svg-icon">
-          <use xlink:href="Images/sprites.svg#person"></use>
-        </svg>
-      </div>
-    </button>
-</div>
-
-<!-- content for inside of card  -->
-<div class="card-back" ng-show="showBack">
-
-  <!-- close button on inside of card MOVE THIS INSIDE CARD INFO-->
-  <div type="button" id="info-btns" class="close-btn " ng-show="appear">
-    <svg id="arrow-back-icon" >
-      <use xlink:href="Images/sprites.svg#arrow-back"></use>
-    </svg>
-    <svg id="delete-icon" >
-      <use xlink:href="Images/sprites.svg#close"></use>
-    </svg>
   </div>
-
-  <div id="followers"class="box info-followers">
-      <div class="sec-cont">
-          <h5>{{channel.followers}}</h5>
-          <p>followers</p>
-          <svg class="sec-icon">
-              <use xlink:href="Images/sprites.svg#people-icon"><use/>
-          </svg>
-      </div>
-  </div>
-  <div id="viewers"class="box info-viewers">
-      <div class="sec-cont">
-          <h5>{{channel.viewers || "..."}}</h5>
-          <p>viewers</p>
-          <svg class="sec-icon">
-              <use xlink:href="Images/sprites.svg#views-icon"><use/>
-          </svg>
-      </div>
-  </div>
-  <div id="status"class="box info-status">
-      <div class="sec-cont">
-          <p>{{channel.status}}</p>
-      </div>
-  </div>
-
 </div>

@@ -88,11 +88,11 @@ body {
 }
 
 .pageContent {
-    position: absolute;
-    height: 100%;
-    left: 200px;
-    background: #F1F1F1;
-    overflow-y:scroll;
+  position: absolute;
+  height: 100%;
+  left: 200px;
+  background: #F1F1F1;
+  overflow-y:scroll;
 }
 
 .live-card-grid{
@@ -100,7 +100,6 @@ body {
   @include center-me-horiz();
   position: relative;
   top: 12%;
-  @include transition("all 1s ease");
 }
 
 .card.ng-hide {

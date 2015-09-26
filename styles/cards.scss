@@ -5,181 +5,191 @@ button{
     position: relative;
     display: inline-block;
     width: 19.9%;
-    height: 30vh;
     background-color: white;
     margin: 2.47243%;
     overflow:hidden;
-    // @include transition("all 500ms ease-in");
-    .front-card {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        .header{
-            position: relative;
-            top: 0px;
-            width: 100%;
-            height: 65%;
-            z-index: 2;
-            // insert background through javascript
-            .front-header-text {
-              position: relative;
-              margin: 0;
-              font-size: 25px;
-              font-family: "Open Sans", sans-serif;
-              font-weight: 600;
-              color: white;
-              @include center-me();
-            }
-        }
-        .subhead-game{
-            height: 20%;
-            width: 100%;
-            position: relative;
-            background-color: $dark-grey;
-            .subhead-game-text {
-                width: 80%;
-                @include center-me();
-                color: white;
-                margin: 0px;
-                text-align: center;
-                font-family: 'Open Sanse', sans-serif;
-                font-size: 16px;
-                font-weight: 500;
-                letter-spacing: 1px;
-                white-space: nowrap;
-            }
-        }
-        .subhead-action {
-            position: relative;
-            bottom: 0px;
-            width: 100%;
-            color: $dark-grey;
-            z-index: 3;
-            height: 15%;
-            text-align: center;
-            .subhead-action-container{
-                @include center-me();
-                width: 40%;
-                // white-space: nowrap;
-                #front-redLight {
-                    height: 12px;
-                    width: 12px;
-                    fill: $red ;
-                    padding-right: .5em;
-                }
-                h4 {
-                    display: inline-block;
-                    margin: 0;
-                    font-family: "Open Sans", sans-serif;
-                    font-size: 14px;
-                    font-weight: 500;
-                    color: $blue;
-                }
-            }
-        }
-        .subhead-btn {
-          outline: none;
-          position: relative;
-          background-color: $blue;
-          color: white;
-          border: none;
-          width: 18%;
-          z-index: 3;
-          padding: 0px;
-          border-radius: 50%;
-          @include transform("translate(0,0) scale(1)");
-          &:before {
-            content:'';
-            display: block;
-            padding-top: 100%;
-            border-radius: 50%;
-          }
-          .content {
-            @include center-me();
-            #person-svg-icon {
-              @include center-me();
-              fill: white;
-              height: 2em;
-              @include transition("all 300ms ease-in-out");
-            }
-          }
-        }
+    &:before {
+      content: "";
+      display: block;
+      padding-top: 90%;
     }
-    .card-back {
+    .card-wrapper{
       position: absolute;
       top: 0px;
-      width: 100%;
-      height: 100%;
-      z-index: 4;
-        #info-btns {
+      bottom: 0px;
+      right: 0px;
+      left: 0px;
+      .front-card {
+          position: relative;
           width: 100%;
-          height: 13%;
-          position: absolute;
-          z-index: 5;
-          #arrow-back-icon {
-            cursor: pointer;
-            @include center-me-vert();
-            height: 1em;
-            width: 1em;
-            fill: white;
-            left: 5%;
-          }
-          #delete-icon {
-            cursor: pointer;
-            @include center-me-vert();
-            height: 1.3em;
-            width: 1.3em;
-            fill: white;
-            right: 5%;
-          }
-        }
-        .box{
-            position: relative;
-            height: 33.333%;
-            white-space: nowrap;
-            width: 100%;
-            color: white;
-            // background-color: $dark-grey;
-            h5 {
-                text-align: center;
-                @include center-me-vert();
-                margin: 0 0 0 12%;
-                font-family: "Open Sans",sans-serif;
-                font-size: 20px;
-                font-weight: 500;
-                display: inline-block;
-            }
-            p {
+          height: 100%;
+          .header{
+              position: relative;
+              top: 0px;
+              width: 100%;
+              height: 65%;
+              z-index: 2;
+              // insert background through javascript
+              .front-header-text {
+                position: relative;
+                margin: 0;
+                font-size: 25px;
+                font-family: "Open Sans", sans-serif;
+                font-weight: 600;
+                color: white;
                 @include center-me();
-                margin-top: 0px;
-                margin-bottom: 0px;
-                font-family: "Open Sans",sans-serif;
-                font-size: 16px;
-                letter-spacing: 1px;
+              }
+          }
+          .subhead-game{
+              height: 20%;
+              width: 100%;
+              position: relative;
+              background-color: $dark-grey;
+              .subhead-game-text {
+                  width: 80%;
+                  @include center-me();
+                  color: white;
+                  margin: 0px;
+                  text-align: center;
+                  font-family: 'Open Sanse', sans-serif;
+                  font-size: 16px;
+                  font-weight: 500;
+                  letter-spacing: 1px;
+                  white-space: nowrap;
+              }
+          }
+          .subhead-action {
+              position: relative;
+              bottom: 0px;
+              width: 100%;
+              color: $dark-grey;
+              z-index: 3;
+              height: 15%;
+              text-align: center;
+              .subhead-action-container{
+                  @include center-me();
+                  width: 70%;
+                  // white-space: nowrap;
+                  #front-redLight {
+                      height: 12px;
+                      width: 12px;
+                      fill: $red ;
+                      padding-right: .5em;
+                  }
+                  h4 {
+                      display: inline-block;
+                      margin: 0;
+                      font-family: "Open Sans", sans-serif;
+                      font-size: 14px;
+                      font-weight: 500;
+                      color: $blue;
+                  }
+              }
+          }
+          .subhead-btn {
+            outline: none;
+            position: relative;
+            background-color: $blue;
+            color: white;
+            border: none;
+            width: 18%;
+            z-index: 3;
+            padding: 0px;
+            border-radius: 50%;
+            @include transform("translate(0,0) scale(1)");
+            &:before {
+              content:'';
+              display: block;
+              padding-top: 100%;
+              border-radius: 50%;
             }
-            .sec-cont {
-                .sec-icon {
-                    height: 2em;
-                    width: 2em;
-                    fill: white;
-                    right: 0px;
-                    margin-right: 12%;
-                    @include center-me-vert();
-                }
+            .content {
+              @include center-me();
+              #person-svg-icon {
+                @include center-me();
+                fill: white;
+                height: 2em;
+                @include transition("all 300ms ease-in-out");
+              }
             }
-        }
-        $purp2: lighten($purple, 5%);
-        $purp3: lighten($purp2, 2%);
+          }
+      }
+      .card-back {
+        position: absolute;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 4;
+          #info-btns {
+            width: 100%;
+            height: 13%;
+            position: absolute;
+            z-index: 5;
+            #arrow-back-icon {
+              cursor: pointer;
+              @include center-me-vert();
+              height: 1em;
+              width: 1em;
+              fill: white;
+              left: 5%;
+            }
+            #delete-icon {
+              cursor: pointer;
+              @include center-me-vert();
+              height: 1.3em;
+              width: 1.3em;
+              fill: white;
+              right: 5%;
+            }
+          }
+          .box{
+              position: relative;
+              height: 33.333%;
+              white-space: nowrap;
+              width: 100%;
+              color: white;
+              // background-color: $dark-grey;
+              h5 {
+                  text-align: center;
+                  @include center-me-vert();
+                  margin: 0 0 0 12%;
+                  font-family: "Open Sans",sans-serif;
+                  font-size: 20px;
+                  font-weight: 500;
+                  display: inline-block;
+              }
+              p {
+                  @include center-me();
+                  margin-top: 0px;
+                  margin-bottom: 0px;
+                  font-family: "Open Sans",sans-serif;
+                  font-size: 16px;
+                  letter-spacing: 1px;
+              }
+              .sec-cont {
+                  .sec-icon {
+                      height: 2em;
+                      width: 2em;
+                      fill: white;
+                      right: 0px;
+                      margin-right: 12%;
+                      @include center-me-vert();
+                  }
+              }
+          }
+          $purp2: lighten($purple, 5%);
+          $purp3: lighten($purp2, 2%);
 
-        #followers {
-            background-color: $purple;
-        }
-        #viewers {
-            background-color: $purp2;
-        }
-        #status {
-            background-color: $purp3;
-        }
+          #followers {
+              background-color: $purple;
+          }
+          #viewers {
+              background-color: $purp2;
+          }
+          #status {
+              background-color: $purp3;
+          }
+      }
     }
 }
 // offline card front styles
@@ -199,12 +209,13 @@ button{
         }
         .subhead-action {
             .subhead-action-container{
-                #front-redLight {
-                    fill: $dark-grey ;
-                }
-                h4 {
-                    color: $dark-grey;
-                }
+              width: 80%;
+              #front-redLight {
+                  fill: $dark-grey ;
+              }
+              h4 {
+                  color: $dark-grey;
+              }
             }
         }
         .subhead-btn {}

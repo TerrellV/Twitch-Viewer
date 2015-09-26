@@ -69,8 +69,6 @@ $nav-height: 14vh;
     height: 100-$nav-height;
   }
   .search-container {
-    @include center-me-horiz();
-    margin-left: 5px;
     top: 2em;
     width: 85vw;
     .search-box {
@@ -79,8 +77,9 @@ $nav-height: 14vh;
   }
 
   .live-card-grid {
-    top: 7.75em;
+    top: 7em;
     width:85vw;
+    margin-left:-10px;
   }
 
   .card {
@@ -93,6 +92,53 @@ $nav-height: 14vh;
           width: 70%;
         }
       }
+    }
+    .card-back {
+      position: absolute;
+      top: 0px;
+      width: 100%;
+      height: 100%;
+      z-index: 4;
+        #info-btns {
+
+          #arrow-back-icon {
+            height: .8em;
+            width: .8em;
+          }
+          #delete-icon {
+            height: 1em;
+            width: 1em;
+          }
+        }
+        .box{
+            h5 {
+                text-align: center;
+                @include center-me-vert();
+                margin: 0 0 0 12%;
+                font-family: "Open Sans",sans-serif;
+                font-size: 16px;
+                font-weight: 300;
+                display: inline-block;
+            }
+            p {
+                @include center-me();
+                margin-top: 0px;
+                margin-bottom: 0px;
+                font-family: "Open Sans",sans-serif;
+                font-size: 14px;
+                letter-spacing: 1px;
+            }
+            .sec-cont {
+                .sec-icon {
+                    height: 1.5em;
+                    width: 1.5em;
+                    fill: white;
+                    right: 0px;
+                    margin-right: 12%;
+                    @include center-me-vert();
+                }
+            }
+        }
     }
   }
 

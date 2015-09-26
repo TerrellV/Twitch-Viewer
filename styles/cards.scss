@@ -9,7 +9,7 @@ button{
     background-color: white;
     margin: 2.47243%;
     overflow:hidden;
-
+    // @include transition("all 500ms ease-in");
     .front-card {
         position: relative;
         width: 100%;
@@ -87,6 +87,7 @@ button{
           z-index: 3;
           padding: 0px;
           border-radius: 50%;
+          @include transform("translate(0,0) scale(1)");
           &:before {
             content:'';
             display: block;

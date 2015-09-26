@@ -173,11 +173,16 @@
         frontButton.bind("click", () => {
 
           const [h,hB,xStrt,yStrt,xCent,yCent] = getCurrVals();
-
           scope.showBack = true;
-          moveButton(xCent,yCent); // move the button to center
-          window.setTimeout(scaleButton.bind(null,xCent,yCent,10,0),500);
-          const id = window.setTimeout(showInfo,1000); // show card info element
+
+          if (checkDesktop()) {
+            moveButton(xCent,yCent); // move the button to center
+            window.setTimeout(scaleButton.bind(null,xCent,yCent,10,0),500);
+            const id = window.setTimeout(showInfo,1000); // show card info element
+          } else {
+            showInfo();
+          }
+
         });
 
         // exit button animation
@@ -188,8 +193,11 @@
           scope.showBack = false;
           scope.appear = false;
 
-          scaleButton(xCent,yCent,1,1);
-          window.setTimeout(moveButton.bind(null,xStrt,yStrt),500);
+          if ( checkDesktop() ) {
+            scaleButton(xCent,yCent,1,1);
+            window.setTimeout(moveButton.bind(null,xStrt,yStrt),500);
+          }
+
           scope.$apply();
         });
 
@@ -199,6 +207,11 @@
           parseDataService.deleteChannel(channelArr,scope.channel)
           scope.$apply();
         });
+
+
+        function checkDesktop() {
+          return ( $(window).innerWidth() >= 1200)? true: false;
+        }
 
 
         /*
@@ -292,7 +305,7 @@
           const imagePath = setRandomCover.get();
           header.css({
             "background": `linear-gradient(
-                      rgba(69, 56, 174, .9), 
+                      rgba(69, 56, 174, .9),
                       rgba(69, 56, 174, .9)
                     ), url("${previewImg}")`,
             "background-size": "cover"

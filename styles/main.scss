@@ -100,8 +100,17 @@ body {
   @include center-me-horiz();
   position: relative;
   top: 12%;
+  @include transition("all 1s ease");
 }
 
+.card.ng-hide {
+  opacity: 0;
+  @include transform("translateX(-20%)")
+}
+
+.card.ng-hide-add, .card.ng-hide-remove {
+  @include transition("all ease-in-out .5s");
+}
 
 @import 'cards';
 @import 'nav-bar';

@@ -178,9 +178,14 @@ var _slicedToArray = (function () { function sliceIterator(arr, i) { var _arr = 
           var yCent = _getCurrVals2[5];
 
           scope.showBack = true;
-          moveButton(xCent, yCent); // move the button to center
-          window.setTimeout(scaleButton.bind(null, xCent, yCent, 10, 0), 500);
-          var id = window.setTimeout(showInfo, 1000); // show card info element
+
+          if (checkDesktop()) {
+            moveButton(xCent, yCent); // move the button to center
+            window.setTimeout(scaleButton.bind(null, xCent, yCent, 10, 0), 500);
+            var id = window.setTimeout(showInfo, 1000); // show card info element
+          } else {
+              showInfo();
+            }
         });
 
         // exit button animation
@@ -199,8 +204,11 @@ var _slicedToArray = (function () { function sliceIterator(arr, i) { var _arr = 
           scope.showBack = false;
           scope.appear = false;
 
-          scaleButton(xCent, yCent, 1, 1);
-          window.setTimeout(moveButton.bind(null, xStrt, yStrt), 500);
+          if (checkDesktop()) {
+            scaleButton(xCent, yCent, 1, 1);
+            window.setTimeout(moveButton.bind(null, xStrt, yStrt), 500);
+          }
+
           scope.$apply();
         });
 
@@ -210,6 +218,10 @@ var _slicedToArray = (function () { function sliceIterator(arr, i) { var _arr = 
           parseDataService.deleteChannel(channelArr, scope.channel);
           scope.$apply();
         });
+
+        function checkDesktop() {
+          return $(window).innerWidth() >= 1200 ? true : false;
+        }
 
         /*
          * on resize set the position of front button
@@ -308,7 +320,7 @@ var _slicedToArray = (function () { function sliceIterator(arr, i) { var _arr = 
           var previewImg = scope.channel.previewImg;
           var imagePath = setRandomCover.get();
           header.css({
-            "background": "linear-gradient(\n                      rgba(69, 56, 174, .9), \n                      rgba(69, 56, 174, .9)\n                    ), url(\"" + previewImg + "\")",
+            "background": "linear-gradient(\n                      rgba(69, 56, 174, .9),\n                      rgba(69, 56, 174, .9)\n                    ), url(\"" + previewImg + "\")",
             "background-size": "cover"
           });
         }

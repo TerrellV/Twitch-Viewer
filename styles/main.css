@@ -467,8 +467,8 @@ nav {
       top: 3%;
       right: 3%;
       fill: white;
-      height: 2em;
-      width: 2em;
+      height: 1.2em;
+      width: 1.2em;
       cursor: pointer; }
     .add-card-container .card-form .form-header {
       position: absolute;
@@ -939,6 +939,47 @@ nav {
       font-weight: 300; }
     .card .card-back .box .sec-cont .sec-icon {
       height: 1.5em;
-      width: 1.5em; } }
+      width: 1.5em; }
+
+  .add-card-container .card-form {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    -webkit-transform: translate(0%,0%);
+    -moz-transform: translate(0%,0%);
+    -ms-transform: translate(0%,0%);
+    -o-transform: translate(0%,0%);
+    transform: translate(0%,0%); }
+    .add-card-container .card-form #close-icon {
+      z-index: 10;
+      left: 4%;
+      top: 3em;
+      -webkit-transform: translateY(-50%);
+      -moz-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      -o-transform: translateY(-50%);
+      transform: translateY(-50%); }
+    .add-card-container .card-form #form-input-container {
+      position: absolute;
+      top: 0px;
+      width: 100%;
+      height: 6em;
+      margin-bottom: 0px; }
+    .add-card-container .card-form .form-header {
+      position: absolute;
+      top: 6em;
+      height: 40%;
+      bottom: 0px; }
+      .add-card-container .card-form .form-header #person-svg-icon {
+        position: absolute;
+        top: 1em;
+        height: 7em;
+        width: 7em; }
+      .add-card-container .card-form .form-header #form-action-text {
+        position: absolute;
+        top: 5.7em;
+        margin: 0; } }
 
 /*# sourceMappingURL=main.css.map */

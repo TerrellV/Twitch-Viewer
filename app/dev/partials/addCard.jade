@@ -1,6 +1,6 @@
 .card-form.mdl-shadow--16dp(id="form-popup")
   svg(id="close-icon" ng-click="card.showPopup(false)")
-    use(xlink:href="Images/sprites.svg#close")
+    use(xlink:href="Images/sprites.svg#arrow-back")
   .form-header
     svg(id="person-svg-icon")
       use(xlink:href="Images/sprites.svg#person")
@@ -8,7 +8,8 @@
   
   //- enter channel name
   #form-input-container
-    input(id="form-input" type="text" value="" placeholder="{{card.instructionText}}" ng-keypress="card.checkEnter($event,card.userText)" ng-model="card.userText")
+    input(id="form-input" type="text" value="" placeholder="{{card.instructionText}}" ng-keypress="card.checkEnter($event,card.userText)" ng-model="card.userText"
+    autocomplete="off")
     svg(id="add-svg-icon" ng-click="card.makeRequest(card.userText)")
       use(xlink:href="Images/sprites.svg#add")
     svg(id="checkmark" class="response-icon" ng-click="card.makeRequest(card.userText)"

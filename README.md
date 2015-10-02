@@ -1,8 +1,8 @@
 #Twitch Viewer 
 
 #### ~~This is still 100% in developmnet. I am activevly updating the project.~~
-#### This project is 95% complete. Currently fixing bugs and positioning issues accross devices and broswers.
-* View annyways. Here is the most recent [version](http://mirpresT.github.io/Twitch-Viewer);
+#### This project is 99% complete. Currently fixing bugs and positioning issues accross devices and broswers.
+##### View the most recent [version](http://mirpresT.github.io/Twitch-Viewer);
 
 ### Project Description
 This project was designed to allow users to quickly see if certain twitch channels were online. Some additional information is display ie) followers, status, viewers etc.

@@ -212,10 +212,10 @@ button{
             .subhead-action-container{
               width: 80%;
               #front-redLight {
-                  fill: $dark-grey ;
+                fill: $dark-grey !important;
               }
               h4 {
-                  color: $dark-grey;
+                color: $dark-grey;
               }
             }
         }

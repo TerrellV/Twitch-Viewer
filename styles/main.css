@@ -318,7 +318,7 @@ button {
 .card-offline .front-card .subhead-action .subhead-action-container {
   width: 80%; }
   .card-offline .front-card .subhead-action .subhead-action-container #front-redLight {
-    fill: #232C38; }
+    fill: #232C38 !important; }
   .card-offline .front-card .subhead-action .subhead-action-container h4 {
     color: #232C38; }
 

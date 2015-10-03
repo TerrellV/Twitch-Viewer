@@ -556,7 +556,7 @@
                 ci.live = true;
                 ci.game = concatDscr(game,20);
                 ci.viewers = abbreviateNumber(viewers);
-                ci.previewImg = large;
+                ci.previewImg = setHttpProtocal(large);
                 ci.frontAction = 'Watch Now';
                 return ci;
             }
@@ -649,7 +649,9 @@
             }
           }
         }
-
+        function setHttpProtocal(str){
+          return str.replace(/(https?:){1}/,window.location.protocol);
+        }
         function setRandomCover() {
           const vm = this;
           vm.get = () => {

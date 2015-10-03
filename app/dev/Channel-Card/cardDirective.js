@@ -1,9 +1,9 @@
 (function() {
   angular.module('myApp')
-    .directive('myDir', ['$timeout', '$interval', 'setRandomCover', 'parseDataService', 'setCardButton', dirSample]);
+    .directive('myDir', ['$timeout', '$interval', 'setRandomCover', 'parseDataService', 'setCardButton','$mdDialog', dirSample]);
 
   // custom directie to keep track of dom elements of individual cards...
-  function dirSample($interval, $timeout, setRandomCover, parseDataService, setCardButton) {
+  function dirSample($timeout,$interval,setRandomCover,parseDataService,setCardButton,$mdDialog) {
     return {
       templateUrl: 'app/build/partials/cardContent.html',
       scope: {
@@ -63,9 +63,23 @@
         });
 
         // delete button
-        deleteButton.bind('click', () => {
+        deleteButton.bind('click', event => {
           let channelArr = (scope.channel.live)? "online": "offline";
-          parseDataService.deleteChannel(channelArr,scope.channel)
+
+          let confirm = $mdDialog.confirm()
+            .title('Would you like to delete this channel?')
+            .content('If you delete it now but want it back later, just use the add channel button')
+            .ariaLabel('Lucky day')
+            .targetEvent(event)
+            .ok('Yes')
+            .cancel('No');
+          $mdDialog.show(confirm).then(function() {
+            console.log("%cConfirmed Deleting","color:green; font-size:20px;");
+            parseDataService.deleteChannel(channelArr,scope.channel);
+          }, function() {
+            console.log("%cNVM","color:red; font-size:20px;")
+          });
+
           scope.$apply();
         });
 

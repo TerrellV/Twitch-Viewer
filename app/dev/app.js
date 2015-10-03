@@ -1,3 +1,3 @@
 (function() {
-    angular.module('myApp', ["ngAnimate","factories","ngRoute"]);
+    angular.module('myApp', ["ngAnimate","factories","ngRoute","ngMaterial"]);
 })();

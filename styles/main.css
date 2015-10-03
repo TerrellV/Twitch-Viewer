@@ -110,7 +110,7 @@ button {
           height: 1.3em; }
           .card .card-wrapper .front-card .header #delete-container:before {
             position: absolute;
-            content: "Delete Card";
+            content: "Delete Channel";
             line-height: 3em;
             height: 3em;
             text-align: center;
@@ -412,7 +412,8 @@ nav {
     width: 100%;
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
-    letter-spacing: 1px; }
+    letter-spacing: 1px;
+    cursor: pointer; }
     nav .tab:hover {
       background-color: #475467; }
     nav .tab:after {

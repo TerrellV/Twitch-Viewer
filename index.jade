@@ -7,10 +7,10 @@ html(lang="en" ng-app="myApp")
     title Twitch
     link(rel="stylesheet" href="styles/main.css" charset="utf-8")
     link(rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.deep_purple-blue.min.css" charset="utf-8")
+    link(rel="stylesheet" href="bower_components/angular-material/angular-material.min.css")
     link(rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" )
     link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700" charset="utf-8")
     script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js")
-    script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js")
   body
   
     .nav-container(ng-controller="cardsCtrl as nav" nav-dir)
@@ -44,11 +44,16 @@ html(lang="en" ng-app="myApp")
     
     .add-card-container(ng-show="card.service.showMe" addcard-dir)
     
+    script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js")
+    script(src="bower_components/angular-aria/angular-aria.min.js")
+    script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-animate.js")
+    script(src="bower_components/angular-material/angular-material.min.js")
+    
+    script(src="node_modules/angular-route/angular-route.min.js")
     script(src="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.min.js")
     script(src="node_modules/babel-es6-polyfill/browser-polyfill.min.js")
-    script(src="node_modules/angular-route/angular-route.min.js")
+    
     script(src="app/build/es6/concat.js")
-    script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-animate.js")
     
     
     

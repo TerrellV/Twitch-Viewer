@@ -250,7 +250,12 @@ button{
               }
             }
         }
-        .subhead-btn {}
+        .subhead-btn {
+          .content {
+            #person-svg-icon {
+            }
+          }
+        }
     }
 }
 

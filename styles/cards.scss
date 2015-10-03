@@ -147,6 +147,7 @@ button{
               #person-svg-icon {
                 @include center-me();
                 fill: white;
+                width: 2em;
                 height: 2em;
                 @include transition("all 300ms ease-in-out");
               }

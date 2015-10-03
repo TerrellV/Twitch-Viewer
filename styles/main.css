@@ -255,6 +255,7 @@ button {
             -o-transform: translate(-50%,-50%);
             transform: translate(-50%,-50%);
             fill: white;
+            width: 2em;
             height: 2em;
             -webkit-transition: all 300ms ease-in-out;
             -moz-transition: all 300ms ease-in-out;

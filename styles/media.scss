@@ -15,8 +15,15 @@ $nav-height: 14vh;
     margin-left: -15px;
     .search-box {
       width: 92%;
+      .search-square {
+        .search-input {
+          width: 92%;
+        }
+      }
     }
   }
+
+
 
   .live-card-grid {
     top: 6.3em;
@@ -119,6 +126,11 @@ $nav-height: 14vh;
     margin-left: -15px;
     .search-box {
       width: 90%;
+      .search-square {
+        .search-input {
+          width: 90%;
+        }
+      }
     }
   }
 
@@ -220,6 +232,11 @@ $nav-height: 14vh;
     width: 90%;
     .search-box {
       width: 95.5%;
+      .search-square {
+        .search-input {
+          width: 88%;
+        }
+      }
     }
   }
 
@@ -320,6 +337,11 @@ $nav-height: 14vh;
     width: 100%;
     .search-box {
       width: 70%;
+      .search-square {
+        .search-input {
+          width: 70%;
+        }
+      }
     }
   }
 
@@ -496,6 +518,11 @@ $nav-height: 14vh;
     width: 85vw;
     .search-box {
       width: 100%;
+      .search-square {
+        .search-input {
+          width: 76%;
+        }
+      }
     }
   }
 

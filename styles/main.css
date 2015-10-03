@@ -680,6 +680,7 @@ nav {
         -o-transform: translateY(-50%);
         transform: translateY(-50%);
         height: 100%;
+        width: 95%;
         border: none;
         background-color: transparent;
         outline: none;
@@ -693,6 +694,8 @@ nav {
     margin-left: -15px; }
     .search-container .search-box {
       width: 92%; }
+      .search-container .search-box .search-square .search-input {
+        width: 92%; }
 
   .live-card-grid {
     top: 6.3em;
@@ -759,6 +762,8 @@ nav {
     margin-left: -15px; }
     .search-container .search-box {
       width: 90%; }
+      .search-container .search-box .search-square .search-input {
+        width: 90%; }
 
   .live-card-grid {
     top: 6.3em;
@@ -824,6 +829,8 @@ nav {
     width: 90%; }
     .search-container .search-box {
       width: 95.5%; }
+      .search-container .search-box .search-square .search-input {
+        width: 88%; }
 
   .live-card-grid {
     top: 6.3em;
@@ -888,6 +895,8 @@ nav {
     width: 100%; }
     .search-container .search-box {
       width: 70%; }
+      .search-container .search-box .search-square .search-input {
+        width: 70%; }
 
   .live-card-grid {
     top: 6.3em;
@@ -1047,6 +1056,8 @@ nav {
     width: 85vw; }
     .search-container .search-box {
       width: 100%; }
+      .search-container .search-box .search-square .search-input {
+        width: 76%; }
 
   .live-card-grid {
     top: 7em;

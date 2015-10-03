@@ -24,6 +24,7 @@
       .search-input {
         @include center-me-vert();
         height: 100%;
+        width: 95%;
         border: none;
         background-color: transparent;
         outline: none;

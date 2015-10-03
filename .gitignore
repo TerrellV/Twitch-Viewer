@@ -19,6 +19,7 @@ bower_components/angular-aria/**
 
 bower_components/angular-material/**
 !bower_components/angular-material/angular-material.min.js
+!bower_components/angular-material/angular-material.min.css
 
 node_modules/**
 !node_modules/babel-es6-polyfill/

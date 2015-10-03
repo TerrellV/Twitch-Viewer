@@ -413,7 +413,8 @@ nav {
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
     letter-spacing: 1px;
-    cursor: pointer; }
+    cursor: pointer;
+    outline: none; }
     nav .tab:hover {
       background-color: #475467; }
     nav .tab:after {

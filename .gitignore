@@ -1,2 +1,4 @@
-node_modules/
-bower_components/
+node_modules/*
+bower_components/*
+!angular-material/angular-material.min.js
+ignoreme/*

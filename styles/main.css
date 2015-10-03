@@ -105,6 +105,49 @@ button {
         width: 100%;
         height: 65%;
         z-index: 2; }
+        .card .card-wrapper .front-card .header #delete-container {
+          width: 1.3em;
+          height: 1.3em; }
+          .card .card-wrapper .front-card .header #delete-container:before {
+            position: absolute;
+            content: "Delete Card";
+            line-height: 3em;
+            height: 3em;
+            text-align: center;
+            display: block;
+            width: 100%;
+            color: white;
+            top: 0%;
+            left: 50%;
+            -webkit-transition: all .5s ease;
+            -moz-transition: all .5s ease;
+            -ms-transition: all .5s ease;
+            -o-transition: all .5s ease;
+            transition: all .5s ease;
+            -webkit-transform: translate(-50%,-100%);
+            -moz-transform: translate(-50%,-100%);
+            -ms-transform: translate(-50%,-100%);
+            -o-transform: translate(-50%,-100%);
+            transform: translate(-50%,-100%);
+            background-color: rgba(35, 44, 56, 0.3);
+            letter-spacing: 1.5px;
+            font-family: "Open Sans",sans-serif;
+            font-weight: 500;
+            -webkit-backface-visibility: hidden; }
+          .card .card-wrapper .front-card .header #delete-container:hover:before {
+            -webkit-transform: translate(-50%,0%);
+            -moz-transform: translate(-50%,0%);
+            -ms-transform: translate(-50%,0%);
+            -o-transform: translate(-50%,0%);
+            transform: translate(-50%,0%); }
+          .card .card-wrapper .front-card .header #delete-container #delete-icon {
+            position: absolute;
+            cursor: pointer;
+            top: 4.3%;
+            height: 1.3em;
+            width: 1.3em;
+            fill: white;
+            right: 3%; }
         .card .card-wrapper .front-card .header .front-header-text {
           position: relative;
           margin: 0;
@@ -242,19 +285,6 @@ button {
           width: 1em;
           fill: white;
           left: 5%; }
-        .card .card-wrapper .card-back #info-btns #delete-icon {
-          cursor: pointer;
-          position: absolute;
-          top: 50%;
-          -webkit-transform: translateY(-50%);
-          -moz-transform: translateY(-50%);
-          -ms-transform: translateY(-50%);
-          -o-transform: translateY(-50%);
-          transform: translateY(-50%);
-          height: 1.3em;
-          width: 1.3em;
-          fill: white;
-          right: 5%; }
       .card .card-wrapper .card-back .box {
         position: relative;
         height: 33.333%;
@@ -464,11 +494,10 @@ nav {
       padding-bottom: 85%; }
     .add-card-container .card-form #close-icon {
       position: absolute;
-      top: 3%;
-      right: 3%;
-      fill: white;
-      height: 1.2em;
-      width: 1.2em;
+      left: 1em;
+      top: 1em;
+      height: 1.8em;
+      width: 2.8em;
       cursor: pointer; }
     .add-card-container .card-form .form-header {
       position: absolute;
@@ -674,7 +703,7 @@ nav {
     width: 25.17%;
     font-size: 18px;
     position: relative;
-    overflow: visible;
+    overflow: hidden;
     margin: 4.017%; }
     .card .card-wrapper {
       position: absolute;
@@ -702,7 +731,27 @@ nav {
       font-weight: 300; }
     .card .card-back .box .sec-cont .sec-icon {
       height: 1.5em;
-      width: 1.5em; } }
+      width: 1.5em; }
+
+  .add-card-container .card-form {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    height: 50vh;
+    width: 50vh; }
+    .add-card-container .card-form #close-icon {
+      left: 3%;
+      top: 3%;
+      height: 1.8em;
+      width: 2.8em; }
+    .add-card-container .card-form .form-header #person-svg-icon {
+      height: 10em;
+      width: 10em; } }
 @media screen and (max-width: 1320px) and (min-width: 1000px) {
   .search-container {
     top: 2em;
@@ -743,7 +792,29 @@ nav {
         height: 1.5em;
         width: 1.5em; }
     .card .front-card .subhead-action .subhead-action-container {
-      width: 70%; } }
+      width: 70%; }
+
+  .add-card-container .card-form {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    height: 60vh;
+    width: 60vh; }
+    .add-card-container .card-form #close-icon {
+      left: 3%;
+      top: 3%;
+      height: 1.8em;
+      width: 2.8em; }
+    .add-card-container .card-form .form-header #person-svg-icon {
+      height: 15em;
+      width: 15em; }
+    .add-card-container .card-form .form-header #form-action-text {
+      margin-top: 1em; } }
 @media screen and (max-width: 999px) and (min-width: 800px) {
   .nav ul {
     top: 2%; }
@@ -785,7 +856,29 @@ nav {
         height: 1.5em;
         width: 1.5em; }
     .card .front-card .subhead-action .subhead-action-container {
-      width: 70%; } }
+      width: 70%; }
+
+  .add-card-container .card-form {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    height: 70vh;
+    width: 70vh; }
+    .add-card-container .card-form #close-icon {
+      left: 3%;
+      top: 3%;
+      height: 1.8em;
+      width: 2.8em; }
+    .add-card-container .card-form .form-header #person-svg-icon {
+      height: 15em;
+      width: 15em; }
+    .add-card-container .card-form .form-header #form-action-text {
+      margin-top: 1em; } }
 @media screen and (max-width: 799px) and (min-width: 414px) {
   .nav ul {
     top: 5%; }
@@ -827,7 +920,48 @@ nav {
         height: 1.5em;
         width: 1.5em; }
     .card .front-card .subhead-action .subhead-action-container {
-      width: 70%; } }
+      width: 70%; }
+
+  .add-card-container .card-form {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    -webkit-transform: translate(0%,0%);
+    -moz-transform: translate(0%,0%);
+    -ms-transform: translate(0%,0%);
+    -o-transform: translate(0%,0%);
+    transform: translate(0%,0%); }
+    .add-card-container .card-form #close-icon {
+      z-index: 10;
+      left: 4%;
+      top: 3em;
+      -webkit-transform: translateY(-50%);
+      -moz-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      -o-transform: translateY(-50%);
+      transform: translateY(-50%); }
+    .add-card-container .card-form #form-input-container {
+      position: absolute;
+      top: 0px;
+      width: 100%;
+      height: 6em;
+      margin-bottom: 0px; }
+    .add-card-container .card-form .form-header {
+      position: absolute;
+      top: 6em;
+      height: 40%;
+      bottom: 0px; }
+      .add-card-container .card-form .form-header #person-svg-icon {
+        position: absolute;
+        top: 1em;
+        height: 7em;
+        width: 7em; }
+      .add-card-container .card-form .form-header #form-action-text {
+        position: absolute;
+        top: 5.7em;
+        margin: 0; } }
 /*
 /*-------- smallest mobile view
 */
@@ -923,21 +1057,18 @@ nav {
     width: 85vw;
     height: 80vw;
     font-size: 18px; }
-    .card .front-card .subhead-action .subhead-action-container {
+    .card .card-wrapper .front-card .subhead-action .subhead-action-container {
       width: 70%; }
-    .card .card-back #info-btns #arrow-back-icon {
-      height: .8em;
-      width: .8em; }
-    .card .card-back #info-btns #delete-icon {
-      height: 1em;
-      width: 1em; }
-    .card .card-back .box h5 {
+    .card .card-wrapper .card-back #info-btns #arrow-back-icon {
+      height: .7em;
+      width: .7em; }
+    .card .card-wrapper .card-back .box h5 {
       font-size: 16px;
       font-weight: 300; }
-    .card .card-back .box p {
+    .card .card-wrapper .card-back .box p {
       font-size: 14px;
       font-weight: 300; }
-    .card .card-back .box .sec-cont .sec-icon {
+    .card .card-wrapper .card-back .box .sec-cont .sec-icon {
       height: 1.5em;
       width: 1.5em; }
 

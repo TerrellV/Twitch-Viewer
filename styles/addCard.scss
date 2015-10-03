@@ -20,11 +20,10 @@
         background-color: $dark-grey;
         #close-icon {
           position: absolute;
-          top: 3%;
-          right: 3%;
-          fill: white;
-          height: 1.2em;
-          width: 1.2em;
+          left: 1em;
+          top: 1em;
+          height: 1.8em;
+          width: 2.8em;
           cursor: pointer;
         }
         .form-header{

@@ -28,7 +28,7 @@ $nav-height: 14vh;
     width: 25.17%;
     font-size: 18px;
     position: relative;
-    overflow: visible;
+    overflow: hidden;
     margin: 4.017%;
     .card-wrapper{
       position: absolute;
@@ -78,6 +78,31 @@ $nav-height: 14vh;
               }
             }
         }
+    }
+  }
+
+  .add-card-container {
+    .card-form {
+      @include center-me();
+      height: 50vh;
+      width: 50vh;
+      #close-icon {
+        left: 3%;
+        top: 3%;
+        height: 1.8em;
+        width: 2.8em;
+      }
+      #form-input-container {
+
+      }
+      .form-header{
+        #person-svg-icon {
+          height: 10em;
+          width: 10em;
+        }
+        #form-action-text {
+        }
+      }
     }
   }
 
@@ -155,6 +180,32 @@ $nav-height: 14vh;
 
   }
 
+  .add-card-container {
+    .card-form {
+      @include center-me();
+      height: 60vh;
+      width: 60vh;
+      #close-icon {
+        left: 3%;
+        top: 3%;
+        height: 1.8em;
+        width: 2.8em;
+      }
+      #form-input-container {
+
+      }
+      .form-header{
+        #person-svg-icon {
+          height: 15em;
+          width: 15em;
+        }
+        #form-action-text {
+          margin-top: 1em;
+        }
+      }
+    }
+  }
+
 }
 
 @media screen and (max-width: 999px) and (min-width: 800px) {
@@ -229,6 +280,32 @@ $nav-height: 14vh;
 
   }
 
+  .add-card-container {
+    .card-form {
+      @include center-me();
+      height: 70vh;
+      width: 70vh;
+      #close-icon {
+        left: 3%;
+        top: 3%;
+        height: 1.8em;
+        width: 2.8em;
+      }
+      #form-input-container {
+
+      }
+      .form-header{
+        #person-svg-icon {
+          height: 15em;
+          width: 15em;
+        }
+        #form-action-text {
+          margin-top: 1em;
+        }
+      }
+    }
+  }
+
 }
 
 @media screen and (max-width: 799px) and (min-width: 414px) {
@@ -301,6 +378,47 @@ $nav-height: 14vh;
       }
     }
 
+  }
+
+  .add-card-container {
+    .card-form {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      height: 100%;
+      width: 100%;
+      @include transform("translate(0%,0%)");
+      #close-icon {
+        z-index: 10;
+        left: 4%;
+        top: 3em;
+        @include transform("translateY(-50%)");
+      }
+      #form-input-container {
+        position: absolute;
+        top: 0px;
+        width: 100%;
+        height: 6em;
+        margin-bottom: 0px;
+      }
+      .form-header{
+        position: absolute;
+        top: 6em;
+        height: 40%;
+        bottom: 0px;
+        #person-svg-icon {
+          position: absolute;
+          top: 1em;
+          height: 7em;
+          width: 7em;
+        }
+        #form-action-text {
+          position: absolute;
+          top: 5.7em;
+          margin: 0;
+        }
+      }
+    }
   }
 
 }
@@ -391,42 +509,38 @@ $nav-height: 14vh;
     width: 85vw;
     height: 80vw;
     font-size: 18px;
-    .front-card{
-      .subhead-action{
-        .subhead-action-container {
-          width: 70%;
+    .card-wrapper {
+      .front-card{
+        .subhead-action{
+          .subhead-action-container {
+            width: 70%;
+          }
         }
       }
-    }
-    .card-back {
-
-        #info-btns {
-
-          #arrow-back-icon {
-            height: .8em;
-            width: .8em;
-          }
-          #delete-icon {
-            height: 1em;
-            width: 1em;
-          }
-        }
-        .box{
-            h5 {
-              font-size: 16px;
-              font-weight: 300;
+      .card-back {
+          #info-btns {
+            #arrow-back-icon {
+              height: .7em;
+              width: .7em;
             }
-            p {
-              font-size: 14px;
-              font-weight: 300;
-            }
-            .sec-cont {
-              .sec-icon {
-                height: 1.5em;
-                width: 1.5em;
+          }
+          .box{
+              h5 {
+                font-size: 16px;
+                font-weight: 300;
               }
-            }
-        }
+              p {
+                font-size: 14px;
+                font-weight: 300;
+              }
+              .sec-cont {
+                .sec-icon {
+                  height: 1.5em;
+                  width: 1.5em;
+                }
+              }
+          }
+      }
     }
   }
 

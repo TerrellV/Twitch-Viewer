@@ -1,7 +1,7 @@
 #Twitch Viewer 
 
 #### ~~This is still 100% in developmnet. I am activevly updating the project.~~
-#### This project is 99% complete. Currently fixing bugs and positioning issues accross devices and broswers.
+#### ~~This project is 99% complete. Currently fixing bugs and positioning issues accross devices and broswers.
 ### This project is complete. 
 ##### View the most recent [version](http://mirpresT.github.io/Twitch-Viewer);
 

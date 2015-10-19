@@ -393,7 +393,7 @@ var _slicedToArray = (function () { function sliceIterator(arr, i) { var _arr = 
   function getTwitchData($http, $q) {
 
     var baseUrl = 'https://api/twitch.tv/kraken';
-    var defChannels = ['comster404', 'freecodecamp', 'kittyplaysgames', 'twosync', 'krzjn', 'kaypealol', 'mrgoldensports', 'sodapoppin', 'femsteph', 'justin', 'syndicate', 'riotgames', 'captiansparklez', "LIRIK", "phantomL0rd", 'Nick_28T', 'fifaRalle', 'DBadaev', 'bibaboy', 'aimzAtchu', 'BreaK71'];
+    var defChannels = ['kittyplaysgames', 'twosync', 'krzjn', 'kaypealol', 'mrgoldensports', 'sodapoppin', 'femsteph', 'riotgames', "LIRIK", 'Nick_28T', 'fifaRalle', 'DBadaev', 'bibaboy', 'aimzAtchu', 'BreaK71'];
 
     var url = 'https://api.twitch.tv/kraken/streams/';
     var channelUrl = 'https://api.twitch.tv/kraken/channels/';

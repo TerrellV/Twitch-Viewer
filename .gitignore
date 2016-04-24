@@ -1,3 +1,5 @@
+_design
+
 .sass-cache/
 
 Images/**
@@ -9,6 +11,7 @@ Images/**
 
 
 node_modules/**
+
 
 bower_components/angular/
 bower_components/angular-animate/**

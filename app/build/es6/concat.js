@@ -393,11 +393,17 @@ var _slicedToArray = (function () { function sliceIterator(arr, i) { var _arr = 
   function getTwitchData($http, $q) {
 
     var baseUrl = 'https://api/twitch.tv/kraken';
-    var defChannels = ['kittyplaysgames', 'twosync', 'krzjn', 'kaypealol', 'mrgoldensports', 'sodapoppin', 'femsteph', 'riotgames', "LIRIK", 'Nick_28T', 'fifaRalle', 'DBadaev', 'bibaboy', 'aimzAtchu', 'BreaK71', 'StreamerHouse', 'monstercat'];
+    var defChannels = ['kittyplays', 'twosync', 'krzjn', 'kaypealol', 'mrgoldensports', 'sodapoppin', 'femsteph', 'riotgames', "LIRIK", 'Nick_28T', 'fifaRalle', 'DBadaev', 'bibaboy', 'aimzAtchu', 'BreaK71', 'StreamerHouse', 'monstercat'];
 
-    var url = 'https://api.twitch.tv/kraken/streams/';
-    var channelUrl = 'https://api.twitch.tv/kraken/channels/';
+    var streamURL = 'https://api.twitch.tv/kraken/streams/';
+    var channelURL = 'https://api.twitch.tv/kraken/channels/';
     var callBack = '?callback=JSON_CALLBACK';
+
+    var requestConfig = {
+      headers: {
+        'Client-ID': '8ma29b6x4tcnzm15446uxc3z5fjj6t'
+      }
+    };
 
     var obj = {
       async: function async() {
@@ -409,7 +415,7 @@ var _slicedToArray = (function () { function sliceIterator(arr, i) { var _arr = 
         function setPromises() {
           defChannels.map(function (channel) {
             if (completed.indexOf(channel) === -1) {
-              var promise = $http.jsonp(url + channel + callBack).then(function (data) {
+              var promise = $http.get(streamURL + channel, requestConfig).then(function (data) {
                 return data;
               });
               promises.push(promise);
@@ -424,13 +430,13 @@ var _slicedToArray = (function () { function sliceIterator(arr, i) { var _arr = 
       },
       getChannel: function getChannel(str) {
         // passing in entire link
-        return $http.jsonp(str + callBack).then(function (data) {
+        return $http.get(str, requestConfig).then(function (data) {
           return data;
         });
       },
       getStream: function getStream(profName) {
         // passing in entire link
-        return $http.jsonp(url + profName + callBack).then(function (data) {
+        return $http.get(streamURL + profName, requestConfig).then(function (data) {
           return data;
         });
       }
@@ -477,8 +483,8 @@ var _slicedToArray = (function () { function sliceIterator(arr, i) { var _arr = 
     var vm = this;
     var promises = getTwitchData.async();
     /*
-     * Arrays to hows parsed card data used in templates
-    */
+         * Arrays to hows parsed card data used in templates
+        */
     vm.channels = {
       online: [],
       offline: []
@@ -491,8 +497,8 @@ var _slicedToArray = (function () { function sliceIterator(arr, i) { var _arr = 
     };
 
     /*
-     * Map and request stream and or channel for each
-    */
+         * Map and request stream and or channel for each
+        */
     vm.p = $q.all(promises).then(function (response) {
       var domSet = new Promise(function (res, rej) {
         res(response.map(vm.checkOnline));
@@ -510,14 +516,13 @@ var _slicedToArray = (function () { function sliceIterator(arr, i) { var _arr = 
       if (msg) {
         return { valid: false, msg: msg };
       }
-      // destructure object
+      // otherwise destructure object
       var data = obj.data;
       var stream = obj.data.stream;
 
       // if online
       if (stream) {
-        var channel = stream.channel;
-        var _name = channel.display_name;
+        var channel = stream.channel;var _name = channel.display_name;
         var game = channel.game;
         var _status = channel.status;
         var parsedInfo = vm.setDataOnline(stream);
@@ -546,8 +551,8 @@ var _slicedToArray = (function () { function sliceIterator(arr, i) { var _arr = 
     };
 
     /*
-     * Parse Data and Set To Cards Variable
-    */
+             * Parse Data and Set To Cards Variable
+            */
     vm.setDataOffline = function (data) {
       // channel object later used for ng repeat
       var ci = SetDataBoth(data);
@@ -588,8 +593,8 @@ var _slicedToArray = (function () { function sliceIterator(arr, i) { var _arr = 
       };
     }
     /*
-     * Check for Duplicates
-    */
+             * Check for Duplicates
+            */
     function checkDuplicates(parsedData) {
       var match = false;
       var name = parsedData.name;
@@ -613,8 +618,8 @@ var _slicedToArray = (function () { function sliceIterator(arr, i) { var _arr = 
     }
 
     /*
-     * further manipulate certain data...
-     */
+             * further manipulate certain data...
+             */
     // abbreviate number
     function abbreviateNumber(value) {
       var newValue = value.toString();
@@ -662,9 +667,7 @@ var _slicedToArray = (function () { function sliceIterator(arr, i) { var _arr = 
           width: pWidth - 200 + "px"
         });
       } else {
-        page.css({
-          "width": "100%"
-        });
+        page.css({ "width": "100%" });
       }
     };
   }
